@@ -1,0 +1,47 @@
+[
+    {
+        "name": "Bullet rice",
+        "weight": 10,
+        "price": 50
+    },
+    {
+        "name": "Royal rice",
+        "weight": 12,
+        "price": 60
+    },
+    {
+        "name": "mk rice",
+        "weight": 14,
+        "price": 70
+    },
+    {
+        "name": "peas",
+        "weight": 16,
+        "price": 80
+    },
+    {
+        "name": "Bull grain",
+        "weight": 18,
+        "price": 90
+    },
+    {
+        "name": "agro grain",
+        "weight": 20,
+        "price": 100
+    },
+    {
+        "name": "kala",
+        "weight": 9,
+        "price": 8
+    },
+    {
+        "name": "line",
+        "weight": 6,
+        "price": 4
+    },
+    {
+        "name": "agni",
+        "weight": 56,
+        "price": 456
+    }
+]

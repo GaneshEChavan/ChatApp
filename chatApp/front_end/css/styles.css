@@ -1,0 +1,130 @@
+body {
+  background-color: royalblue;
+}
+h1 {
+  color: seashell;
+  text-align: center;
+}
+.register {
+  margin-left: 35%;
+  margin-top: 10%;
+}
+.login {
+  margin-left: 40%;
+  margin-top: 10%;
+}
+.forgot_password {
+  margin-left: 42%;
+  margin-top: 10%;
+}
+#back {
+  margin-bottom: 20%;
+}
+
+#navbar {
+  position: relative;
+  background-color: rgb(63, 50, 34);
+  width: 100%;
+  height: 15%;
+  padding: 0;
+}
+
+.userButton {
+  background-color: rgb(78, 168, 241);
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.userButton:hover {
+  background-color: #40c7b5;
+}
+
+
+#sidebar {
+  background-color: rgb(206, 243, 158);
+  width: 30%;
+  height: 528px;
+  margin-top: 0px;
+}
+
+
+#msgspace {
+  background-color: rgb(243, 185, 114);
+  width:80%;
+  margin-top: 0%;
+}
+
+#sendbox {
+  position: sticky;
+  top :85%;
+  height:15%;
+  background-color: rgb(250, 232, 186);
+}
+
+#rtext{
+float: right;
+}
+
+#ltext{
+left:25%;
+
+}
+
+.flex {
+ display: flex
+}
+
+
+.button {
+  position: absolute;
+  top: 10%;
+  left: 85%;
+  height:1.5cm;
+  background-color: #4CAF50; /* Green */
+  border: 12px;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 8px 5px;
+  -webkit-transition-duration: 0.5s; /* Safari */
+  transition-duration: 0.5s;
+  cursor: pointer;
+}
+
+.button1 {
+  background-color: white; 
+  color: black; 
+  border: 3px solid #4CAF50;
+}
+
+.button1:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.button2 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #008CBA;
+}
+
+.button2:hover {
+  background-color: #008CBA;
+  color: white;
+}
+
+#txtbox{
+  position: relative;
+  top : 10%;
+  width : 80%;
+  height : 1.5cm
+}

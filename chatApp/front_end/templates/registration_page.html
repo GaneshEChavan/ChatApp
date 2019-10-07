@@ -1,0 +1,15 @@
+
+<div ng-controller="registerControl">
+  <h1>Register</h1>
+  <div class="register">
+    <form name="myForm">
+      <input type="text" ng-model="firstName" placeholder="First Name" required/>
+      <input type="text" ng-model="lastName" placeholder="Last Name" required/><br /><br />
+      <input type="text" ng-model="emailId" placeholder="Email-Id" required/><br /><br />
+      <input type="text" ng-model="mobileNo" placeholder="Mobile Number" required/><br /><br />
+      <input type="password" ng-model="password" placeholder="Set New Password" required/><br /><br />
+      <button type="submit" ng-click="register()" ng-disabled="myForm.$invalid">SignUp</button>
+      <a ui-sref="login" href="login_page.html"><button>SignIn</button></a>
+    </form>
+  </div>
+</div>

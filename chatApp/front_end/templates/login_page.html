@@ -1,0 +1,14 @@
+
+  <body ng-controller = "loginControl">
+    <h1>Login</h1>
+    <div class="login">
+      <form name="myForm">
+      <input type="email" ng-model="emailId" placeholder="Email-id" required/><br /><br />
+      <input type="password" ng-model="password" placeholder="Enter your password" required/><br /><br />
+     <button type="submit" ng-click="login()" ng-disabled="myForm.$invalid">Log In</button>
+      </form><br/>
+    <a ui-sref="register" href="registration_page.html"><button>New User</button></a>
+      <a ui-sref="forgotPassword" href="forgot_page.html"><button>Forgot Password</button></a>
+    </div>
+  </body>
+

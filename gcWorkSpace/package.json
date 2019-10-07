@@ -1,0 +1,15 @@
+{
+  "name": "oop_concept",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "GC",
+  "license": "ISC",
+  "dependencies": {
+    "node-datetime": "^2.1.2",
+    "readline-sync": "^1.4.10"
+  }
+}

@@ -1,0 +1,38 @@
+{
+    "rice": [
+        {
+            "name": "basmati",
+            "weight": 10,
+            "price": 50
+        },
+        {
+            "name": "indra",
+            "weight": 12,
+            "price": 60
+        }
+    ],
+    "wheat": [
+        {
+            "name": "brown",
+            "weight": 14,
+            "price": 70
+        },
+        {
+            "name": "manas",
+            "weight": 16,
+            "price": 80
+        }
+    ],
+    "peas": [
+        {
+            "name": "sunflower",
+            "weight": 18,
+            "price": 90
+        },
+        {
+            "name": "elite",
+            "price": 51,
+            "weight": 14
+        }
+    ]
+}

@@ -1,0 +1,38 @@
+[
+    {
+        "_firstName": "tejas",
+        "_lastName": "kadam",
+        "_address": "st.peterson valley",
+        "_city": "manali",
+        "_state": "jammu",
+        "_zip": 378254,
+        "_number": 45261
+    },
+    {
+        "_firstName": "akash",
+        "_lastName": "patil",
+        "_address": "kesarkar peth",
+        "_city": "satara",
+        "_state": "maharashtra",
+        "_zip": 412003,
+        "_number": 9876543210
+    },
+    {
+        "_firstName": "jaydip",
+        "_lastName": "thombare",
+        "_address": "govind nagri",
+        "_city": "benglore",
+        "_state": "karnataka",
+        "_zip": 412845,
+        "_number": 46464
+    },
+    {
+        "_firstName": "ganesh",
+        "_lastName": "chavan",
+        "_address": "yadogopal peth",
+        "_city": "satara",
+        "_state": "maharashtra",
+        "_zip": 415002,
+        "_number": 8888485834
+    }
+]

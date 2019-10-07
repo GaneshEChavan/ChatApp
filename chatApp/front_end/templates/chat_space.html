@@ -1,0 +1,26 @@
+<!-- <body ng-controller ="chatPlanetControl" > -->
+<div id="back">
+    <div id="navbar">
+        <h1>Chat App</h1>
+        <button class="button button1">LOGOUT</button>
+    </div>
+    <div class="flex">
+        <div id="sidebar">
+            <h4 ng-repeat="x in alluser"><button class="userButton"
+                    ng-click="receiverPerson(x)">{{x.firstName+" "+x.lastName}}</button></h4>
+        </div>
+        <div id="msgspace">
+            <div ng-repeat="chat in chats">
+                <span id="rtext" ng-show="currUser == chat.senderId"><strong>{{chat.senderName}} :</strong>{{chat.messages}}</span><br>
+                <span id="ltext" ng-show="currUser != chat.senderId"><strong>{{chat.senderName}} :</strong>{{chat.messages}}</span><br>
+            </div>
+            <div id="sendbox">
+                <form id="message-form">
+                    <input name="messages" type="text" ng-model="messages" id="txtbox" required />
+                    <button class="button button2" type="submit" ng-click="saveMsg();clearTextArea()">SEND</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- </body> -->

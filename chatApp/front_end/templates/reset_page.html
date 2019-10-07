@@ -1,0 +1,9 @@
+<body ng-controller="resetPasswordControl">
+    <h1>Set Password</h1>
+    <div class="forgot_password" >
+      <form name="myForm">
+      <input type="text" ng-model="password" placeholder="New Password" required/><br /><br />
+      <button type="submit" ng-click="resetPassword()" ng-disabled="myForm.$invalid">Submit</button>
+     </form>
+    </div>
+  </body>

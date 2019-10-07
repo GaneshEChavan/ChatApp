@@ -1,0 +1,118 @@
+{
+    "validInput": {
+        "firstName": "Ganesh",
+        "lastName": "Chavan",
+        "userName": "ganeshchavan566@gmail.com",
+        "password": "ganesh1995",
+        "confirm": "ganesh1995",
+        "active":false
+    },
+    "userExists": {
+        "firstName": "Ganesh",
+        "lastName": "Chavan",
+        "userName": "ganeshchavan566@gmail.com",
+        "password": "ganesh1995",
+        "confirm": "ganesh1995",
+        "active":false
+    },
+    "emptyInput": {
+        "firstName": "",
+        "lastName": "",
+        "userName": "",
+        "password": "",
+        "confirm": ""
+    },
+    "fieldEmpty": {},
+    "someEmptyInput": {
+        "firstName": "Ganesh",
+        "lastName": "",
+        "userName": "ganeshchavan566@gmail.com",
+        "password": "",
+        "confirm": "aniket123"
+    },
+    "emptySpaces": {
+        "firstName": "   Ganesh   ",
+        "lastName": "Chavan",
+        "userName": "ganeshchavan566@gmail.com",
+        "password": "ganesh1995",
+        "confirm": "ganesh1995"
+    },
+    "missingProperty": {
+        "firstName": "Ganesh",
+        "lastName": "Chavan",
+        "userName": "ganeshchavan566@gmail.com",
+        "confirm": "ganesh1995"
+    },
+    "wrongEmail1": {
+        "firstName": "Ganesh",
+        "lastName": "Chavan",
+        "userName": "ganeshchavan566gmail",
+        "password": "ganesh1995",
+        "confirm": "ganesh1995"
+    },
+    "wrongEmail2": {
+        "firstName": "Ganesh",
+        "lastName": "Chavan",
+        "userName": "ganeshchavan566gmail.com",
+        "password": "ganesh1995",
+        "confirm": "ganesh1995"
+    },
+    "specialCharacter": {
+        "firstName": "Ganesh",
+        "lastName": "Chavan",
+        "userName": "ganeshchavan566@gmail.com",
+        "password": "ganesh@1995",
+        "confirm": "ganesh@1995"
+    },
+    "emptyEmail":{
+        "userName":"",
+        "password":"bhushan1990"
+    },
+    "emptyPassword":{
+        "userName":"bhushanranjane93@gmail.com",
+        "password":""
+    },
+    "invalidEmail1":{
+        "userName":"ganeshchavan566gmail",
+        "password":"ganesh1995"
+    },
+    "invalidEmail2":{
+        "userName":"ganeshchavan566@gmail",
+        "password":"ganesh1995"
+    },
+    "invalidEmail3":{
+        "userName":"ganeshchavan566gmail.com",
+        "password":"ganesh1995"
+    },
+    "wrongemail1":{
+        "userName":"ganeshchavan566@gmail"
+    },
+    "wrongemail2":{
+        "userName":"ganeshchavan566gmail.com"
+    },
+    "empty":{
+        "userName":""
+    },
+    "passwordOnly1":{
+        "password":"ganesh"
+    },
+    "passwordOnly2":{
+        "password":"1995"
+    },
+    "passwordOnly3":{
+        "password":"ga12"
+    },
+    "passwordOnly4":{
+        "password":"ganeshchavan1234"
+    },
+    "validForForgot":{
+    "userName":"ganeshchavan566@gmail.com",
+    "password":"ganesh1995"
+    },
+    "token":{
+     "token":""
+    },
+    "token1":{
+     "token":""
+    }
+}

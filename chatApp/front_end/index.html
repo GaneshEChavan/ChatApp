@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BLabz</title>
+
+    <script src="http://code.angularjs.org/1.2.13/angular.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
+    <script src="./app.js"></script>
+
+    <link rel="stylesheet" href="css/styles.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-socket-io/0.7.0/socket.min.js"></script>
+
+    <script src="controller/registerControl.js"></script>
+    <script src="services/registerService.js"></script>
+
+    <script src="controller/loginControl.js"></script>
+    <script src="services/loginService.js"></script>
+
+    <script src="controller/forgotPasswordControl.js"></script>
+    <script src="services/forgotPasswordService.js"></script>
+
+    <script src="controller/resetPasswordControl.js"></script>
+    <script src="services/resetPasswordService.js"></script>
+
+    <script src="controller/allUsersController.js"></script>
+    <script src="services/allUsersService.js"></script>
+    <script>
+        var socket = io();
+    </script>
+    <script src="chatHandler/chat.js"></script>
+</head>
+
+<body>
+
+    <body ng-app="chatApp">
+
+        <div>
+            <ui-view></ui-view>
+        </div>
+    </body>
+
+</html>

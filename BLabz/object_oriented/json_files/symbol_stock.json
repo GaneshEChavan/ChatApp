@@ -1,0 +1,51 @@
+[
+    {
+        "name": "reliance",
+        "shares": 15,
+        "price": 1500,
+        "symbol": "buy",
+        "date": "01-01-2019"
+    },
+    {
+        "name": "H & M",
+        "shares": 8,
+        "price": 2100,
+        "symbol": "sell",
+        "date": "01-01-2019"
+    },
+    {
+        "name": "Mahindra",
+        "shares": 11,
+        "price": 1000,
+        "symbol": "buy",
+        "date": "01-01-2019"
+    },
+    {
+        "name": "MRF",
+        "shares": 30,
+        "price": 2600,
+        "symbol": "sell",
+        "date": "01-01-2019"
+    },
+    {
+        "name": "Birla",
+        "shares": 10,
+        "price": 1840,
+        "symbol": "buy",
+        "date": "01-01-2019"
+    },
+    {
+        "name": "tata",
+        "shares": 20,
+        "price": 1200,
+        "symbol": "buy",
+        "date": "09/05/19 11:48:26"
+    },
+    {
+        "name": "numeroUno",
+        "shares": 8,
+        "price": 100,
+        "symbol": "sell",
+        "date": "09/05/19 11:47:03"
+    }
+]
