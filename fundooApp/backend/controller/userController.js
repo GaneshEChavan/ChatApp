@@ -5,20 +5,15 @@ class ControllerMethods {
     register(req, res) {
         let responseResult = {};
         try {
-            req.checkBody("firstName", "must be valid").notEmpty();
-            req.checkBody("firstName", "Should be string").isAlpha();
+            req.checkBody("firstName", "must be valid").notEmpty().isAlpha();
 
-            req.checkBody("lastName", "must be valid").notEmpty();
-            req.checkBody("lastName", "Should be string").isAlpha();
+            req.checkBody("lastName", "must be valid").notEmpty().isAlpha();
 
-            req.checkBody("userName", "userName must be valid").notEmpty();
-            req.checkBody("userName", "Name Should be string").isEmail();
+            req.checkBody("userName", "userName must be valid").notEmpty().isEmail();
 
-            req.checkBody("password", "password must be valid").notEmpty();
-            req.checkBody("password", "Password must contain at least one letter, at least one number, and be longer than six charaters.").matches(/^(?=.*[0-9]+.*)(?=.*[a-zA-Z]+.*)[0-9a-zA-Z]{6,15}$/, "gm");
+            req.checkBody("password", "password must be valid").notEmpty().matches(/^(?=.*[0-9]+.*)(?=.*[a-zA-Z]+.*)[0-9a-zA-Z]{6,15}$/, "gm");
 
-            req.checkBody("confirm", "should match password").notEmpty();
-            req.checkBody("confirm", " match password").matches(req.body.password)
+            req.checkBody("confirm", "should match password").notEmpty().matches(req.body.password)
 
             let errors = req.validationErrors();
 
@@ -50,11 +45,9 @@ class ControllerMethods {
     async login(req, res) {
         let responseResult = {};
         try {
-            req.checkBody("userName", "userName must be valid").notEmpty();
-            req.checkBody("userName", "Name Should be string").isEmail();
+            req.checkBody("userName", "userName must be valid").notEmpty().isEmail();
 
-            req.checkBody("password", "password must be valid").notEmpty();
-            req.checkBody("password", "Password must contain at least one letter, at least one number, and be longer than six charaters.").matches(/^(?=.*[0-9]+.*)(?=.*[a-zA-Z]+.*)[0-9a-zA-Z]{6,15}$/, "gm");
+            req.checkBody("password", "password must be valid").notEmpty().matches(/^(?=.*[0-9]+.*)(?=.*[a-zA-Z]+.*)[0-9a-zA-Z]{6,15}$/, "gm");
 
             let errors = req.validationErrors();
 
@@ -97,8 +90,7 @@ class ControllerMethods {
     reset(req, res) {
         let responseResult = {};
         try {
-            req.checkBody("password", "password must be valid").notEmpty();
-            req.checkBody("password", "Password must contain at least one letter, at least one number, and be longer than six charaters.").matches(/^(?=.*[0-9]+.*)(?=.*[a-zA-Z]+.*)[0-9a-zA-Z]{6,15}$/, "gm");
+            req.checkBody("password", "password must be valid").notEmpty().matches(/^(?=.*[0-9]+.*)(?=.*[a-zA-Z]+.*)[0-9a-zA-Z]{6,15}$/, "gm");
 
             let errors = req.validationErrors();
 
@@ -162,6 +154,33 @@ class ControllerMethods {
                 return res.status(422).send(err)
             })
         } catch (err) {
+            return res.status(422).send(err)
+        }
+    }
+
+    googleLogin(req,res){
+        try{
+            let responce = {};
+        let googleInfo = {
+            firstName :req.user.name.givenName,
+            lastName:req.user.name.familyName,
+            userName:req.user.emails[0].value,
+            password:null,
+            active:true,
+            googleLogin:true
+        }
+        userService.googleService(googleInfo).then((data)=>{
+              responce.status = true;
+              responce.message = "logged in with google";
+              responce.data = data;
+              return res.status(200).send(responce)
+        }).catch((err)=>{
+            responce.status = false;
+            responce.message = "User Already Exists";
+            responce.error = err;
+            return res.status(500).send(responce)
+        }) 
+        }catch(err){
             return res.status(422).send(err)
         }
     }

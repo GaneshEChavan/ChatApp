@@ -45,7 +45,7 @@ class ServiceOperations {
                 bcrypt.compare(userInfo.password, result.password, async (err, Data) => {
                     if (Data) {
                         let payload = {
-                            "_id":result._id,
+                            "_id": result._id,
                             "userName": result.userName
                         }
                         let token = await generatedToken.token(payload)
@@ -112,6 +112,16 @@ class ServiceOperations {
                 res({ imgUrl: data })
             }).catch((err) => {
                 rej({ message: "Unable to upload in db..!", error: err })
+            })
+        })
+    }
+
+    googleService(googleInfo) {
+        return new Promise((res, rej) => {
+            userModel.registrationModel(googleInfo).then((data) => {
+                res(data)
+            }).catch((err) => {
+                rej(err)
             })
         })
     }

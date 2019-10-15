@@ -27,7 +27,7 @@ var Schema = mongoose.Schema(
         },
         password: {
             type: String,
-            required: true,
+            // required: true,
             trim: true
         },
         active: {
@@ -37,6 +37,12 @@ var Schema = mongoose.Schema(
         },
         imageUrl: {
             type: String
+        },
+        googleLogin: {
+            type:Boolean
+        },
+        facebookLogin: {
+            type:Boolean
         }
     },
     { timestamps: true }
@@ -56,7 +62,9 @@ class ModelOperations {
                         "lastName": userData.lastName,
                         "userName": userData.userName,
                         "password": userData.password,
-                        "active": userData.active
+                        "active": userData.active,
+                        "googleLogin":userData.googleLogin,
+                        "facebookLogin":userData.facebookLogin
                     })
                     regData.save((err, data) => {
                         if (err) {
@@ -64,11 +72,11 @@ class ModelOperations {
                         } else {
                             // console.log("model---->60",data);
 
-                            res({ message: "Check email for varification..!", data: data })
+                            res(data)
                         }
                     })
                 } else if (data.active === true) {
-                    rej({ message: "Email-Id already exists.!", data: data })
+                    rej("User Already Exists")
                 } else {
                     rej({ message: "please register first to continue..!", data: data })
                 }
@@ -150,6 +158,10 @@ class ModelOperations {
                 rej(err)
             })
         })
+    }
+
+    googleModel(googleInfo){
+
     }
 }
 
