@@ -4,7 +4,8 @@ const bodyParser = require("body-parser");
 const mongo = require("./config/dbconfig")
 const Route = require("./routes")
 const expressValidator = require("express-validator")
-const passportSetup = require("./middleware/oAuth")
+const passportGoogle = require("./authServices/oAuthGoogle")
+const passportFacebook = require("./authServices/oAuthFacebook")
 const passport = require("passport")
 require('dotenv').config({path : __dirname + '/.env'})
 
@@ -32,7 +33,7 @@ app.use('/', Route);
 
 app.listen(process.env.PORT,()=>{
     console.log(`app listening on port ${process.env.PORT}`)
-    mongo.connect
+    mongo()
 });
 
 

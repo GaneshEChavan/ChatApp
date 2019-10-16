@@ -30,9 +30,13 @@ class ControllerMethods {
                     password: bcrypt(req.body.password),
                     active: false
                 }
+                //  console.log("controller--->33",userData);
 
                 userService.registrationService(userData).then(data => {
-                    return res.status(201).send(data)
+                    responseResult.status = true;
+                    responseResult.message = "User Registered Successfully..!";
+                    responseResult.data = data;
+                    return res.status(201).send(responseResult);
                 }).catch(err => {
                     return res.status(500).send(err)
                 });
@@ -47,7 +51,7 @@ class ControllerMethods {
         try {
             req.checkBody("userName", "userName must be valid").notEmpty().isEmail();
 
-            req.checkBody("password", "password must be valid").notEmpty().matches(/^(?=.*[0-9]+.*)(?=.*[a-zA-Z]+.*)[0-9a-zA-Z]{6,15}$/, "gm");
+            // req.checkBody("password", "password must be valid").notEmpty().matches(/^(?=.*[0-9]+.*)(?=.*[a-zA-Z]+.*)[0-9a-zA-Z]{6,15}$/, "gm");
 
             let errors = req.validationErrors();
 
@@ -96,6 +100,7 @@ class ControllerMethods {
 
             if (errors) {
                 responseResult.success = false;
+                responseResult.message = "provide correct information"
                 responseResult.errors = errors;
                 res.status(406).send(responseResult);
             } else {
@@ -103,16 +108,25 @@ class ControllerMethods {
                     _id: req.decoded._id,
                     password: bcrypt(req.body.password)
                 }
-                userService.resetPassword(idPassword, (err, data) => {
-                    if (err) {
-                        return res.status(400).send(err)
-                    } else {
-                        return res.status(200).send(data)
-                    }
+                userService.resetPassword(idPassword).then((data) => {
+                    responceResult.status = true;
+                    responceResult.message = "password reset successfully..!";
+                    responceResult.data = data;
+                    return res.status(200).send(responceResult)
+
+                }).catch((err) => {
+                    responceResult.status = false;
+                    responceResult.message = "password not set..!";
+                    responceResult.error = err;
+                    return res.status(400).send(responceResult)
+
                 })
             }
         } catch (err) {
-            return res.status(406).send(err)
+            responceResult.status = false;
+            responceResult.message = "Something went wrong..!";
+            responceResult.error = err;
+            return res.status(406).send(responceResult)
         }
 
     }
@@ -158,29 +172,62 @@ class ControllerMethods {
         }
     }
 
-    googleLogin(req,res){
-        try{
+    googleLogin(req, res) {
+        try {
+            console.log(req.user);
+
             let responce = {};
-        let googleInfo = {
-            firstName :req.user.name.givenName,
-            lastName:req.user.name.familyName,
-            userName:req.user.emails[0].value,
-            password:null,
-            active:true,
-            googleLogin:true
+            let googleInfo = {
+                firstName: req.user.name.givenName,
+                lastName: req.user.name.familyName,
+                userName: req.user.emails[0].value,
+                password: null,
+                active: true,
+                googleID: req.user.id,
+                googleLogin: true
+            }
+            userService.googleService(googleInfo).then((data) => {
+                responce.status = true;
+                responce.message = "logged in with google";
+                responce.data = data;
+                return res.status(200).send(responce)
+            }).catch((err) => {
+                responce.status = false;
+                responce.message = "User Already Exists";
+                responce.error = err;
+                return res.status(500).send(responce)
+            })
+        } catch (err) {
+            return res.status(422).send(err)
         }
-        userService.googleService(googleInfo).then((data)=>{
-              responce.status = true;
-              responce.message = "logged in with google";
-              responce.data = data;
-              return res.status(200).send(responce)
-        }).catch((err)=>{
-            responce.status = false;
-            responce.message = "User Already Exists";
-            responce.error = err;
-            return res.status(500).send(responce)
-        }) 
-        }catch(err){
+    }
+
+    facebookLogin(req, res) {
+        try {
+            console.log("controller--->196", req.user);
+
+            let responce = {};
+            let facebookInfo = {
+                firstName: req.user.name.givenName,
+                lastName: req.user.name.familyName,
+                userName: req.user.emails[0].value,
+                password: null,
+                active: true,
+                facebookID: req.user.id,
+                facebookLogin: true
+            }
+            userService.facebookService(facebookInfo).then((data) => {
+                responce.status = true;
+                responce.message = "logged in with facebook";
+                responce.data = data;
+                return res.status(200).send(responce)
+            }).catch((err) => {
+                responce.status = false;
+                responce.message = "User Already Exists";
+                responce.error = err;
+                return res.status(500).send(responce)
+            })
+        } catch (err) {
             return res.status(422).send(err)
         }
     }

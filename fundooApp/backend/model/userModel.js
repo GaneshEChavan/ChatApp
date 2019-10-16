@@ -17,13 +17,13 @@ var Schema = mongoose.Schema(
         },
         userName: {
             type: String,
-            required: true,
+            // required: true,
             trim: true,
-            validate(value) {
-                if (!validator.isEmail(value)) {
-                    throw new Error("Invalid EmailId..!")
-                }
-            }
+            // validate(value) {
+            //     if (!validator.isEmail(value)) {
+            //         throw new Error("Invalid EmailId..!")
+            //     }
+            // }
         },
         password: {
             type: String,
@@ -38,8 +38,14 @@ var Schema = mongoose.Schema(
         imageUrl: {
             type: String
         },
+        googleID: {
+            type:String
+        },
         googleLogin: {
             type:Boolean
+        },
+        facebookID: {
+            type:String
         },
         facebookLogin: {
             type:Boolean
@@ -52,9 +58,11 @@ let User = mongoose.model("User", Schema)
 
 class ModelOperations {
     registrationModel(userData) {
+        console.log("model--->55",userData);
+        
         return new Promise((res, rej) => {
             User.findOne({ "userName": userData.userName }).then(data => {
-                // console.log("model---->46",data);
+                console.log("model---->59",data);
 
                 if (data === null) {
                     var regData = new User({
@@ -63,14 +71,17 @@ class ModelOperations {
                         "userName": userData.userName,
                         "password": userData.password,
                         "active": userData.active,
+                        "googleID":userData.googleID,
                         "googleLogin":userData.googleLogin,
+                        "facebookID":userData.facebookID,
                         "facebookLogin":userData.facebookLogin
                     })
+                    console.log("model---->76",regData);
                     regData.save((err, data) => {
                         if (err) {
                             rej(err)
                         } else {
-                            // console.log("model---->60",data);
+                            console.log("model---->76",data);
 
                             res(data)
                         }
@@ -91,12 +102,12 @@ class ModelOperations {
             // console.log(userInfo);
 
             let result = await User.findOne({ "userName": userInfo.userName })
-            //   console.log("model---->",result);
+              console.log("model---->",result);
 
             return new Promise((res, rej) => {
                 if (result === null) {
                     rej({ message: "User is not registered ..!" })
-                } else if (result.active === true) {
+                } else if (result.active === true || result.googleLogin === true || result.facebookLogin === true) {
                     // console.log("model---->81",result);
                     res(result)
                 } else {
@@ -119,15 +130,27 @@ class ModelOperations {
 
     }
 
-    setPassword(idPassword, callback) {
-        User.findByIdAndUpdate(idPassword._id, { "password": idPassword.password }, (err, data) => {
-            if (err) {
-                callback({ message: "password not set.." })
-            } else {
-                callback(null, { message: "Password set !", data: data })
-            }
+    updateToDb(data,upload) {
+        // console.log("model--->144", image);
+        return new Promise((res, rej) => {
+            User.findByIdAndUpdate(data._id, upload).then((Data) => {
+                console.log("model--->146", Data);
+                res(Data)
+            }).catch((err) => {
+                rej(err)
+            })
         })
     }
+
+    // setPassword(idPassword, callback) {
+    //     User.findByIdAndUpdate(idPassword._id, { "password": idPassword.password }, (err, data) => {
+    //         if (err) {
+    //             callback({ message: "password not set.." })
+    //         } else {
+    //             callback(null, { message: "Password set !", data: data })
+    //         }
+    //     })
+    // }
 
     searchAll(data, callback) {
         console.log(data);
@@ -148,21 +171,7 @@ class ModelOperations {
         })
     }
 
-    addToDb(image) {
-        // console.log("model--->144", image);
-        return new Promise((res, rej) => {
-            User.findByIdAndUpdate(image._id, { "imageUrl": image.imageUrl }).then((Data) => {
-                console.log("model--->146", Data);
-                res(Data)
-            }).catch((err) => {
-                rej(err)
-            })
-        })
-    }
-
-    googleModel(googleInfo){
-
-    }
+   
 }
 
 module.exports = new ModelOperations();

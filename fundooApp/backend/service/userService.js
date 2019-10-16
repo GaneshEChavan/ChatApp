@@ -13,20 +13,27 @@ client.on('error', function (err) {
 
 class ServiceOperations {
     registrationService(userData) {
-        // console.log("service---->9", userData);;
+        console.log("service---->16", userData);
 
         return new Promise((resolve, reject) => {
             userModel.registrationModel(userData).then((data) => {
-                if (data.data.active === false) {
+                //    console.log("service---->20",data);
+                //    console.log("service---->21",data.active);
+                //    console.log("service---->22",data.userName);
+                if (data.active === false) {
                     let payload = {
-                        "_id": data.data._id,
-                        "userName": data.data.userName,
+                        "_id": data._id,
+                        "userName": data.userName,
                         "active": true
                     }
                     let token = generatedToken.token(payload);
+                    // console.log("service--->29",token);
+
                     let Url = process.env.APPHOST + token;
-                    mailer.nodeMailer(data.data.userName, Url);
-                    resolve({ data: data, token: token, url: Url })
+                    // console.log("service--->32",Url);
+
+                    mailer.nodeMailer(data.userName, Url);
+                    resolve({ data, token, Url })
                 } else {
                     reject({ data: data })
                 }
@@ -39,26 +46,31 @@ class ServiceOperations {
     logInService = async (userInfo) => {
         try {
             let result = await userModel.logInModel(userInfo)
-            //    console.log("service----->33",result);
+            console.log("service----->49", result);
 
             return new Promise((res, rej) => {
-                bcrypt.compare(userInfo.password, result.password, async (err, Data) => {
-                    if (Data) {
-                        let payload = {
-                            "_id": result._id,
-                            "userName": result.userName
+                if (result.password === null) {
+                    (result.googleLogin === true || result.facebookLogin === true) ? res({ message: "logging in...!", data: result }) : rej({ message: "Incorrect password", err: err });
+                } else {
+                    bcrypt.compare(userInfo.password, result.password, async (err, Data) => {
+                        if (Data) {
+                            let payload = {
+                                "_id": result._id,
+                                "userName": result.userName
+                            }
+                            let token = await generatedToken.token(payload)
+
+                            // token set to the redis using params userName
+
+                            client.set(result.userName, token, redis.print)
+
+                            res({ message: "logging in...!", data: result, bcryptStatus: Data, token: token })
+                        } else {
+                            rej({ message: "Incorrect password", err: err })
                         }
-                        let token = await generatedToken.token(payload)
+                    })
+                }
 
-                        // token set to the redis using params userName
-
-                        client.set(result.userName, token, redis.print)
-
-                        res({ message: "logging in...!", data: result, bcryptStatus: Data, token: token })
-                    } else {
-                        rej({ message: "Incorrect password", err: err })
-                    }
-                })
             })
         } catch (err) {
             // console.log("service---->48",err)
@@ -84,14 +96,16 @@ class ServiceOperations {
         })
     }
 
-    resetPassword(idPassword, callback) {
-        userModel.setPassword(idPassword, (err, data) => {
-            if (err) {
-                callback(err)
-            } else {
-                callback(null, data)
-            }
+    resetPassword(idPassword) {
+        return new Promise((res, rej) => {
+            upload = { "password": idPassword.password };
+            userModel.updateToDb(idPassword,upload).then((data) => {
+                res(data)
+            }).catch((err) => {
+                rej(err)
+            })
         })
+
     }
 
     getAllUsers(data, callback) {
@@ -108,7 +122,8 @@ class ServiceOperations {
 
     imageUpload(image) {
         return new Promise((res, rej) => {
-            userModel.addToDb(image).then((data) => {
+            let update = { "imageUrl": image.imageUrl }
+            userModel.updateToDb(image, update).then((data) => {
                 res({ imgUrl: data })
             }).catch((err) => {
                 rej({ message: "Unable to upload in db..!", error: err })
@@ -119,6 +134,18 @@ class ServiceOperations {
     googleService(googleInfo) {
         return new Promise((res, rej) => {
             userModel.registrationModel(googleInfo).then((data) => {
+                res(data)
+            }).catch((err) => {
+                rej(err)
+            })
+        })
+    }
+
+    facebookService(facebookInfo) {
+        // console.log("service--->142",facebookInfo);
+
+        return new Promise((res, rej) => {
+            userModel.registrationModel(facebookInfo).then((data) => {
                 res(data)
             }).catch((err) => {
                 rej(err)
