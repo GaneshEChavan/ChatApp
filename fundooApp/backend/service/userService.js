@@ -131,27 +131,7 @@ class ServiceOperations {
         })
     }
 
-    googleService(googleInfo) {
-        return new Promise((res, rej) => {
-            userModel.registrationModel(googleInfo).then((data) => {
-                res(data)
-            }).catch((err) => {
-                rej(err)
-            })
-        })
-    }
-
-    facebookService(facebookInfo) {
-        // console.log("service--->142",facebookInfo);
-
-        return new Promise((res, rej) => {
-            userModel.registrationModel(facebookInfo).then((data) => {
-                res(data)
-            }).catch((err) => {
-                rej(err)
-            })
-        })
-    }
+   
 }
 
 module.exports = new ServiceOperations();

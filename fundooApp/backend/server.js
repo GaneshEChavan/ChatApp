@@ -12,10 +12,10 @@ require('dotenv').config({path : __dirname + '/.env'})
 
 const app = express();
 
-app.set('view engine','ejs')
-app.get('/',(req,res)=>{
-    res.render('home')
-})
+// app.set('view engine','ejs')
+// app.get('/',(req,res)=>{
+//     res.render('home')
+// })
 
 app.use(expressValidator())
 

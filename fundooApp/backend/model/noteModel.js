@@ -4,7 +4,7 @@ var Schema = mongoose.Schema(
     {
         userID: {
             type: String,
-            required:true
+            required: true
         },
         title: {
             type: String,
@@ -17,23 +17,23 @@ var Schema = mongoose.Schema(
         },
         isArchive: {
             type: Boolean,
-            default:false
+            default: false
         },
         isPinned: {
             type: Boolean,
-            default:false
+            default: false
         },
         isTrashed: {
             type: Boolean,
-            default:false
+            default: false
         },
         image: {
             type: String,
-            default:null
+            default: null
         },
         Reminder: {
             type: Boolean,
-            default:false
+            default: false
         },
         label: {
             type: Object
@@ -46,28 +46,64 @@ let Note = mongoose.model("Notes", Schema)
 
 class ModelNote {
     createNote(noteData) {
-        return new Promise((res, rej) => {
-            let note = new Note({
-                "userID": noteData.userID,
-                "title": noteData.title,
-                "description": noteData.description,
-                "color": noteData.color,
-                "isArchive": noteData.isArchive,
-                "isPinned": noteData.isPinned,
-                "isTrashed": noteData.isTrashed,
-                "image": noteData.image,
-                "Reminder": noteData.Reminder,
-                "label": noteData.label
-            })
+        try {
+            return new Promise((res, rej) => {
+                let note = new Note({
+                    "userID": noteData.userID,
+                    "title": noteData.title,
+                    "description": noteData.description,
+                    "color": noteData.color,
+                    "isArchive": noteData.isArchive,
+                    "isPinned": noteData.isPinned,
+                    "isTrashed": noteData.isTrashed,
+                    "image": noteData.image,
+                    "Reminder": noteData.Reminder,
+                    "label": noteData.label
+                })
 
-            note.save((err,data)=>{
-                if(err){
-                    rej(err)
-                }else{
-                    res(data)
-                }
+                note.save((err, data) => {
+                    if (err) {
+                        rej(err)
+                    } else {
+                        res(data)
+                    }
+                })
             })
-        })
+        } catch (err) {
+            return err
+        }
+    }
+
+    readNotes(user) {
+        try {
+            return new Promise((res, rej) => {
+                Note.find(user).then((data) => {
+                    console.log("noteModel--->81", data);
+                    res(data)
+                }).catch((err) => {
+                    rej(err)
+                })
+            })
+        } catch (err) {
+            return err
+        }
+
+    }
+
+    updateNote(noteId, update) {
+        try {
+            return new Promise((res, rej) => {
+                console.log("notemodel--->96",update);
+                Note.findOneAndUpdate(noteId, update, {new: true}).then((data) => {
+                    console.log("model--->97", data);
+                    res(data)
+                }).catch((err) => {
+                    rej(err)
+                })
+            })
+        } catch (err) {
+            return err
+        }
     }
 }
 
