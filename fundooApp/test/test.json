@@ -110,9 +110,13 @@
     "password":"ganesh1995"
     },
     "token":{
-     "token":""
+     "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZDhkZjZkNWQzNTlkZTBlYzExMzY4MzEiLCJ1c2VyTmFtZSI6ImJodXNoYW5yYW5qYW5lOTNAZ21haWwuY29tIiwiaWF0IjoxNTcxMzg1NjQwLCJleHAiOjE1NzE0NzIwNDB9.5DZQJAT3A5r1B2GJVcrBlGtfoxWhZYOceAuwk82YLNw"
     },
     "token1":{
      "token":""
+    },
+    "noteInfo":{
+        "title":"saved for same user",
+        "description":"check for trash delete"
     }
 }

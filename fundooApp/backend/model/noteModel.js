@@ -93,9 +93,37 @@ class ModelNote {
     updateNote(noteId, update) {
         try {
             return new Promise((res, rej) => {
-                console.log("notemodel--->96",update);
-                Note.findOneAndUpdate(noteId, update, {new: true}).then((data) => {
+                console.log("notemodel--->96", update);
+                Note.findOneAndUpdate(noteId, update, { new: true }).then((data) => {
                     console.log("model--->97", data);
+                    res(data)
+                }).catch((err) => {
+                    rej(err)
+                })
+            })
+        } catch (err) {
+            return err
+        }
+    }
+
+    permanentDelete(note) {
+        try {
+            return new Promise((res, rej) => {
+                Note.findByIdAndDelete(note).then((data) => {
+                    res(data)
+                }).catch((err) => {
+                    rej(err)
+                })
+            })
+        } catch (err) {
+            return err
+        }
+    }
+
+    deletetrash(trash) {
+        try {
+            return new Promise((res, rej) => {
+                Note.deleteMany(trash).then((data) => {
                     res(data)
                 }).catch((err) => {
                     rej(err)

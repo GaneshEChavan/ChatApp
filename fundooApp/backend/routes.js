@@ -31,20 +31,33 @@ routes.get('/auth/google/callback',passport.authenticate('google'),oAuthControll
 routes.get('/auth/facebook',passport.authenticate("facebookToken",{ scope : ['profile','email'] }),oAuthController.facebookLogin)
 
 /*
-* notes routes
+* routes for notes 
 */
 routes.post('/createNote',authenticate,noteController.createNote)
 routes.post('/readAllNote',authenticate,noteController.readNote)
-routes.post('/deleteNote',noteController.deleteNote)
-routes.post('/updateNote',noteController.updateNote)
+routes.post('/deleteNote',authenticate,noteController.deleteNote)
+routes.post('/updateNote',authenticate,noteController.updateNote)
 
 /*
-* label routes
+* routes for label 
 */
 routes.post('/createLabel',authenticate,labelController.createLabel)
-// routes.post('/readAllLabel',authenticate,labelController.readLabel)
-// routes.post('/deleteLabel',labelController.deleteLabel)
-// routes.post('/updateLabel',labelController.updateLabel)
+routes.post('/readAllLabel',authenticate,labelController.readLabel)
+routes.post('/deleteLabel',labelController.deleteLabel)
+routes.post('/updateLabel',labelController.updateLabel)
+
+/*
+* routes for delete note, empty trash and restore notes from trash 
+*/
+routes.post('/deletefromTrash',authenticate,noteController.permanentDeleteNote)
+routes.post('/emptyTrash',authenticate,noteController.emptyTrash)
+routes.post('/restoreNote',authenticate,noteController.restoreNotes)
+
+/*
+* update labels to notes
+*/
+routes.post('/addLabelToNote',authenticate,noteController.updateLabelToNote)
+routes.post('/deleteLabelFromNote',authenticate,noteController.deleteLabelFromNote)
 
 
 module.exports = routes

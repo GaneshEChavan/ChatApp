@@ -62,7 +62,7 @@ class ServiceOperations {
 
                             // token set to the redis using params userName
 
-                            client.set(result.userName, token, redis.print)
+                            client.setex(result.userName, 86400, token, redis.print)
 
                             res({ message: "logging in...!", data: result, bcryptStatus: Data, token: token })
                         } else {
