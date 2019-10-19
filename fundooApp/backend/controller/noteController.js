@@ -183,8 +183,6 @@ class ControllerNote {
                 labelName: req.body.labelName,
                 labelID: req.body.labelID
             }
-            console.log("request label in notecontroller", updateLabel);
-
             noteService.addLabelToNote(updateLabel).then((data) => {
                 responce.status = true;
                 responce.message = "label added to note";

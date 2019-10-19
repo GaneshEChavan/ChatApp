@@ -35,20 +35,21 @@ var Schema = mongoose.Schema(
             type: Boolean,
             default: false
         },
-        label: {
-            type: Object
-        }
+        label: [{
+            type: mongoose.Schema.Types.ObjectId,
+            ref : 'Labels'
+        }]
     },
     { timestamps: true }
 )
 
-let Note = mongoose.model("Notes", Schema)
+let Notes = mongoose.model("Notes", Schema)
 
 class ModelNote {
     createNote(noteData) {
         try {
             return new Promise((res, rej) => {
-                let note = new Note({
+                let note = new Notes({
                     "userID": noteData.userID,
                     "title": noteData.title,
                     "description": noteData.description,
@@ -77,8 +78,7 @@ class ModelNote {
     readNotes(user) {
         try {
             return new Promise((res, rej) => {
-                Note.find(user).then((data) => {
-                    console.log("noteModel--->81", data);
+                Notes.find(user).populate('label').then((data) => {
                     res(data)
                 }).catch((err) => {
                     rej(err)
@@ -93,9 +93,7 @@ class ModelNote {
     updateNote(noteId, update) {
         try {
             return new Promise((res, rej) => {
-                console.log("notemodel--->96", update);
-                Note.findOneAndUpdate(noteId, update, { new: true }).then((data) => {
-                    console.log("model--->97", data);
+                Notes.findOneAndUpdate(noteId, update, { new: true }).populate('label').then((data) => {
                     res(data)
                 }).catch((err) => {
                     rej(err)
@@ -109,7 +107,7 @@ class ModelNote {
     permanentDelete(note) {
         try {
             return new Promise((res, rej) => {
-                Note.findByIdAndDelete(note).then((data) => {
+                Notes.findByIdAndDelete(note).then((data) => {
                     res(data)
                 }).catch((err) => {
                     rej(err)
@@ -123,7 +121,7 @@ class ModelNote {
     deletetrash(trash) {
         try {
             return new Promise((res, rej) => {
-                Note.deleteMany(trash).then((data) => {
+                Notes.deleteMany(trash).then((data) => {
                     res(data)
                 }).catch((err) => {
                     rej(err)

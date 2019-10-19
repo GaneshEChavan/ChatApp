@@ -20,13 +20,13 @@ let Schema = mongoose.Schema(
     { timestamps: true }
 )
 
-let Label = mongoose.model("Labels", Schema)
+let Labels = mongoose.model("Labels", Schema)
 
 class ModelLabel {
     createLabel(label) {
         try {
             return new Promise((res, rej) => {
-                let newLabel = new Label({
+                let newLabel = new Labels({
                     "userID": label.userID,
                     "noteID": label.noteID,
                     "labelName": label.labelName,
@@ -48,7 +48,7 @@ class ModelLabel {
     readLabel(userId) {
         try {
             return new Promise((res, rej) => {
-                Label.find(userId).then((data) => {
+                Labels.find(userId).then((data) => {
                     res(data)
                 }).catch((err) => {
                     rej(err)
@@ -62,7 +62,7 @@ class ModelLabel {
     deleteLabel(labelId) {
         try {
             return new Promise((res, rej) => {
-                Label.findByIdAndDelete(labelId).then((data) => {
+                Labels.findByIdAndDelete(labelId).then((data) => {
                     res(data)
                 }).catch((err) => {
                     rej(err)
@@ -76,7 +76,7 @@ class ModelLabel {
     updateLabel(labelId,update) {
         try {
             return new Promise((res, rej) => {
-                Label.findByIdAndUpdate(labelId,update,{new:true}).then((data) => {
+                Labels.findByIdAndUpdate(labelId,update,{new:true}).then((data) => {
                     console.log("data in model after update--->80",data);
                     
                     res(data)

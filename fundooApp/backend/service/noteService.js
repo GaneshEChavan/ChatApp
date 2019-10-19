@@ -130,7 +130,6 @@ class ServiceNote {
     addLabelToNote(updateLabel) {
         try {
             return new Promise((res, rej) => {
-                // console.log("req body in noteservice",updateLabel)
                 if (updateLabel.labelID === undefined) {
                     let label = {
                         userID: updateLabel.userID,
@@ -138,10 +137,8 @@ class ServiceNote {
                         labelName: updateLabel.labelName,
                         isDeleted: false
                     }
-                    // console.log("labelId not provided in noteservice",label);
 
                     labelModel.createLabel(label).then((data) => {
-                        // console.log("data after creatin label in noteservice",data);
                         let noteid = { "_id": updateLabel._id };
                         let query = { $addToSet: { "label": data } }
                         noteModel.updateNote(noteid, query).then((data) => {
@@ -150,14 +147,11 @@ class ServiceNote {
                             rej(err)
                         })
                     })
-                } else {                  
-                  let labelExist = {
+                } else {
+                    let labelExist = {
                         "_id": updateLabel.labelID
                     }
-                    // console.log("label id in noteservice",labelExist);
-                    
                     labelModel.readLabel(labelExist).then((data) => {
-                        // console.log("label id present in noteservice", data)
                         let noteid = { "_id": updateLabel._id };
                         let query = { $addToSet: { "label": data[0] } }
                         noteModel.updateNote(noteid, query).then((data) => {
@@ -176,21 +170,56 @@ class ServiceNote {
         }
     }
 
-    removeLabelFromNote(deleteLabel){
-        try{
-        return new Promise((res,rej)=>{
-          let noteId = {"_id":deleteLabel._id};
-          let query = { $pull : {label: {_id: deleteLabel.labelID}}}
-          noteModel.updateNote(noteId,query).then((data)=>{
-              res(data)
-          }).catch((err)=>{
-              rej(err)
-          })
-        })
-        }catch(err){
+    removeLabelFromNote(deleteLabel) {
+        try {
+            return new Promise((res, rej) => {
+                let noteId = { "_id": deleteLabel._id };
+                //   let label = {"label":{$elemMatch:{"_id":deleteLabel.labelID}}};
+                let query = { $pull: { "label": deleteLabel.labelID } }
+                noteModel.readNotes(noteId).then((data) => {
+                    console.log("--->180", data[0].label)
+                    let check = false
+                    data[0].label.forEach(Data => {
+                        console.log("checking for label inside foreach");
+                        // console.log("--->182", Data._id);
+                        // console.log("--->183", deleteLabel.labelID)
+                          console.log(Data._id == deleteLabel.labelID);
+                         if (Data._id == deleteLabel.labelID) {
+                            console.log("true")
+                            noteModel.updateNote(noteId, query).then((data) => {
+                                console.log("laebl found and updated", data);
+                                check = true;
+                                res(data)
+                            }).catch((err) => { rej(err) })
+                        }
+                        // else if(check === true){
+                        //        res("changed")
+                        // }                        
+                    })
+                    if(check === true){
+                        console.log("checking for label inside check true");
+                        res("User is not present")
+                    }
+                }).catch((err) => {
+                    rej("to check if err in noteservice", err);
+                })
+            })
+        } catch (err) {
             return err
         }
     }
 }
 
 module.exports = new ServiceNote();
+
+// let findingQuery = {
+//     $and: [{
+//         $or: // the $or carries out the optional functionality
+//             [   //options i Case insensitivity to match upper and lower cases. 
+//                 { 'title': { $regex: enteredData, $options: 'i' } },
+//                 { 'description': { $regex: enteredData, $options: 'i' } },
+//                 { 'reminder': { $regex: enteredData, $options: 'i' } },
+//                 { 'color': { $regex: enteredData, $options: 'i' } }
+//             ]
+//     }, { 'userId': searchingData.userId }]
+// }
