@@ -12,7 +12,7 @@ chai.should();
 describe('Testing for register API', () => {
     it('validInput test', (done) => {
         chai.request(server)
-            .post('/register')
+            .post('/user/register')
             .send(json.validInput)
             .end( (err, res) => {
                 res.should.have.status(201)
@@ -22,7 +22,7 @@ describe('Testing for register API', () => {
 
     it('user Already exists test', (done) => {
         chai.request(server)
-            .post('/register')
+            .post('/user/register')
             .send(json.userExists)
             .end( (err, res) => {
                 res.should.have.status(500)
@@ -32,7 +32,7 @@ describe('Testing for register API', () => {
 
     it('emptyInput test', (done) => {
         chai.request(server)
-            .post('/register')
+            .post('/user/register')
             .send(json.emptyInput)
             .end((err, res) => {
                 res.should.have.status(406)
@@ -42,7 +42,7 @@ describe('Testing for register API', () => {
 
     it('fieldEmpty test',(done) =>{
         chai.request(server)
-            .post('/register')
+            .post('/user/register')
             .send(json.fieldEmpty)
             .end((err, res) => {
                 res.should.have.status(406)
@@ -52,7 +52,7 @@ describe('Testing for register API', () => {
 
     it('someEmptyInput test',(done) => {
         chai.request(server)
-            .post('/register')
+            .post('/user/register')
             .send(json.someEmptyInput)
             .end((err, res) => {
                 res.should.have.status(406)
@@ -62,7 +62,7 @@ describe('Testing for register API', () => {
 
     it('emptySpaces test',(done) => {
         chai.request(server)
-            .post('/register')
+            .post('/user/register')
             .send(json.emptySpaces)
             .end((err, res) => {
                 res.should.have.status(406)
@@ -72,7 +72,7 @@ describe('Testing for register API', () => {
 
     it('missingProperty test',(done) => {
         chai.request(server)
-            .post('/register')
+            .post('/user/register')
             .send(json.missingProperty)
             .end((err, res) => {
                 res.should.have.status(406)
@@ -82,7 +82,7 @@ describe('Testing for register API', () => {
 
     it('wrongEmail1 test',(done) => {
         chai.request(server)
-            .post('/register')
+            .post('/user/register')
             .send(json.wrongEmail1)
             .end((err, res) => {
                 res.should.have.status(406)
@@ -92,7 +92,7 @@ describe('Testing for register API', () => {
 
     it('wrongEmail2 test',(done) => {
         chai.request(server)
-            .post('/register')
+            .post('/user/register')
             .send(json.wrongEmail2)
             .end((err, res) => {
                 res.should.have.status(406)
@@ -102,7 +102,7 @@ describe('Testing for register API', () => {
 
     it('specialCharacter test',(done) => {
         chai.request(server)
-            .post('/register')
+            .post('/user/register')
             .send(json.specialCharacter)
             .end((err, res) => {
                 res.should.have.status(406)

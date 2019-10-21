@@ -178,34 +178,76 @@ class ServiceNote {
                 let query = { $pull: { "label": deleteLabel.labelID } }
                 noteModel.readNotes(noteId).then((data) => {
                     console.log("--->180", data[0].label)
-                    let check = false
+                    let check
+                    console.log("before foreach", check)
                     data[0].label.forEach(Data => {
                         console.log("checking for label inside foreach");
                         // console.log("--->182", Data._id);
                         // console.log("--->183", deleteLabel.labelID)
-                          console.log(Data._id == deleteLabel.labelID);
-                         if (Data._id == deleteLabel.labelID) {
+                        console.log(Data._id == deleteLabel.labelID);
+                        if (Data._id == deleteLabel.labelID) {
                             console.log("true")
                             noteModel.updateNote(noteId, query).then((data) => {
                                 console.log("laebl found and updated", data);
-                                check = true;
                                 res(data)
+                                //    return check = true;
                             }).catch((err) => { rej(err) })
                         }
-                        // else if(check === true){
-                        //        res("changed")
-                        // }                        
+                        else {
+                            console.log("inside else")
+                            //    check = false
+                            res("label is deleted")
+                        }
                     })
-                    if(check === true){
-                        console.log("checking for label inside check true");
-                        res("User is not present")
-                    }
+                    console.log("check value after foreach", check)
+                    // if(check === undefined){
+                    //     console.log("checking for label inside check true-->200");
+                    //     rej("label is not added to this note")
+                    // }
                 }).catch((err) => {
-                    rej("to check if err in noteservice", err);
+                    rej("No such label exists", err);
                 })
             })
         } catch (err) {
             return err
+        }
+    }
+
+    getList(user, list) {
+        try {
+            return new Promise((res, rej) => {
+                noteModel.readNotes(user).then((data) => {
+                   console.log("data at in noteService--->220",data);
+                    if (data.length) {
+                        noteModel.readNotes(list).then((data) => {
+                            console.log("data in noteservice-->223",data);
+                            res(data)
+                        }).catch((err) => {
+                            rej(err)
+                        })
+                    }
+                }).catch((err) => {
+                    rej(err)
+                })
+            })
+        } catch (err) {
+            rej(err)
+        }
+    }
+
+    reminder(reminder){
+        try{
+          return new Promise((res,rej)=>{
+              let note = {"_id":reminder._id}
+              let upload = {"Reminder":reminder.Reminder}
+           noteModel.updateNote(note,upload).then((data)=>{
+               res(data)
+           }).catch((err)=>{
+               rej(err)
+           })
+          })
+        }catch(err){
+             rej(err)
         }
     }
 }

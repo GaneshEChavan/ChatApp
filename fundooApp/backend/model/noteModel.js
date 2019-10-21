@@ -90,10 +90,10 @@ class ModelNote {
 
     }
 
-    updateNote(noteId, update) {
+    updateNote(query, update) {
         try {
             return new Promise((res, rej) => {
-                Notes.findOneAndUpdate(noteId, update, { new: true }).populate('label').then((data) => {
+                Notes.findOneAndUpdate(query, update, { new: true }).populate('label').then((data) => {
                     res(data)
                 }).catch((err) => {
                     rej(err)

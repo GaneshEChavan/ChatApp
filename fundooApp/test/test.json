@@ -110,7 +110,7 @@
     "password":"ganesh1995"
     },
     "token":{
-     "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZDhkZjZkNWQzNTlkZTBlYzExMzY4MzEiLCJ1c2VyTmFtZSI6ImJodXNoYW5yYW5qYW5lOTNAZ21haWwuY29tIiwiaWF0IjoxNTcxMzg1NjQwLCJleHAiOjE1NzE0NzIwNDB9.5DZQJAT3A5r1B2GJVcrBlGtfoxWhZYOceAuwk82YLNw"
+     "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZDhkZjZkNWQzNTlkZTBlYzExMzY4MzEiLCJ1c2VyTmFtZSI6ImJodXNoYW5yYW5qYW5lOTNAZ21haWwuY29tIiwiaWF0IjoxNTcxNjMxMDY5LCJleHAiOjE1NzE3MTc0Njl9.lHtSsTKyM7Vi5oE4-GZNU-7YZRbkCf41Wh3fhCB1fqk"
     },
     "token1":{
      "token":""
@@ -118,5 +118,14 @@
     "noteInfo":{
         "title":"saved for same user",
         "description":"check for trash delete"
+    },
+    "deleteNote":{
+        "_id":"5daab82e3b0416374a12616d",
+        "isTrashed":true
+    },
+    "update":{
+        "_id":"5daab82e3b0416374a12616d",
+        "title":"changed from test cases",
+        "color":"burgundy"
     }
 }

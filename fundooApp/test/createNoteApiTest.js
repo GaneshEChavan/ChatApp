@@ -9,7 +9,7 @@ chai.should();
 describe("Testing for create note API",function(){
     // it("test for token in header",function(done){
     //     chai.request(server)
-    //     .post('/createNote')
+    //     .post('/note')
     //     .set('token',json.token.token)
     //     .end(function(err,res){
     //     res.should.have.status(201)
@@ -19,7 +19,7 @@ describe("Testing for create note API",function(){
 
     it("test for no token in header",function(done){
         chai.request(server)
-        .post('/createNote')
+        .post('/note')
         .set('token',json.token1.token)
         .end(function(err,res){
         res.should.have.status(401)
@@ -29,7 +29,7 @@ describe("Testing for create note API",function(){
 
     it("test for correct info",function(done){
         chai.request(server)
-        .post('/createNote')
+        .post('/note')
         .set('token',json.token.token)
         .send(json.noteInfo)
         .end(function(err,res){
@@ -40,7 +40,7 @@ describe("Testing for create note API",function(){
 
     it("test for empty noteInfo",function(done){
         chai.request(server)
-        .post('/createNote')
+        .post('/note')
         .set('token',json.token.token)
         .send(json.fieldEmpty)
         .end(function(err,res){

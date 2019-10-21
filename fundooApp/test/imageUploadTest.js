@@ -12,7 +12,7 @@ describe('testing for image upload API', function () {
             .post('/image-upload')
             .set('token',json.token.token)
             .end(function (err, res) {
-                res.should.have.status(401)
+                res.should.have.status(422)
                 done()
             })
     })

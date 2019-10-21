@@ -11,8 +11,8 @@ const passport = require("passport")
 /*
 * User routes
 */
-routes.post('/register', controller.register)
-routes.post('/login', cache, controller.login)
+routes.post('/user/register', controller.register)
+routes.get('/user/login', cache, controller.login)
 routes.post('/forgot', controller.forget)
 routes.post('/reset', authenticate, controller.reset)
 routes.post('/allUsers', authenticate, controller.allUsers)
@@ -33,18 +33,27 @@ routes.get('/auth/facebook',passport.authenticate("facebookToken",{ scope : ['pr
 /*
 * routes for notes 
 */
-routes.post('/createNote',authenticate,noteController.createNote)
-routes.post('/readAllNote',authenticate,noteController.readNote)
-routes.post('/deleteNote',authenticate,noteController.deleteNote)
-routes.post('/updateNote',authenticate,noteController.updateNote)
+routes.post('/note',authenticate,noteController.createNote)
+routes.get('/note',authenticate,noteController.readNote)
+routes.delete('/note',authenticate,noteController.deleteNote)
+routes.put('/note',authenticate,noteController.updateNote)
 
 /*
 * routes for label 
 */
-routes.post('/createLabel',authenticate,labelController.createLabel)
-routes.post('/readAllLabel',authenticate,labelController.readLabel)
-routes.post('/deleteLabel',labelController.deleteLabel)
-routes.post('/updateLabel',labelController.updateLabel)
+routes.post('/label',authenticate,labelController.createLabel)
+routes.get('/label',authenticate,labelController.readLabel)
+routes.delete('/label',labelController.deleteLabel)
+routes.put('/label',labelController.updateLabel)
+/*
+* route for pagination
+*/
+routes.get('/list',authenticate,noteController.requestedList)
+
+/*
+* route for reminder 
+*/
+routes.put('/reminder',authenticate,noteController.setReminder)
 
 /*
 * routes for delete note, empty trash and restore notes from trash 
