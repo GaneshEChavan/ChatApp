@@ -1,4 +1,5 @@
 const labelModel = require("../model/labelModel");
+const noteService = require("../service/noteService")
 
 class ModelLabel {
     newLabel(label) {
@@ -35,6 +36,13 @@ class ModelLabel {
             return new Promise((res, rej) => {
                 let labelId = { "_id": labelid._id }
                 labelModel.deleteLabel(labelId).then((data) => {
+                    let deleteLabel = {
+                        all : {},
+                        labelID: labelid._id
+                    }
+                    console.log("deleteLabel in labelservice",deleteLabel);
+                    
+                    noteService.removeLabelFromNote(deleteLabel)
                     res(data)
                 }).catch((err) => {
                     rej(err)

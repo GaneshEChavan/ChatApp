@@ -75,12 +75,18 @@ class ModelNote {
         }
     }
 
-    readNotes(user) {
+    readNotes(query) {
         try {
             return new Promise((res, rej) => {
-                Notes.find(user).populate('label').then((data) => {
+                console.log("query in noteModel",query);
+                
+                Notes.find(query).populate('label').then((data) => {
+                   console.log("data after ",data);
+                   
                     res(data)
                 }).catch((err) => {
+                   console.log("error after ",err);
+                   
                     rej(err)
                 })
             })
@@ -93,7 +99,7 @@ class ModelNote {
     updateNote(query, update) {
         try {
             return new Promise((res, rej) => {
-                Notes.findOneAndUpdate(query, update, { new: true }).populate('label').then((data) => {
+                Notes.updateMany(query, update, { new: true }).populate('label').then((data) => {
                     res(data)
                 }).catch((err) => {
                     rej(err)

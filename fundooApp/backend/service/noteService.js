@@ -1,6 +1,13 @@
 const noteModel = require("../model/noteModel")
 const labelModel = require("../model/labelModel")
 
+var redis = require("redis");
+var client = redis.createClient();
+
+client.on('error', function (err) {
+    console.log('Something went wrong ', err)
+});
+
 class ServiceNote {
     newNote(noteData) {
         try {
@@ -21,6 +28,8 @@ class ServiceNote {
             return new Promise((res, rej) => {
                 let userinfo = { "userID": user.userID }
                 noteModel.readNotes(userinfo).then((data) => {
+                    console.log("----->24",data);
+                    client.SETNX('notes',data.toString())
                     res(data)
                 }).catch((err) => {
                     rej(err)
@@ -96,10 +105,10 @@ class ServiceNote {
 
     }
 
-    trashEmpty() {
+    trashEmpty(req) {
         try {
             return new Promise((res, rej) => {
-                let trash = { "isTrashed": true }
+                let trash = { "userID": req.decoded._id, "isTrashed": true }
                 noteModel.deletetrash(trash).then((data) => {
                     res(data)
                 }).catch((err) => {
@@ -152,13 +161,17 @@ class ServiceNote {
                         "_id": updateLabel.labelID
                     }
                     labelModel.readLabel(labelExist).then((data) => {
-                        let noteid = { "_id": updateLabel._id };
-                        let query = { $addToSet: { "label": data[0] } }
-                        noteModel.updateNote(noteid, query).then((data) => {
-                            res(data)
-                        }).catch((err) => {
-                            rej(err)
-                        })
+                        console.log("data in noteservice after read",data);
+                        
+                    let noteid = { "_id": updateLabel._id };
+                    let query = { $addToSet: { "label": data[0] } }
+                    noteModel.updateNote(noteid, query).then((data) => {
+                        console.log("after update in noteservice",data);
+                        
+                        res(data)
+                    }).catch((err) => {
+                        rej(err)
+                    })
                     }).catch((err) => {
                         rej(err)
                     })
@@ -173,40 +186,42 @@ class ServiceNote {
     removeLabelFromNote(deleteLabel) {
         try {
             return new Promise((res, rej) => {
-                let noteId = { "_id": deleteLabel._id };
+                let noteId
+                (deleteLabel.all) ? noteId = deleteLabel.all : noteId = { "_id": deleteLabel._id };
+
                 //   let label = {"label":{$elemMatch:{"_id":deleteLabel.labelID}}};
                 let query = { $pull: { "label": deleteLabel.labelID } }
-                noteModel.readNotes(noteId).then((data) => {
-                    console.log("--->180", data[0].label)
-                    let check
-                    console.log("before foreach", check)
-                    data[0].label.forEach(Data => {
-                        console.log("checking for label inside foreach");
-                        // console.log("--->182", Data._id);
-                        // console.log("--->183", deleteLabel.labelID)
-                        console.log(Data._id == deleteLabel.labelID);
-                        if (Data._id == deleteLabel.labelID) {
-                            console.log("true")
+                // noteModel.readNotes(noteId).then((data) => {
+                //     console.log("--->180", data[0].label)
+                //     let check
+                //     console.log("before foreach", check)
+                //     data[0].label.forEach(Data => {
+                //         console.log("checking for label inside foreach");
+                        // console.log("--->182", deleteLabel);
+                        // console.log("--->183", deleteLabel.labelID,)
+                //         console.log(Data._id == deleteLabel.labelID);
+                //         if (Data._id == deleteLabel.labelID) {
+                //             console.log("true")
                             noteModel.updateNote(noteId, query).then((data) => {
                                 console.log("laebl found and updated", data);
                                 res(data)
                                 //    return check = true;
                             }).catch((err) => { rej(err) })
-                        }
-                        else {
-                            console.log("inside else")
-                            //    check = false
-                            res("label is deleted")
-                        }
-                    })
-                    console.log("check value after foreach", check)
+                        // }
+                    //     else {
+                    //         console.log("inside else")
+                    //         //    check = false
+                    //         res("label is deleted")
+                    //     }
+                    // })
+                    // console.log("check value after foreach", check)
                     // if(check === undefined){
                     //     console.log("checking for label inside check true-->200");
                     //     rej("label is not added to this note")
                     // }
-                }).catch((err) => {
-                    rej("No such label exists", err);
-                })
+                // }).catch((err) => {
+                //     rej("No such label exists", err);
+                // })
             })
         } catch (err) {
             return err
@@ -217,10 +232,10 @@ class ServiceNote {
         try {
             return new Promise((res, rej) => {
                 noteModel.readNotes(user).then((data) => {
-                   console.log("data at in noteService--->220",data);
+                    console.log("data at in noteService--->220", data);
                     if (data.length) {
                         noteModel.readNotes(list).then((data) => {
-                            console.log("data in noteservice-->223",data);
+                            console.log("data in noteservice-->223", data);
                             res(data)
                         }).catch((err) => {
                             rej(err)
@@ -231,23 +246,55 @@ class ServiceNote {
                 })
             })
         } catch (err) {
-            rej(err)
+            return err
         }
     }
 
-    reminder(reminder){
-        try{
-          return new Promise((res,rej)=>{
-              let note = {"_id":reminder._id}
-              let upload = {"Reminder":reminder.Reminder}
-           noteModel.updateNote(note,upload).then((data)=>{
-               res(data)
-           }).catch((err)=>{
-               rej(err)
-           })
-          })
-        }catch(err){
-             rej(err)
+    reminder(reminder) {
+        try {
+            return new Promise((res, rej) => {
+                let note = { "_id": reminder._id }
+                let upload = { "Reminder": reminder.Reminder }
+                noteModel.updateNote(note, upload).then((data) => {
+                    res(data)
+                }).catch((err) => {
+                    rej(err)
+                })
+            })
+        } catch (err) {
+            return err
+        }
+    }
+
+    noteSearch(req) {
+        try {
+            return new Promise((res, rej) => {
+                let data = req.body.search;
+                let userID = req.decoded._id
+
+                let findQuery = {
+                    $and: [{
+                        $or: // the $or carries out the optional functionality
+                            [   //options i Case insensitivity to match upper and lower cases. 
+                                { 'title': { $regex: data, $options: 'i' } },
+                                { 'description': { $regex: data, $options: 'i' } },
+                                // {'label':{$in:{$regex:data}}},
+                                // { 'Reminder': { $regex: data, $options: 'i' } },
+                                { 'color': { $regex: data, $options: 'i' } }
+                            ]
+                    }, { 'userID': userID }]
+                }
+                console.log("find query in noteservice",findQuery);
+                
+                noteModel.readNotes(findQuery).then(data => {
+                   console.log("data after find in note service",data);
+                    res(data)
+                }).catch(err => {
+                    rej(err)
+                })
+            })
+        } catch (err) {
+            return err
         }
     }
 }

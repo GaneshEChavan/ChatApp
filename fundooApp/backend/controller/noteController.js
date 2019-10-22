@@ -6,6 +6,7 @@ class ControllerNote {
         // console.log(req.body);
         // console.log(req.decoded);
         try {
+            // req.checkBody("",)
             let noteData = {
                 userID: req.decoded._id,
                 title: req.body.title,
@@ -48,10 +49,10 @@ class ControllerNote {
                 response.error = err;
                 res.status(500).send(response)
             })
-        } catch (err) {
+        } catch (error) {
             response.status = false;
             response.message = "Something Went Wrong..!";
-            response.error = err;
+            response.error;
             res.status(400).send(response)
         }
     }
@@ -134,7 +135,7 @@ class ControllerNote {
     emptyTrash(req, res) {
         let response = {}
         try {
-            noteService.trashEmpty().then((data) => {
+            noteService.trashEmpty(req).then((data) => {
                 response.status = true;
                 response.message = "All notes from trash are deleted...!";
                 response.data = data;
@@ -185,17 +186,23 @@ class ControllerNote {
                 labelID: req.body.labelID
             }
             noteService.addLabelToNote(updateLabel).then((data) => {
+               console.log("data in notecontroller",data);
+               
                 response.status = true;
                 response.message = "label added to note";
                 response.data = data
                 res.status(200).send(response)
             }).catch((err) => {
+                console.log("error in notecontroller",err);
+                
                 response.status = false;
                 response.message = "Server Error..!";
                 response.error = err;
                 res.status(500).send(response)
             })
         } catch (err) {
+            console.log("error in catch ",err);
+            
             response.status = false;
             response.message = "Something Went Wrong..!";
             response.error = err;
@@ -269,7 +276,7 @@ class ControllerNote {
         let response = {}
         try {
             let reminder = {
-                _id : req.body._id,
+                _id: req.body._id,
                 Reminder: req.body.Reminder
             }
             noteService.reminder(reminder).then((data) => {
@@ -288,6 +295,28 @@ class ControllerNote {
             response.message = "Server Error..!";
             response.error = err
             res.status(500).send(response)
+        }
+    }
+
+    searchNote(req, res) {
+        let response = {}
+        try {
+           noteService.noteSearch(req).then(data=>{
+               response.status = true;
+               response.message = "Searched note..!";
+               response.data = data
+               res.status(200).send(response)
+           }).catch(error=>{
+               response.status = false;
+               response.message = "Server Error..!";
+               response.error = error 
+           })
+        } catch (err) {
+            response.status = false;
+            response.message = "Server Error..!";
+            response.error = err;
+            res.status(500).send(response)
+
         }
     }
 }

@@ -6,9 +6,9 @@ client.on('error', function(err){
 });
 
 function cache(req,res,next){
-    const userName = req.body.userName;
+    // const userName = req.body.userName;
     // console.log("cache---->10",userName);
-
+    const userName = "notes"    
     client.get(userName, (err,data)=>{
         if(err){
             res.status(500).send(err)

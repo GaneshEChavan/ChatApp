@@ -34,7 +34,7 @@ routes.get('/auth/facebook',passport.authenticate("facebookToken",{ scope : ['pr
 * routes for notes 
 */
 routes.post('/note',authenticate,noteController.createNote)
-routes.get('/note',authenticate,noteController.readNote)
+routes.get('/note',authenticate,cache,noteController.readNote)
 routes.delete('/note',authenticate,noteController.deleteNote)
 routes.put('/note',authenticate,noteController.updateNote)
 
@@ -58,15 +58,19 @@ routes.put('/reminder',authenticate,noteController.setReminder)
 /*
 * routes for delete note, empty trash and restore notes from trash 
 */
-routes.post('/deletefromTrash',authenticate,noteController.permanentDeleteNote)
-routes.post('/emptyTrash',authenticate,noteController.emptyTrash)
-routes.post('/restoreNote',authenticate,noteController.restoreNotes)
+routes.delete('/note/trashone',authenticate,noteController.permanentDeleteNote)
+routes.delete('/note/trashAll',authenticate,noteController.emptyTrash)
+routes.put('/note/restore',authenticate,noteController.restoreNotes)
 
 /*
 * update labels to notes
 */
-routes.post('/addLabelToNote',authenticate,noteController.updateLabelToNote)
-routes.post('/deleteLabelFromNote',authenticate,noteController.deleteLabelFromNote)
+routes.post('/note/addLabel',authenticate,noteController.updateLabelToNote)
+routes.delete('/note/deleteLabel',authenticate,noteController.deleteLabelFromNote)
 
+/*
+* search note based on title,description,reminder,color 
+*/
+routes.get('/note/search',authenticate,noteController.searchNote)
 
 module.exports = routes
