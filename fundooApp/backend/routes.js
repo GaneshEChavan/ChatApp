@@ -12,7 +12,7 @@ const passport = require("passport")
 * User routes
 */
 routes.post('/user/register', controller.register)
-routes.get('/user/login', cache, controller.login)
+routes.get('/user/login', cache.token, controller.login)
 routes.post('/forgot', controller.forget)
 routes.post('/reset', authenticate, controller.reset)
 routes.post('/allUsers', authenticate, controller.allUsers)
@@ -34,7 +34,7 @@ routes.get('/auth/facebook',passport.authenticate("facebookToken",{ scope : ['pr
 * routes for notes 
 */
 routes.post('/note',authenticate,noteController.createNote)
-routes.get('/note',authenticate,cache,noteController.readNote)
+routes.get('/note',authenticate,cache.notes,noteController.readNote)
 routes.delete('/note',authenticate,noteController.deleteNote)
 routes.put('/note',authenticate,noteController.updateNote)
 

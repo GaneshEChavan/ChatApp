@@ -12,8 +12,17 @@ class ServiceNote {
     newNote(noteData) {
         try {
             return new Promise((res, rej) => {
-                noteModel.createNote(noteData).then((data) => {
-                    res(data)
+                noteModel.createNote(noteData).then((Data) => {
+                    console.log("----->16",Data);
+                    // let buff = new Buffer.from(JSON.stringify(data)) 
+                    // console.log("----->noteservice-->18",buff);
+                                       
+                    client.del(Data.userID + 'notes')
+                    let user = {
+                        userID : Data.userID
+                    }
+                    this.userNotes(user)
+                    res(Data)
                 }).catch((err) => {
                     rej(err)
                 })
@@ -28,10 +37,15 @@ class ServiceNote {
             return new Promise((res, rej) => {
                 let userinfo = { "userID": user.userID }
                 noteModel.readNotes(userinfo).then((data) => {
-                    console.log("----->24",data);
-                    client.SETNX('notes',data.toString())
+                    // console.log("----->24",data);
+                    // client.SET('notes',JSON.stringify(data))
+                    // let buff = new Buffer.from(JSON.stringify(data))
+                    // console.log("buffer data saved in noteservice",data)
+                    client.SET(data[0].userID + 'notes', JSON.stringify(data))
                     res(data)
                 }).catch((err) => {
+                    // console.log(err);
+                    
                     rej(err)
                 })
             })
@@ -188,62 +202,26 @@ class ServiceNote {
             return new Promise((res, rej) => {
                 let noteId
                 (deleteLabel.all) ? noteId = deleteLabel.all : noteId = { "_id": deleteLabel._id };
-
-                //   let label = {"label":{$elemMatch:{"_id":deleteLabel.labelID}}};
                 let query = { $pull: { "label": deleteLabel.labelID } }
-                // noteModel.readNotes(noteId).then((data) => {
-                //     console.log("--->180", data[0].label)
-                //     let check
-                //     console.log("before foreach", check)
-                //     data[0].label.forEach(Data => {
-                //         console.log("checking for label inside foreach");
-                        // console.log("--->182", deleteLabel);
-                        // console.log("--->183", deleteLabel.labelID,)
-                //         console.log(Data._id == deleteLabel.labelID);
-                //         if (Data._id == deleteLabel.labelID) {
-                //             console.log("true")
                             noteModel.updateNote(noteId, query).then((data) => {
                                 console.log("laebl found and updated", data);
                                 res(data)
-                                //    return check = true;
                             }).catch((err) => { rej(err) })
-                        // }
-                    //     else {
-                    //         console.log("inside else")
-                    //         //    check = false
-                    //         res("label is deleted")
-                    //     }
-                    // })
-                    // console.log("check value after foreach", check)
-                    // if(check === undefined){
-                    //     console.log("checking for label inside check true-->200");
-                    //     rej("label is not added to this note")
-                    // }
-                // }).catch((err) => {
-                //     rej("No such label exists", err);
-                // })
             })
         } catch (err) {
             return err
         }
     }
 
-    getList(user, list) {
+    getList(user) {
         try {
             return new Promise((res, rej) => {
-                noteModel.readNotes(user).then((data) => {
-                    console.log("data at in noteService--->220", data);
-                    if (data.length) {
-                        noteModel.readNotes(list).then((data) => {
+                        noteModel.readNotes(user).then((data) => {
                             console.log("data in noteservice-->223", data);
                             res(data)
                         }).catch((err) => {
                             rej(err)
                         })
-                    }
-                }).catch((err) => {
-                    rej(err)
-                })
             })
         } catch (err) {
             return err

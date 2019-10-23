@@ -239,31 +239,27 @@ class ControllerNote {
     requestedList(req, res) {
         let response = {}
         try {
-            let user = {
-                "userID": req.decoded._id
-            }
-            console.log(Object.keys(req.body).length)
-            let list
-            (req.body.isArchive !== undefined) ? list = { "isArchive": req.body.isArchive }
-                : (req.body.isTrashed !== undefined) ? list = { "isTrashed": req.body.isTrashed }
-                    : (req.body.Reminder !== undefined) ? list = { "Reminder": req.body.Reminder }
+            let user 
+            (Object.keys(req.query)[0] === "isArchive") ? user = { "userID":req.decoded._id, "isArchive":true}
+                : (Object.keys(req.query)[0] === "isTrashed") ? user = { "userID":req.decoded._id, "isTrashed": true}
+                    : (Object.keys(req.query)[0] === "Reminder") ? user = { "userID":req.decoded._id, "Reminder": true}
                         : new Error("Undefined request")
-            console.log("list of request in noteController-->242", list);
-            if (list !== undefined && Object.keys(req.body).length === 1) {
-                noteService.getList(user, list).then((data) => {
-                    response.status = true;
-                    response.message = "requested list";
-                    response.data = data
-                    res.status(200).send(response)
-                }).catch((err) => {
-                    response.status = false;
-                    response.message = "Unable to get requested list";
-                    response.error = err
-                    res.status(500).send(response)
-                })
-            } else {
-                throw "undefined request"
-            }
+                        if(user !== undefined){
+                            noteService.getList(user).then((data) => {
+                                response.status = true;
+                                response.message = "requested list";
+                                response.data = data
+                                res.status(200).send(response)
+                            }).catch((err) => {
+                                response.status = false;
+                                response.message = "Unable to get requested list";
+                                response.error = err
+                                res.status(500).send(response)
+                            })
+                        }else{
+                            throw "No params passed to search list of..!"
+                        }
+                
         } catch (err) {
             response.status = false;
             response.message = "Something Went Wrong..!";
