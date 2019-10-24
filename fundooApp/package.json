@@ -6,7 +6,7 @@
   "scripts": {
     "test": "mocha",
     "start": "nodemon backend/server.js",
-    "debug":"nodemon --inspect backend/server.js"
+    "debug": "nodemon --inspect backend/server.js"
   },
   "author": "Ganesh Chavan",
   "license": "ISC",
@@ -38,6 +38,8 @@
     "passport-google-oauth20": "^2.0.0",
     "readline-sync": "^1.4.10",
     "redis": "^2.8.0",
+    "swagger-jsdoc": "^3.4.0",
+    "swagger-ui-express": "^4.1.2",
     "validator": "^11.1.0"
   }
 }

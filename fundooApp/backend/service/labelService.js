@@ -37,11 +37,11 @@ class ModelLabel {
                 let labelId = { "_id": labelid._id }
                 labelModel.deleteLabel(labelId).then((data) => {
                     let deleteLabel = {
-                        all : {},
+                        all: {},
                         labelID: labelid._id
                     }
-                    console.log("deleteLabel in labelservice",deleteLabel);
-                    
+                    console.log("deleteLabel in labelservice", deleteLabel);
+
                     noteService.removeLabelFromNote(deleteLabel)
                     res(data)
                 }).catch((err) => {

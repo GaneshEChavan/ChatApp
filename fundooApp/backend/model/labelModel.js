@@ -73,12 +73,12 @@ class ModelLabel {
         }
     }
 
-    updateLabel(labelId,update) {
+    updateLabel(labelId, update) {
         try {
             return new Promise((res, rej) => {
-                Labels.findByIdAndUpdate(labelId,update,{new:true}).then((data) => {
-                    console.log("data in model after update--->80",data);
-                    
+                Labels.findByIdAndUpdate(labelId, update, { new: true }).then((data) => {
+                    console.log("data in model after update--->80", data);
+
                     res(data)
                 }).catch((err) => {
                     rej(err)

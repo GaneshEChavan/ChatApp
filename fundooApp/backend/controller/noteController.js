@@ -3,8 +3,6 @@ const noteService = require("../service/noteService")
 class ControllerNote {
     createNote(req, res) {
         let response = {};
-        // console.log(req.body);
-        // console.log(req.decoded);
         try {
             // req.checkBody("",)
             let noteData = {
@@ -186,23 +184,23 @@ class ControllerNote {
                 labelID: req.body.labelID
             }
             noteService.addLabelToNote(updateLabel).then((data) => {
-               console.log("data in notecontroller",data);
-               
+                console.log("data in notecontroller", data);
+
                 response.status = true;
                 response.message = "label added to note";
                 response.data = data
                 res.status(200).send(response)
             }).catch((err) => {
-                console.log("error in notecontroller",err);
-                
+                console.log("error in notecontroller", err);
+
                 response.status = false;
                 response.message = "Server Error..!";
                 response.error = err;
                 res.status(500).send(response)
             })
         } catch (err) {
-            console.log("error in catch ",err);
-            
+            console.log("error in catch ", err);
+
             response.status = false;
             response.message = "Something Went Wrong..!";
             response.error = err;
@@ -239,27 +237,28 @@ class ControllerNote {
     requestedList(req, res) {
         let response = {}
         try {
-            let user 
-            (Object.keys(req.query)[0] === "isArchive") ? user = { "userID":req.decoded._id, "isArchive":true}
-                : (Object.keys(req.query)[0] === "isTrashed") ? user = { "userID":req.decoded._id, "isTrashed": true}
-                    : (Object.keys(req.query)[0] === "Reminder") ? user = { "userID":req.decoded._id, "Reminder": true}
+            let redis = Object.keys(req.query)[0]
+            let user
+            (Object.keys(req.query)[0] === "isArchive") ? user = { "userID": req.decoded._id, "isArchive": true }
+                : (Object.keys(req.query)[0] === "isTrashed") ? user = { "userID": req.decoded._id, "isTrashed": true }
+                    : (Object.keys(req.query)[0] === "Reminder") ? user = { "userID": req.decoded._id, "Reminder": true }
                         : new Error("Undefined request")
-                        if(user !== undefined){
-                            noteService.getList(user).then((data) => {
-                                response.status = true;
-                                response.message = "requested list";
-                                response.data = data
-                                res.status(200).send(response)
-                            }).catch((err) => {
-                                response.status = false;
-                                response.message = "Unable to get requested list";
-                                response.error = err
-                                res.status(500).send(response)
-                            })
-                        }else{
-                            throw "No params passed to search list of..!"
-                        }
-                
+            if (user !== undefined) {
+                noteService.getList(user, redis).then((data) => {
+                    response.status = true;
+                    response.message = "requested list";
+                    response.data = data
+                    res.status(200).send(response)
+                }).catch((err) => {
+                    response.status = false;
+                    response.message = "Unable to get requested list";
+                    response.error = err
+                    res.status(500).send(response)
+                })
+            } else {
+                throw "No params passed to search list of..!"
+            }
+
         } catch (err) {
             response.status = false;
             response.message = "Something Went Wrong..!";
@@ -297,16 +296,16 @@ class ControllerNote {
     searchNote(req, res) {
         let response = {}
         try {
-           noteService.noteSearch(req).then(data=>{
-               response.status = true;
-               response.message = "Searched note..!";
-               response.data = data
-               res.status(200).send(response)
-           }).catch(error=>{
-               response.status = false;
-               response.message = "Server Error..!";
-               response.error = error 
-           })
+            noteService.noteSearch(req).then(data => {
+                response.status = true;
+                response.message = "Searched note..!";
+                response.data = data
+                res.status(200).send(response)
+            }).catch(error => {
+                response.status = false;
+                response.message = "Server Error..!";
+                response.error = error
+            })
         } catch (err) {
             response.status = false;
             response.message = "Server Error..!";

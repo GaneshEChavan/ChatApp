@@ -13,13 +13,8 @@ client.on('error', function (err) {
 
 class ServiceOperations {
     registrationService(userData) {
-        console.log("service---->16", userData);
-
         return new Promise((resolve, reject) => {
             userModel.registrationModel(userData).then((data) => {
-                //    console.log("service---->20",data);
-                //    console.log("service---->21",data.active);
-                //    console.log("service---->22",data.userName);
                 if (data.active === false) {
                     let payload = {
                         "_id": data._id,
@@ -27,11 +22,7 @@ class ServiceOperations {
                         "active": true
                     }
                     let token = generatedToken.token(payload);
-                    // console.log("service--->29",token);
-
                     let Url = process.env.APPHOST + token;
-                    // console.log("service--->32",Url);
-
                     mailer.nodeMailer(data.userName, Url);
                     resolve({ data, token, Url })
                 } else {
@@ -46,7 +37,6 @@ class ServiceOperations {
     logInService = async (userInfo) => {
         try {
             let result = await userModel.logInModel(userInfo)
-            console.log("service----->49", result);
 
             return new Promise((res, rej) => {
                 if (result.password === null) {
@@ -60,8 +50,6 @@ class ServiceOperations {
                             }
                             let token = await generatedToken.token(payload)
 
-                            // token set to the redis using params userName
-
                             client.setex(result.userName + 'token', 86400, token, redis.print)
 
                             res({ message: "logging in...!", data: result, bcryptStatus: Data, token: token })
@@ -73,7 +61,6 @@ class ServiceOperations {
 
             })
         } catch (err) {
-            // console.log("service---->48",err)
             return err
         }
     }
@@ -109,8 +96,6 @@ class ServiceOperations {
     }
 
     getAllUsers(data, callback) {
-        console.log("service--->81", data);
-
         userModel.searchAll(data, (err, data) => {
             if (err) {
                 callback(err)

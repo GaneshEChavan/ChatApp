@@ -13,13 +13,12 @@ class ServiceNote {
         try {
             return new Promise((res, rej) => {
                 noteModel.createNote(noteData).then((Data) => {
-                    console.log("----->16",Data);
+                    // console.log("----->16", Data);
                     // let buff = new Buffer.from(JSON.stringify(data)) 
                     // console.log("----->noteservice-->18",buff);
-                                       
-                    client.del(Data.userID + 'notes')
+                    // client.DEL(Data.userID + 'notes')
                     let user = {
-                        userID : Data.userID
+                        userID: Data.userID
                     }
                     this.userNotes(user)
                     res(Data)
@@ -45,7 +44,6 @@ class ServiceNote {
                     res(data)
                 }).catch((err) => {
                     // console.log(err);
-                    
                     rej(err)
                 })
             })
@@ -59,7 +57,32 @@ class ServiceNote {
             return new Promise((res, rej) => {
                 let search = { "_id": noteId._id }
                 let update = { "isTrashed": noteId.isTrashed }
-                noteModel.updateNote(search, update).then((data) => {
+                noteModel.updateSingleNote(search, update).then((data) => {
+                    client.DEL(data.userID + 'notes')
+                    let user = {
+                        userID: data.userID
+                    }
+                    this.userNotes(user)
+                    let User = { "userID": data.userID, "isTrashed": true }
+                    let redis = "isTrashed"
+                    this.getList(User, redis)
+                    res(data)
+                }).catch((err) => {
+                    rej(err)
+                })
+            })
+        } catch (err) {
+            return err
+        }
+    }
+
+    getList(user, redis) {
+        try {
+            //inside user = { "userID":req.decoded._id, "isArchive":true}
+            return new Promise((res, rej) => {
+                noteModel.readNotes(user).then((data) => {
+                    client.SET(data[0].userID + redis + 'true', JSON.stringify(data))
+                    console.log("data in noteservice-->85", data);
                     res(data)
                 }).catch((err) => {
                     rej(err)
@@ -77,20 +100,26 @@ class ServiceNote {
 
                 let noteid = { "_id": body._id }
                 noteModel.readNotes(noteid).then((data) => {
-                    console.log(" data in service ", data[0].isArchive);
+                    console.log(" data in service ", data);
 
                     let noteChanges = {
                         "title": body.title ? body.title : data[0].title,
                         "description": body.description ? body.description : data[0].description,
                         "color": body.color ? body.color : data[0].color,
-                        "isArchive": (body.isArchive !== data[0].isArchive) ? body.isArchive : data[0].isArchive
+                        "isArchive": (body.isArchive == true) ? true : false,
+                        "isPinned": (body.isPinned == true) ? true : false,
+                        "Reminder": (body.Reminder == true) ? true : false
                     }
                     console.log("data object in service", noteChanges);
 
-                    noteModel.updateNote(noteid, noteChanges).then((Data) => {
+                    noteModel.updateSingleNote(noteid, noteChanges).then((Data) => {
+                        let User = { "userID": Data.userID, "isArchive": true }
+                        let redis = "isArchive"
+                        this.getList(User, redis)
+                        let user = { "userID": Data.userID, "Reminder": true }
+                        let Redis = "Reminder"
+                        this.getList(user, Redis)
                         res(Data)
-                        console.log(" data after update successfully in service", Data);
-
                     }).catch((err) => {
                         rej(err)
                     })
@@ -139,7 +168,7 @@ class ServiceNote {
             return new Promise((res, rej) => {
                 let noteid = { "_id": noteId }
                 let restore = { "isTrashed": false }
-                noteModel.updateNote(noteid, restore).then((data) => {
+                noteModel.updateSingleNote(noteid, restore).then((data) => {
                     res(data)
                 }).catch((err) => {
                     rej(err)
@@ -164,7 +193,7 @@ class ServiceNote {
                     labelModel.createLabel(label).then((data) => {
                         let noteid = { "_id": updateLabel._id };
                         let query = { $addToSet: { "label": data } }
-                        noteModel.updateNote(noteid, query).then((data) => {
+                        noteModel.updateSingleNote(noteid, query).then((data) => {
                             res(data)
                         }).catch((err) => {
                             rej(err)
@@ -175,17 +204,17 @@ class ServiceNote {
                         "_id": updateLabel.labelID
                     }
                     labelModel.readLabel(labelExist).then((data) => {
-                        console.log("data in noteservice after read",data);
-                        
-                    let noteid = { "_id": updateLabel._id };
-                    let query = { $addToSet: { "label": data[0] } }
-                    noteModel.updateNote(noteid, query).then((data) => {
-                        console.log("after update in noteservice",data);
-                        
-                        res(data)
-                    }).catch((err) => {
-                        rej(err)
-                    })
+                        console.log("data in noteservice after read", data);
+
+                        let noteid = { "_id": updateLabel._id };
+                        let query = { $addToSet: { "label": data[0] } }
+                        noteModel.updateSingleNote(noteid, query).then((data) => {
+                            console.log("after update in noteservice", data);
+
+                            res(data)
+                        }).catch((err) => {
+                            rej(err)
+                        })
                     }).catch((err) => {
                         rej(err)
                     })
@@ -203,37 +232,24 @@ class ServiceNote {
                 let noteId
                 (deleteLabel.all) ? noteId = deleteLabel.all : noteId = { "_id": deleteLabel._id };
                 let query = { $pull: { "label": deleteLabel.labelID } }
-                            noteModel.updateNote(noteId, query).then((data) => {
-                                console.log("laebl found and updated", data);
-                                res(data)
-                            }).catch((err) => { rej(err) })
+                noteModel.updateNote(noteId, query).then((data) => {
+                    console.log("laebl found and updated", data);
+                    res(data)
+                }).catch((err) => { rej(err) })
             })
         } catch (err) {
             return err
         }
     }
 
-    getList(user) {
-        try {
-            return new Promise((res, rej) => {
-                        noteModel.readNotes(user).then((data) => {
-                            console.log("data in noteservice-->223", data);
-                            res(data)
-                        }).catch((err) => {
-                            rej(err)
-                        })
-            })
-        } catch (err) {
-            return err
-        }
-    }
+
 
     reminder(reminder) {
         try {
             return new Promise((res, rej) => {
                 let note = { "_id": reminder._id }
                 let upload = { "Reminder": reminder.Reminder }
-                noteModel.updateNote(note, upload).then((data) => {
+                noteModel.updateSingleNote(note, upload).then((data) => {
                     res(data)
                 }).catch((err) => {
                     rej(err)
@@ -262,10 +278,10 @@ class ServiceNote {
                             ]
                     }, { 'userID': userID }]
                 }
-                console.log("find query in noteservice",findQuery);
-                
+                console.log("find query in noteservice", findQuery);
+
                 noteModel.readNotes(findQuery).then(data => {
-                   console.log("data after find in note service",data);
+                    console.log("data after find in note service", data);
                     res(data)
                 }).catch(err => {
                     rej(err)

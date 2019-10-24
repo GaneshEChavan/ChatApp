@@ -37,7 +37,7 @@ var Schema = mongoose.Schema(
         },
         label: [{
             type: mongoose.Schema.Types.ObjectId,
-            ref : 'Labels'
+            ref: 'Labels'
         }]
     },
     { timestamps: true }
@@ -78,15 +78,15 @@ class ModelNote {
     readNotes(query) {
         try {
             return new Promise((res, rej) => {
-                console.log("query in noteModel",query);
-                
+                console.log("query in noteModel", query);
+
                 Notes.find(query).populate('label').then((data) => {
-                   console.log("data after ",data);
-                   
+                    console.log("data after find in model", data);
+
                     res(data)
                 }).catch((err) => {
-                   console.log("error after ",err);
-                   
+                    console.log("error after ", err);
+
                     rej(err)
                 })
             })
@@ -100,6 +100,20 @@ class ModelNote {
         try {
             return new Promise((res, rej) => {
                 Notes.updateMany(query, update, { new: true }).populate('label').then((data) => {
+                    res(data)
+                }).catch((err) => {
+                    rej(err)
+                })
+            })
+        } catch (err) {
+            return err
+        }
+    }
+
+    updateSingleNote(query, update) {
+        try {
+            return new Promise((res, rej) => {
+                Notes.findOneAndUpdate(query, update, { new: true }).populate('label').then((data) => {
                     res(data)
                 }).catch((err) => {
                     rej(err)

@@ -83,11 +83,11 @@ class ControllerLabel {
         try {
             let labelid = {
                 _id: req.body._id,
-                labelName : req.body.labelName
+                labelName: req.body.labelName
             }
             labelService.labelUpdate(labelid).then((data) => {
-                console.log("data in controller after update",data);
-                
+                console.log("data in controller after update", data);
+
                 responce.status = true;
                 responce.message = "label updated seccessfully..!";
                 responce.data = data;
