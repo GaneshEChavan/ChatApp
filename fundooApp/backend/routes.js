@@ -8,10 +8,27 @@ const authenticate = require("./middleware/authentication")
 const cache = require("./cacheService/cache")
 const upload = require("./AWS_service/fileUploader")
 const passport = require("passport")
-/*
-* User routes
-*/
+ 
+
+/**
+ * @swagger
+ * /user/register:
+ * post :
+ * description : use to register new user to applications 
+ * responses :
+ * '200' :
+ * description : A successful response
+ */
 routes.post('/user/register', controller.register)
+// /**
+//  * @swagger
+//  * /customers:
+//  * post :
+//  * description : use to create new note
+//  * responses :
+//  * '200' :
+//  * description : A successful response
+//  */
 routes.get('/user/login', cache.token, controller.login)
 routes.post('/forgot', controller.forget)
 routes.post('/reset', authenticate, controller.reset)
@@ -30,25 +47,25 @@ routes.get('/auth/google', passport.authenticate('google', { scope: ['profile', 
 routes.get('/auth/google/callback', passport.authenticate('google'), oAuthController.googleLogin)
 routes.get('/auth/facebook', passport.authenticate("facebookToken", { scope: ['profile', 'email'] }), oAuthController.facebookLogin)
 
-/**
- * @swagger
- * /customers:
- * post :
- * description : use to create new note
- * responses :
- * '200' :
- * description : A successful response
- */
+// /**
+//  * @swagger
+//  * /customers:
+//  * post :
+//  * description : use to create new note
+//  * responses :
+//  * '200' :
+//  * description : A successful response
+//  */
 routes.post('/note', authenticate, noteController.createNote)
-/**
- * @swagger
- * /customers:
- * get :
- * description : use to read all notes
- * responses :
- * '200' :
- * description : A successful response
- */
+// /**
+//  * @swagger
+//  * /customers:
+//  * get :
+//  * description : use to read all notes
+//  * responses :
+//  * '200' :
+//  * description : A successful response
+//  */
 routes.get('/note', authenticate, cache.notes, noteController.readNote)
 routes.delete('/note', authenticate, noteController.deleteNote)
 /*

@@ -184,14 +184,14 @@ class ControllerNote {
                 labelID: req.body.labelID
             }
             noteService.addLabelToNote(updateLabel).then((data) => {
-                console.log("data in notecontroller", data);
+                // console.log("data in notecontroller", data);
 
                 response.status = true;
                 response.message = "label added to note";
                 response.data = data
                 res.status(200).send(response)
             }).catch((err) => {
-                console.log("error in notecontroller", err);
+                // console.log("error in notecontroller", err);
 
                 response.status = false;
                 response.message = "Server Error..!";
@@ -199,7 +199,7 @@ class ControllerNote {
                 res.status(500).send(response)
             })
         } catch (err) {
-            console.log("error in catch ", err);
+            // console.log("error in catch ", err);
 
             response.status = false;
             response.message = "Something Went Wrong..!";
