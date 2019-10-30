@@ -4,8 +4,9 @@ const controller = require("./controller/userController")
 const noteController = require("./controller/noteController")
 const labelController = require("./controller/labelController")
 const oAuthController = require("./controller/oAuthController")
+const collaborateController = require("./controller/collaborateController")
 const authenticate = require("./middleware/authentication")
-const cache = require("./cacheService/cache")
+const cache = require("./controller/cacheController")
 const upload = require("./AWS_service/fileUploader")
 const passport = require("passport")
  
@@ -20,16 +21,16 @@ const passport = require("passport")
  * description : A successful response
  */
 routes.post('/user/register', controller.register)
-// /**
-//  * @swagger
-//  * /customers:
-//  * post :
-//  * description : use to create new note
-//  * responses :
-//  * '200' :
-//  * description : A successful response
-//  */
-routes.get('/user/login', cache.token, controller.login)
+/**
+ * @swagger
+ * /customers:
+ * post :
+ * description : use to create new note
+ * responses :
+ * '200' :
+ * description : A successful response
+ */
+routes.post('/user/login', cache.token, controller.login)
 routes.post('/forgot', controller.forget)
 routes.post('/reset', authenticate, controller.reset)
 routes.post('/allUsers', authenticate, controller.allUsers)
@@ -45,27 +46,27 @@ routes.post('/image-upload', authenticate, upload.single('image'), controller.im
 // routes.get('/login',(req,res)=>{res.render('login')})
 routes.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email'] }))
 routes.get('/auth/google/callback', passport.authenticate('google'), oAuthController.googleLogin)
-routes.get('/auth/facebook', passport.authenticate("facebookToken", { scope: ['profile', 'email'] }), oAuthController.facebookLogin)
+routes.post('/auth/facebook', passport.authenticate("facebookToken", { scope: ['profile', 'email'] }), oAuthController.facebookLogin)
 
-// /**
-//  * @swagger
-//  * /customers:
-//  * post :
-//  * description : use to create new note
-//  * responses :
-//  * '200' :
-//  * description : A successful response
-//  */
+/**
+ * @swagger
+ * /customers:
+ * post :
+ * description : use to create new note
+ * responses :
+ * '200' :
+ * description : A successful response
+ */
 routes.post('/note', authenticate, noteController.createNote)
-// /**
-//  * @swagger
-//  * /customers:
-//  * get :
-//  * description : use to read all notes
-//  * responses :
-//  * '200' :
-//  * description : A successful response
-//  */
+/**
+ * @swagger
+ * /customers:
+ * get :
+ * description : use to read all notes
+ * responses :
+ * '200' :
+ * description : A successful response
+ */
 routes.get('/note', authenticate, cache.notes, noteController.readNote)
 routes.delete('/note', authenticate, noteController.deleteNote)
 /*
@@ -107,5 +108,10 @@ routes.delete('/note/deleteLabel', authenticate, noteController.deleteLabelFromN
 * search note based on title,description,reminder,color 
 */
 routes.get('/note/search', authenticate, noteController.searchNote)
+
+/**
+ * add collaborator to note from existing users
+ */
+routes.post('/collaborator',authenticate,collaborateController.addCollaborator)
 
 module.exports = routes

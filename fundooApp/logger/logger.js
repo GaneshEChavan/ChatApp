@@ -6,7 +6,7 @@ var options = {
         filename: `${__dirname}/log/fundoo.log`,
         handleExceptions: true,
         json: true,
-        maxsize: 5242880, //
+        maxsize: 5242880, 
         maxFiles: 5,
         colorize: false,
     },

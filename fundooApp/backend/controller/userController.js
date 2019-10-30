@@ -1,10 +1,16 @@
 const userService = require("../service/userService")
+/**
+* @description:Requiring Bcrypt middleware function to create hash of the user password stored in database
+**/
 const bcrypt = require("../middleware/bcrypt")
 
 class ControllerMethods {
     register(req, res) {
         let responseResult = {};
         try {
+/**
+* @description : checking the request body for validation using express-validator
+**/            
             req.checkBody("firstName", "must be valid").notEmpty().isAlpha();
 
             req.checkBody("lastName", "must be valid").notEmpty().isAlpha();

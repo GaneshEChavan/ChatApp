@@ -85,7 +85,7 @@ app.use(bodyParser.json());
 app.use('/', Route);
 
 app.listen(process.env.PORT, () => {
-  logger.info(`app listening on port ${process.env.PORT}`)
+  console.log(`app listening on port ${process.env.PORT}`)
   mongo()
 });
 

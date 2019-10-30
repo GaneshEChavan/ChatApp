@@ -1,5 +1,15 @@
-const mongoose = require("mongoose");
+/******************************************************************************
+ *  @Purpose        : To create a note schema and store data into database.
+ *  @file           : model/noteModel.js        
+ *  @author         : CHAVAN G E
+ *  @version        : v0.1
+ *  @since          : 14-10-2019
+ ******************************************************************************/
 
+const mongoose = require("mongoose");
+/**
+ * @description:Creating note schema using mongoose
+ **/
 var Schema = mongoose.Schema(
     {
         userID: {

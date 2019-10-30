@@ -13,10 +13,6 @@ class ServiceNote {
         try {
             return new Promise((res, rej) => {
                 noteModel.createNote(noteData).then((Data) => {
-                    // console.log("----->16", Data);
-                    // let buff = new Buffer.from(JSON.stringify(data)) 
-                    // console.log("----->noteservice-->18",buff);
-                    // client.DEL(Data.userID + 'notes')
                     let user = {
                         userID: Data.userID
                     }
@@ -36,14 +32,10 @@ class ServiceNote {
             return new Promise((res, rej) => {
                 let userinfo = { "userID": user.userID }
                 noteModel.readNotes(userinfo).then((data) => {
-                    // console.log("----->24",data);
-                    // client.SET('notes',JSON.stringify(data))
-                    // let buff = new Buffer.from(JSON.stringify(data))
-                    // console.log("buffer data saved in noteservice",data)
-                    client.SET(data[0].userID + 'notes', JSON.stringify(data))
+                    let buff = new Buffer.from(JSON.stringify(data))
+                    client.SET(data[0].userID + 'notes', buff)
                     res(data)
                 }).catch((err) => {
-                    // console.log(err);
                     rej(err)
                 })
             })
@@ -78,11 +70,10 @@ class ServiceNote {
 
     getList(user, redis) {
         try {
-            //inside user = { "userID":req.decoded._id, "isArchive":true}
             return new Promise((res, rej) => {
                 noteModel.readNotes(user).then((data) => {
-                    client.SET(data[0].userID + redis + 'true', JSON.stringify(data))
-                    console.log("data in noteservice-->85", data);
+                    let buff = new Buffer.from(JSON.stringify(data))
+                    client.SET(data[0].userID + redis + 'true', buff)
                     res(data)
                 }).catch((err) => {
                     rej(err)
