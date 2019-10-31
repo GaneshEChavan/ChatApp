@@ -87,14 +87,40 @@ class ControllerMethods {
     }
 
     forget(req, res) {
-        var varifyEmail = {
-            userName: req.body.userName
-        }
-        userService.forgotPassword(varifyEmail).then(data => {
-            return res.status(202).send(data)
-        }).catch(err => {
-            return res.status(400).send(err)
-        })
+       let response = {}
+        try{
+            req.checkBody("userName", "userName must be valid").notEmpty().isEmail();
+            let errors = req.validationErrors();
+          
+            if (errors) {
+                response.status = false;
+                response.message = "Something went wrong..!"
+                response.errors = errors;
+                res.status(400).send(response);
+            } else {
+                var varifyEmail = {
+                    userName: req.body.userName
+                }
+                userService.forgotPassword(varifyEmail).then(data => {
+                    response.status = true;
+                    response.message = "Password reset successfully..!"
+                    response.data = data;
+                    return res.status(200).send(response)
+                }).catch(err => {
+                    response.status = false;
+                    response.message = "Something went wrong..!"
+                    response.error = err;
+                    return res.status(400).send(err)
+                })         
+            }
+
+       } catch(err){
+        response.status = false;
+        response.message = "Something went wrong..!"
+        response.error = err;
+        return res.status(400).send(err) 
+    }
+      
     }
 
     reset(req, res) {
@@ -137,13 +163,13 @@ class ControllerMethods {
 
     }
 
-    allUsers(req, res) {
+    activeStatus(req, res) {
         let data = {
             _id: req.decoded._id,
             userName: req.decoded.userName,
             active: req.decoded.active
         }
-        console.log("control--->109", data)
+        console.log("usercontrol--->109", data)
         userService.getAllUsers(data, (err, data) => {
             if (err) {
                 return res.status(400).send(err)
@@ -154,7 +180,7 @@ class ControllerMethods {
     }
 
     imgUpload(req, res) {
-        console.log("controller----->145", req.file);
+        console.log("usercontroller----->145", req.file);
 
         try {
             if (!req.decoded._id) {
@@ -166,7 +192,7 @@ class ControllerMethods {
                 _id: req.decoded._id,
                 imageUrl: req.file.location
             }
-            console.log("controller---->151", image);
+            console.log("usercontroller---->151", image);
 
             userService.imageUpload(image).then((data) => {
                 return res.status(200).send(data)

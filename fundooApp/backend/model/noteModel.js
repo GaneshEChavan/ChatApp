@@ -18,6 +18,7 @@ var Schema = mongoose.Schema(
         },
         title: {
             type: String,
+            required : true
         },
         description: {
             type: String,
@@ -55,6 +56,7 @@ var Schema = mongoose.Schema(
 
 let Notes = mongoose.model("Notes", Schema)
 
+
 class ModelNote {
     createNote(noteData) {
         try {
@@ -88,7 +90,7 @@ class ModelNote {
     readNotes(query) {
         try {
             return new Promise((res, rej) => {
-                console.log("query in noteModel", query);
+                // console.log("query in noteModel", query);
 
                 Notes.find(query).populate('label').then((data) => {
                     console.log("data after find in model", data);

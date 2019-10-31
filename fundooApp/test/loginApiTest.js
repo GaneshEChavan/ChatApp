@@ -12,7 +12,7 @@ describe('Testing for login API',function(){
         .post('/user/login')
         .send(json.fieldEmpty)
         .end(function(err,res){
-            res.should.have.status(404)
+            res.should.have.status(406)
             done()
         })
     });
@@ -22,7 +22,7 @@ describe('Testing for login API',function(){
         .post('/user/login')
         .send(json.emptyEmail)
         .end(function(err,res){
-            res.should.have.status(404)
+            res.should.have.status(406)
             done()
         })
     });
@@ -42,7 +42,7 @@ describe('Testing for login API',function(){
         .post('/user/login')
         .send(json.invalidEmail1)
         .end(function(err,res){
-            res.should.have.status(404)
+            res.should.have.status(406)
             done()
         })
     });
@@ -52,7 +52,7 @@ describe('Testing for login API',function(){
         .post('/user/login')
         .send(json.invalidEmail2)
         .end(function(err,res){
-            res.should.have.status(404)
+            res.should.have.status(406)
             done()
         })
     });
@@ -62,7 +62,7 @@ describe('Testing for login API',function(){
         .post('/user/login')
         .send(json.invalidEmail3)
         .end(function(err,res){
-            res.should.have.status(404)
+            res.should.have.status(406)
             done()
         })
     });
@@ -72,7 +72,7 @@ describe('Testing for login API',function(){
         .post('/user/login')
         .send(json.invalidEmail1)
         .end(function(err,res){
-            res.should.have.status(404)
+            res.should.have.status(406)
             done()
         })
     });
@@ -82,7 +82,7 @@ describe('Testing for login API',function(){
         .post('/user/login')
         .send(json.invalidEmail1)
         .end(function(err,res){
-            res.should.have.status(404)
+            res.should.have.status(406)
             done()
         })
     });

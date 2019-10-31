@@ -233,8 +233,6 @@ class ServiceNote {
         }
     }
 
-
-
     reminder(reminder) {
         try {
             return new Promise((res, rej) => {

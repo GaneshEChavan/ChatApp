@@ -33,7 +33,7 @@ routes.post('/user/register', controller.register)
 routes.post('/user/login', cache.token, controller.login)
 routes.post('/forgot', controller.forget)
 routes.post('/reset', authenticate, controller.reset)
-routes.post('/allUsers', authenticate, controller.allUsers)
+routes.post('/allUsers', authenticate, controller.activeStatus)
 
 /*
 * route for AWS-image upload
@@ -110,8 +110,9 @@ routes.delete('/note/deleteLabel', authenticate, noteController.deleteLabelFromN
 routes.get('/note/search', authenticate, noteController.searchNote)
 
 /**
- * add collaborator to note from existing users
+ * add collaborator to note from existing users 
  */
 routes.post('/collaborator',authenticate,collaborateController.addCollaborator)
+routes.post('/collaborator',authenticate,collaborateController.readCollaborator)
 
 module.exports = routes

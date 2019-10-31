@@ -12,7 +12,7 @@ describe("API test of read all notes",function(){
         .get('/note')
         .set('token',json.token.token)
         .end(function(err,res){
-            res.should.have.status(202)
+            res.should.have.status(200)
             done()
         })
     })

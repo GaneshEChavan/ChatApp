@@ -17,17 +17,17 @@ describe('testing for image upload API', function () {
             })
     })
 
-    it('image form-data provided', function (done) {
-        chai.request(server)
-            .post('/image-upload')
-            .set('token',json.token1.token)
-            .attach('image','/home/admin1/Desktop/mrBean.jpg','mrBean.jpg')
-            .type('form')
-            .end(function (err, res) {
-                res.should.have.status(200)
-                done()
-            })
-    })
+    // it('image form-data provided', function (done) {
+    //     chai.request(server)
+    //         .post('/image-upload')
+    //         .set('token',json.token1.token)
+    //         .attach('image','/home/admin1/Desktop/mrBean.jpg','mrBean.jpg')
+    //         .type('form')
+    //         .end(function (err, res) {
+    //             res.should.have.status(200)
+    //             done()
+    //         })
+    // })
 
     it('image form-data not provided', function (done) {
         chai.request(server)

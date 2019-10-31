@@ -23,6 +23,8 @@ class ServiceOperations {
                     }
                     let token = generatedToken.token(payload);
                     let Url = process.env.APPHOST + token;
+                    console.log("url to send in nodemailer- userService",Url);
+                    
                     mailer.nodeMailer(data.userName, Url);
                     resolve({ data, token, Url })
                 } else {

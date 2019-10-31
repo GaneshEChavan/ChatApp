@@ -44,7 +44,7 @@ describe("Testing for create note API",function(){
         .set('token',json.token.token)
         .send(json.fieldEmpty)
         .end(function(err,res){
-        res.should.have.status(201)
+        res.should.have.status(500)
         done()
         })
     })

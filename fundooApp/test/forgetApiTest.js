@@ -52,7 +52,7 @@ describe('Testing for forget Password API',function(){
         .post('/forgot')
         .send(json.validForForgot)
         .end(function(err,res){
-            res.should.have.status(202)
+            res.should.have.status(200)
             done()
         })
     });

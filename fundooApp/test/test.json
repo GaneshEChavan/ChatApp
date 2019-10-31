@@ -69,7 +69,7 @@
         "password":"bhushan1990"
     },
     "emptyPassword":{
-        "userName":"bhushanranjane93@gmail.com",
+        "userName":"ganeshchavan566@gmail.com",
         "password":""
     },
     "invalidEmail1":{
@@ -110,7 +110,7 @@
     "password":"ganesh1995"
     },
     "token":{
-     "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZDhkZjZkNWQzNTlkZTBlYzExMzY4MzEiLCJ1c2VyTmFtZSI6ImJodXNoYW5yYW5qYW5lOTNAZ21haWwuY29tIiwiaWF0IjoxNTcxNzQ3NjIwLCJleHAiOjE1NzE4MzQwMjB9.yes80oXMLi4OsSonz_K0hhCZxUCNro2ptgRbS_KLZCw"
+     "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZDhkZjZkNWQzNTlkZTBlYzExMzY4MzEiLCJ1c2VyTmFtZSI6ImJodXNoYW5yYW5qYW5lOTNAZ21haWwuY29tIiwiaWF0IjoxNTcyNTAxNDU1LCJleHAiOjE1NzI1ODc4NTV9.wRXUPCuyonBRShbxXN8z08ZwOXqIbNXY25oPASwvJfY"
     },
     "token1":{
      "token":""
@@ -123,11 +123,11 @@
         "description":"check for trash delete"
     },
     "deleteNote":{
-        "_id":"5daab82e3b0416374a12616d",
+        "_id":"5daab85f3b0416374a12616e",
         "isTrashed":true
     },
     "update":{
-        "_id":"5daab82e3b0416374a12616d",
+        "_id":"5daab85f3b0416374a12616e",
         "title":"changed from test cases",
         "color":"burgundy"
     },

@@ -4,7 +4,7 @@ const oAuthService = require("../service/oAuthService")
 class ControllerAuth {
     googleLogin(req, res) {
         try {
-            console.log(req.user);
+            // console.log(req.user);
 
             let responce = {};
             let googleInfo = {
@@ -34,7 +34,7 @@ class ControllerAuth {
 
     facebookLogin(req, res) {
         try {
-            console.log("controller--->196", req.user);
+            // console.log("controller--->196", req.user);
 
             let responce = {};
             let facebookInfo = {

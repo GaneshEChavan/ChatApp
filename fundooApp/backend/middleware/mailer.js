@@ -1,11 +1,13 @@
 const EventEmitter = require("events");
 const path = require("path")
 const nodemailer = require("nodemailer");
-require('dotenv').config({path: __dirname + '../.env'});
+require('dotenv').config({ path: __dirname + '../.env' });
 
 
 module.exports = {
-    nodeMailer(emailId , url) {
+    async nodeMailer(emailId, url) {
+        console.log("--------------------------------------------------------------------------------------------------->9",url);
+        
         let transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
@@ -20,12 +22,9 @@ module.exports = {
             text: `Click the following link to reset password : ${url}`
         };
 
-        transporter.sendMail(mailOptions, function (error, info) {
-            if (error) {
-                console.log("Error is----->",error);
-            } else {
-                console.log('Email sent: ' + info.response);
-            }
-        });
+        let info = await transporter.sendMail(mailOptions);
+        console.log(info.response);
+        
+        
     }
 }

@@ -15,7 +15,7 @@ class Cache {
      * @param {*next function to call} next
      */
     notes(req, res, next) {
-        const keyValue = req.decoded._id + "notes"
+        const keyValue = req.decoded._id + process.env.NOTE
         console.log("cache---->14", keyValue)
         let response = {};
         client.getOperator(keyValue).then(data => {
@@ -50,7 +50,7 @@ class Cache {
      */
     token(req, res, next) {
         let response = {};
-        const keyValue = req.body.userName + 'token'
+        const keyValue = req.body.userName + process.env.TOKEN
         client.getOperator(keyValue).then(data => {
             if (data !== null) {
                 let response = {};
@@ -77,7 +77,7 @@ class Cache {
      */
     list(req, res, next) {
         let redis = Object.keys(req.query)[0]
-        const keyValue = req.decoded._id + redis + "true"
+        const keyValue = req.decoded._id + redis + process.env.TRUE
         client.getOperator(keyValue).then(data => {
             if (data !== null) {
                 let response = {};

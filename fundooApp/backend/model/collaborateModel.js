@@ -46,6 +46,16 @@ class ModelCollaborator {
             })
         })
     }
+
+    read(query){
+        return new Promise((res,rej)=>{
+            collaborate.find(query).then(data=>{
+                  res(data)
+            }).catch(err=>{
+                  rej(err)
+            })
+        })
+    }
 }
 
 module.exports = new ModelCollaborator()

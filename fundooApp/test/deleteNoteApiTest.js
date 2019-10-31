@@ -44,7 +44,7 @@ describe("Test for delete note API",function(){
         .delete('/note')
         .set('token',json.token.token)
         .end(function(err,res){
-            res.should.have.status(200)
+            res.should.have.status(500)
             done()
         })
     })

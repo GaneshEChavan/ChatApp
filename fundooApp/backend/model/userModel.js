@@ -19,11 +19,11 @@ var Schema = mongoose.Schema(
             type: String,
             // required: true,
             trim: true,
-            // validate(value) {
-            //     if (!validator.isEmail(value)) {
-            //         throw new Error("Invalid EmailId..!")
-            //     }
-            // }
+            validate(value) {
+                if (!validator.isEmail(value)) {
+                    throw new Error("Invalid EmailId..!")
+                }
+            }
         },
         password: {
             type: String,
@@ -76,12 +76,12 @@ class ModelOperations {
                         "facebookID":userData.facebookID,
                         "facebookLogin":userData.facebookLogin
                     })
-                    console.log("model---->76",regData);
+                    // console.log("model---->76",regData);
                     regData.save((err, data) => {
                         if (err) {
                             rej(err)
                         } else {
-                            console.log("model---->76",data);
+                            // console.log("model---->76",data);
 
                             res(data)
                         }

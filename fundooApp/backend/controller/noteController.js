@@ -4,7 +4,7 @@ class ControllerNote {
     createNote(req, res) {
         let response = {};
         try {
-            // req.checkBody("",)
+            
             let noteData = {
                 userID: req.decoded._id,
                 title: req.body.title,
