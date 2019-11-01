@@ -46,6 +46,10 @@ var Schema = mongoose.Schema(
             type: Boolean,
             default: false
         },
+        collaborators: [{
+            type: String,
+            default: null
+        }],
         label: [{
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Labels'
@@ -71,6 +75,7 @@ class ModelNote {
                     "isTrashed": noteData.isTrashed,
                     "image": noteData.image,
                     "Reminder": noteData.Reminder,
+                    // "collaborators":noteData.collaborators,
                     "label": noteData.label
                 })
 
@@ -126,6 +131,8 @@ class ModelNote {
         try {
             return new Promise((res, rej) => {
                 Notes.findOneAndUpdate(query, update, { new: true }).populate('label').then((data) => {
+                   console.log("--------------------data",data);
+                   
                     res(data)
                 }).catch((err) => {
                     rej(err)

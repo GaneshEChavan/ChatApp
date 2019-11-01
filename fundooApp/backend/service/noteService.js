@@ -1,5 +1,6 @@
 const noteModel = require("../model/noteModel")
 const labelModel = require("../model/labelModel")
+const userModel = require("../model/userModel")
 
 var redis = require("redis");
 var client = redis.createClient();
@@ -9,15 +10,96 @@ client.on('error', function (err) {
 });
 
 class ServiceNote {
-    newNote(noteData) {
+    newNote(noteData, colab) {
         try {
             return new Promise((res, rej) => {
-                noteModel.createNote(noteData).then((Data) => {
-                    let user = {
-                        userID: Data.userID
+                if (colab.collaborators != undefined) {
+                    // console.log(colab.collaborators);
+                    if (colab.collaborators.length > 0) {
+                        let unique = Array.from(new Set(colab.collaborators))
+                        noteModel.createNote(noteData).then((Data) => {
+                            unique.forEach(id => {
+                                let search = { "_id": id };
+                                userModel.read(search).then(data => {
+                                    let search = { "_id": Data._id };
+                                    let update = { $addToSet: { "collaborators": id } }
+                                    noteModel.updateSingleNote(search, update).then(data => {
+                                        let user = {
+                                            userID: data.userID
+                                        }
+                                        this.userNotes(user)
+                                        res("Collaborator Added..!")
+                                    }).catch(err => {
+                                        rej(err)
+                                    })
+                                }).catch(err => {
+                                    console.log(err);
+                                })
+                            })
+                        }).catch((err) => {
+                            rej(err)
+                        })
                     }
-                    this.userNotes(user)
-                    res(Data)
+                } else {
+                    noteModel.createNote(noteData).then(data => {
+                        res(data)
+                    }).catch(err => {
+                        rej(err)
+                    })
+                }
+            })
+        } catch (err) {
+            return err
+        }
+    }
+
+    noteChanges(body) {
+        try {
+            return new Promise((res, rej) => {
+                console.log(" body in service ", body);
+
+                let noteid = { "_id": body._id }
+                noteModel.readNotes(noteid).then((data) => {
+                    console.log(" data in service ", data);
+                    let noteChanges = {
+                        "title": body.title ? body.title : data[0].title,
+                        "description": body.description ? body.description : data[0].description,
+                        "color": body.color ? body.color : data[0].color,
+                        // "collaborators":body.collaborators ? { $addToSet: { "collaborators": id } } : data[0].collaborators,
+                        "isArchive": (body.isArchive == true) ? true : false,
+                        "isPinned": (body.isPinned == true) ? true : false,
+                        "Reminder": (body.Reminder == true) ? true : false
+                    }
+                    console.log("data object in service", noteChanges);
+
+                    noteModel.updateSingleNote(noteid, noteChanges).then((Data) => {
+                        
+                        if (body.collaborators.length > 0) {
+                            let unique = Array.from(new Set(body.collaborators))
+                            unique.forEach(id => {
+                                let search = { "_id": id }
+                                userModel.read(search).then(DAta => {
+                                    let Search = { "_id": data._id };
+                                    let update = { $addToSet: { "collaborators": id } }
+                                    noteModel.updateSingleNote(Search, update).then(data => {
+                                        let User = { "userID": Data.userID, "isArchive": true }
+                                        let redis = "isArchive"
+                                        this.getList(User, redis)
+                                        let user = { "userID": Data.userID, "Reminder": true }
+                                        let Redis = "Reminder"
+                                        this.getList(user, Redis)
+                                        res("Notes updated..!")   
+                                    }).catch(err => {
+                                        rej(err)
+                                    })
+                                }).catch(err => {
+                                    console.log("error of update api in noteservice")
+                                })
+                            })
+                        }
+                    }).catch((err) => {
+                        rej(err)
+                    })
                 }).catch((err) => {
                     rej(err)
                 })
@@ -84,44 +166,7 @@ class ServiceNote {
         }
     }
 
-    noteChanges(body) {
-        try {
-            return new Promise((res, rej) => {
-                console.log(" body in service ", body);
 
-                let noteid = { "_id": body._id }
-                noteModel.readNotes(noteid).then((data) => {
-                    console.log(" data in service ", data);
-
-                    let noteChanges = {
-                        "title": body.title ? body.title : data[0].title,
-                        "description": body.description ? body.description : data[0].description,
-                        "color": body.color ? body.color : data[0].color,
-                        "isArchive": (body.isArchive == true) ? true : false,
-                        "isPinned": (body.isPinned == true) ? true : false,
-                        "Reminder": (body.Reminder == true) ? true : false
-                    }
-                    console.log("data object in service", noteChanges);
-
-                    noteModel.updateSingleNote(noteid, noteChanges).then((Data) => {
-                        let User = { "userID": Data.userID, "isArchive": true }
-                        let redis = "isArchive"
-                        this.getList(User, redis)
-                        let user = { "userID": Data.userID, "Reminder": true }
-                        let Redis = "Reminder"
-                        this.getList(user, Redis)
-                        res(Data)
-                    }).catch((err) => {
-                        rej(err)
-                    })
-                }).catch((err) => {
-                    rej(err)
-                })
-            })
-        } catch (err) {
-            return err
-        }
-    }
 
     deletePermanent(noteid) {
         try {

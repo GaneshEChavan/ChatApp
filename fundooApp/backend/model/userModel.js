@@ -171,6 +171,20 @@ class ModelOperations {
         })
     }
 
+    /**
+     *  @param {*query object to find from user table} query 
+     */
+    
+    read(query) {
+        return new Promise((res, rej) => {
+            User.findOne(query).then(data => {
+                res(data)
+            }).catch(err => {
+                rej(err)
+            })
+        })
+
+    }
    
 }
 

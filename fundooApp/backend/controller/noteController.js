@@ -11,7 +11,10 @@ class ControllerNote {
                 description: req.body.description,
                 color: req.body.color
             }
-            noteService.newNote(noteData).then((data) => {
+            let colab = {
+                collaborators : req.body.collaborators
+            }
+            noteService.newNote(noteData,colab).then((data) => {
                 response.status = true;
                 response.message = "Note Created successfully..!";
                 response.data = data;

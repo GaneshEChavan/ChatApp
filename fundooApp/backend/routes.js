@@ -115,4 +115,8 @@ routes.get('/note/search', authenticate, noteController.searchNote)
 routes.post('/collaborator',authenticate,collaborateController.addCollaborator)
 routes.post('/collaborator',authenticate,collaborateController.readCollaborator)
 
+/**
+ * @description : add collaborator to new or existing note from all users
+ */
+
 module.exports = routes
