@@ -1,3 +1,11 @@
+/*****************************************************************************************
+ *  @Purpose        : To create note controller to handle the incoming data. 
+ *  @file           : controller/noteController.js        
+ *  @author         : CHAVAN G E
+ *  @version        : v0.1
+ *  @since          : 14-10-2019
+ *****************************************************************************************/
+
 const noteService = require("../service/noteService")
 
 class ControllerNote {

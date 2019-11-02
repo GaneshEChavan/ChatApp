@@ -1,7 +1,17 @@
+/******************************************************************************
+ *  @Purpose        : To create a user schema and store data into database.
+ *  @file           : model/userModel.js        
+ *  @author         : CHAVAN G E
+ *  @version        : v0.1
+ *  @since          : 14-10-2019
+ ******************************************************************************/
+
 const mongoose = require("mongoose");
 const validator = require("validator");
 
-
+/**
+ * @description:Creating user schema using mongoose
+ **/
 
 var Schema = mongoose.Schema(
     {
@@ -54,8 +64,14 @@ var Schema = mongoose.Schema(
     { timestamps: true }
 )
 
+/**
+ * @description: defining mongoose model to save in mongoDB as User table
+ */
 let User = mongoose.model("User", Schema)
 
+/**
+ * @description: 
+ */
 class ModelOperations {
     registrationModel(userData) {
         // console.log("model--->55",userData);

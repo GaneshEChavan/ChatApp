@@ -1,3 +1,12 @@
+/******************************************************************************
+ *  @Purpose        : To create note services that will send the incoming data 
+                      to noteModel and save that data to database and at login 
+                      time fetching correct information from database.
+ *  @file           : note.services.js        
+ *  @author         : CHAVAN G E
+ *  @version        : v0.1
+ *  @since          : 14-10-2019
+ ******************************************************************************/
 const noteModel = require("../model/noteModel")
 const labelModel = require("../model/labelModel")
 const userModel = require("../model/userModel")
@@ -213,7 +222,16 @@ class ServiceNote {
 
     promiseSeries(body) {
         try {
-         
+            return new Promise((res, rej) => {
+                let Search = { "_id": body._id }
+                noteModel.readNotes(Search).then((data, cb) => {
+                    let unique = Array.from(new Set(body.collaborators))
+                    let array = []
+                    unique.forEach(id => {
+
+                    })
+                })
+            })
         } catch (err) {
 
         }

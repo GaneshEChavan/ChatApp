@@ -1,3 +1,11 @@
+/**********************************************************************************************************
+ *  @Purpose        : To provide routes to each webpage operation. 
+ *  @file           : backend/routes.js        
+ *  @author         : CHAVAN G E
+ *  @version        : v0.1
+ *  @since          : 26-09-2019
+ *********************************************************************************************************/
+
 const express = require("express");
 const routes = new express.Router();
 const controller = require("./controller/userController")

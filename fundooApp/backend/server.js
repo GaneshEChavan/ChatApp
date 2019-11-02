@@ -1,3 +1,15 @@
+/******************************************************************************
+ *  @Purpose        : To create a server to connect with front end for getting 
+                    request and sending response to client
+ *  @file           : server.js        
+ *  @author         : HITHESH G R
+ *  @version        : v0.1
+ *  @since          : 19-02-2019
+ ******************************************************************************/
+
+ /**
+  * required all the necessary files and modules
+  */
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
@@ -10,8 +22,9 @@ const passport = require("passport")
 require('dotenv').config({ path: __dirname + '/.env' })
 const logger = require("../logger/logger")
 
-console.log(`${__dirname}`);
-
+/**
+ * @description: created express app to 
+ */
 const app = express();
 
 const swaggerUi = require("swagger-ui-express");
