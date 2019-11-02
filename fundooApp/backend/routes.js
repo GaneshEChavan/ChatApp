@@ -69,6 +69,7 @@ routes.post('/note', authenticate, noteController.createNote)
  */
 routes.get('/note', authenticate, cache.notes, noteController.readNote)
 routes.delete('/note', authenticate, noteController.deleteNote)
+routes.delete('/collaborator',authenticate,noteController.removeCollaborators)
 /*
 * update all except isTrashed
 */
@@ -107,13 +108,13 @@ routes.delete('/note/deleteLabel', authenticate, noteController.deleteLabelFromN
 /*
 * search note based on title,description,reminder,color 
 */
-routes.get('/note/search', authenticate, noteController.searchNote)
+routes.post('/note/search', authenticate, noteController.searchNote)
 
 /**
  * add collaborator to note from existing users 
  */
-routes.post('/collaborator',authenticate,collaborateController.addCollaborator)
-routes.post('/collaborator',authenticate,collaborateController.readCollaborator)
+// routes.post('/collaborator',authenticate,collaborateController.addCollaborator)
+// routes.post('/collaborator',authenticate,collaborateController.readCollaborator)
 
 /**
  * @description : add collaborator to new or existing note from all users

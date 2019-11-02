@@ -98,11 +98,11 @@ class ModelNote {
                 // console.log("query in noteModel", query);
 
                 Notes.find(query).populate('label').then((data) => {
-                    console.log("data after find in model", data);
+                    // console.log("data after find in model", data);
 
                     res(data)
                 }).catch((err) => {
-                    console.log("error after ", err);
+                    // console.log("error after ", err);
 
                     rej(err)
                 })
@@ -131,7 +131,7 @@ class ModelNote {
         try {
             return new Promise((res, rej) => {
                 Notes.findOneAndUpdate(query, update, { new: true }).populate('label').then((data) => {
-                   console.log("--------------------data",data);
+                //    console.log("--------------------data",data);
                    
                     res(data)
                 }).catch((err) => {

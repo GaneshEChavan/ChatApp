@@ -61,6 +61,7 @@ class ServiceNote {
                 let noteid = { "_id": body._id }
                 noteModel.readNotes(noteid).then((data) => {
                     console.log(" data in service ", data);
+
                     let noteChanges = {
                         "title": body.title ? body.title : data[0].title,
                         "description": body.description ? body.description : data[0].description,
@@ -73,13 +74,13 @@ class ServiceNote {
                     console.log("data object in service", noteChanges);
 
                     noteModel.updateSingleNote(noteid, noteChanges).then((Data) => {
-                        
+
                         if (body.collaborators.length > 0) {
                             let unique = Array.from(new Set(body.collaborators))
                             unique.forEach(id => {
                                 let search = { "_id": id }
                                 userModel.read(search).then(DAta => {
-                                    let Search = { "_id": data._id };
+                                    let Search = { "_id": data[0]._id };
                                     let update = { $addToSet: { "collaborators": id } }
                                     noteModel.updateSingleNote(Search, update).then(data => {
                                         let User = { "userID": Data.userID, "isArchive": true }
@@ -88,7 +89,7 @@ class ServiceNote {
                                         let user = { "userID": Data.userID, "Reminder": true }
                                         let Redis = "Reminder"
                                         this.getList(user, Redis)
-                                        res("Notes updated..!")   
+                                        res("Notes updated..!")
                                     }).catch(err => {
                                         rej(err)
                                     })
@@ -132,7 +133,8 @@ class ServiceNote {
                 let search = { "_id": noteId._id }
                 let update = { "isTrashed": noteId.isTrashed }
                 noteModel.updateSingleNote(search, update).then((data) => {
-                    client.DEL(data.userID + 'notes')
+                    // client.DEL(data.userID + 'notes')
+                    console.log("noteService---->138", data);
                     let user = {
                         userID: data.userID
                     }
@@ -141,6 +143,7 @@ class ServiceNote {
                     let redis = "isTrashed"
                     this.getList(User, redis)
                     res(data)
+
                 }).catch((err) => {
                     rej(err)
                 })
@@ -166,7 +169,55 @@ class ServiceNote {
         }
     }
 
+    colaboratorRemove(body) {
+        try {
+            return new Promise((res, rej) => {
+                // console.log("body in service-->175",body);
 
+                let Search = { "_id": body._id }
+                noteModel.readNotes(Search).then(DATA => {
+                    console.log("DATA in noteservice---->179", DATA);
+
+                    let unique = Array.from(new Set(body.collaborators))
+                    unique.forEach(id => {
+                        let search = { "_id": id };
+                        userModel.read(search).then(Data => {
+                            let query = { "_id": DATA[0]._id };
+                            let update = { $pull: { "collaborators": id } }
+                            noteModel.updateSingleNote(query, update).then(DAta => {
+                                console.log("data after update in noteservice", DAta);
+
+                                let user = {
+                                    userID: DAta.userID
+                                }
+                                this.userNotes(user)
+                                let User = { "userID": DAta.userID, "isTrashed": true }
+                                let redis = "isTrashed"
+                                this.getList(User, redis)
+                                res("collaborators removed..!")
+                            }).catch(err => {
+                                rej(err)
+                            })
+                        }).catch(err => {
+                            console.log(err)
+                        })
+                    })
+                }).catch(err => {
+                    rej(err)
+                })
+            })
+        } catch (err) {
+            return err
+        }
+    }
+
+    promiseSeries(body) {
+        try {
+         
+        } catch (err) {
+
+        }
+    }
 
     deletePermanent(noteid) {
         try {
@@ -306,6 +357,7 @@ class ServiceNote {
                             [   //options i Case insensitivity to match upper and lower cases. 
                                 { 'title': { $regex: data, $options: 'i' } },
                                 { 'description': { $regex: data, $options: 'i' } },
+                                { 'collaborators': { $regex: data, $options: 'i' } },
                                 // {'label':{$in:{$regex:data}}},
                                 // { 'Reminder': { $regex: data, $options: 'i' } },
                                 { 'color': { $regex: data, $options: 'i' } }

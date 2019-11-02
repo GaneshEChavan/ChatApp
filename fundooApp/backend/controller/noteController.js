@@ -86,6 +86,30 @@ class ControllerNote {
         }
     }
 
+    removeCollaborators(req,res){
+       let response = {}
+       try{
+        //    console.log("req body",req.body);
+           
+        noteService.colaboratorRemove(req.body).then(data=>{
+            response.status = true;
+            response.message = "Successfully updated Notes...!";
+            response.data = data;
+            res.status(200).send(response)
+        }).catch(err=>{
+            response.status = false;
+            response.message = "Server Error...!";
+            response.error = err;
+            res.status(500).send(response)
+        })
+       }catch(err){
+        response.status = false;
+        response.message = "Server Error...!";
+        response.error = err;
+        res.status(500).send(response)
+       }
+    }
+
     updateNote(req, res) {
         let response = {}
         try {

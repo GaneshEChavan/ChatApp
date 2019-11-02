@@ -58,11 +58,11 @@ let User = mongoose.model("User", Schema)
 
 class ModelOperations {
     registrationModel(userData) {
-        console.log("model--->55",userData);
+        // console.log("model--->55",userData);
         
         return new Promise((res, rej) => {
             User.findOne({ "userName": userData.userName }).then(data => {
-                console.log("model---->59",data);
+                // console.log("model---->59",data);
 
                 if (data === null) {
                     var regData = new User({
@@ -102,7 +102,7 @@ class ModelOperations {
             // console.log(userInfo);
 
             let result = await User.findOne({ "userName": userInfo.userName })
-              console.log("model---->",result);
+            //   console.log("model---->",result);
 
             return new Promise((res, rej) => {
                 if (result === null) {
@@ -134,7 +134,7 @@ class ModelOperations {
         // console.log("model--->144", image);
         return new Promise((res, rej) => {
             User.findByIdAndUpdate(data._id, upload).then((Data) => {
-                console.log("model--->146", Data);
+                // console.log("model--->146", Data);
                 res(Data)
             }).catch((err) => {
                 rej(err)
@@ -153,7 +153,7 @@ class ModelOperations {
     // }
 
     searchAll(data, callback) {
-        console.log(data);
+        // console.log(data);
 
         User.findByIdAndUpdate(data._id, { "active": data.active }, (err, Data) => {
             if (err) {
@@ -178,6 +178,7 @@ class ModelOperations {
     read(query) {
         return new Promise((res, rej) => {
             User.findOne(query).then(data => {
+                console.log("read operation in usermodel",data);                
                 res(data)
             }).catch(err => {
                 rej(err)
