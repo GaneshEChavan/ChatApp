@@ -1,4 +1,4 @@
-const labelService = require("../service/labelService")
+const labelService = require("../service/label")
 
 class ControllerLabel {
     createLabel(req, res) {
@@ -86,7 +86,7 @@ class ControllerLabel {
                 labelName: req.body.labelName
             }
             labelService.labelUpdate(labelid).then((data) => {
-                console.log("data in controller after update", data);
+                // console.log("data in controller after update", data);
 
                 responce.status = true;
                 responce.message = "label updated seccessfully..!";

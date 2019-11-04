@@ -1,4 +1,4 @@
-const userService = require("../service/userService")
+const userService = require("../service/user")
 /**
 * @description:Requiring Bcrypt middleware function to create hash of the user password stored in database
 **/

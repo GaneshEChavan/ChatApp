@@ -6,9 +6,17 @@
  *  @since          : 14-10-2019
  *****************************************************************************************/
 
-const noteService = require("../service/noteService")
+const noteService = require("../service/note")
 
+/**
+ * @description: controller class to control all the incoming requests and send back response
+ */
 class ControllerNote {
+    /**
+     * @description: function to create note
+     * @param {*client request body} req 
+     * @param {*To show client his data and status code} res 
+     */
     createNote(req, res) {
         let response = {};
         try {
@@ -22,6 +30,9 @@ class ControllerNote {
             let colab = {
                 collaborators : req.body.collaborators
             }
+            /**
+             * @description : calling service to create note
+             */
             noteService.newNote(noteData,colab).then((data) => {
                 response.status = true;
                 response.message = "Note Created successfully..!";
@@ -41,6 +52,11 @@ class ControllerNote {
         }
     }
 
+    /**
+     * @description: function to read all notes
+     * @param {*client request body} req 
+     * @param {*To show client his data and status code} res 
+     */
     readNote(req, res) {
         let response = {}
         try {
@@ -66,6 +82,11 @@ class ControllerNote {
         }
     }
 
+    /**
+     * @description: function to delete specific note and add to trash
+     * @param {*client request body} req 
+     * @param {*To show client his data and status code} res 
+     */
     deleteNote(req, res) {
         let response = {}
         try {
@@ -94,6 +115,11 @@ class ControllerNote {
         }
     }
 
+    /**
+     * @description: function to remove collaborators from note
+     * @param {*client request body} req 
+     * @param {*To show client his data and status code} res 
+     */
     removeCollaborators(req,res){
        let response = {}
        try{
@@ -118,6 +144,11 @@ class ControllerNote {
        }
     }
 
+    /**
+     * @description: function to update specific note
+     * @param {*client request body} req 
+     * @param {*To show client his data and status code} res 
+     */
     updateNote(req, res) {
         let response = {}
         try {
@@ -140,6 +171,11 @@ class ControllerNote {
         }
     }
 
+    /**
+     * @description: function to delete specific note from trash
+     * @param {*client request body} req 
+     * @param {*To show client his data and status code} res 
+     */
     permanentDeleteNote(req, res) {
         let response = {}
         try {
@@ -165,6 +201,11 @@ class ControllerNote {
         }
     }
 
+    /**
+     * @description: function to delete all notes from trash in one go
+     * @param {*client request body} req 
+     * @param {*To show client his data and status code} res 
+     */
     emptyTrash(req, res) {
         let response = {}
         try {
@@ -187,6 +228,11 @@ class ControllerNote {
         }
     }
 
+    /**
+     * @description: function to restore specific note from trash
+     * @param {*client request body} req 
+     * @param {*To show client his data and status code} res 
+     */
     restoreNotes(req, res) {
         let response = {}
         try {
@@ -209,6 +255,11 @@ class ControllerNote {
         }
     }
 
+    /**
+     * @description: function to update specific label to requested note
+     * @param {*client request body} req 
+     * @param {*To show client his data and status code} res 
+     */
     updateLabelToNote(req, res) {
         let response = {}
         try {
@@ -242,7 +293,12 @@ class ControllerNote {
             res.status(400).send(response)
         }
     }
-
+ 
+    /**
+     * @description: function to delete specific label from note
+     * @param {*client request body} req 
+     * @param {*To show client his data and status code} res 
+     */
     deleteLabelFromNote(req, res) {
         let response = {};
         try {
@@ -269,6 +325,11 @@ class ControllerNote {
         }
     }
 
+    /**
+     * @description: function to respond back requested list from user
+     * @param {*client request body} req 
+     * @param {*To show client his data and status code} res 
+     */
     requestedList(req, res) {
         let response = {}
         try {
@@ -302,6 +363,11 @@ class ControllerNote {
         }
     }
 
+    /**
+     * @description: function to set reminder to the existing note
+     * @param {*client request body} req 
+     * @param {*To show client his data and status code} res 
+     */
     setReminder(req, res) {
         let response = {}
         try {
@@ -328,6 +394,11 @@ class ControllerNote {
         }
     }
 
+    /**
+     * @description: function to search specific note from all notes of user
+     * @param {*client request body} req 
+     * @param {*To show client his data and status code} res 
+     */
     searchNote(req, res) {
         let response = {}
         try {

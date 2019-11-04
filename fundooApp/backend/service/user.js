@@ -1,4 +1,4 @@
-const userModel = require("../model/userModel");
+const userModel = require("../model/user");
 const bcrypt = require("bcrypt");
 const generatedToken = require("../middleware/token")
 const mailer = require("../middleware/mailer")

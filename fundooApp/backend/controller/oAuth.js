@@ -1,4 +1,4 @@
-const oAuthService = require("../service/oAuthService")
+const oAuthService = require("../service/oAuth")
 
 
 class ControllerAuth {

@@ -1,5 +1,5 @@
-const labelModel = require("../model/labelModel");
-const noteService = require("../service/noteService")
+const labelModel = require("../model/label");
+const noteService = require("./note")
 
 class ModelLabel {
     newLabel(label) {

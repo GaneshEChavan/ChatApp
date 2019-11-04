@@ -1,4 +1,4 @@
-const collaborateModel = require("../model/collaborateModel")
+const collaborateModel = require("../model/collaborate")
 
 class ServiceCollaborate {
 

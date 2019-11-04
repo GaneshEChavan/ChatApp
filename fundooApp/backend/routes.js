@@ -8,13 +8,13 @@
 
 const express = require("express");
 const routes = new express.Router();
-const controller = require("./controller/userController")
-const noteController = require("./controller/noteController")
-const labelController = require("./controller/labelController")
-const oAuthController = require("./controller/oAuthController")
-const collaborateController = require("./controller/collaborateController")
+const controller = require("./controller/user")
+const noteController = require("./controller/note")
+const labelController = require("./controller/label")
+const oAuthController = require("./controller/oAuth")
+const collaborateController = require("./controller/collaborate")
 const authenticate = require("./middleware/authentication")
-const cache = require("./controller/cacheController")
+const cache = require("./controller/cache")
 const upload = require("./AWS_service/fileUploader")
 const passport = require("passport")
  
@@ -88,8 +88,8 @@ routes.put('/note', authenticate, noteController.updateNote)
 */
 routes.post('/label', authenticate, labelController.createLabel)
 routes.get('/label', authenticate, labelController.readLabel)
-routes.delete('/label', labelController.deleteLabel)
-routes.put('/label', labelController.updateLabel)
+routes.delete('/label',authenticate, labelController.deleteLabel)
+routes.put('/label',authenticate, labelController.updateLabel)
 /*
 * route for listing
 */

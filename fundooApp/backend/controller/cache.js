@@ -5,7 +5,7 @@
  *  @version        : v0.1
  *  @since          : 21-10-2019
  ******************************************************************************/
-const client = require("../service/cacheService")
+const client = require("../service/cache")
 
 class Cache {
     /**

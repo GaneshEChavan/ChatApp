@@ -5,7 +5,7 @@
         "userName": "ganeshchavan566@gmail.com",
         "password": "ganesh1995",
         "confirm": "ganesh1995",
-        "active":false
+        "active": false
     },
     "userExists": {
         "firstName": "Ganesh",
@@ -13,7 +13,7 @@
         "userName": "ganeshchavan566@gmail.com",
         "password": "ganesh1995",
         "confirm": "ganesh1995",
-        "active":false
+        "active": false
     },
     "emptyInput": {
         "firstName": "",
@@ -64,74 +64,88 @@
         "password": "ganesh@1995",
         "confirm": "ganesh@1995"
     },
-    "emptyEmail":{
-        "userName":"",
-        "password":"bhushan1990"
+    "emptyEmail": {
+        "userName": "",
+        "password": "bhushan1990"
     },
-    "emptyPassword":{
-        "userName":"ganeshchavan566@gmail.com",
-        "password":""
+    "emptyPassword": {
+        "userName": "ganeshchavan566@gmail.com",
+        "password": ""
     },
-    "invalidEmail1":{
-        "userName":"ganeshchavan566gmail",
-        "password":"ganesh1995"
+    "invalidEmail1": {
+        "userName": "ganeshchavan566gmail",
+        "password": "ganesh1995"
     },
-    "invalidEmail2":{
-        "userName":"ganeshchavan566@gmail",
-        "password":"ganesh1995"
+    "invalidEmail2": {
+        "userName": "ganeshchavan566@gmail",
+        "password": "ganesh1995"
     },
-    "invalidEmail3":{
-        "userName":"ganeshchavan566gmail.com",
-        "password":"ganesh1995"
+    "invalidEmail3": {
+        "userName": "ganeshchavan566gmail.com",
+        "password": "ganesh1995"
     },
-    "wrongemail1":{
-        "userName":"ganeshchavan566@gmail"
+    "wrongemail1": {
+        "userName": "ganeshchavan566@gmail"
     },
-    "wrongemail2":{
-        "userName":"ganeshchavan566gmail.com"
+    "wrongemail2": {
+        "userName": "ganeshchavan566gmail.com"
     },
-    "empty":{
-        "userName":""
+    "empty": {
+        "userName": ""
     },
-    "passwordOnly1":{
-        "password":"ganesh"
+    "passwordOnly1": {
+        "password": "ganesh"
     },
-    "passwordOnly2":{
-        "password":"1995"
+    "passwordOnly2": {
+        "password": "1995"
     },
-    "passwordOnly3":{
-        "password":"ga12"
+    "passwordOnly3": {
+        "password": "ga12"
     },
-    "passwordOnly4":{
-        "password":"ganeshchavan1234"
+    "passwordOnly4": {
+        "password": "ganeshchavan1234"
     },
-    "validForForgot":{
-    "userName":"ganeshchavan566@gmail.com",
-    "password":"ganesh1995"
+    "validForForgot": {
+        "userName": "ganeshchavan566@gmail.com",
+        "password": "ganesh1995"
     },
-    "token":{
-     "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZDhkZjZkNWQzNTlkZTBlYzExMzY4MzEiLCJ1c2VyTmFtZSI6ImJodXNoYW5yYW5qYW5lOTNAZ21haWwuY29tIiwiaWF0IjoxNTcyNTgyMzQwLCJleHAiOjE1NzI2Njg3NDB9.OIgSLNCxtSoqoQu50Zi6OeeFocvMU2dWiqz92HhVZ0Q"
+    "token": {
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZDhkZjZkNWQzNTlkZTBlYzExMzY4MzEiLCJ1c2VyTmFtZSI6ImJodXNoYW5yYW5qYW5lOTNAZ21haWwuY29tIiwiaWF0IjoxNTcyODQxNjkwLCJleHAiOjE1NzI5MjgwOTB9.KmrhVroLJkMasuQ0F_jy6uw1lYCbdxx9e_KjFhrKolo"
     },
-    "token1":{
-     "token":""
+    "token1": {
+        "token": ""
     },
-    "token2":{
-        "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZDhkZjZkNWQzNTlkZTBlYzExMzY4MzEiLCJ1c2VyTmFtZSI6ImJodXNoYW5yYW5qYW5lOTNAZ21haWwuY29tIiwiaWF0IjoxNTcxNzQ3NjIwLCJleHAiOjE1NzE4MzQwMjB9.yes80oXMLi4OsSonz_K0hhCZxUCNro2ptgRbS_KLZC"
+    "token2": {
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZDhkZjZkNWQzNTlkZTBlYzExMzY4MzEiLCJ1c2VyTmFtZSI6ImJodXNoYW5yYW5qYW5lOTNAZ21haWwuY29tIiwiaWF0IjoxNTcyODQxNjkwLCJleHAiOjE1NzI5MjgwOTB9.KmrhVroLJkMasuQ0F_jy6uw1lYCbdxx9e_KjFhrKol"
     },
-    "noteInfo":{
-        "title":"saved for same user",
-        "description":"check for trash delete"
+    "noteInfo": {
+        "title": "saved for same user",
+        "description": "check for trash delete"
     },
-    "deleteNote":{
-        "_id":"5daab85f3b0416374a12616e",
-        "isTrashed":true
+    "deleteNote": {
+        "_id": "5daab85f3b0416374a12616e",
+        "isTrashed": true
     },
-    "update":{
-        "_id":"5daab85f3b0416374a12616e",
-        "title":"changed from test cases",
-        "color":"burgundy"
+    "update": {
+        "_id": "5daab85f3b0416374a12616e",
+        "title": "changed from test cases",
+        "color": "burgundy"
     },
-    "label":{
-      "labelName":"from test cases"
+    "label": {
+        "labelName": "label created by test cases"
+    },
+    "labelid": {
+        "_id": "5dbfae1f926e0b264baf8f85"
+    },
+    "wronglabelid": {
+        "_id": "5dbfae1f926e0b264baf8f8"
+    },
+    "updateLabel": {
+        "_id": "5dbfae1a926e0b264baf8f84",
+        "labelName": "changes made from test case"
+    },
+    "wrongUpdateLabel": {
+        "_id": "5dbfae1a926e0b264baf8f8",
+        "labelName": "changes made from test case"
     }
 }

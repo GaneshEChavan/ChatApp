@@ -7,6 +7,8 @@
  ******************************************************************************/
 
 const mongoose = require("mongoose");
+var cron = require("node-cron");
+const logger = require("../../logger/logger")
 /**
  * @description:Creating note schema using mongoose
  **/
@@ -18,7 +20,7 @@ var Schema = mongoose.Schema(
         },
         title: {
             type: String,
-            required : true
+            required: true
         },
         description: {
             type: String,
@@ -58,10 +60,21 @@ var Schema = mongoose.Schema(
     { timestamps: true }
 )
 
+/**
+* @description: creating mongoose model to make notes table in DataBase
+*/
+
 let Notes = mongoose.model("Notes", Schema)
 
+/**
+* @description: created class to wrap CRUD operations for notes 
+*/
 
 class ModelNote {
+    /**
+    * @description: create operation for note
+    * @param {*contains note information to be stores in DB} noteData 
+    */
     createNote(noteData) {
         try {
             return new Promise((res, rej) => {
@@ -75,10 +88,11 @@ class ModelNote {
                     "isTrashed": noteData.isTrashed,
                     "image": noteData.image,
                     "Reminder": noteData.Reminder,
-                    // "collaborators":noteData.collaborators,
                     "label": noteData.label
                 })
-
+                /**
+                * @description: saves new generated note schema to DB
+                */
                 note.save((err, data) => {
                     if (err) {
                         rej(err)
@@ -92,18 +106,20 @@ class ModelNote {
         }
     }
 
+    /**
+    * @description: function to read all notes  
+    * @param {*contains note id} query 
+    */
     readNotes(query) {
         try {
             return new Promise((res, rej) => {
-                // console.log("query in noteModel", query);
-
+                /**
+                * @description: check for user is already exists, if yes then rejected else created
+                * @method: takes an object to find a entry in database
+                */
                 Notes.find(query).populate('label').then((data) => {
-                    // console.log("data after find in model", data);
-
                     res(data)
                 }).catch((err) => {
-                    // console.log("error after ", err);
-
                     rej(err)
                 })
             })
@@ -113,6 +129,11 @@ class ModelNote {
 
     }
 
+    /**
+    * @description: function to read all notes  
+    * @param {*contains note id} query
+    * @param {*contains data to be updated}update
+    */
     updateNote(query, update) {
         try {
             return new Promise((res, rej) => {
@@ -127,12 +148,15 @@ class ModelNote {
         }
     }
 
+    /**
+    * @description: function to update a notes  
+    * @param {*contains note id} query
+    * @param {*contains data to be updated}update
+    */
     updateSingleNote(query, update) {
         try {
             return new Promise((res, rej) => {
                 Notes.findOneAndUpdate(query, update, { new: true }).populate('label').then((data) => {
-                //    console.log("--------------------data",data);
-                   
                     res(data)
                 }).catch((err) => {
                     rej(err)
@@ -143,6 +167,10 @@ class ModelNote {
         }
     }
 
+    /**
+    * @description: function to delete a notes  
+    * @param {*contains note id} note
+    */
     permanentDelete(note) {
         try {
             return new Promise((res, rej) => {
@@ -157,6 +185,10 @@ class ModelNote {
         }
     }
 
+    /**
+    * @description: function to delete all notes from trash  
+    * @param {*contains note id} trash
+    */
     deletetrash(trash) {
         try {
             return new Promise((res, rej) => {
@@ -170,6 +202,37 @@ class ModelNote {
             return err
         }
     }
+
+    /**
+    * @description: schedular function to work for every 45 seconds 
+    */
+    schedular() {
+        cron.schedule('*/45 * * * * *', () => {
+            this.readNotes({}).then(data => {
+                data.forEach(note => {
+
+                    /**
+                    * @description: logic for calculating the difference between current and last updated date
+                    */
+
+                    let date1 = new Date(note.updatedAt);
+                    let date2 = new Date();
+                    let Difference_In_Time = date2.getTime() - date1.getTime();
+                    let Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24)
+
+                    /**
+                    * @description: turnery operator to update note if difference is above 30 days
+                    */
+
+                    Difference_In_Days > 30 ? this.updateSingleNote({ "_id": note._id }, { "isArchive": true }) : new Error("Something went wrong..!")
+                });
+            }).catch(err => {
+                logger.info('ERROR in Schedular', err);
+            })
+            // console.log('running a task every 45 second');
+        });
+    }
 }
 
+new ModelNote().schedular()
 module.exports = new ModelNote()

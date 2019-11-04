@@ -1,4 +1,4 @@
-const collaborateService = require("../service/collaborateService");
+const collaborateService = require("../service/collaborate");
 
 class ControlCollaborate{
     addCollaborator (req,res){

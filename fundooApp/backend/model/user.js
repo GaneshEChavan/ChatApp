@@ -67,19 +67,31 @@ var Schema = mongoose.Schema(
 /**
  * @description: defining mongoose model to save in mongoDB as User table
  */
-let User = mongoose.model("User", Schema)
+
+ let User = mongoose.model("User", Schema)
 
 /**
- * @description: 
+ * @description: created class to wrap CRUD operations
  */
-class ModelOperations {
-    registrationModel(userData) {
-        // console.log("model--->55",userData);
-        
-        return new Promise((res, rej) => {
-            User.findOne({ "userName": userData.userName }).then(data => {
-                // console.log("model---->59",data);
 
+ class ModelOperations {
+    /**
+     * @description: function to create and save user in database
+     * @param {*contains user info} userData 
+     */
+
+     registrationModel(userData) {
+        /**
+         * @description: handled the create operation using promise
+         */
+
+         return new Promise((res, rej) => {
+            /**
+             * @description: check for user is already exists, if yes then rejected else created
+             * @method: takes an object to find a entry in database
+             */
+
+             User.findOne({ "userName": userData.userName }).then(data => {
                 if (data === null) {
                     var regData = new User({
                         "firstName": userData.firstName,
@@ -92,13 +104,13 @@ class ModelOperations {
                         "facebookID":userData.facebookID,
                         "facebookLogin":userData.facebookLogin
                     })
-                    // console.log("model---->76",regData);
+                    /**
+                     * @description: saves new generated user schema to DB
+                     */
                     regData.save((err, data) => {
                         if (err) {
                             rej(err)
                         } else {
-                            // console.log("model---->76",data);
-
                             res(data)
                         }
                     })
@@ -113,18 +125,18 @@ class ModelOperations {
         })
     }
 
+    /**
+     * @description: function to check and verify that requsted user is already generated and authenticate 
+     * @param {*contains user email and password} userInfo 
+     */
+
     logInModel = async (userInfo) => {
         try {
-            // console.log(userInfo);
-
             let result = await User.findOne({ "userName": userInfo.userName })
-            //   console.log("model---->",result);
-
             return new Promise((res, rej) => {
                 if (result === null) {
                     rej({ message: "User is not registered ..!" })
                 } else if (result.active === true || result.googleLogin === true || result.facebookLogin === true) {
-                    // console.log("model---->81",result);
                     res(result)
                 } else {
                     rej({ message: "User is not registered ..!" })
@@ -134,6 +146,11 @@ class ModelOperations {
             return err
         }
     }
+
+    /**
+     * @description: function to verify that requsted user while forgot password 
+     * @param {*contains user email} varify 
+     */
 
     varifyEmailModel(varify) {
         return new Promise((res, rej) => {
@@ -146,11 +163,16 @@ class ModelOperations {
 
     }
 
+
+    /**
+     * @description: function to find user by its unique id and update info 
+     * @param {*contains user email and password} data
+     * @param {*contains upload information} upload 
+     */
+
     updateToDb(data,upload) {
-        // console.log("model--->144", image);
         return new Promise((res, rej) => {
             User.findByIdAndUpdate(data._id, upload).then((Data) => {
-                // console.log("model--->146", Data);
                 res(Data)
             }).catch((err) => {
                 rej(err)
@@ -158,24 +180,17 @@ class ModelOperations {
         })
     }
 
-    // setPassword(idPassword, callback) {
-    //     User.findByIdAndUpdate(idPassword._id, { "password": idPassword.password }, (err, data) => {
-    //         if (err) {
-    //             callback({ message: "password not set.." })
-    //         } else {
-    //             callback(null, { message: "Password set !", data: data })
-    //         }
-    //     })
-    // }
+     /**
+     * @description: function to find all users done using callback  
+     * @param {*contains empty object} data
+     * @param {*callback function} callback  
+     */
 
     searchAll(data, callback) {
-        // console.log(data);
-
         User.findByIdAndUpdate(data._id, { "active": data.active }, (err, Data) => {
             if (err) {
                 callback({ message: "Unable to register.." })
             } else {
-                // console.log("model---->128",Data);
                 User.find({}, (err, data) => {
                     if (err) {
                         callback({ message: "Data not found...!" })
@@ -193,8 +208,7 @@ class ModelOperations {
     
     read(query) {
         return new Promise((res, rej) => {
-            User.findOne(query).then(data => {
-                console.log("read operation in usermodel",data);                
+            User.findOne(query).then(data => {               
                 res(data)
             }).catch(err => {
                 rej(err)

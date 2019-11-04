@@ -2,13 +2,13 @@
  *  @Purpose        : To create a server to connect with front end for getting 
                     request and sending response to client
  *  @file           : server.js        
- *  @author         : HITHESH G R
+ *  @author         : CHAVAN G E
  *  @version        : v0.1
- *  @since          : 19-02-2019
+ *  @since          : 26-09-2019
  ******************************************************************************/
 
  /**
-  * required all the necessary files and modules
+  * @description:required all the necessary files and modules
   */
 const express = require("express");
 const mongoose = require("mongoose");
@@ -102,6 +102,8 @@ app.listen(process.env.PORT, () => {
   mongo()
 });
 
+let currDate = new Date();
+console.log(currDate);
 
 module.exports = app;
 

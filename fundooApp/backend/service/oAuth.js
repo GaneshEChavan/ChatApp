@@ -1,4 +1,4 @@
-const oAuthModel = require("../model/userModel")
+const oAuthModel = require("../model/user")
 const generatedToken = require("../middleware/token")
 
 class ServiceAuth {
