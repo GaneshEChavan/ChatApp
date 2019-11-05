@@ -19,7 +19,7 @@ var redis = require("redis");
 var client = redis.createClient();
 
 client.on('error', function (err) {
-    console.log('Something went wrong ', err)
+    logger.error('Something went wrong ', err) //<----------
 });
 
 /**
@@ -35,13 +35,16 @@ class ServiceNote {
         try {
             return new Promise((res, rej) => {
                 if (colab.collaborators != undefined) {
-                    // console.log(colab.collaborators);
                     if (colab.collaborators.length > 0) {
                         /**
-                        * @description: creates array of unique values of collaborator ID's 
+                        * @description: creates array of unique values of collaborator ID's
+                        * @param {*contains array of collaborator ID's} colab.collaborators 
                         */
                         let unique = Array.from(new Set(colab.collaborators))
                         noteModel.createNote(noteData).then((Data) => {
+                            /**
+                             * @description: check for each id should exists or not if yes then add to colaborator else continue 
+                             */
                             unique.forEach(id => {
                                 let search = { "_id": id };
                                 userModel.read(search).then(data => {
@@ -416,8 +419,9 @@ class ServiceNote {
     reminder(reminder) {
         try {
             return new Promise((res, rej) => {
+                let dateobj = new Date(reminder.RemindTime).toISOString();
                 let note = { "_id": reminder._id }
-                let upload = { "Reminder": reminder.Reminder }
+                let upload = { "Reminder": reminder.Reminder,"RemindTime": dateobj }
                 noteModel.updateSingleNote(note, upload).then((data) => {
                     res(data)
                 }).catch((err) => {
@@ -435,6 +439,8 @@ class ServiceNote {
      */
     noteSearch(req) {
         try {
+            console.log("sssssssssssssssssss",req.body);
+            
             return new Promise((res, rej) => {
                 let data = req.body.search;
                 let userID = req.decoded._id
@@ -455,13 +461,14 @@ class ServiceNote {
                                 { 'description': { $regex: data, $options: 'i' } },
                                 { 'collaborators': { $regex: data, $options: 'i' } },
                                 // {'label':{$in:{$regex:data}}},
-                                // { 'Reminder': { $regex: data, $options: 'i' } },
                                 { 'color': { $regex: data, $options: 'i' } }
                             ]
                     }, { 'userID': userID }]
                 }
 
                 noteModel.readNotes(findQuery).then(data => {
+                    console.log("llllllllllllllllllllllllllllll",data);
+                    
                     res(data)
                 }).catch(err => {
                     rej(err)

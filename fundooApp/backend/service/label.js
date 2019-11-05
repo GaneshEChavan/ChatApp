@@ -1,3 +1,12 @@
+/***********************************************************************************************************
+ *  @Purpose        : To create label services that will perform logical operations on request body and 
+ *                    send the incoming data to label Model  
+ *  @file           : service/label.js        
+ *  @author         : CHAVAN G E
+ *  @version        : v0.1
+ *  @since          : 15-10-2019
+ ************************************************************************************************************/
+
 const labelModel = require("../model/label");
 const noteService = require("./note")
 

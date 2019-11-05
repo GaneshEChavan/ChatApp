@@ -1,3 +1,10 @@
+/*****************************************************************************************
+ *  @Purpose        : To create user controller to handle the incoming data. 
+ *  @file           : controller/user.js        
+ *  @author         : CHAVAN G E
+ *  @version        : v0.1
+ *  @since          : 14-10-2019
+ *****************************************************************************************/
 const userService = require("../service/user")
 /**
 * @description:Requiring Bcrypt middleware function to create hash of the user password stored in database
@@ -8,9 +15,9 @@ class ControllerMethods {
     register(req, res) {
         let responseResult = {};
         try {
-/**
-* @description : checking the request body for validation using express-validator
-**/            
+            /**
+            * @description : checking the request body for validation using express-validator
+            **/
             req.checkBody("firstName", "must be valid").notEmpty().isAlpha();
 
             req.checkBody("lastName", "must be valid").notEmpty().isAlpha();
@@ -36,7 +43,6 @@ class ControllerMethods {
                     password: bcrypt(req.body.password),
                     active: false
                 }
-                //  console.log("controller--->33",userData);
 
                 userService.registrationService(userData).then(data => {
                     responseResult.status = true;
@@ -72,7 +78,6 @@ class ControllerMethods {
                     password: req.body.password
                 }
                 let result = await userService.logInService(userInfo)
-                // console.log("control--->", result);
                 if (result.message === 'User is not registered ..!') {
                     return res.status(404).send(result.message)
                 } else {
@@ -80,18 +85,16 @@ class ControllerMethods {
                 }
             }
         } catch (err) {
-            // console.log("controller--->59", err);
-
             return res.status(404).send(err)
         }
     }
 
     forget(req, res) {
-       let response = {}
-        try{
+        let response = {}
+        try {
             req.checkBody("userName", "userName must be valid").notEmpty().isEmail();
             let errors = req.validationErrors();
-          
+
             if (errors) {
                 response.status = false;
                 response.message = "Something went wrong..!"
@@ -111,16 +114,16 @@ class ControllerMethods {
                     response.message = "Something went wrong..!"
                     response.error = err;
                     return res.status(400).send(err)
-                })         
+                })
             }
 
-       } catch(err){
-        response.status = false;
-        response.message = "Something went wrong..!"
-        response.error = err;
-        return res.status(400).send(err) 
-    }
-      
+        } catch (err) {
+            response.status = false;
+            response.message = "Something went wrong..!"
+            response.error = err;
+            return res.status(400).send(err)
+        }
+
     }
 
     reset(req, res) {
@@ -169,7 +172,6 @@ class ControllerMethods {
             userName: req.decoded.userName,
             active: req.decoded.active
         }
-        console.log("usercontrol--->109", data)
         userService.getAllUsers(data, (err, data) => {
             if (err) {
                 return res.status(400).send(err)
@@ -180,7 +182,6 @@ class ControllerMethods {
     }
 
     imgUpload(req, res) {
-        console.log("usercontroller----->145", req.file);
 
         try {
             if (!req.decoded._id) {
@@ -192,7 +193,6 @@ class ControllerMethods {
                 _id: req.decoded._id,
                 imageUrl: req.file.location
             }
-            console.log("usercontroller---->151", image);
 
             userService.imageUpload(image).then((data) => {
                 return res.status(200).send(data)

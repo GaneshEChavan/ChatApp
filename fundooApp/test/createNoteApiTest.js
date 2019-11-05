@@ -7,15 +7,15 @@ chai.use(chaiHttp);
 chai.should();
 
 describe("Testing for create note API",function(){
-    // it("test for token in header",function(done){
-    //     chai.request(server)
-    //     .post('/note')
-    //     .set('token',json.token.token)
-    //     .end(function(err,res){
-    //     res.should.have.status(201)
-    //     done()
-    //     })
-    // })
+    it("test for token in header",function(done){
+        chai.request(server)
+        .post('/note')
+        .set('token',json.token.token)
+        .end(function(err,res){
+        res.should.have.status(201)
+        done()
+        })
+    })
 
     it("test for no token in header",function(done){
         chai.request(server)

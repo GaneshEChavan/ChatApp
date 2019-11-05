@@ -1,6 +1,6 @@
 /******************************************************************************
  *  @Purpose        : To create controller to handle the data from redis-cache. 
- *  @file           : controller/cacheController.js        
+ *  @file           : controller/cache.js        
  *  @author         : CHAVAN G E
  *  @version        : v0.1
  *  @since          : 21-10-2019
@@ -11,8 +11,8 @@ class Cache {
     /**
      * @description : It handles the all notes of requested user
      * @param {*request from frontend} req 
-     * @param {*response from backend} res 
-     * @param {*next function to call} next
+     * @param {*response from redis-cache} res 
+     * @param {*next function to call if no redis-cache found} next
      */
     notes(req, res, next) {
         const keyValue = req.decoded._id + process.env.NOTE

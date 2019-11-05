@@ -1,3 +1,12 @@
+/***********************************************************************************************************
+ *  @Purpose        : To create user services that will perform logical operations on request body and 
+ *                    send the incoming data to user Model  
+ *  @file           : service/user.js        
+ *  @author         : CHAVAN G E
+ *  @version        : v0.1
+ *  @since          : 15-10-2019
+ ************************************************************************************************************/
+
 const userModel = require("../model/user");
 const bcrypt = require("bcrypt");
 const generatedToken = require("../middleware/token")

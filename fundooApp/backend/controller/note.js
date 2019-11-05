@@ -18,6 +18,8 @@ class ControllerNote {
      * @param {*To show client his data and status code} res 
      */
     createNote(req, res) {
+        console.log("klkjlkjkjh",req.body);
+        
         let response = {};
         try {
             
@@ -373,7 +375,8 @@ class ControllerNote {
         try {
             let reminder = {
                 _id: req.body._id,
-                Reminder: req.body.Reminder
+                Reminder: req.body.Reminder,
+                RemindTime: req.body.RemindTime
             }
             noteService.reminder(reminder).then((data) => {
                 response.status = true;
@@ -399,10 +402,14 @@ class ControllerNote {
      * @param {*client request body} req 
      * @param {*To show client his data and status code} res 
      */
-    searchNote(req, res) {
+    
+     searchNote(req, res) {
         let response = {}
+        console.log("req body",req.body)
         try {
             noteService.noteSearch(req).then(data => {
+                console.log("kkkkkkkkkkkkkkkkkkkkkkkkkkk",data);
+                
                 response.status = true;
                 response.message = "Searched note..!";
                 response.data = data

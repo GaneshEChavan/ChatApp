@@ -48,6 +48,10 @@ var Schema = mongoose.Schema(
             type: Boolean,
             default: false
         },
+        RemindTime:{
+            type:String,
+            default:null
+        },
         collaborators: [{
             type: String,
             default: null
@@ -116,7 +120,7 @@ class ModelNote {
                 /**
                 * @description: check for user is already exists, if yes then rejected else created
                 * @method: takes an object to find a entry in database
-                */
+                */               
                 Notes.find(query).populate('label').then((data) => {
                     res(data)
                 }).catch((err) => {
@@ -206,8 +210,8 @@ class ModelNote {
     /**
     * @description: schedular function to work for every 45 seconds 
     */
-    schedular() {
-        cron.schedule('*/45 * * * * *', () => {
+    oldNoteSchedular() {
+        cron.schedule('* * * * *', () => {
             this.readNotes({}).then(data => {
                 data.forEach(note => {
 
@@ -232,7 +236,22 @@ class ModelNote {
             // console.log('running a task every 45 second');
         });
     }
+
+    /**
+     * @description: schedular function to work for every seconds
+     */
+    // remindSchedular(){
+    //     cron.schedule('* * * * * *',()=>{
+    //         this.readNotes({}).then(data=>{
+
+    //         }).catch(err=>{
+
+    //         })
+    //     })
+    // }
+
 }
 
-new ModelNote().schedular()
+let schedule = new ModelNote();
+schedule.oldNoteSchedular();
 module.exports = new ModelNote()

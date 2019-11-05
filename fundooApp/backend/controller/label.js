@@ -1,3 +1,11 @@
+/*****************************************************************************************
+ *  @Purpose        : To create label controller to handle the incoming data. 
+ *  @file           : controller/label.js        
+ *  @author         : CHAVAN G E
+ *  @version        : v0.1
+ *  @since          : 15-10-2019
+ *****************************************************************************************/
+
 const labelService = require("../service/label")
 
 class ControllerLabel {
