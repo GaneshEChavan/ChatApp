@@ -439,8 +439,6 @@ class ServiceNote {
      */
     noteSearch(req) {
         try {
-            console.log("sssssssssssssssssss",req.body);
-            
             return new Promise((res, rej) => {
                 let data = req.body.search;
                 let userID = req.decoded._id
@@ -467,8 +465,6 @@ class ServiceNote {
                 }
 
                 noteModel.readNotes(findQuery).then(data => {
-                    console.log("llllllllllllllllllllllllllllll",data);
-                    
                     res(data)
                 }).catch(err => {
                     rej(err)

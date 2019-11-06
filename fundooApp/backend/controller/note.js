@@ -7,18 +7,22 @@
  *****************************************************************************************/
 
 const noteService = require("../service/note")
+const logger = require("../../logger/logger")
 
 /**
- * @description: controller class to control all the incoming requests and send back response
+ * @description: controller class to control all the incoming requests and send back response to client consist control functions for
+ *               creating new note, read all notes, update note, delete note, add and remove collaborators, for listing of archive,
+ *               trashed and reminder notes.
  */
 class ControllerNote {
     /**
-     * @description: function to create note
-     * @param {*client request body} req 
+     * @description: function to create new note creating noteData object to pass to service, contains keys userID taken from decoded auth token
+     *               and title, description, color from req body in which title is required always other are optional also colab object consist array
+     *               of userID's.
+     * @param {*client request body, should contain title compulsory} req 
      * @param {*To show client his data and status code} res 
      */
     createNote(req, res) {
-        console.log("klkjlkjkjh",req.body);
         
         let response = {};
         try {
@@ -33,7 +37,7 @@ class ControllerNote {
                 collaborators : req.body.collaborators
             }
             /**
-             * @description : calling service to create note
+             * @description : passing note and collaborator data to note function in service  
              */
             noteService.newNote(noteData,colab).then((data) => {
                 response.status = true;
@@ -41,45 +45,52 @@ class ControllerNote {
                 response.data = data;
                 res.status(201).send(response)
             }).catch((err) => {
+                logger.error(err)
                 response.status = false;
                 response.message = "Unable to create note..!";
-                response.error = err;
                 res.status(500).send(response)
             })
         } catch (err) {
+            logger.error(err)
             response.status = false;
             response.message = "Something went wrong";
-            response.error = err;
             res.status(400).send(response)
         }
     }
 
     /**
-     * @description: function to read all notes
-     * @param {*client request body} req 
+     * @description: function to read all notes of specific user. For that the userID was taken by decode auth token if token is not 
+     *               provided then it will throw error
+     * @param {*client request body contains only userID} req 
      * @param {*To show client his data and status code} res 
      */
     readNote(req, res) {
         let response = {}
+        /**
+         * @description: used try catch block for exception handling
+         */
         try {
             let user = {
                 userID: req.decoded._id
             }
+            /**
+             * @description: passing userID to service file to do logical operations.
+             */
             noteService.userNotes(user).then((data) => {
                 response.status = true;
                 response.message = "showing all notes of user...!";
                 response.data = data;
                 res.status(202).send(response)
             }).catch((err) => {
+                logger.error(err)
                 response.status = false;
-                response.message = "Server Error";
-                response.error = err;
+                response.message = "Server Error"
                 res.status(500).send(response)
             })
         } catch (error) {
+            logger.error(err)
             response.status = false;
-            response.message = "Something Went Wrong..!";
-            response.error;
+            response.message = "Something Went Wrong..!"
             res.status(400).send(response)
         }
     }
@@ -104,15 +115,15 @@ class ControllerNote {
                 response.data = data;
                 res.status(200).send(response)
             }).catch((err) => {
+                logger.error(err)
                 response.status = false;
                 response.message = "unable to delete note...!";
-                response.error = err;
                 res.status(500).send(response)
             })
         } catch (err) {
+            logger.error(err)
             response.status = false;
-            response.message = "Something Went Wrong..!";
-            response.error = err;
+            response.message = "Something Went Wrong..!"
             res.status(400).send(response)
         }
     }
@@ -133,15 +144,15 @@ class ControllerNote {
             response.data = data;
             res.status(200).send(response)
         }).catch(err=>{
+            logger.error(err)
             response.status = false;
             response.message = "Server Error...!";
-            response.error = err;
             res.status(500).send(response)
         })
        }catch(err){
+        logger.error(err)
         response.status = false;
         response.message = "Server Error...!";
-        response.error = err;
         res.status(500).send(response)
        }
     }
@@ -160,15 +171,15 @@ class ControllerNote {
                 response.data = data;
                 res.status(202).send(response)
             }).catch((err) => {
+                logger.error(err)
                 response.status = false;
                 response.message = "Server error...!";
-                response.error = err;
                 res.status(500).send(response)
             })
         } catch (err) {
+            logger.error(err)
             response.status = false;
             response.message = "Something Went Wrong..!";
-            response.error = err;
             res.status(400).send(response)
         }
     }
@@ -190,15 +201,15 @@ class ControllerNote {
                 response.data = data;
                 res.status(200).send(response)
             }).catch((err) => {
+                logger.error(err)
                 response.status = false;
                 response.message = "Server error...!";
-                response.error = err;
                 res.status(500).send(response)
             })
         } catch (err) {
+            logger.error(err)
             response.status = false;
             response.message = "Something Went Wrong..!";
-            response.error = err;
             res.status(400).send(response)
         }
     }
@@ -217,15 +228,15 @@ class ControllerNote {
                 response.data = data;
                 res.status(200).send(response)
             }).catch((err) => {
+                logger.error(err)
                 response.status = false;
                 response.message = "Server error...!";
-                response.error = err;
                 res.status(500).send(response)
             })
         } catch (err) {
+            logger.error(err)
             response.status = false;
             response.message = "Something Went Wrong..!";
-            response.error = err;
             res.status(400).send(response)
         }
     }
@@ -244,15 +255,15 @@ class ControllerNote {
                 response.data = data;
                 res.status(200).send(response)
             }).catch((err) => {
+                logger.error(err)
                 response.status = false;
                 response.message = "Server error...!";
-                response.error = err;
                 res.status(500).send(response)
             })
         } catch (err) {
+            logger.error(err)
             response.status = false;
             response.message = "Something Went Wrong..!";
-            response.error = err;
             res.status(400).send(response)
         }
     }
@@ -272,26 +283,20 @@ class ControllerNote {
                 labelID: req.body.labelID
             }
             noteService.addLabelToNote(updateLabel).then((data) => {
-                // console.log("data in notecontroller", data);
-
                 response.status = true;
                 response.message = "label added to note";
                 response.data = data
                 res.status(200).send(response)
             }).catch((err) => {
-                // console.log("error in notecontroller", err);
-
+                logger.error(err)
                 response.status = false;
                 response.message = "Server Error..!";
-                response.error = err;
                 res.status(500).send(response)
             })
         } catch (err) {
-            // console.log("error in catch ", err);
-
+            logger.error(err)
             response.status = false;
             response.message = "Something Went Wrong..!";
-            response.error = err;
             res.status(400).send(response)
         }
     }
@@ -314,15 +319,15 @@ class ControllerNote {
                 response.data = data
                 res.status(200).send(response)
             }).catch((err) => {
+                logger.error(err)
                 response.status = false;
                 response.message = "Server Error..!";
-                response.error = err;
                 res.status(500).send(response)
             })
         } catch (err) {
+            logger.error(err)
             response.status = false;
             response.message = "Something Went Wrong..!";
-            response.error = err;
             res.status(400).send(response)
         }
     }
@@ -348,9 +353,9 @@ class ControllerNote {
                     response.data = data
                     res.status(200).send(response)
                 }).catch((err) => {
+                    logger.error(err)
                     response.status = false;
                     response.message = "Unable to get requested list";
-                    response.error = err
                     res.status(500).send(response)
                 })
             } else {
@@ -358,9 +363,9 @@ class ControllerNote {
             }
 
         } catch (err) {
+            logger.error(err)
             response.status = false;
             response.message = "Something Went Wrong..!";
-            response.error = err;
             res.status(400).send(response)
         }
     }
@@ -384,15 +389,15 @@ class ControllerNote {
                 response.data = data
                 res.status(200).send(response)
             }).catch((err) => {
+                logger.error(err)
                 response.status = false;
                 response.message = "Server Error..!";
-                response.error = err
                 res.status(500).send(response)
             })
         } catch (err) {
+            logger.error(err)
             response.status = false;
             response.message = "Server Error..!";
-            response.error = err
             res.status(500).send(response)
         }
     }
@@ -405,24 +410,21 @@ class ControllerNote {
     
      searchNote(req, res) {
         let response = {}
-        console.log("req body",req.body)
         try {
             noteService.noteSearch(req).then(data => {
-                console.log("kkkkkkkkkkkkkkkkkkkkkkkkkkk",data);
-                
                 response.status = true;
                 response.message = "Searched note..!";
                 response.data = data
                 res.status(200).send(response)
             }).catch(error => {
+                logger.error(err)
                 response.status = false;
                 response.message = "Server Error..!";
-                response.error = error
             })
         } catch (err) {
+            logger.error(err)
             response.status = false;
             response.message = "Server Error..!";
-            response.error = err;
             res.status(500).send(response)
 
         }

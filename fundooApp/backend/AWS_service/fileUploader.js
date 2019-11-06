@@ -13,9 +13,9 @@ var s3 = new aws.S3()
 
 const fileFilter = (req, file, callback) => {
     if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/jpg') {
-        callback(null, true)
+       return callback(null, true)
     } else {
-        callback(new Error("invalid MimeType, only jpeg or jpg"), false)
+       return callback(new Error("invalid MimeType, only jpeg or jpg"), false)
     }
 }
 
@@ -26,7 +26,7 @@ var upload = multer({
         bucket: 'profile-pictures-2',
         // acl: 'public-read',
         key: function (req, file, callback) {
-            callback(null,file.originalname)
+           return callback(null,file.originalname)
         }
     })
 })

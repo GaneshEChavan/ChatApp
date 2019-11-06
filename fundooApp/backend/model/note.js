@@ -7,12 +7,12 @@
  ******************************************************************************/
 
 const mongoose = require("mongoose");
-var cron = require("node-cron");
+let cron = require("node-cron");
 const logger = require("../../logger/logger")
 /**
  * @description:Creating note schema using mongoose
  **/
-var Schema = mongoose.Schema(
+let Schema = mongoose.Schema(
     {
         userID: {
             type: String,
@@ -20,13 +20,16 @@ var Schema = mongoose.Schema(
         },
         title: {
             type: String,
-            required: true
+            required: true,
+            trim: true
         },
         description: {
             type: String,
+            trim: true
         },
         color: {
-            type: String
+            type: String,
+            trim: true
         },
         isArchive: {
             type: Boolean,
@@ -48,9 +51,9 @@ var Schema = mongoose.Schema(
             type: Boolean,
             default: false
         },
-        RemindTime:{
-            type:String,
-            default:null
+        RemindTime: {
+            type: String,
+            default: null
         },
         collaborators: [{
             type: String,
@@ -61,7 +64,8 @@ var Schema = mongoose.Schema(
             ref: 'Labels'
         }]
     },
-    { timestamps: true }
+    { timestamps: true },
+    { strict: true }
 )
 
 /**
@@ -81,30 +85,22 @@ class ModelNote {
     */
     createNote(noteData) {
         try {
-            return new Promise((res, rej) => {
-                let note = new Notes({
-                    "userID": noteData.userID,
-                    "title": noteData.title,
-                    "description": noteData.description,
-                    "color": noteData.color,
-                    "isArchive": noteData.isArchive,
-                    "isPinned": noteData.isPinned,
-                    "isTrashed": noteData.isTrashed,
-                    "image": noteData.image,
-                    "Reminder": noteData.Reminder,
-                    "label": noteData.label
-                })
-                /**
-                * @description: saves new generated note schema to DB
-                */
-                note.save((err, data) => {
-                    if (err) {
-                        rej(err)
-                    } else {
-                        res(data)
-                    }
-                })
+            let note = new Notes({
+                "userID": noteData.userID,
+                "title": noteData.title,
+                "description": noteData.description,
+                "color": noteData.color,
+                "isArchive": noteData.isArchive,
+                "isPinned": noteData.isPinned,
+                "isTrashed": noteData.isTrashed,
+                "image": noteData.image,
+                "Reminder": noteData.Reminder,
+                "label": noteData.label
             })
+            /**
+            * @description: saves new generated note schema to DB
+            */
+            return note.save()
         } catch (err) {
             return err
         }
@@ -116,21 +112,14 @@ class ModelNote {
     */
     readNotes(query) {
         try {
-            return new Promise((res, rej) => {
-                /**
-                * @description: check for user is already exists, if yes then rejected else created
-                * @method: takes an object to find a entry in database
-                */               
-                Notes.find(query).populate('label').then((data) => {
-                    res(data)
-                }).catch((err) => {
-                    rej(err)
-                })
-            })
+            /**
+            * @description: check for user is already exists, if yes then rejected else created
+            * @method: takes an object to find a entry in database
+            */
+            return Notes.find(query).populate('label')
         } catch (err) {
             return err
         }
-
     }
 
     /**
@@ -140,13 +129,7 @@ class ModelNote {
     */
     updateNote(query, update) {
         try {
-            return new Promise((res, rej) => {
-                Notes.updateMany(query, update, { new: true }).populate('label').then((data) => {
-                    res(data)
-                }).catch((err) => {
-                    rej(err)
-                })
-            })
+            return Notes.updateMany(query, update, { new: true }).populate('label')
         } catch (err) {
             return err
         }
@@ -159,13 +142,7 @@ class ModelNote {
     */
     updateSingleNote(query, update) {
         try {
-            return new Promise((res, rej) => {
-                Notes.findOneAndUpdate(query, update, { new: true }).populate('label').then((data) => {
-                    res(data)
-                }).catch((err) => {
-                    rej(err)
-                })
-            })
+            return Notes.findOneAndUpdate(query, update, { new: true }).populate('label')
         } catch (err) {
             return err
         }
@@ -177,13 +154,7 @@ class ModelNote {
     */
     permanentDelete(note) {
         try {
-            return new Promise((res, rej) => {
-                Notes.findByIdAndDelete(note).then((data) => {
-                    res(data)
-                }).catch((err) => {
-                    rej(err)
-                })
-            })
+            return Notes.findByIdAndDelete(note)
         } catch (err) {
             return err
         }
@@ -195,13 +166,7 @@ class ModelNote {
     */
     deletetrash(trash) {
         try {
-            return new Promise((res, rej) => {
-                Notes.deleteMany(trash).then((data) => {
-                    res(data)
-                }).catch((err) => {
-                    rej(err)
-                })
-            })
+            return Notes.deleteMany(trash)
         } catch (err) {
             return err
         }
@@ -219,9 +184,9 @@ class ModelNote {
                     * @description: logic for calculating the difference between current and last updated date
                     */
 
-                    let date1 = new Date(note.updatedAt);
-                    let date2 = new Date();
-                    let Difference_In_Time = date2.getTime() - date1.getTime();
+                    let updateDate = new Date(note.updatedAt);
+                    let currDate = new Date();
+                    let Difference_In_Time = currDate.getTime() - updateDate.getTime();
                     let Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24)
 
                     /**
@@ -240,18 +205,48 @@ class ModelNote {
     /**
      * @description: schedular function to work for every seconds
      */
-    // remindSchedular(){
-    //     cron.schedule('* * * * * *',()=>{
-    //         this.readNotes({}).then(data=>{
+    remindSchedular() {
+        cron.schedule('*/55 * * * * *', () => {
+            this.readNotes({ "Reminder": true }).then(data => {
+                /**
+                 * @description: Using selection sorting method for arranging notes in increasing order of reminders. 
+                 */
+                for (let i = 0; i < data.length; i++) {
+                    let select = i;
+                    for (var j = i + 1; j < data.length; j++) {
+                        let reminderDate = new Date(obj.RemindTime)
+                        let currentDate = new Date()
+                        if (array[j] < array[select]) {
+                            select = j;
+                        }
+                    }
+                    let temporary = data[i];
+                    data[i] = data[select];
+                    data[select] = temporary;
+                }
+                // data.forEach((obj,i) => {
+                //     let reminderDate = new Date(obj.RemindTime)
+                //     let currentDate = new Date()
+                //     if(currentDate.getTime() <= reminderDate.getTime()){
+                //         let temp = data[i];
+                //         data[i+1]=data[i];
+                //         data[i]=temp     
+                //     }
+                //     // console.log(reminderDate.getTime()-currentDate.getTime());
+                //     // console.log(data);
+                // })
+                console.log(data)
 
-    //         }).catch(err=>{
+            }).catch(err => {
+                logger.error(err);
 
-    //         })
-    //     })
-    // }
+            })
+        })
+    }
 
 }
 
 let schedule = new ModelNote();
 schedule.oldNoteSchedular();
+// schedule.remindSchedular()
 module.exports = new ModelNote()

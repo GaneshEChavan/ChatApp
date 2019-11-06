@@ -7,5 +7,5 @@ passport.use("facebookToken",new FacebookStrategy({
 },
     function (accessToken, refreshToken, profile, done) {
         // console.log(profile);
-        done(null, profile)
+        return done(null, profile)
     }))

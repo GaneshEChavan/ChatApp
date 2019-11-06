@@ -63,9 +63,9 @@ class Cache {
                 next();
             }
         }).catch(err => {
+            logger.error(err)
             response.status = false;
             response.message = "Error occured in cache..!";
-            response.error = err
             res.status(500).send(response)
         })
     }
@@ -90,9 +90,9 @@ class Cache {
                 next();
             }
         }).catch(err => {
+            logger.error(err)
             response.status = false;
             response.message = "Error occured in cache..!";
-            response.error = err
             res.status(500).send(response)
         })
     }

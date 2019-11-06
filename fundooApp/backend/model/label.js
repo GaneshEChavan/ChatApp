@@ -17,13 +17,15 @@ let Schema = mongoose.Schema(
             type: String
         },
         labelName: {
-            type: String
+            type: String,
+            required: true
         },
         isDeleted: {
             type: Boolean
         }
     },
-    { timestamps: true }
+    { timestamps: true },
+    { strict: true }
 )
 
 let Labels = mongoose.model("Labels", Schema)
@@ -31,21 +33,13 @@ let Labels = mongoose.model("Labels", Schema)
 class ModelLabel {
     createLabel(label) {
         try {
-            return new Promise((res, rej) => {
-                let newLabel = new Labels({
-                    "userID": label.userID,
-                    "noteID": label.noteID,
-                    "labelName": label.labelName,
-                    "isDeleted": label.isDeleted
-                })
-                newLabel.save((err, data) => {
-                    if (err) {
-                        rej(err)
-                    } else {
-                        res(data)
-                    }
-                })
+            let newLabel = new Labels({
+                "userID": label.userID,
+                "noteID": label.noteID,
+                "labelName": label.labelName,
+                "isDeleted": label.isDeleted
             })
+            return newLabel.save();
         } catch (err) {
             return err
         }
@@ -53,13 +47,7 @@ class ModelLabel {
 
     readLabel(userId) {
         try {
-            return new Promise((res, rej) => {
-                Labels.find(userId).then((data) => {
-                    res(data)
-                }).catch((err) => {
-                    rej(err)
-                })
-            })
+            return Labels.find(userId)
         } catch (err) {
             return err
         }
@@ -67,13 +55,7 @@ class ModelLabel {
 
     deleteLabel(labelId) {
         try {
-            return new Promise((res, rej) => {
-                Labels.findByIdAndDelete(labelId).then((data) => {
-                    res(data)
-                }).catch((err) => {
-                    rej(err)
-                })
-            })
+            return Labels.findByIdAndDelete(labelId)
         } catch (err) {
             return err
         }
@@ -81,15 +63,7 @@ class ModelLabel {
 
     updateLabel(labelId, update) {
         try {
-            return new Promise((res, rej) => {
-                Labels.findByIdAndUpdate(labelId, update, { new: true }).then((data) => {
-                    console.log("data in model after update--->80", data);
-
-                    res(data)
-                }).catch((err) => {
-                    rej(err)
-                })
-            })
+            return Labels.findByIdAndUpdate(labelId, update, { new: true })
         } catch (err) {
             return err
         }

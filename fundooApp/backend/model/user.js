@@ -61,7 +61,8 @@ var Schema = mongoose.Schema(
             type:Boolean
         }
     },
-    { timestamps: true }
+    { timestamps: true },
+    { strict : true}
 )
 
 /**
@@ -85,13 +86,13 @@ var Schema = mongoose.Schema(
          * @description: handled the create operation using promise
          */
 
-         return new Promise((res, rej) => {
+         
             /**
              * @description: check for user is already exists, if yes then rejected else created
              * @method: takes an object to find a entry in database
              */
 
-             User.findOne({ "userName": userData.userName }).then(data => {
+           return  User.findOne({ "userName": userData.userName }).then(data => {
                 if (data === null) {
                     var regData = new User({
                         "firstName": userData.firstName,
@@ -107,22 +108,15 @@ var Schema = mongoose.Schema(
                     /**
                      * @description: saves new generated user schema to DB
                      */
-                    regData.save((err, data) => {
-                        if (err) {
-                            rej(err)
-                        } else {
-                            res(data)
-                        }
-                    })
+                   return regData.save()
                 } else if (data.active === true) {
-                    rej("User Already Exists")
+                   return "User Already Exists"
                 } else {
-                    rej({ message: "please register first to continue..!", data: data })
+                   return ({ message: "please register first to continue..!", data: data })
                 }
             }).catch(err => {
-                rej("Error : Something Went Wromg", err)
+                return ("Error : Something Went Wromg", err)
             })
-        })
     }
 
     /**
@@ -153,14 +147,11 @@ var Schema = mongoose.Schema(
      */
 
     varifyEmailModel(varify) {
-        return new Promise((res, rej) => {
-            User.findOne({ "userName": varify.userName }).then(data => {
-                res(data)
-            }).catch(err => {
-                rej(err)
-            })
-        })
-
+        try{
+            return User.findOne({ "userName": varify.userName })
+        }catch(err){
+              return err
+        }
     }
 
 
@@ -171,13 +162,11 @@ var Schema = mongoose.Schema(
      */
 
     updateToDb(data,upload) {
-        return new Promise((res, rej) => {
-            User.findByIdAndUpdate(data._id, upload).then((Data) => {
-                res(Data)
-            }).catch((err) => {
-                rej(err)
-            })
-        })
+        try{
+            return User.findByIdAndUpdate(data._id, upload)
+        }catch(err){
+            return err
+        }
     }
 
      /**
@@ -207,16 +196,12 @@ var Schema = mongoose.Schema(
      */
     
     read(query) {
-        return new Promise((res, rej) => {
-            User.findOne(query).then(data => {               
-                res(data)
-            }).catch(err => {
-                rej(err)
-            })
-        })
-
-    }
-   
+        try{
+           return User.findOne(query)
+        }catch(err){
+           return err
+        }
+    }   
 }
 
 module.exports = new ModelOperations();
