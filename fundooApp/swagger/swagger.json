@@ -34,8 +34,8 @@
         "application/json"
     ],
     "paths": {
-        "/user/login": {
-            "get": {
+        "/user/register": {
+            "post": {
                 "tags": [
                     "Users"
                 ],
@@ -46,7 +46,7 @@
                         "in": "body",
                         "description": "User that we want to create",
                         "schema": {
-                            "$ref": "#/definitions/User"
+                            "$ref": "#/definitions/UserRegister"
                         }
                     }
                 ],
@@ -55,15 +55,15 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "New user is created",
+                        "description": "User logged in...!",
                         "schema": {
-                            "$ref": "#/definitions/User"
+                            "$ref": "#/definitions/UserRegister"
                         }
                     }
                 }
             }
         },
-        "/login": {
+        "/user/login": {
             "post": {
                 "tags": [
                     "Users"
@@ -75,7 +75,7 @@
                         "in": "body",
                         "description": "Get the user",
                         "schema": {
-                            "$ref": "#/definitions/User"
+                            "$ref": "#/definitions/UserLogin"
                         }
                     }
                 ],
@@ -86,7 +86,7 @@
                     "200": {
                         "description": "New user created",
                         "schema": {
-                            "$ref": "#/definitions/User"
+                            "$ref": "#/definitions/UserLogin"
                         }
                     }
                 }
@@ -149,7 +149,6 @@
                         "200": {
                             "description": "New password updated",
                             "schema": {
-  
                                 "$ref": "#/definitions/User"
                             }
                         }
@@ -159,7 +158,7 @@
         }
     },
     "definitions": {
-        "User": {
+        "UserRegister": {
             "properties": {
                 "firstName": {
                     "type": "string"
@@ -167,7 +166,20 @@
                 "lastName": {
                     "type": "string"
                 },
-                "email": {
+                "userName": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "confirm":{
+                    "type":"string"
+                }
+            }
+        },
+        "UserLogin": {
+            "properties": {
+                "userName": {
                     "type": "string"
                 },
                 "password": {

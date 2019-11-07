@@ -7,9 +7,9 @@
  *  @since          : 26-09-2019
  ******************************************************************************/
 
- /**
-  * @description:required all the necessary files and modules
-  */
+/**
+ * @description:required all the necessary files and modules
+ */
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
@@ -26,90 +26,36 @@ const logger = require("../logger/logger")
  */
 const app = express();
 
-const swaggerUi = require("swagger-ui-express");
-// const swaggerJSDoc = require("swagger-jsdoc")
-// // const swaggerDocument = require("./swagger.json")
-// const swaggerDefinition = {
-//     info: {
-//       title: 'Node-Swagger API',
-//       version: '1.0.0',
-//       description: 'Demonstrating how to describe a RESTful-API with Swagger',
-//       contact : {
-//        name : 'BridgeLabz'
-//       }
-//     },
-//     host: 'http://localhost:3000',
-//   basePath: '/', // Base path (optional)
-// };
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('../swagger/swagger.json');
+app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
-// const options = {
-//   swaggerDefinition,
-//   // definition: {
-//   //   info: {
-//   //     title: 'Node-Swagger API',
-//   //     version: '1.0.0',
-//   //     description: 'Demonstrating how to describe a RESTful-API with Swagger',
-//   //     contact : {
-//   //      name : 'BridgeLabz'
-//   //     }
-//   //   },
-//   //   host: 'http://localhost:3000',
-//   //   basePath: '/',
-//   // },
-//   apis: [ "../backend/routes.js"] //, './parameters.yaml']
-// }
+app.use(expressValidator())
 
-// const swaggerSpec = swaggerJSDoc(options);
-// // console.log(JSON.stringify(swaggerSpec))
-// app.get('/api-docs.json', (req, res) => {
-//   res.setHeader('Content-Type', 'application/json');
-//   res.send(swaggerSpec);
-// });
+app.use(passport.initialize())
+passport.serializeUser(function (user, done) {
+  done(null, user);
+});
 
-// app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
-// Route.test()
+passport.deserializeUser(function (user, done) {
+  done(null, user);
+});
 
-// Route.setup(app);
-// routes.setup(app);
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json());
+app.use('/', Route);
+
+app.use(function (err, req, res, next) {
+  logger.error(`check for request body json ${err.stack}`);
+  res.status(400).send({ "Error": "Bad Request..!" });
+});
+
+app.listen(process.env.PORT, () => {
+  console.log(`app listening on port ${process.env.PORT}`)
+  mongo()
+});
 
 
-// app.get('/api-docs.json', (req, res) => {
-//   res.setHeader('Content-Type', 'application/json');
-//   res.send(swaggerSpec);
-// });
-
-  // const swaggerUi = require('swagger-ui-express');
-  // const swaggerDocument = require('../swagger/swagger.json');
-  // app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
-  
-  
-  app.use(expressValidator())
-  
-  app.use(passport.initialize())
-  passport.serializeUser(function (user, done) {
-    done(null, user);
-  });
-  
-  passport.deserializeUser(function (user, done) {
-    done(null, user);
-  });
-  
-  app.use(bodyParser.urlencoded({ extended: false }))
-  app.use(bodyParser.json());
-  app.use('/', Route);
-  
-  app.use(function(err,req,res,next) {
-    console.log("check for request body json");
-    logger.error(err.stack);
-    res.status(400).send({"Error" : "Bad Request..!"});
-  });
-  
-  app.listen(process.env.PORT, () => {
-    console.log(`app listening on port ${process.env.PORT}`)
-    mongo()
-  });
-  
-  
 module.exports = app;
 
 

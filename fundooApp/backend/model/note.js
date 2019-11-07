@@ -206,37 +206,49 @@ class ModelNote {
      * @description: schedular function to work for every seconds
      */
     remindSchedular() {
-        cron.schedule('*/55 * * * * *', () => {
+        cron.schedule('*/15 * * * * *', () => {
             this.readNotes({ "Reminder": true }).then(data => {
                 /**
                  * @description: Using selection sorting method for arranging notes in increasing order of reminders. 
                  */
-                for (let i = 0; i < data.length; i++) {
-                    let select = i;
-                    for (var j = i + 1; j < data.length; j++) {
-                        let reminderDate = new Date(obj.RemindTime)
-                        let currentDate = new Date()
-                        if (array[j] < array[select]) {
-                            select = j;
+                let self = this
+                function runFirst(data, callback) {
+                    data.forEach(obj => {
+                    // console.log(new Date(obj.RemindTime) < new Date())
+                        if (new Date(obj.RemindTime) < new Date()) {
+                            let note = { "_id": obj._id };
+                            let update = { "RemindTime": null, "Reminder": false }
+                            self.updateSingleNote(note, update).then(data => {
+                                self.readNotes({ "Reminder": true }).then(data => {
+                                }).catch(err => {
+                                    callback(err)
+                                })
+                            }).catch(err => {
+                                callback(err)
+                            })
+                        }else{
+                            runSecond(data)                            
+                        }
+                    })
+
+                }
+                function runSecond(data) {
+                    for (let j = 0; j < data.length; j++) {
+                        for (let i = 0; i < data.length - 1; i++) {
+                            let reminderDateOne = new Date(data[i].RemindTime)
+                            let reminderDateTwo = new Date(data[i + 1].RemindTime)
+                            let currentDate = new Date()
+                            if ((reminderDateOne.getTime() - currentDate.getTime()) > (reminderDateTwo.getTime() - currentDate.getTime())) {
+                                let temporary = data[i];
+                                data[i] = data[i + 1];
+                                data[i + 1] = temporary;
+                            }
                         }
                     }
-                    let temporary = data[i];
-                    data[i] = data[select];
-                    data[select] = temporary;
+                    return data
                 }
-                // data.forEach((obj,i) => {
-                //     let reminderDate = new Date(obj.RemindTime)
-                //     let currentDate = new Date()
-                //     if(currentDate.getTime() <= reminderDate.getTime()){
-                //         let temp = data[i];
-                //         data[i+1]=data[i];
-                //         data[i]=temp     
-                //     }
-                //     // console.log(reminderDate.getTime()-currentDate.getTime());
-                //     // console.log(data);
-                // })
-                console.log(data)
-
+                runFirst(data);
+                // console.log(data)
             }).catch(err => {
                 logger.error(err);
 
@@ -248,5 +260,5 @@ class ModelNote {
 
 let schedule = new ModelNote();
 schedule.oldNoteSchedular();
-// schedule.remindSchedular()
+schedule.remindSchedular()
 module.exports = new ModelNote()

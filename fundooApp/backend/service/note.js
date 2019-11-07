@@ -420,13 +420,17 @@ class ServiceNote {
         try {
             return new Promise((res, rej) => {
                 let dateobj = new Date(reminder.RemindTime).toISOString();
-                let note = { "_id": reminder._id }
-                let upload = { "Reminder": reminder.Reminder,"RemindTime": dateobj }
-                noteModel.updateSingleNote(note, upload).then((data) => {
-                    res(data)
-                }).catch((err) => {
-                    rej(err)
-                })
+                if (new Date(dateobj) > new Date()) {
+                    let note = { "_id": reminder._id }
+                    let upload = { "Reminder": reminder.Reminder, "RemindTime": dateobj }
+                    noteModel.updateSingleNote(note, upload).then((data) => {
+                        res(data)
+                    }).catch((err) => {
+                        rej(err)
+                    })
+                } else {
+                    rej("Unable to set Reminder..!")
+                }
             })
         } catch (err) {
             return err
@@ -442,9 +446,9 @@ class ServiceNote {
             return new Promise((res, rej) => {
                 let data = req.body.search;
                 let userID = req.decoded._id
-               /**
-                * @description: follows regx to take results from DB
-                */
+                /**
+                 * @description: follows regx to take results from DB
+                 */
                 let findQuery = {
                     /**
                      * @description: the $and carries out the mandatory functionaliity
@@ -453,8 +457,8 @@ class ServiceNote {
                         /**
                          * @description: the $or carries out the optional functionality 
                          */
-                        $or: 
-                            [    
+                        $or:
+                            [
                                 { 'title': { $regex: data, $options: 'i' } },
                                 { 'description': { $regex: data, $options: 'i' } },
                                 { 'collaborators': { $regex: data, $options: 'i' } },

@@ -42,7 +42,7 @@ var Schema = mongoose.Schema(
         },
         active: {
             type: Boolean,
-            required: true,
+            // required: true,
             trim: true
         },
         imageUrl: {

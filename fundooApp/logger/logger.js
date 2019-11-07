@@ -29,19 +29,5 @@ const logger = winston.createLogger({
     exitOnError: false,
 });
 
-// logger.stream = {
-//      write : function(message,encoding){
-//          logger.info(message)
-//      }
-// }
-
-// let logConfiguration = {
-//     "transports":[
-//         new winston.transports.File(options.file),
-//         new winston.transports.Console()
-//     ]
-//  }
-
-//  let logger = winston.createLogger(logConfiguration);
 module.exports = logger
 
