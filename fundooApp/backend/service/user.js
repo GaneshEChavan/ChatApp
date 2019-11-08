@@ -31,10 +31,10 @@ class ServiceOperations {
                         "active": true
                     }
                     let token = generatedToken.token(payload);
-                    let Url = process.env.APPHOST + token;
-                    console.log("url to send in nodemailer- userService",Url);
+                    let Url = process.env.LOGINHOST + token;
+                    // console.log("url to send in nodemailer- userService",Url);
                     
-                    mailer.nodeMailer(data.userName, Url);
+                    mailer.nodeMailer(data.userName, Url,data.firstName);
                     resolve({ data, token, Url })
                 } else {
                     reject({ data: data })

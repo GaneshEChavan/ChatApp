@@ -156,3 +156,682 @@ info: Redis client connected
 info: Redis client connected
 info: Redis client connected
 info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+error: Cannot create property 'filename' on string 'Ganesh'
+info: Redis client connected
+error: Cannot create property 'filename' on string 'Ganesh'
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+error: Cannot create property 'filename' on string 'Ganesh'
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+error: ENOENT: no such file or directory, open '/home/admin1/Documents/BLabz_Work-master/fundooApp/views/index.pug' {"errno":-2,"syscall":"open","code":"ENOENT","path":"/home/admin1/Documents/BLabz_Work-master/fundooApp/views/index.pug"}
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+error: uncaughtException: Unexpected identifier
+/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/controller/note.js:10
+const logger = require("../../logger/logger")
+      ^^^^^^
+
+SyntaxError: Unexpected identifier
+    at Module._compile (internal/modules/cjs/loader.js:720:23)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:643:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:556:12)
+    at Module.require (internal/modules/cjs/loader.js:683:19)
+    at require (internal/modules/cjs/helpers.js:16:16)
+    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/routes.js:12:24)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:643:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:556:12)
+    at Module.require (internal/modules/cjs/loader.js:683:19)
+    at require (internal/modules/cjs/helpers.js:16:16)
+    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js:17:15)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10) {"error":{},"stack":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/controller/note.js:10\nconst logger = require(\"../../logger/logger\")\n      ^^^^^^\n\nSyntaxError: Unexpected identifier\n    at Module._compile (internal/modules/cjs/loader.js:720:23)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)\n    at Module.load (internal/modules/cjs/loader.js:643:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:556:12)\n    at Module.require (internal/modules/cjs/loader.js:683:19)\n    at require (internal/modules/cjs/helpers.js:16:16)\n    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/routes.js:12:24)\n    at Module._compile (internal/modules/cjs/loader.js:776:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)\n    at Module.load (internal/modules/cjs/loader.js:643:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:556:12)\n    at Module.require (internal/modules/cjs/loader.js:683:19)\n    at require (internal/modules/cjs/helpers.js:16:16)\n    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js:17:15)\n    at Module._compile (internal/modules/cjs/loader.js:776:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)","exception":true,"date":"Fri Nov 08 2019 16:09:01 GMT+0530 (India Standard Time)","process":{"pid":20021,"uid":1000,"gid":1000,"cwd":"/home/admin1/Documents/BLabz_Work-master/fundooApp","execPath":"/usr/local/bin/node","version":"v12.6.0","argv":["/usr/local/bin/node","/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js"],"memoryUsage":{"rss":114286592,"heapTotal":75378688,"heapUsed":47168584,"external":19128827}},"os":{"loadavg":[0.12890625,0.33984375,0.38232421875],"uptime":16677},"trace":[{"column":23,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":720,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false},{"column":32,"file":"internal/modules/cjs/loader.js","function":"Module.load","line":643,"method":"load","native":false},{"column":12,"file":"internal/modules/cjs/loader.js","function":"Module._load","line":556,"method":"_load","native":false},{"column":19,"file":"internal/modules/cjs/loader.js","function":"Module.require","line":683,"method":"require","native":false},{"column":16,"file":"internal/modules/cjs/helpers.js","function":"require","line":16,"method":null,"native":false},{"column":24,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/routes.js","function":null,"line":12,"method":null,"native":false},{"column":30,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":776,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false},{"column":32,"file":"internal/modules/cjs/loader.js","function":"Module.load","line":643,"method":"load","native":false},{"column":12,"file":"internal/modules/cjs/loader.js","function":"Module._load","line":556,"method":"_load","native":false},{"column":19,"file":"internal/modules/cjs/loader.js","function":"Module.require","line":683,"method":"require","native":false},{"column":16,"file":"internal/modules/cjs/helpers.js","function":"require","line":16,"method":null,"native":false},{"column":15,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js","function":null,"line":17,"method":null,"native":false},{"column":30,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":776,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false}]}
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+error: Cannot create property 'filename' on string 'Ganesh'
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+error: uncaughtException: Cannot read property 'use' of undefined
+TypeError: Cannot read property 'use' of undefined
+    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js:35:5)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:643:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:556:12)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:839:10)
+    at internal/main/run_main_module.js:17:11 {"error":{},"stack":"TypeError: Cannot read property 'use' of undefined\n    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js:35:5)\n    at Module._compile (internal/modules/cjs/loader.js:776:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)\n    at Module.load (internal/modules/cjs/loader.js:643:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:556:12)\n    at Function.Module.runMain (internal/modules/cjs/loader.js:839:10)\n    at internal/main/run_main_module.js:17:11","exception":true,"date":"Fri Nov 08 2019 18:07:01 GMT+0530 (India Standard Time)","process":{"pid":25579,"uid":1000,"gid":1000,"cwd":"/home/admin1/Documents/BLabz_Work-master/fundooApp","execPath":"/usr/local/bin/node","version":"v12.6.0","argv":["/usr/local/bin/node","/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js"],"memoryUsage":{"rss":123596800,"heapTotal":82788352,"heapUsed":58738392,"external":21951384}},"os":{"loadavg":[0.40380859375,0.41552734375,0.400390625],"uptime":23757},"trace":[{"column":5,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js","function":null,"line":35,"method":null,"native":false},{"column":30,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":776,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false},{"column":32,"file":"internal/modules/cjs/loader.js","function":"Module.load","line":643,"method":"load","native":false},{"column":12,"file":"internal/modules/cjs/loader.js","function":"Module._load","line":556,"method":"_load","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module.runMain","line":839,"method":"runMain","native":false},{"column":11,"file":"internal/main/run_main_module.js","function":null,"line":17,"method":null,"native":false}]}
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+error: uncaughtException: callback function required
+Error: callback function required
+    at Function.engine (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js:295:11)
+    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js:34:5)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:643:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:556:12)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:839:10)
+    at internal/main/run_main_module.js:17:11 {"error":{},"stack":"Error: callback function required\n    at Function.engine (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js:295:11)\n    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js:34:5)\n    at Module._compile (internal/modules/cjs/loader.js:776:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)\n    at Module.load (internal/modules/cjs/loader.js:643:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:556:12)\n    at Function.Module.runMain (internal/modules/cjs/loader.js:839:10)\n    at internal/main/run_main_module.js:17:11","exception":true,"date":"Fri Nov 08 2019 18:07:13 GMT+0530 (India Standard Time)","process":{"pid":25650,"uid":1000,"gid":1000,"cwd":"/home/admin1/Documents/BLabz_Work-master/fundooApp","execPath":"/usr/local/bin/node","version":"v12.6.0","argv":["/usr/local/bin/node","/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js"],"memoryUsage":{"rss":123981824,"heapTotal":82788352,"heapUsed":58801904,"external":21887165}},"os":{"loadavg":[0.69580078125,0.4775390625,0.4208984375],"uptime":23769},"trace":[{"column":11,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js","function":"Function.engine","line":295,"method":"engine","native":false},{"column":5,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js","function":null,"line":34,"method":null,"native":false},{"column":30,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":776,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false},{"column":32,"file":"internal/modules/cjs/loader.js","function":"Module.load","line":643,"method":"load","native":false},{"column":12,"file":"internal/modules/cjs/loader.js","function":"Module._load","line":556,"method":"_load","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module.runMain","line":839,"method":"runMain","native":false},{"column":11,"file":"internal/main/run_main_module.js","function":null,"line":17,"method":null,"native":false}]}
+info: Redis client connected
+error: uncaughtException: callback function required
+Error: callback function required
+    at Function.engine (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js:295:11)
+    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js:34:5)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:643:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:556:12)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:839:10)
+    at internal/main/run_main_module.js:17:11 {"error":{},"stack":"Error: callback function required\n    at Function.engine (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js:295:11)\n    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js:34:5)\n    at Module._compile (internal/modules/cjs/loader.js:776:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)\n    at Module.load (internal/modules/cjs/loader.js:643:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:556:12)\n    at Function.Module.runMain (internal/modules/cjs/loader.js:839:10)\n    at internal/main/run_main_module.js:17:11","exception":true,"date":"Fri Nov 08 2019 18:07:14 GMT+0530 (India Standard Time)","process":{"pid":25674,"uid":1000,"gid":1000,"cwd":"/home/admin1/Documents/BLabz_Work-master/fundooApp","execPath":"/usr/local/bin/node","version":"v12.6.0","argv":["/usr/local/bin/node","/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js"],"memoryUsage":{"rss":123715584,"heapTotal":83050496,"heapUsed":58658728,"external":21333060}},"os":{"loadavg":[0.69580078125,0.4775390625,0.4208984375],"uptime":23771},"trace":[{"column":11,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js","function":"Function.engine","line":295,"method":"engine","native":false},{"column":5,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js","function":null,"line":34,"method":null,"native":false},{"column":30,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":776,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false},{"column":32,"file":"internal/modules/cjs/loader.js","function":"Module.load","line":643,"method":"load","native":false},{"column":12,"file":"internal/modules/cjs/loader.js","function":"Module._load","line":556,"method":"_load","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module.runMain","line":839,"method":"runMain","native":false},{"column":11,"file":"internal/main/run_main_module.js","function":null,"line":17,"method":null,"native":false}]}
+info: Redis client connected
+error: uncaughtException: callback function required
+Error: callback function required
+    at Function.engine (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js:295:11)
+    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js:34:5)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:643:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:556:12)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:839:10)
+    at internal/main/run_main_module.js:17:11 {"error":{},"stack":"Error: callback function required\n    at Function.engine (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js:295:11)\n    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js:34:5)\n    at Module._compile (internal/modules/cjs/loader.js:776:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)\n    at Module.load (internal/modules/cjs/loader.js:643:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:556:12)\n    at Function.Module.runMain (internal/modules/cjs/loader.js:839:10)\n    at internal/main/run_main_module.js:17:11","exception":true,"date":"Fri Nov 08 2019 18:07:20 GMT+0530 (India Standard Time)","process":{"pid":25698,"uid":1000,"gid":1000,"cwd":"/home/admin1/Documents/BLabz_Work-master/fundooApp","execPath":"/usr/local/bin/node","version":"v12.6.0","argv":["/usr/local/bin/node","/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js"],"memoryUsage":{"rss":123826176,"heapTotal":83324928,"heapUsed":58814648,"external":21117388}},"os":{"loadavg":[0.72021484375,0.486328125,0.42431640625],"uptime":23776},"trace":[{"column":11,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js","function":"Function.engine","line":295,"method":"engine","native":false},{"column":5,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js","function":null,"line":34,"method":null,"native":false},{"column":30,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":776,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false},{"column":32,"file":"internal/modules/cjs/loader.js","function":"Module.load","line":643,"method":"load","native":false},{"column":12,"file":"internal/modules/cjs/loader.js","function":"Module._load","line":556,"method":"_load","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module.runMain","line":839,"method":"runMain","native":false},{"column":11,"file":"internal/main/run_main_module.js","function":null,"line":17,"method":null,"native":false}]}
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+error: uncaughtException: The "id" argument must be of type string. Received type undefined
+TypeError [ERR_INVALID_ARG_TYPE]: The "id" argument must be of type string. Received type undefined
+    at validateString (internal/validators.js:107:11)
+    at Module.require (internal/modules/cjs/loader.js:676:3)
+    at require (internal/modules/cjs/helpers.js:16:16)
+    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js:23:14)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:643:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:556:12)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:839:10)
+    at internal/main/run_main_module.js:17:11 {"error":{},"stack":"TypeError [ERR_INVALID_ARG_TYPE]: The \"id\" argument must be of type string. Received type undefined\n    at validateString (internal/validators.js:107:11)\n    at Module.require (internal/modules/cjs/loader.js:676:3)\n    at require (internal/modules/cjs/helpers.js:16:16)\n    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js:23:14)\n    at Module._compile (internal/modules/cjs/loader.js:776:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)\n    at Module.load (internal/modules/cjs/loader.js:643:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:556:12)\n    at Function.Module.runMain (internal/modules/cjs/loader.js:839:10)\n    at internal/main/run_main_module.js:17:11","exception":true,"date":"Fri Nov 08 2019 18:11:22 GMT+0530 (India Standard Time)","process":{"pid":26084,"uid":1000,"gid":1000,"cwd":"/home/admin1/Documents/BLabz_Work-master/fundooApp","execPath":"/usr/local/bin/node","version":"v12.6.0","argv":["/usr/local/bin/node","/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js"],"memoryUsage":{"rss":121663488,"heapTotal":80850944,"heapUsed":56262272,"external":20336696}},"os":{"loadavg":[0.08740234375,0.30029296875,0.3603515625],"uptime":24018},"trace":[{"column":11,"file":"internal/validators.js","function":"validateString","line":107,"method":null,"native":false},{"column":3,"file":"internal/modules/cjs/loader.js","function":"Module.require","line":676,"method":"require","native":false},{"column":16,"file":"internal/modules/cjs/helpers.js","function":"require","line":16,"method":null,"native":false},{"column":14,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js","function":null,"line":23,"method":null,"native":false},{"column":30,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":776,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false},{"column":32,"file":"internal/modules/cjs/loader.js","function":"Module.load","line":643,"method":"load","native":false},{"column":12,"file":"internal/modules/cjs/loader.js","function":"Module._load","line":556,"method":"_load","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module.runMain","line":839,"method":"runMain","native":false},{"column":11,"file":"internal/main/run_main_module.js","function":null,"line":17,"method":null,"native":false}]}
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+error: uncaughtException: a is not defined
+ReferenceError: a is not defined
+    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js:37:1)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:643:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:556:12)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:839:10)
+    at internal/main/run_main_module.js:17:11 {"error":{},"stack":"ReferenceError: a is not defined\n    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js:37:1)\n    at Module._compile (internal/modules/cjs/loader.js:776:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)\n    at Module.load (internal/modules/cjs/loader.js:643:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:556:12)\n    at Function.Module.runMain (internal/modules/cjs/loader.js:839:10)\n    at internal/main/run_main_module.js:17:11","exception":true,"date":"Fri Nov 08 2019 18:11:57 GMT+0530 (India Standard Time)","process":{"pid":26218,"uid":1000,"gid":1000,"cwd":"/home/admin1/Documents/BLabz_Work-master/fundooApp","execPath":"/usr/local/bin/node","version":"v12.6.0","argv":["/usr/local/bin/node","/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js"],"memoryUsage":{"rss":122748928,"heapTotal":83050496,"heapUsed":58693160,"external":21333060}},"os":{"loadavg":[0.50048828125,0.390625,0.388671875],"uptime":24053},"trace":[{"column":1,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js","function":null,"line":37,"method":null,"native":false},{"column":30,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":776,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false},{"column":32,"file":"internal/modules/cjs/loader.js","function":"Module.load","line":643,"method":"load","native":false},{"column":12,"file":"internal/modules/cjs/loader.js","function":"Module._load","line":556,"method":"_load","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module.runMain","line":839,"method":"runMain","native":false},{"column":11,"file":"internal/main/run_main_module.js","function":null,"line":17,"method":null,"native":false}]}
+info: Redis client connected
+info: Redis client connected
+error: uncaughtException: app.use() requires a middleware function
+TypeError: app.use() requires a middleware function
+    at Function.use (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js:210:11)
+    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js:37:5)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:643:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:556:12)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:839:10)
+    at internal/main/run_main_module.js:17:11 {"error":{},"stack":"TypeError: app.use() requires a middleware function\n    at Function.use (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js:210:11)\n    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js:37:5)\n    at Module._compile (internal/modules/cjs/loader.js:776:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)\n    at Module.load (internal/modules/cjs/loader.js:643:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:556:12)\n    at Function.Module.runMain (internal/modules/cjs/loader.js:839:10)\n    at internal/main/run_main_module.js:17:11","exception":true,"date":"Fri Nov 08 2019 18:12:05 GMT+0530 (India Standard Time)","process":{"pid":26264,"uid":1000,"gid":1000,"cwd":"/home/admin1/Documents/BLabz_Work-master/fundooApp","execPath":"/usr/local/bin/node","version":"v12.6.0","argv":["/usr/local/bin/node","/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js"],"memoryUsage":{"rss":122298368,"heapTotal":81108992,"heapUsed":58905200,"external":22018960}},"os":{"loadavg":[0.4228515625,0.376953125,0.3837890625],"uptime":24061},"trace":[{"column":11,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js","function":"Function.use","line":210,"method":"use","native":false},{"column":5,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js","function":null,"line":37,"method":null,"native":false},{"column":30,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":776,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false},{"column":32,"file":"internal/modules/cjs/loader.js","function":"Module.load","line":643,"method":"load","native":false},{"column":12,"file":"internal/modules/cjs/loader.js","function":"Module._load","line":556,"method":"_load","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module.runMain","line":839,"method":"runMain","native":false},{"column":11,"file":"internal/main/run_main_module.js","function":null,"line":17,"method":null,"native":false}]}
+info: Redis client connected
+error: uncaughtException: app.use() requires a middleware function
+TypeError: app.use() requires a middleware function
+    at Function.use (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js:210:11)
+    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js:37:5)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:643:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:556:12)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:839:10)
+    at internal/main/run_main_module.js:17:11 {"error":{},"stack":"TypeError: app.use() requires a middleware function\n    at Function.use (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js:210:11)\n    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js:37:5)\n    at Module._compile (internal/modules/cjs/loader.js:776:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)\n    at Module.load (internal/modules/cjs/loader.js:643:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:556:12)\n    at Function.Module.runMain (internal/modules/cjs/loader.js:839:10)\n    at internal/main/run_main_module.js:17:11","exception":true,"date":"Fri Nov 08 2019 18:12:07 GMT+0530 (India Standard Time)","process":{"pid":26289,"uid":1000,"gid":1000,"cwd":"/home/admin1/Documents/BLabz_Work-master/fundooApp","execPath":"/usr/local/bin/node","version":"v12.6.0","argv":["/usr/local/bin/node","/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js"],"memoryUsage":{"rss":122834944,"heapTotal":83050496,"heapUsed":58608912,"external":21333060}},"os":{"loadavg":[0.4228515625,0.376953125,0.3837890625],"uptime":24063},"trace":[{"column":11,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js","function":"Function.use","line":210,"method":"use","native":false},{"column":5,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js","function":null,"line":37,"method":null,"native":false},{"column":30,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":776,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false},{"column":32,"file":"internal/modules/cjs/loader.js","function":"Module.load","line":643,"method":"load","native":false},{"column":12,"file":"internal/modules/cjs/loader.js","function":"Module._load","line":556,"method":"_load","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module.runMain","line":839,"method":"runMain","native":false},{"column":11,"file":"internal/main/run_main_module.js","function":null,"line":17,"method":null,"native":false}]}
+info: Redis client connected
+error: uncaughtException: app.use() requires a middleware function
+TypeError: app.use() requires a middleware function
+    at Function.use (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js:210:11)
+    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js:37:5)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:643:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:556:12)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:839:10)
+    at internal/main/run_main_module.js:17:11 {"error":{},"stack":"TypeError: app.use() requires a middleware function\n    at Function.use (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js:210:11)\n    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js:37:5)\n    at Module._compile (internal/modules/cjs/loader.js:776:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)\n    at Module.load (internal/modules/cjs/loader.js:643:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:556:12)\n    at Function.Module.runMain (internal/modules/cjs/loader.js:839:10)\n    at internal/main/run_main_module.js:17:11","exception":true,"date":"Fri Nov 08 2019 18:12:11 GMT+0530 (India Standard Time)","process":{"pid":26307,"uid":1000,"gid":1000,"cwd":"/home/admin1/Documents/BLabz_Work-master/fundooApp","execPath":"/usr/local/bin/node","version":"v12.6.0","argv":["/usr/local/bin/node","/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js"],"memoryUsage":{"rss":122499072,"heapTotal":80322560,"heapUsed":53596360,"external":22910682}},"os":{"loadavg":[0.388671875,0.37060546875,0.38134765625],"uptime":24067},"trace":[{"column":11,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js","function":"Function.use","line":210,"method":"use","native":false},{"column":5,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js","function":null,"line":37,"method":null,"native":false},{"column":30,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":776,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false},{"column":32,"file":"internal/modules/cjs/loader.js","function":"Module.load","line":643,"method":"load","native":false},{"column":12,"file":"internal/modules/cjs/loader.js","function":"Module._load","line":556,"method":"_load","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module.runMain","line":839,"method":"runMain","native":false},{"column":11,"file":"internal/main/run_main_module.js","function":null,"line":17,"method":null,"native":false}]}
+info: Redis client connected
+error: uncaughtException: app.use() requires a middleware function
+TypeError: app.use() requires a middleware function
+    at Function.use (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js:210:11)
+    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js:37:5)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:643:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:556:12)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:839:10)
+    at internal/main/run_main_module.js:17:11 {"error":{},"stack":"TypeError: app.use() requires a middleware function\n    at Function.use (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js:210:11)\n    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js:37:5)\n    at Module._compile (internal/modules/cjs/loader.js:776:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)\n    at Module.load (internal/modules/cjs/loader.js:643:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:556:12)\n    at Function.Module.runMain (internal/modules/cjs/loader.js:839:10)\n    at internal/main/run_main_module.js:17:11","exception":true,"date":"Fri Nov 08 2019 18:12:12 GMT+0530 (India Standard Time)","process":{"pid":26331,"uid":1000,"gid":1000,"cwd":"/home/admin1/Documents/BLabz_Work-master/fundooApp","execPath":"/usr/local/bin/node","version":"v12.6.0","argv":["/usr/local/bin/node","/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js"],"memoryUsage":{"rss":124604416,"heapTotal":82788352,"heapUsed":58747144,"external":21951384}},"os":{"loadavg":[0.388671875,0.37060546875,0.38134765625],"uptime":24068},"trace":[{"column":11,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js","function":"Function.use","line":210,"method":"use","native":false},{"column":5,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js","function":null,"line":37,"method":null,"native":false},{"column":30,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":776,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false},{"column":32,"file":"internal/modules/cjs/loader.js","function":"Module.load","line":643,"method":"load","native":false},{"column":12,"file":"internal/modules/cjs/loader.js","function":"Module._load","line":556,"method":"_load","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module.runMain","line":839,"method":"runMain","native":false},{"column":11,"file":"internal/main/run_main_module.js","function":null,"line":17,"method":null,"native":false}]}
+info: Redis client connected
+error: uncaughtException: Router.use() requires a middleware function but got a Object
+TypeError: Router.use() requires a middleware function but got a Object
+    at Function.use (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/router/index.js:458:13)
+    at Function.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js:220:21)
+    at Array.forEach (<anonymous>)
+    at Function.use (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js:217:7)
+    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js:37:5)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:643:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:556:12)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:839:10)
+    at internal/main/run_main_module.js:17:11 {"error":{},"stack":"TypeError: Router.use() requires a middleware function but got a Object\n    at Function.use (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/router/index.js:458:13)\n    at Function.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js:220:21)\n    at Array.forEach (<anonymous>)\n    at Function.use (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js:217:7)\n    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js:37:5)\n    at Module._compile (internal/modules/cjs/loader.js:776:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)\n    at Module.load (internal/modules/cjs/loader.js:643:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:556:12)\n    at Function.Module.runMain (internal/modules/cjs/loader.js:839:10)\n    at internal/main/run_main_module.js:17:11","exception":true,"date":"Fri Nov 08 2019 18:12:15 GMT+0530 (India Standard Time)","process":{"pid":26347,"uid":1000,"gid":1000,"cwd":"/home/admin1/Documents/BLabz_Work-master/fundooApp","execPath":"/usr/local/bin/node","version":"v12.6.0","argv":["/usr/local/bin/node","/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js"],"memoryUsage":{"rss":124239872,"heapTotal":83324928,"heapUsed":58520040,"external":21117388}},"os":{"loadavg":[0.59814453125,0.41455078125,0.3955078125],"uptime":24071},"trace":[{"column":13,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/router/index.js","function":"Function.use","line":458,"method":"use","native":false},{"column":21,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js","function":null,"line":220,"method":null,"native":false},{"column":null,"file":null,"function":"Array.forEach","line":null,"method":"forEach","native":false},{"column":7,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js","function":"Function.use","line":217,"method":"use","native":false},{"column":5,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js","function":null,"line":37,"method":null,"native":false},{"column":30,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":776,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false},{"column":32,"file":"internal/modules/cjs/loader.js","function":"Module.load","line":643,"method":"load","native":false},{"column":12,"file":"internal/modules/cjs/loader.js","function":"Module._load","line":556,"method":"_load","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module.runMain","line":839,"method":"runMain","native":false},{"column":11,"file":"internal/main/run_main_module.js","function":null,"line":17,"method":null,"native":false}]}
+info: Redis client connected
+error: uncaughtException: Router.use() requires a middleware function but got a string
+TypeError: Router.use() requires a middleware function but got a string
+    at Function.use (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/router/index.js:458:13)
+    at Function.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js:220:21)
+    at Array.forEach (<anonymous>)
+    at Function.use (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js:217:7)
+    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js:37:5)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:643:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:556:12)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:839:10)
+    at internal/main/run_main_module.js:17:11 {"error":{},"stack":"TypeError: Router.use() requires a middleware function but got a string\n    at Function.use (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/router/index.js:458:13)\n    at Function.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js:220:21)\n    at Array.forEach (<anonymous>)\n    at Function.use (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js:217:7)\n    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js:37:5)\n    at Module._compile (internal/modules/cjs/loader.js:776:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)\n    at Module.load (internal/modules/cjs/loader.js:643:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:556:12)\n    at Function.Module.runMain (internal/modules/cjs/loader.js:839:10)\n    at internal/main/run_main_module.js:17:11","exception":true,"date":"Fri Nov 08 2019 18:12:18 GMT+0530 (India Standard Time)","process":{"pid":26371,"uid":1000,"gid":1000,"cwd":"/home/admin1/Documents/BLabz_Work-master/fundooApp","execPath":"/usr/local/bin/node","version":"v12.6.0","argv":["/usr/local/bin/node","/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js"],"memoryUsage":{"rss":127254528,"heapTotal":83324928,"heapUsed":58728704,"external":21117388}},"os":{"loadavg":[0.71044921875,0.44091796875,0.404296875],"uptime":24074},"trace":[{"column":13,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/router/index.js","function":"Function.use","line":458,"method":"use","native":false},{"column":21,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js","function":null,"line":220,"method":null,"native":false},{"column":null,"file":null,"function":"Array.forEach","line":null,"method":"forEach","native":false},{"column":7,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js","function":"Function.use","line":217,"method":"use","native":false},{"column":5,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js","function":null,"line":37,"method":null,"native":false},{"column":30,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":776,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false},{"column":32,"file":"internal/modules/cjs/loader.js","function":"Module.load","line":643,"method":"load","native":false},{"column":12,"file":"internal/modules/cjs/loader.js","function":"Module._load","line":556,"method":"_load","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module.runMain","line":839,"method":"runMain","native":false},{"column":11,"file":"internal/main/run_main_module.js","function":null,"line":17,"method":null,"native":false}]}
+info: Redis client connected
+error: uncaughtException: Router.use() requires a middleware function but got a string
+TypeError: Router.use() requires a middleware function but got a string
+    at Function.use (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/router/index.js:458:13)
+    at Function.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js:220:21)
+    at Array.forEach (<anonymous>)
+    at Function.use (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js:217:7)
+    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js:37:5)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:643:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:556:12)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:839:10)
+    at internal/main/run_main_module.js:17:11 {"error":{},"stack":"TypeError: Router.use() requires a middleware function but got a string\n    at Function.use (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/router/index.js:458:13)\n    at Function.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js:220:21)\n    at Array.forEach (<anonymous>)\n    at Function.use (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js:217:7)\n    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js:37:5)\n    at Module._compile (internal/modules/cjs/loader.js:776:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)\n    at Module.load (internal/modules/cjs/loader.js:643:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:556:12)\n    at Function.Module.runMain (internal/modules/cjs/loader.js:839:10)\n    at internal/main/run_main_module.js:17:11","exception":true,"date":"Fri Nov 08 2019 18:12:22 GMT+0530 (India Standard Time)","process":{"pid":26397,"uid":1000,"gid":1000,"cwd":"/home/admin1/Documents/BLabz_Work-master/fundooApp","execPath":"/usr/local/bin/node","version":"v12.6.0","argv":["/usr/local/bin/node","/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js"],"memoryUsage":{"rss":124198912,"heapTotal":82788352,"heapUsed":58812160,"external":21887165}},"os":{"loadavg":[0.71044921875,0.44091796875,0.404296875],"uptime":24078},"trace":[{"column":13,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/router/index.js","function":"Function.use","line":458,"method":"use","native":false},{"column":21,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js","function":null,"line":220,"method":null,"native":false},{"column":null,"file":null,"function":"Array.forEach","line":null,"method":"forEach","native":false},{"column":7,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js","function":"Function.use","line":217,"method":"use","native":false},{"column":5,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js","function":null,"line":37,"method":null,"native":false},{"column":30,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":776,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false},{"column":32,"file":"internal/modules/cjs/loader.js","function":"Module.load","line":643,"method":"load","native":false},{"column":12,"file":"internal/modules/cjs/loader.js","function":"Module._load","line":556,"method":"_load","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module.runMain","line":839,"method":"runMain","native":false},{"column":11,"file":"internal/main/run_main_module.js","function":null,"line":17,"method":null,"native":false}]}
+info: Redis client connected
+error: uncaughtException: Router.use() requires a middleware function but got a string
+TypeError: Router.use() requires a middleware function but got a string
+    at Function.use (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/router/index.js:458:13)
+    at Function.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js:220:21)
+    at Array.forEach (<anonymous>)
+    at Function.use (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js:217:7)
+    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js:37:5)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:643:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:556:12)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:839:10)
+    at internal/main/run_main_module.js:17:11 {"error":{},"stack":"TypeError: Router.use() requires a middleware function but got a string\n    at Function.use (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/router/index.js:458:13)\n    at Function.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js:220:21)\n    at Array.forEach (<anonymous>)\n    at Function.use (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js:217:7)\n    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js:37:5)\n    at Module._compile (internal/modules/cjs/loader.js:776:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)\n    at Module.load (internal/modules/cjs/loader.js:643:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:556:12)\n    at Function.Module.runMain (internal/modules/cjs/loader.js:839:10)\n    at internal/main/run_main_module.js:17:11","exception":true,"date":"Fri Nov 08 2019 18:12:23 GMT+0530 (India Standard Time)","process":{"pid":26413,"uid":1000,"gid":1000,"cwd":"/home/admin1/Documents/BLabz_Work-master/fundooApp","execPath":"/usr/local/bin/node","version":"v12.6.0","argv":["/usr/local/bin/node","/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js"],"memoryUsage":{"rss":121675776,"heapTotal":80322560,"heapUsed":54036928,"external":22969897}},"os":{"loadavg":[0.73388671875,0.45068359375,0.40771484375],"uptime":24080},"trace":[{"column":13,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/router/index.js","function":"Function.use","line":458,"method":"use","native":false},{"column":21,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js","function":null,"line":220,"method":null,"native":false},{"column":null,"file":null,"function":"Array.forEach","line":null,"method":"forEach","native":false},{"column":7,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js","function":"Function.use","line":217,"method":"use","native":false},{"column":5,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js","function":null,"line":37,"method":null,"native":false},{"column":30,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":776,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false},{"column":32,"file":"internal/modules/cjs/loader.js","function":"Module.load","line":643,"method":"load","native":false},{"column":12,"file":"internal/modules/cjs/loader.js","function":"Module._load","line":556,"method":"_load","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module.runMain","line":839,"method":"runMain","native":false},{"column":11,"file":"internal/main/run_main_module.js","function":null,"line":17,"method":null,"native":false}]}
+info: Redis client connected
+error: uncaughtException: Router.use() requires a middleware function but got a string
+TypeError: Router.use() requires a middleware function but got a string
+    at Function.use (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/router/index.js:458:13)
+    at Function.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js:220:21)
+    at Array.forEach (<anonymous>)
+    at Function.use (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js:217:7)
+    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js:37:5)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:643:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:556:12)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:839:10)
+    at internal/main/run_main_module.js:17:11 {"error":{},"stack":"TypeError: Router.use() requires a middleware function but got a string\n    at Function.use (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/router/index.js:458:13)\n    at Function.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js:220:21)\n    at Array.forEach (<anonymous>)\n    at Function.use (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js:217:7)\n    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js:37:5)\n    at Module._compile (internal/modules/cjs/loader.js:776:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)\n    at Module.load (internal/modules/cjs/loader.js:643:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:556:12)\n    at Function.Module.runMain (internal/modules/cjs/loader.js:839:10)\n    at internal/main/run_main_module.js:17:11","exception":true,"date":"Fri Nov 08 2019 18:12:25 GMT+0530 (India Standard Time)","process":{"pid":26429,"uid":1000,"gid":1000,"cwd":"/home/admin1/Documents/BLabz_Work-master/fundooApp","execPath":"/usr/local/bin/node","version":"v12.6.0","argv":["/usr/local/bin/node","/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js"],"memoryUsage":{"rss":124051456,"heapTotal":83324928,"heapUsed":58446920,"external":21117388}},"os":{"loadavg":[0.73388671875,0.45068359375,0.40771484375],"uptime":24081},"trace":[{"column":13,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/router/index.js","function":"Function.use","line":458,"method":"use","native":false},{"column":21,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js","function":null,"line":220,"method":null,"native":false},{"column":null,"file":null,"function":"Array.forEach","line":null,"method":"forEach","native":false},{"column":7,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js","function":"Function.use","line":217,"method":"use","native":false},{"column":5,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js","function":null,"line":37,"method":null,"native":false},{"column":30,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":776,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false},{"column":32,"file":"internal/modules/cjs/loader.js","function":"Module.load","line":643,"method":"load","native":false},{"column":12,"file":"internal/modules/cjs/loader.js","function":"Module._load","line":556,"method":"_load","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module.runMain","line":839,"method":"runMain","native":false},{"column":11,"file":"internal/main/run_main_module.js","function":null,"line":17,"method":null,"native":false}]}
+info: Redis client connected
+error: uncaughtException: Router.use() requires a middleware function but got a string
+TypeError: Router.use() requires a middleware function but got a string
+    at Function.use (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/router/index.js:458:13)
+    at Function.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js:220:21)
+    at Array.forEach (<anonymous>)
+    at Function.use (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js:217:7)
+    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js:37:5)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:643:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:556:12)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:839:10)
+    at internal/main/run_main_module.js:17:11 {"error":{},"stack":"TypeError: Router.use() requires a middleware function but got a string\n    at Function.use (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/router/index.js:458:13)\n    at Function.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js:220:21)\n    at Array.forEach (<anonymous>)\n    at Function.use (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js:217:7)\n    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js:37:5)\n    at Module._compile (internal/modules/cjs/loader.js:776:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)\n    at Module.load (internal/modules/cjs/loader.js:643:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:556:12)\n    at Function.Module.runMain (internal/modules/cjs/loader.js:839:10)\n    at internal/main/run_main_module.js:17:11","exception":true,"date":"Fri Nov 08 2019 18:12:36 GMT+0530 (India Standard Time)","process":{"pid":26456,"uid":1000,"gid":1000,"cwd":"/home/admin1/Documents/BLabz_Work-master/fundooApp","execPath":"/usr/local/bin/node","version":"v12.6.0","argv":["/usr/local/bin/node","/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js"],"memoryUsage":{"rss":122699776,"heapTotal":82788352,"heapUsed":58754704,"external":21951384}},"os":{"loadavg":[0.69482421875,0.4521484375,0.40869140625],"uptime":24093},"trace":[{"column":13,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/router/index.js","function":"Function.use","line":458,"method":"use","native":false},{"column":21,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js","function":null,"line":220,"method":null,"native":false},{"column":null,"file":null,"function":"Array.forEach","line":null,"method":"forEach","native":false},{"column":7,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js","function":"Function.use","line":217,"method":"use","native":false},{"column":5,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js","function":null,"line":37,"method":null,"native":false},{"column":30,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":776,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false},{"column":32,"file":"internal/modules/cjs/loader.js","function":"Module.load","line":643,"method":"load","native":false},{"column":12,"file":"internal/modules/cjs/loader.js","function":"Module._load","line":556,"method":"_load","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module.runMain","line":839,"method":"runMain","native":false},{"column":11,"file":"internal/main/run_main_module.js","function":null,"line":17,"method":null,"native":false}]}
+info: Redis client connected
+error: uncaughtException: Router.use() requires a middleware function but got a string
+TypeError: Router.use() requires a middleware function but got a string
+    at Function.use (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/router/index.js:458:13)
+    at Function.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js:220:21)
+    at Array.forEach (<anonymous>)
+    at Function.use (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js:217:7)
+    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js:37:5)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:643:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:556:12)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:839:10)
+    at internal/main/run_main_module.js:17:11 {"error":{},"stack":"TypeError: Router.use() requires a middleware function but got a string\n    at Function.use (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/router/index.js:458:13)\n    at Function.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js:220:21)\n    at Array.forEach (<anonymous>)\n    at Function.use (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js:217:7)\n    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js:37:5)\n    at Module._compile (internal/modules/cjs/loader.js:776:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)\n    at Module.load (internal/modules/cjs/loader.js:643:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:556:12)\n    at Function.Module.runMain (internal/modules/cjs/loader.js:839:10)\n    at internal/main/run_main_module.js:17:11","exception":true,"date":"Fri Nov 08 2019 18:23:45 GMT+0530 (India Standard Time)","process":{"pid":26781,"uid":1000,"gid":1000,"cwd":"/home/admin1/Documents/BLabz_Work-master/fundooApp","execPath":"/usr/local/bin/node","version":"v12.6.0","argv":["/usr/local/bin/node","/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js"],"memoryUsage":{"rss":121520128,"heapTotal":80846848,"heapUsed":53640080,"external":22918874}},"os":{"loadavg":[0.416015625,0.2666015625,0.28271484375],"uptime":24761},"trace":[{"column":13,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/router/index.js","function":"Function.use","line":458,"method":"use","native":false},{"column":21,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js","function":null,"line":220,"method":null,"native":false},{"column":null,"file":null,"function":"Array.forEach","line":null,"method":"forEach","native":false},{"column":7,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js","function":"Function.use","line":217,"method":"use","native":false},{"column":5,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js","function":null,"line":37,"method":null,"native":false},{"column":30,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":776,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false},{"column":32,"file":"internal/modules/cjs/loader.js","function":"Module.load","line":643,"method":"load","native":false},{"column":12,"file":"internal/modules/cjs/loader.js","function":"Module._load","line":556,"method":"_load","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module.runMain","line":839,"method":"runMain","native":false},{"column":11,"file":"internal/main/run_main_module.js","function":null,"line":17,"method":null,"native":false}]}
+info: Redis client connected
+error: uncaughtException: Router.use() requires a middleware function but got a string
+TypeError: Router.use() requires a middleware function but got a string
+    at Function.use (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/router/index.js:458:13)
+    at Function.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js:220:21)
+    at Array.forEach (<anonymous>)
+    at Function.use (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js:217:7)
+    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js:37:5)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:643:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:556:12)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:839:10)
+    at internal/main/run_main_module.js:17:11 {"error":{},"stack":"TypeError: Router.use() requires a middleware function but got a string\n    at Function.use (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/router/index.js:458:13)\n    at Function.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js:220:21)\n    at Array.forEach (<anonymous>)\n    at Function.use (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js:217:7)\n    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js:37:5)\n    at Module._compile (internal/modules/cjs/loader.js:776:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)\n    at Module.load (internal/modules/cjs/loader.js:643:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:556:12)\n    at Function.Module.runMain (internal/modules/cjs/loader.js:839:10)\n    at internal/main/run_main_module.js:17:11","exception":true,"date":"Fri Nov 08 2019 18:23:57 GMT+0530 (India Standard Time)","process":{"pid":26807,"uid":1000,"gid":1000,"cwd":"/home/admin1/Documents/BLabz_Work-master/fundooApp","execPath":"/usr/local/bin/node","version":"v12.6.0","argv":["/usr/local/bin/node","/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js"],"memoryUsage":{"rss":122867712,"heapTotal":82788352,"heapUsed":58827080,"external":21951384}},"os":{"loadavg":[0.43212890625,0.2744140625,0.28466796875],"uptime":24773},"trace":[{"column":13,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/router/index.js","function":"Function.use","line":458,"method":"use","native":false},{"column":21,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js","function":null,"line":220,"method":null,"native":false},{"column":null,"file":null,"function":"Array.forEach","line":null,"method":"forEach","native":false},{"column":7,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js","function":"Function.use","line":217,"method":"use","native":false},{"column":5,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js","function":null,"line":37,"method":null,"native":false},{"column":30,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":776,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false},{"column":32,"file":"internal/modules/cjs/loader.js","function":"Module.load","line":643,"method":"load","native":false},{"column":12,"file":"internal/modules/cjs/loader.js","function":"Module._load","line":556,"method":"_load","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module.runMain","line":839,"method":"runMain","native":false},{"column":11,"file":"internal/main/run_main_module.js","function":null,"line":17,"method":null,"native":false}]}
+info: Redis client connected
+error: uncaughtException: Router.use() requires a middleware function but got a string
+TypeError: Router.use() requires a middleware function but got a string
+    at Function.use (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/router/index.js:458:13)
+    at Function.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js:220:21)
+    at Array.forEach (<anonymous>)
+    at Function.use (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js:217:7)
+    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js:37:5)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:643:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:556:12)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:839:10)
+    at internal/main/run_main_module.js:17:11 {"error":{},"stack":"TypeError: Router.use() requires a middleware function but got a string\n    at Function.use (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/router/index.js:458:13)\n    at Function.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js:220:21)\n    at Array.forEach (<anonymous>)\n    at Function.use (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js:217:7)\n    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js:37:5)\n    at Module._compile (internal/modules/cjs/loader.js:776:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)\n    at Module.load (internal/modules/cjs/loader.js:643:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:556:12)\n    at Function.Module.runMain (internal/modules/cjs/loader.js:839:10)\n    at internal/main/run_main_module.js:17:11","exception":true,"date":"Fri Nov 08 2019 18:24:05 GMT+0530 (India Standard Time)","process":{"pid":26834,"uid":1000,"gid":1000,"cwd":"/home/admin1/Documents/BLabz_Work-master/fundooApp","execPath":"/usr/local/bin/node","version":"v12.6.0","argv":["/usr/local/bin/node","/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js"],"memoryUsage":{"rss":121499648,"heapTotal":80322560,"heapUsed":53825568,"external":22969897}},"os":{"loadavg":[0.365234375,0.2646484375,0.28076171875],"uptime":24782},"trace":[{"column":13,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/router/index.js","function":"Function.use","line":458,"method":"use","native":false},{"column":21,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js","function":null,"line":220,"method":null,"native":false},{"column":null,"file":null,"function":"Array.forEach","line":null,"method":"forEach","native":false},{"column":7,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js","function":"Function.use","line":217,"method":"use","native":false},{"column":5,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js","function":null,"line":37,"method":null,"native":false},{"column":30,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":776,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false},{"column":32,"file":"internal/modules/cjs/loader.js","function":"Module.load","line":643,"method":"load","native":false},{"column":12,"file":"internal/modules/cjs/loader.js","function":"Module._load","line":556,"method":"_load","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module.runMain","line":839,"method":"runMain","native":false},{"column":11,"file":"internal/main/run_main_module.js","function":null,"line":17,"method":null,"native":false}]}
+info: Redis client connected
+error: uncaughtException: Router.use() requires a middleware function but got a string
+TypeError: Router.use() requires a middleware function but got a string
+    at Function.use (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/router/index.js:458:13)
+    at Function.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js:220:21)
+    at Array.forEach (<anonymous>)
+    at Function.use (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js:217:7)
+    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js:37:5)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:643:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:556:12)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:839:10)
+    at internal/main/run_main_module.js:17:11 {"error":{},"stack":"TypeError: Router.use() requires a middleware function but got a string\n    at Function.use (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/router/index.js:458:13)\n    at Function.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js:220:21)\n    at Array.forEach (<anonymous>)\n    at Function.use (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js:217:7)\n    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js:37:5)\n    at Module._compile (internal/modules/cjs/loader.js:776:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)\n    at Module.load (internal/modules/cjs/loader.js:643:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:556:12)\n    at Function.Module.runMain (internal/modules/cjs/loader.js:839:10)\n    at internal/main/run_main_module.js:17:11","exception":true,"date":"Fri Nov 08 2019 18:24:10 GMT+0530 (India Standard Time)","process":{"pid":26857,"uid":1000,"gid":1000,"cwd":"/home/admin1/Documents/BLabz_Work-master/fundooApp","execPath":"/usr/local/bin/node","version":"v12.6.0","argv":["/usr/local/bin/node","/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js"],"memoryUsage":{"rss":121843712,"heapTotal":80584704,"heapUsed":54109568,"external":22969897}},"os":{"loadavg":[0.41650390625,0.27734375,0.28466796875],"uptime":24786},"trace":[{"column":13,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/router/index.js","function":"Function.use","line":458,"method":"use","native":false},{"column":21,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js","function":null,"line":220,"method":null,"native":false},{"column":null,"file":null,"function":"Array.forEach","line":null,"method":"forEach","native":false},{"column":7,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js","function":"Function.use","line":217,"method":"use","native":false},{"column":5,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js","function":null,"line":37,"method":null,"native":false},{"column":30,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":776,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false},{"column":32,"file":"internal/modules/cjs/loader.js","function":"Module.load","line":643,"method":"load","native":false},{"column":12,"file":"internal/modules/cjs/loader.js","function":"Module._load","line":556,"method":"_load","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module.runMain","line":839,"method":"runMain","native":false},{"column":11,"file":"internal/main/run_main_module.js","function":null,"line":17,"method":null,"native":false}]}
+info: Redis client connected
+error: uncaughtException: Router.use() requires a middleware function but got a string
+TypeError: Router.use() requires a middleware function but got a string
+    at Function.use (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/router/index.js:458:13)
+    at Function.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js:220:21)
+    at Array.forEach (<anonymous>)
+    at Function.use (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js:217:7)
+    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js:37:5)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:643:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:556:12)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:839:10)
+    at internal/main/run_main_module.js:17:11 {"error":{},"stack":"TypeError: Router.use() requires a middleware function but got a string\n    at Function.use (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/router/index.js:458:13)\n    at Function.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js:220:21)\n    at Array.forEach (<anonymous>)\n    at Function.use (/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js:217:7)\n    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js:37:5)\n    at Module._compile (internal/modules/cjs/loader.js:776:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)\n    at Module.load (internal/modules/cjs/loader.js:643:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:556:12)\n    at Function.Module.runMain (internal/modules/cjs/loader.js:839:10)\n    at internal/main/run_main_module.js:17:11","exception":true,"date":"Fri Nov 08 2019 18:24:16 GMT+0530 (India Standard Time)","process":{"pid":26885,"uid":1000,"gid":1000,"cwd":"/home/admin1/Documents/BLabz_Work-master/fundooApp","execPath":"/usr/local/bin/node","version":"v12.6.0","argv":["/usr/local/bin/node","/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js"],"memoryUsage":{"rss":123129856,"heapTotal":82788352,"heapUsed":58980864,"external":21969808}},"os":{"loadavg":[0.3828125,0.2724609375,0.28271484375],"uptime":24792},"trace":[{"column":13,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/router/index.js","function":"Function.use","line":458,"method":"use","native":false},{"column":21,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js","function":null,"line":220,"method":null,"native":false},{"column":null,"file":null,"function":"Array.forEach","line":null,"method":"forEach","native":false},{"column":7,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/node_modules/express/lib/application.js","function":"Function.use","line":217,"method":"use","native":false},{"column":5,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js","function":null,"line":37,"method":null,"native":false},{"column":30,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":776,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false},{"column":32,"file":"internal/modules/cjs/loader.js","function":"Module.load","line":643,"method":"load","native":false},{"column":12,"file":"internal/modules/cjs/loader.js","function":"Module._load","line":556,"method":"_load","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module.runMain","line":839,"method":"runMain","native":false},{"column":11,"file":"internal/main/run_main_module.js","function":null,"line":17,"method":null,"native":false}]}
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected

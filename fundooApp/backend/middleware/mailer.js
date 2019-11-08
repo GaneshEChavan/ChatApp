@@ -1,14 +1,14 @@
 const EventEmitter = require("events");
 const path = require("path")
 const nodemailer = require("nodemailer");
+
 require('dotenv').config({ path: __dirname + '../.env' });
-// const hbs = require("nodemailer-express-handlebars")
 
 
 module.exports = {
-    async nodeMailer(emailId, url) {
-        console.log("--------------------------------------------------------------------------------------------------->9",url);
-        
+    async nodeMailer(emailId, url, name) {
+        // console.log("--------------------------------------------------------------------------------------------------->9", url);
+
         let transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
@@ -17,21 +17,38 @@ module.exports = {
             }
         });
 
-        transporter.use('compile', hbs({
-           viewEngine: "express-handlebars",
-           viewPath: "../../views/" 
-        }))
         let mailOptions = {
             from: process.env.GUSER,
             to: emailId,
             subject: 'Sending Email using Node.js to reset password',
-            text: `Click the following link to reset password : ${url}`,
-            template:'mail'
+            html: `<head>
+                   <style>
+                   .button {
+                    background-color:#555555;
+                    border: none;
+                    color: white;
+                    padding: 15px 32px;
+                    text-align: center;
+                    text-decoration: none;
+                    display: inline-block;
+                    font-size: 16px;
+                    margin: 4px 2px;
+                    cursor: pointer;
+                  }
+                   </style>
+                   </head>
+                   <body>
+                   <div style="background-color:cornflowerblue">
+                   <h1 style:"color:dodgerblue">Welcome to Fundoo App</h1><br>
+                   <p> Hey ${name}, Thank you for Registering on App to continue enjoying App please click on button below</p>
+                   <a href = ${url}><button class="button">click here</button></a>
+                   </div>
+                   </body>`
         };
 
         let info = await transporter.sendMail(mailOptions);
         console.log(info.response);
-        
-        
+
+
     }
 }

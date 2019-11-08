@@ -19,6 +19,7 @@ const expressValidator = require("express-validator")
 const passportGoogle = require("./authServices/oAuthGoogle")
 const passportFacebook = require("./authServices/oAuthFacebook")
 const passport = require("passport")
+
 require('dotenv').config({ path: __dirname + '/.env' })
 const logger = require("../logger/logger")
 /**
@@ -43,6 +44,7 @@ passport.deserializeUser(function (user, done) {
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json());
+
 app.use('/', Route);
 
 app.use(function (err, req, res, next) {
@@ -51,7 +53,7 @@ app.use(function (err, req, res, next) {
 });
 
 app.listen(process.env.PORT, () => {
-  console.log(`app listening on port ${process.env.PORT}`)
+  console.log(`Server started on port ${process.env.PORT}`)
   mongo()
 });
 
