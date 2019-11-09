@@ -16,7 +16,7 @@ class ControllerMethods {
         let responseResult = {};
         try {
             /**
-            * @description : checking the request body for validation using express-validator
+            * @description : checking the request body for validation using express-validator 
             **/
             req.checkBody("firstName", "must be valid").notEmpty().isAlpha();
 

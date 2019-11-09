@@ -18,84 +18,89 @@ const cache = require("./controller/cache")
 const upload = require("./AWS_service/fileUploader")
 const passport = require("passport")
 
+/**
+ * @description: route for user new registration, login, for forgot password and reset password 
+ */
 routes.post('/user/register', controller.register)
-routes.post('/user/login', cache.token, controller.login)
+routes.post('/user/login', controller.login)
 routes.post('/forgot', controller.forget)
 routes.post('/reset', authenticate, controller.reset)
 routes.post('/allUsers', authenticate, controller.activeStatus)
 
-/*
-* route for AWS-image upload
+/**
+* @description: route for AWS-image upload in S3 bucket
 */
 routes.post('/image-upload', authenticate, upload.single('image'), controller.imgUpload)
 
-/*
-* open social Authentication routes
+/**
+* @description: open social Authentication routes for google and facebook
 */
-// routes.get('/login',(req,res)=>{res.render('login')})
 routes.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email'] }))
 routes.get('/auth/google/callback', passport.authenticate('google'), oAuthController.googleLogin)
 routes.post('/auth/facebook', passport.authenticate("facebookToken", { scope: ['profile', 'email'] }), oAuthController.facebookLogin)
 
 /**
- * @swagger
- * /customers:
- * post :
- * description : use to create new note
- * responses :
- * '200' :
- * description : A successful response
+ * @description: route for new note creation {authenticate} does authentication for user that is exists or not
  */
 routes.post('/note', authenticate, noteController.createNote)
+
 /**
- * @swagger
- * /customers:
- * get :
- * description : use to read all notes
- * responses :
- * '200' :
- * description : A successful response
+ * @description: route for getting all notes of specific user, for first time it will communicate with DB further it will take notes from cache 
  */
 routes.get('/note', authenticate, cache.notes, noteController.readNote)
+
+/**
+ * @description: route for pagination of notes of specific user page size and page number are passed from request params
+ */
+routes.get('/page',authenticate,noteController.NotePages)
+
+/**
+ * @description: this route update the trashed field to true not actually delete the note from DB 
+ */
 routes.delete('/note', authenticate, noteController.deleteNote)
+
+/**
+ * @description: route for removing the collaborator from the note
+ */
 routes.delete('/collaborator', authenticate, noteController.removeCollaborators)
-/*
-* update all except isTrashed
+
+/**
+* @description: update all the fields except isTrashed hence for delete seperate service is written
 */
 routes.put('/note', authenticate, noteController.updateNote)
 
-/*
-* routes for label 
+/**
+* @description: routes for creting new label  
 */
 routes.post('/label', authenticate, labelController.createLabel)
 routes.get('/label', authenticate, labelController.readLabel)
 routes.delete('/label', authenticate, labelController.deleteLabel)
 routes.put('/label', authenticate, labelController.updateLabel)
-/*
-* route for listing
+/**
+* @description: route for listing the notes as per user requirement and set that list to cache
 */
 routes.get('/list', authenticate, cache.list, noteController.requestedList)
 
-/*
-* route for reminder 
+/**
+* @description: route for setting reminder to existing note  
 */
 routes.put('/reminder', authenticate, noteController.setReminder)
 
-/*
-* routes for delete note, empty trash and restore notes from trash 
+/**
+* @description: routes for delete note, empty trash and restore notes from trash 
 */
 routes.delete('/note/trashone', authenticate, noteController.permanentDeleteNote)
 routes.delete('/note/trashAll', authenticate, noteController.emptyTrash)
 routes.put('/note/restore', authenticate, noteController.restoreNotes)
 
-/*
-* update labels to notes
+/**
+* @description: update labels to notes
 */
 routes.post('/note/addLabel', authenticate, noteController.updateLabelToNote)
 routes.delete('/note/deleteLabel', authenticate, noteController.deleteLabelFromNote)
 
-/*
-* search note based on title,description,reminder,color 
+/**
+* @description: search note based on title,description,reminder,color and label names 
 */
 routes.post('/note/search', authenticate, noteController.searchNote)
 
@@ -105,42 +110,7 @@ routes.post('/note/search', authenticate, noteController.searchNote)
 // routes.post('/collaborator',authenticate,collaborateController.addCollaborator)
 // routes.post('/collaborator',authenticate,collaborateController.readCollaborator)
 
-
-// class Setup {
-//     setup(app) {
-//         /**
-//         * @swagger
-//         * /:
-//         *   get:
-//         *     description: Returns the homepage
-//         *     responses:
-//         *       200:
-//         *         description: hello world
-//         */
-//         app.get('/note', authenticate, cache.notes, noteController.readNote)
-
-//         console.log("inside swagger setup in routes")
-//         // app.post('/user/register', controller.register)
-//         // app.post('/user/login', cache.token, controller.login)
-//     }
-// }
 module.exports = routes;
-// module.exports.setup = function (app) {
-//     /**
-//       * @swagger
-//       * /:
-//       *   get:
-//       *     description: "Returns the homepage"
-//       *     responses:
-//       *       200:
-//       *         description: "hello world"
-//      */
-//     app.get('/note', authenticate, cache.notes, noteController.readNote)
-    // app.post('/note/search', authenticate, noteController.searchNote)
-    // app.post('/note', authenticate, noteController.createNote)
-    // app.post('/user/login', cache.token, controller.login)
-// }
-
 
 
 

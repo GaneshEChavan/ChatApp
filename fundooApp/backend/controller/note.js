@@ -23,23 +23,26 @@ class ControllerNote {
      * @param {*To show client his data and status code} res 
      */
     createNote(req, res) {
-        
+
         let response = {};
         try {
             
+            let date = req.body.RemindTime && req.body.Reminder ? new Date(req.body.RemindTime).toISOString() : null;
             let noteData = {
                 userID: req.decoded._id,
                 title: req.body.title,
                 description: req.body.description,
-                color: req.body.color
+                color: req.body.color,
+                Reminder :req.body.Reminder,
+                RemindTime : date
             }
             let colab = {
-                collaborators : req.body.collaborators
+                collaborators: req.body.collaborators
             }
             /**
              * @description : passing note and collaborator data to note function in service  
              */
-            noteService.newNote(noteData,colab).then((data) => {
+            noteService.newNote(noteData, colab).then((data) => {
                 response.status = true;
                 response.message = "Note Created successfully..!";
                 response.data = data;
@@ -66,6 +69,7 @@ class ControllerNote {
      */
     readNote(req, res) {
         let response = {}
+        console.log("req in note controller at------>69 query", Object.entries(req.query).length, "-----body", req.body);
         /**
          * @description: used try catch block for exception handling
          */
@@ -87,7 +91,7 @@ class ControllerNote {
                 response.message = "Server Error"
                 res.status(500).send(response)
             })
-        } catch (error) {
+        } catch (err) {
             logger.error(err)
             response.status = false;
             response.message = "Something Went Wrong..!"
@@ -95,6 +99,50 @@ class ControllerNote {
         }
     }
 
+    NotePages(req, res) {
+        let response = {}
+        try {
+            if (Object.entries(req.query).length > 0) {
+                let pageNo = parseInt(req.query.pageNo);
+                let size = parseInt(req.query.size);
+                let query = {}
+                if (pageNo > 0) {
+                    query.skip = size * (pageNo - 1)
+                    query.limit = size
+                    let user = {
+                        userID: req.decoded._id,
+                        query
+                    }
+                    /**
+                     * @description: passing userID to service file to do logical operations.
+                     */
+                    noteService.notePages(user).then((data) => {
+                        response.status = true;
+                        response.message = "showing all notes of user...!";
+                        response.data = data;
+                        res.status(202).send(response)
+                    }).catch((err) => {
+                        logger.error(err)
+                        response.status = false;
+                        response.message = "Server Error"
+                        res.status(500).send(response)
+                    })
+                } else {
+                    response.status = false;
+                    response.message = "Failed..!"
+                    res.status(500).send(response)
+                }
+            } else {
+                response.status = false;
+                response.message = "Failed..!"
+                res.status(500).send(response)
+            }
+        } catch (err) {
+            response.status = false;
+            response.message = "Failed..!"
+            res.status(400).send(response)
+        }
+    }
     /**
      * @description: function to delete specific note and add to trash
      * @param {*client request body} req 
@@ -133,28 +181,28 @@ class ControllerNote {
      * @param {*client request body} req 
      * @param {*To show client his data and status code} res 
      */
-    removeCollaborators(req,res){
-       let response = {}
-       try{
-        //    console.log("req body",req.body);
-           
-        noteService.colaboratorRemove(req.body).then(data=>{
-            response.status = true;
-            response.message = "Successfully updated Notes...!";
-            response.data = data;
-            res.status(200).send(response)
-        }).catch(err=>{
+    removeCollaborators(req, res) {
+        let response = {}
+        try {
+            //    console.log("req body",req.body);
+
+            noteService.colaboratorRemove(req.body).then(data => {
+                response.status = true;
+                response.message = "Successfully updated Notes...!";
+                response.data = data;
+                res.status(200).send(response)
+            }).catch(err => {
+                logger.error(err)
+                response.status = false;
+                response.message = "Server Error...!";
+                res.status(500).send(response)
+            })
+        } catch (err) {
             logger.error(err)
             response.status = false;
             response.message = "Server Error...!";
             res.status(500).send(response)
-        })
-       }catch(err){
-        logger.error(err)
-        response.status = false;
-        response.message = "Server Error...!";
-        res.status(500).send(response)
-       }
+        }
     }
 
     /**
@@ -300,7 +348,7 @@ class ControllerNote {
             res.status(400).send(response)
         }
     }
- 
+
     /**
      * @description: function to delete specific label from note
      * @param {*client request body} req 
@@ -407,8 +455,8 @@ class ControllerNote {
      * @param {*client request body} req 
      * @param {*To show client his data and status code} res 
      */
-    
-     searchNote(req, res) {
+
+    searchNote(req, res) {
         let response = {}
         try {
             noteService.noteSearch(req).then(data => {

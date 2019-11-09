@@ -22,9 +22,7 @@ const passport = require("passport")
 
 require('dotenv').config({ path: __dirname + '/.env' })
 const logger = require("../logger/logger")
-/**
- * @description: created express app to 
- */
+
 const app = express();
 
 const swaggerUi = require('swagger-ui-express');

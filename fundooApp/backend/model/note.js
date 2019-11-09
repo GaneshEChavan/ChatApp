@@ -95,8 +95,11 @@ class ModelNote {
                 "isTrashed": noteData.isTrashed,
                 "image": noteData.image,
                 "Reminder": noteData.Reminder,
+                "RemindTime":noteData.RemindTime,
                 "label": noteData.label
             })
+            console.log("-------------->100",note);
+            
             /**
             * @description: saves new generated note schema to DB
             */
@@ -106,17 +109,38 @@ class ModelNote {
         }
     }
 
+    countNotes(query, userQuery) {
+        try {          
+            return new Promise((res, rej) => {
+                Notes.countDocuments(query).then(count => {
+                    this.readNotes(query, userQuery).then(data => {
+                        var totalPages = Math.ceil(count / userQuery.limit)
+                      let Data = { data, totalPages }
+                        res(Data)
+                    }).catch(err => {
+                        rej(err)
+                    })
+                }).catch(err => {
+                    rej(err)
+                })
+            })
+
+        } catch (err) {
+           return err
+        }
+
+    }
     /**
     * @description: function to read all notes  
     * @param {*contains note id} query 
     */
-    readNotes(query) {
+    readNotes(query, pageQuery) {
         try {
             /**
             * @description: check for user is already exists, if yes then rejected else created
             * @method: takes an object to find a entry in database
             */
-            return Notes.find(query).populate('label')
+            return Notes.find(query, {}, pageQuery).populate('label')
         } catch (err) {
             return err
         }
@@ -177,7 +201,7 @@ class ModelNote {
     */
     oldNoteSchedular() {
         cron.schedule('* * * * *', () => {
-            this.readNotes({}).then(data => {
+            this.readNotes({"isArchive": false}).then(data => {
                 data.forEach(note => {
 
                     /**
@@ -213,8 +237,10 @@ class ModelNote {
                  */
                 let self = this
                 function runFirst(data, callback) {
+                    // console.log("------------------>240",data);
+                    
                     data.forEach(obj => {
-                    // console.log(new Date(obj.RemindTime) < new Date())
+                        // console.log(new Date(obj.RemindTime) < new Date())
                         if (new Date(obj.RemindTime) < new Date()) {
                             let note = { "_id": obj._id };
                             let update = { "RemindTime": null, "Reminder": false }
@@ -226,8 +252,13 @@ class ModelNote {
                             }).catch(err => {
                                 callback(err)
                             })
-                        }else{
-                            runSecond(data)                            
+                        } else {
+                            self.readNotes({ "Reminder": true }).then(data => {
+                                runSecond(data)
+                            }).catch(err => {
+                                callback(err)
+                            })
+                            
                         }
                     })
 

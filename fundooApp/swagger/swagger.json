@@ -92,7 +92,7 @@
                 }
             }
         },
-        "/forgetPassword": {
+        "/forgot": {
             "post": {
                 "tags": [
                     "Users"
@@ -121,7 +121,7 @@
                 }
             }
         },
-        "/resetPassword": {
+        "/reset": {
             "post": {
                 "tags": [
                     "Users"
@@ -133,7 +133,7 @@
                         "in": "body",
                         "description": "Update password of given email id",
                         "schema": {
-                            "$ref": "#/definitions/User"
+                            "$ref": "#/definitions/UserForget"
                         }
                     }
                 ],
@@ -149,8 +149,120 @@
                         "200": {
                             "description": "New password updated",
                             "schema": {
-                                "$ref": "#/definitions/User"
+                                "$ref": "#/definitions/UserReset"
                             }
+                        }
+                    }
+                }
+            }
+        },
+        "/createNote": {
+            "post": {
+                "tags": [
+                    "Notes"
+                ],
+                "description": "To Create new Note of user",
+                "parameters": [
+                    {
+                        "name": "user",
+                        "in": "body",
+                        "description": "To Create new Note of user",
+                        "schema": {
+                            "$ref": "#/definitions/newNote"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "New Note created..!",
+                        "schema": {
+                            "$ref": "#/definitions/newNote"
+                        }
+                    }
+                }
+            }
+        },
+        "/readNote": {
+            "get": {
+                "tags": [
+                    "Notes"
+                ],
+                "description": "To Create new Note of user",
+                "parameters": [
+                    {
+                        "name": "user",
+                        "in": "body",
+                        "description": "To Create new Note of user",
+                        "schema": {}
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "New Note created..!",
+                        "schema": {}
+                    }
+                }
+            }
+        },
+        "/updateNote": {
+            "put": {
+                "tags": [
+                    "Notes"
+                ],
+                "description": "To Create new Note of user",
+                "parameters": [
+                    {
+                        "name": "user",
+                        "in": "body",
+                        "description": "To Create new Note of user",
+                        "schema": {
+                            "$ref": "#/definitions/upNote"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "New Note created..!",
+                        "schema": {
+                            "$ref": "#/definitions/upNote"
+                        }
+                    }
+                }
+            }
+        },
+        "/deleteNote": {
+            "delete": {
+                "tags": [
+                    "Notes"
+                ],
+                "description": "To delete Note of user",
+                "parameters": [
+                    {
+                        "name": "user",
+                        "in": "body",
+                        "description": "To delete Note of user",
+                        "schema": {
+                            "$ref": "#/definitions/delNote"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": " Note deleted..!",
+                        "schema": {
+                            "$ref": "#/definitions/delNote"
                         }
                     }
                 }
@@ -172,8 +284,8 @@
                 "password": {
                     "type": "string"
                 },
-                "confirm":{
-                    "type":"string"
+                "confirm": {
+                    "type": "string"
                 }
             }
         },
@@ -186,10 +298,92 @@
                     "type": "string"
                 }
             }
+        },
+        "UserForget": {
+            "properties": {
+                "userName": {
+                    "type": "string"
+                }
+            }
+        },
+        "UserReset": {
+            "properties": {
+                "password": {
+                    "type": "string"
+                }
+            }
+        },
+        "newNote": {
+            "properties": {
+                "title": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "color": {
+                    "type": "string"
+                },
+                "isArchive": {
+                    "type": "boolean"
+                },
+                "isPinned": {
+                    "type": "boolean"
+                },
+                "isTrashed": {
+                    "type": "boolean"
+                },
+                "image": {
+                    "type": "string"
+                },
+                "Reminder": {
+                    "type": "boolean"
+                },
+                "RemindTime": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "upNote": {
+            "properties": {
+                "title": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "color": {
+                    "type": "string"
+                },
+                "isArchive": {
+                    "type": "boolean"
+                },
+                "isPinned": {
+                    "type": "boolean"
+                },
+                "isTrashed": {
+                    "type": "boolean"
+                },
+                "image": {
+                    "type": "string"
+                },
+                "Reminder": {
+                    "type": "boolean"
+                },
+                "RemindTime": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "delNote": {
+            "properties": {
+                "_id": {
+                    "type": "string"
+                },
+                "collaborators": {
+                    "type": "array"
+                }
+            }
         }
-    },
-    "User": {
-        "type": "object",
-        "$ref": "#/definitions/User"
     }
 }

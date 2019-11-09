@@ -61,7 +61,7 @@ class ServiceOperations {
                             }
                             let token = await generatedToken.token(payload)
 
-                            client.setex(result.userName + 'token', 86400, token, redis.print)
+                            client.setex('token'+ result.userName, 86400, token, redis.print)
 
                             res({ message: "logging in...!", data: result, bcryptStatus: Data, token: token })
                         } else {

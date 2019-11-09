@@ -71,6 +71,8 @@ class ServiceNote {
                         })
                     }
                 } else {
+                    console.log("---------->74",noteData);
+                    
                     noteModel.createNote(noteData).then(data => {
                         res(data)
                     }).catch(err => {
@@ -161,11 +163,11 @@ class ServiceNote {
         try {
             return new Promise((res, rej) => {
                 let userinfo = { "userID": user.userID }
-                noteModel.readNotes(userinfo).then((data) => {
+                noteModel.readNotes(userinfo).then(data => {
                     let buff = new Buffer.from(JSON.stringify(data))
                     client.SET(data[0].userID + 'notes', buff)
                     res(data)
-                }).catch((err) => {
+                }).catch(err => {
                     rej(err)
                 })
             })
@@ -174,6 +176,21 @@ class ServiceNote {
         }
     }
 
+   notePages(user) {
+        try {
+            return new Promise(async(res, rej) => {
+                let userinfo = { "userID": user.userID }
+              await   noteModel.countNotes(userinfo, user.query).then((data) => {
+                    res(data)
+                }).catch((err) => {
+                    rej(err)
+                })
+            })
+
+        } catch (err) {
+
+        }
+    }
     /**
      * @description: function to pass user request to update changes 
      * @param {*contains delete request} noteId 
