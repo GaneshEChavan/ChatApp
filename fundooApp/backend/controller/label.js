@@ -7,7 +7,7 @@
  *****************************************************************************************/
 
 const labelService = require("../service/label")
-
+const logger = require("../../logger/logger")
 class ControllerLabel {
     createLabel(req, res) {
         let responce = {}
@@ -23,15 +23,15 @@ class ControllerLabel {
                 responce.data = data
                 res.status(201).send(responce)
             }).catch((err) => {
+                logger.error(err)
                 responce.status = false;
                 responce.message = "Server Error..!";
-                responce.error = err;
                 res.status(500).send(responce)
             })
         } catch (err) {
+            logger.error(err)
             responce.status = false;
             responce.message = "Something Went Wrong...!";
-            responce.error = err
             res.status(400).send(responce)
         }
     }
@@ -48,20 +48,22 @@ class ControllerLabel {
                 responce.data = data;
                 res.status(200).send(responce)
             }).catch((err) => {
+                logger.error(err)
                 responce.status = false;
                 responce.message = "Server Error..!";
-                responce.error = err;
                 res.status(500).send(responce)
             })
         } catch (err) {
+            logger.error(err)
             responce.status = false;
             responce.message = "Something Went Wrong...!";
-            responce.error = err
             res.status(400).send(responce)
         }
     }
 
     deleteLabel(req, res) {
+        console.log(req.query);
+        
         let responce = {};
         try {
             let labelid = {
@@ -73,15 +75,15 @@ class ControllerLabel {
                 responce.data = data;
                 res.status(200).send(responce)
             }).catch((err) => {
+                logger.error(err)
                 responce.status = false;
                 responce.message = "Server Error..!";
-                responce.error = err;
                 res.status(500).send(responce)
             })
         } catch (err) {
+            logger.error(err)
             responce.status = false;
             responce.message = "Something Went Wrong..!";
-            responce.error = err;
             res.status(400).send(responce)
         }
     }
@@ -101,15 +103,15 @@ class ControllerLabel {
                 responce.data = data;
                 res.status(200).send(responce)
             }).catch((err) => {
+                logger.error(err)
                 responce.status = false;
                 responce.message = "Server Error..!";
-                responce.error = err;
                 res.status(500).send(responce)
             })
         } catch (err) {
+            logger.error(err)
             responce.status = false;
             responce.message = "Something Went Wrong..!";
-            responce.error = err;
             res.status(400).send(responce)
         }
     }

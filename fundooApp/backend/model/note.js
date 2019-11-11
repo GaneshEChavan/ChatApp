@@ -52,7 +52,7 @@ let Schema = mongoose.Schema(
             default: false
         },
         RemindTime: {
-            type: String,
+            type: Date,
             default: null
         },
         collaborators: [{
@@ -95,9 +95,9 @@ class ModelNote {
                 "isTrashed": noteData.isTrashed,
                 "image": noteData.image,
                 "Reminder": noteData.Reminder,
-                "RemindTime":noteData.RemindTime,
+                "RemindTime": noteData.RemindTime,
                 "label": noteData.label
-            }) 
+            })
             /**
             * @description: saves new generated note schema to DB
             */
@@ -108,12 +108,12 @@ class ModelNote {
     }
 
     countNotes(query, userQuery) {
-        try {          
+        try {
             return new Promise((res, rej) => {
                 Notes.countDocuments(query).then(count => {
                     this.readNotes(query, userQuery).then(data => {
                         var totalPages = Math.ceil(count / userQuery.limit)
-                      let Data = { data, totalPages }
+                        let Data = { data, totalPages }
                         res(Data)
                     }).catch(err => {
                         rej(err)
@@ -124,7 +124,7 @@ class ModelNote {
             })
 
         } catch (err) {
-           return err
+            return err
         }
 
     }
@@ -199,7 +199,7 @@ class ModelNote {
     */
     oldNoteSchedular() {
         cron.schedule('* * * * *', () => {
-            this.readNotes({"isArchive": false}).then(data => {
+            this.readNotes({ "isArchive": false }).then(data => {
                 data.forEach(note => {
 
                     /**
@@ -230,13 +230,10 @@ class ModelNote {
     remindSchedular() {
         cron.schedule('*/15 * * * * *', () => {
             this.readNotes({ "Reminder": true }).then(data => {
-                /**
-                 * @description: Using selection sorting method for arranging notes in increasing order of reminders. 
-                 */
+                
                 let self = this
                 function runFirst(data, callback) {
                     // console.log("------------------>240",data);
-                    
                     data.forEach(obj => {
                         // console.log(new Date(obj.RemindTime) < new Date())
                         if (new Date(obj.RemindTime) < new Date()) {
@@ -250,26 +247,25 @@ class ModelNote {
                             }).catch(err => {
                                 callback(err)
                             })
-                        } else {
-                            self.readNotes({ "Reminder": true }).then(data => {
-                                runSecond(data)
-                            }).catch(err => {
-                                callback(err)
-                            })
-                            
                         }
+                    })
+
+                    self.readNotes({ "Reminder": true }).then(data => {
+                        runSecond(data)
+                    }).catch(err => {
+                        logger.error(err)
                     })
 
                 }
                 function runSecond(newdata) {
                     for (let j = 0; j < newdata.length; j++) {
-                        for (let i = 0; i < newdata.length - 1; i++) {
+                        for (let i = 0; i < newdata.length-1; i++) {
                             let reminderDateOne = new Date(newdata[i].RemindTime)
                             let reminderDateTwo = new Date(newdata[i + 1].RemindTime)
                             let currentDate = new Date()
                             if ((reminderDateOne.getTime() - currentDate.getTime()) > (reminderDateTwo.getTime() - currentDate.getTime())) {
-                                let temporary = newdata[i+1];
-                                newdata[i+1] = newdata[i];
+                                let temporary = newdata[i + 1];
+                                newdata[i + 1] = newdata[i];
                                 newdata[i] = temporary;
                             }
                         }

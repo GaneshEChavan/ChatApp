@@ -5,7 +5,7 @@
  *  @version        : v0.1
  *  @since          : 14-10-2019
  *****************************************************************************************/
-
+const path = require("path")
 const noteService = require("../service/note")
 const logger = require("../../logger/logger")
 
@@ -26,33 +26,48 @@ class ControllerNote {
 
         let response = {};
         try {
-            
-            let date = req.body.RemindTime && req.body.Reminder ? new Date(req.body.RemindTime).toISOString() : null;
-            let noteData = {
-                userID: req.decoded._id,
-                title: req.body.title,
-                description: req.body.description,
-                color: req.body.color,
-                Reminder :req.body.Reminder,
-                RemindTime : date
-            }
-            let colab = {
-                collaborators: req.body.collaborators
-            }
             /**
-             * @description : passing note and collaborator data to note function in service  
+             * @description: checking for title of note hence it is required always to create new note
              */
-            noteService.newNote(noteData, colab).then((data) => {
-                response.status = true;
-                response.message = "Note Created successfully..!";
-                response.data = data;
-                res.status(201).send(response)
-            }).catch((err) => {
-                logger.error(err)
-                response.status = false;
-                response.message = "Unable to create note..!";
-                res.status(500).send(response)
-            })
+            req.checkBody("title", "must be provided").notEmpty()
+
+            /**
+             * @description: req.validationErrors gives an error when there is error occured in express validator
+             */
+            let errors = req.validationErrors();
+
+            if (errors) {
+                responseResult.success = false;
+                responseResult.message = "title must be provided..!";
+                res.status(406).send(responseResult);
+            } else {
+                let date = req.body.RemindTime && req.body.Reminder ? new Date(req.body.RemindTime).toISOString() : null;
+                let noteData = {
+                    userID: req.decoded._id,
+                    title: req.body.title,
+                    description: req.body.description,
+                    color: req.body.color,
+                    Reminder: req.body.Reminder,
+                    RemindTime: date
+                }
+                let colab = {
+                    collaborators: req.body.collaborators
+                }
+                /**
+                 * @description : passing note and collaborator data to note function in service  
+                 */
+                noteService.newNote(noteData, colab).then((data) => {
+                    response.status = true;
+                    response.message = "Note Created successfully..!";
+                    response.data = data;
+                    res.status(201).send(response)
+                }).catch((err) => {
+                    logger.error(err)
+                    response.status = false;
+                    response.message = "Unable to create note..!";
+                    res.status(500).send(response)
+                })
+            }
         } catch (err) {
             logger.error(err)
             response.status = false;
@@ -99,6 +114,14 @@ class ControllerNote {
         }
     }
 
+    /**
+     * @description: this function takes page number and page size .i.e how many notes will be shown on page as input from user and make query object contains
+     *               skip and limit keys which are mongoose specified for pagination purpose, then calculating skip and limit the query further passed to model 
+     *               through service and query should always pass as third param to find method.
+     * 
+     * @param {*contains data from request params} req 
+     * @param {*To show client his paginated data and carries status code also} res 
+     */
     NotePages(req, res) {
         let response = {}
         try {

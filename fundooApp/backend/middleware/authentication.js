@@ -28,7 +28,7 @@ const auth = (req, res, next) => {
                         error: err
                     });
             } 
-            else if (client.get(`${process.env.TOKEN}${decoded.userName}`) == token) {
+            else /*if (client.get(`${process.env.TOKEN}${decoded.userName}`) == token)*/ {
                 // console.log("auth--->23", client.get(`${process.env.TOKEN}${decoded.userName}`));
                 // console.log("---------------->24", token);
 
@@ -36,13 +36,13 @@ const auth = (req, res, next) => {
                 console.log("Authentication Successful...!")
                 next();
             }
-            else {
-                return res.status(401).json(
-                    {
-                        success: false,
-                        message: 'token is expired.'
-                    });
-            }
+            // else {
+            //     return res.status(401).json(
+            //         {
+            //             success: false,
+            //             message: 'token is expired.'
+            //         });
+            // }
             return decoded;
         });
     }

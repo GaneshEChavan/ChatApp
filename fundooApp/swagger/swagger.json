@@ -409,6 +409,232 @@
                     }
                 }
             }
+        },
+        "/list": {
+            "get": {
+                "tags": [
+                    "listing"
+                ],
+                "description": "To Create new Note of user",
+                "parameters": [
+                    {
+                        "name": "user",
+                        "in": "body",
+                        "description": "To Create new Note of user"
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "Token": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "New Note created..!"
+                    }
+                }
+            }
+        },
+        "/note/trashone": {
+            "delete": {
+                "tags": [
+                    "trash"
+                ],
+                "description": "To Create new Note of user",
+                "parameters": [
+                    {
+                        "name": "user",
+                        "in": "body",
+                        "description": "To Create new Note of user",
+                        "schema": {
+                            "$ref": "#/definitions/noteDel"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "Token": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "New Note created..!",
+                        "schema": {
+                            "$ref": "#/definitions/noteDel"
+                        }
+                    }
+                }
+            }
+        },
+        "/note/trashall": {
+            "delete": {
+                "tags": [
+                    "trash"
+                ],
+                "description": "To Create new Note of user",
+                "parameters": [
+                    {
+                        "name": "user",
+                        "in": "body",
+                        "description": "To Create new Note of user"
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "Token": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "New Note created..!"
+                    }
+                }
+            }
+        },
+        "/note/restore": {
+            "put": {
+                "tags": [
+                    "trash"
+                ],
+                "description": "To Create new Note of user",
+                "parameters": [
+                    {
+                        "name": "user",
+                        "in": "body",
+                        "description": "To Create new Note of user",
+                        "schema": {
+                            "$ref": "#/definitions/noteDel"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "Token": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "New Note created..!",
+                        "schema": {
+                            "$ref": "#/definitions/noteDel"
+                        }
+                    }
+                }
+            }
+        },
+        "/note/addLabel": {
+            "put": {
+                "tags": [
+                    "label addition and deletion from note"
+                ],
+                "description": "To Create new Note of user",
+                "parameters": [
+                    {
+                        "name": "user",
+                        "in": "body",
+                        "description": "To Create new Note of user",
+                        "schema": {
+                            "$ref": "#/definitions/noteDel"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "Token": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "New Note created..!",
+                        "schema": {
+                            "$ref": "#/definitions/noteDel"
+                        }
+                    }
+                }
+            }
+        },
+        "/note/deleteLabel": {
+            "put": {
+                "tags": [
+                    "label addition and deletion from note"
+                ],
+                "description": "To Create new Note of user",
+                "parameters": [
+                    {
+                        "name": "user",
+                        "in": "body",
+                        "description": "To Create new Note of user",
+                        "schema": {
+                            "$ref": "#/definitions/noteDel"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "Token": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "New Note created..!",
+                        "schema": {
+                            "$ref": "#/definitions/noteDel"
+                        }
+                    }
+                }
+            }
+        },
+        "/note/search": {
+            "post": {
+                "tags": [
+                    "search for notes"
+                ],
+                "description": "To Create new Note of user",
+                "parameters": [
+                    {
+                        "name": "user",
+                        "in": "body",
+                        "description": "To Create new Note of user",
+                        "schema": {
+                            "$ref": "#/definitions/search"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "Token": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "New Note created..!",
+                        "schema": {
+                            "$ref": "#/definitions/search"
+                        }
+                    }
+                }
+            }
         }
     },
     "definitions": {
@@ -538,6 +764,20 @@
             "properties": {
                 "_id": {
                     "type": "string"
+                }
+            }
+        },
+        "noteDel": {
+            "properties": {
+                "_id": {
+                    "type": "string"
+                }
+            }
+        },
+        "search":{
+            "properties":{
+                "search":{
+                    "type":"string"
                 }
             }
         }
