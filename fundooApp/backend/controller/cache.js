@@ -50,7 +50,7 @@ class Cache {
      */
     token(req, res, next) {
         let response = {};
-        const keyValue = req.body.userName + process.env.TOKEN
+        const keyValue =  process.env.TOKEN + req.body.userName
         client.getOperator(keyValue).then(data => {
             if (data !== null) {
                 let response = {};

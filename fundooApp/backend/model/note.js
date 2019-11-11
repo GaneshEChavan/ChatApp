@@ -97,9 +97,7 @@ class ModelNote {
                 "Reminder": noteData.Reminder,
                 "RemindTime":noteData.RemindTime,
                 "label": noteData.label
-            })
-            console.log("-------------->100",note);
-            
+            }) 
             /**
             * @description: saves new generated note schema to DB
             */
@@ -263,23 +261,23 @@ class ModelNote {
                     })
 
                 }
-                function runSecond(data) {
-                    for (let j = 0; j < data.length; j++) {
-                        for (let i = 0; i < data.length - 1; i++) {
-                            let reminderDateOne = new Date(data[i].RemindTime)
-                            let reminderDateTwo = new Date(data[i + 1].RemindTime)
+                function runSecond(newdata) {
+                    for (let j = 0; j < newdata.length; j++) {
+                        for (let i = 0; i < newdata.length - 1; i++) {
+                            let reminderDateOne = new Date(newdata[i].RemindTime)
+                            let reminderDateTwo = new Date(newdata[i + 1].RemindTime)
                             let currentDate = new Date()
                             if ((reminderDateOne.getTime() - currentDate.getTime()) > (reminderDateTwo.getTime() - currentDate.getTime())) {
-                                let temporary = data[i];
-                                data[i] = data[i + 1];
-                                data[i + 1] = temporary;
+                                let temporary = newdata[i+1];
+                                newdata[i+1] = newdata[i];
+                                newdata[i] = temporary;
                             }
                         }
                     }
-                    return data
+                    // console.log(newdata)
+                    return newdata
                 }
                 runFirst(data);
-                // console.log(data)
             }).catch(err => {
                 logger.error(err);
 

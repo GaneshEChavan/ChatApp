@@ -35,6 +35,7 @@ routes.post('/image-upload', authenticate, upload.single('image'), controller.im
 /**
 * @description: open social Authentication routes for google and facebook
 */
+
 routes.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email'] }))
 routes.get('/auth/google/callback', passport.authenticate('google'), oAuthController.googleLogin)
 routes.post('/auth/facebook', passport.authenticate("facebookToken", { scope: ['profile', 'email'] }), oAuthController.facebookLogin)
