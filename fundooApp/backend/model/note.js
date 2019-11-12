@@ -107,11 +107,21 @@ class ModelNote {
         }
     }
 
+    /**
+     * @description: countNotes method takes userID count all the notes of user then call find method with mongoose query options and returns paginated data 
+     *               and total number of pages according to size 
+     * @param {contains userID object to count notes of} query 
+     * @param {*contains options to pass mongo find method} userQuery 
+     */
     countNotes(query, userQuery) {
+       
         try {
             return new Promise((res, rej) => {
                 Notes.countDocuments(query).then(count => {
                     this.readNotes(query, userQuery).then(data => {
+                        /**
+                         * @description: Math.ceil rounds a number up to the next largest whole number
+                         */
                         var totalPages = Math.ceil(count / userQuery.limit)
                         let Data = { data, totalPages }
                         res(Data)
@@ -135,8 +145,12 @@ class ModelNote {
     readNotes(query, pageQuery) {
         try {
             /**
-            * @description: check for user is already exists, if yes then rejected else created
-            * @method: takes an object to find a entry in database
+            * @description: check for user is already exists, if yes then rejected else created , find method accepts 3 param and one callback , First is and 
+            *               filter query that on what field we want to find documents, second is fields i.e what fields we want from DB, Third is options that
+            *               we want to pass while filtering. populate is mongo option to show label in notes taking reference of label DB.
+            * @param {*query object contains userID to find notes of} query
+            * @param {* is an fields we want to take from DB} {}
+            * @param {* is object contains options like skip and limit} pageQuery 
             */
             return Notes.find(query, {}, pageQuery).populate('label')
         } catch (err) {
@@ -230,7 +244,7 @@ class ModelNote {
     remindSchedular() {
         cron.schedule('*/15 * * * * *', () => {
             this.readNotes({ "Reminder": true }).then(data => {
-                
+
                 let self = this
                 function runFirst(data, callback) {
                     // console.log("------------------>240",data);
@@ -259,7 +273,7 @@ class ModelNote {
                 }
                 function runSecond(newdata) {
                     for (let j = 0; j < newdata.length; j++) {
-                        for (let i = 0; i < newdata.length-1; i++) {
+                        for (let i = 0; i < newdata.length - 1; i++) {
                             let reminderDateOne = new Date(newdata[i].RemindTime)
                             let reminderDateTwo = new Date(newdata[i + 1].RemindTime)
                             let currentDate = new Date()

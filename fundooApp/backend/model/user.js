@@ -29,6 +29,7 @@ var Schema = mongoose.Schema(
             type: String,
             // required: true,
             trim: true,
+            match: [/^([A-Za-z0-9_\-.])+@([gmail|yahoo])+\.([A-Za-z]{2,4})$/, 'Please fill a valid email address'],
             validate(value) {
                 if (!validator.isEmail(value)) {
                     throw new Error("Invalid EmailId..!")

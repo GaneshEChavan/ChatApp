@@ -25,6 +25,9 @@ class ControllerNote {
     createNote(req, res) {
 
         let response = {};
+        /**
+        * @description: used try catch block for exception handling
+        */
         try {
             /**
              * @description: checking for title of note hence it is required always to create new note
@@ -41,6 +44,9 @@ class ControllerNote {
                 responseResult.message = "title must be provided..!";
                 res.status(406).send(responseResult);
             } else {
+                /**
+                 * @description: ternery operator to check for RemindTime field if true then passing ISO date string else setting value to null
+                 */
                 let date = req.body.RemindTime && req.body.Reminder ? new Date(req.body.RemindTime).toISOString() : null;
                 let noteData = {
                     userID: req.decoded._id,
@@ -50,11 +56,14 @@ class ControllerNote {
                     Reminder: req.body.Reminder,
                     RemindTime: date
                 }
+                /**
+                 * @description:seperate collaborator object made hence have to do logical operations on them in service and is an array of id's
+                 */
                 let colab = {
                     collaborators: req.body.collaborators
                 }
                 /**
-                 * @description : passing note and collaborator data to note function in service  
+                 * @description : passing new note object and collaborator data to service  
                  */
                 noteService.newNote(noteData, colab).then((data) => {
                     response.status = true;
@@ -124,10 +133,20 @@ class ControllerNote {
      */
     NotePages(req, res) {
         let response = {}
+        /**
+        * @description: used try catch block for exception handling
+        */
         try {
-            if (Object.entries(req.query).length > 0) {
+            /**
+             * @description: hence we need page No and page size always to do pagination this if condition is applied so if both values are mentioned then only it
+             *               will proceed further otherwise throw an error
+             */
+            if (Object.entries(req.query).length == 2) {
                 let pageNo = parseInt(req.query.pageNo);
                 let size = parseInt(req.query.size);
+                /**
+                 * @description: defined query object to set mongoose skip and limit options into it
+                 */
                 let query = {}
                 if (pageNo > 0) {
                     query.skip = size * (pageNo - 1)
@@ -137,7 +156,7 @@ class ControllerNote {
                         query
                     }
                     /**
-                     * @description: passing userID to service file to do logical operations.
+                     * @description: passing userID and option query to service file to do logical operations.
                      */
                     noteService.notePages(user).then((data) => {
                         response.status = true;

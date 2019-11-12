@@ -71,8 +71,8 @@ class ServiceNote {
                         })
                     }
                 } else {
-                    console.log("---------->74",noteData);
-                    
+                    console.log("---------->74", noteData);
+
                     noteModel.createNote(noteData).then(data => {
                         res(data)
                     }).catch(err => {
@@ -160,6 +160,9 @@ class ServiceNote {
      * @param {*contains userID} user 
      */
     userNotes(user) {
+        /**
+        * @description: used try catch block for exception handling
+        */
         try {
             return new Promise((res, rej) => {
                 let userinfo = { "userID": user.userID }
@@ -176,11 +179,21 @@ class ServiceNote {
         }
     }
 
-   notePages(user) {
+    /**
+    * @description: this method is for paginating the notes takes user object and pass to model
+    * @param {*contains userID and options object} user 
+    */
+    notePages(user) {
+        /**
+        * @description: used try catch block for exception handling
+        */
         try {
-            return new Promise(async(res, rej) => {
+            /**
+             * @description: return async promise in which passing userID and option query to model. Used async await to wait function for response
+             */
+            return new Promise(async (res, rej) => {
                 let userinfo = { "userID": user.userID }
-              await   noteModel.countNotes(userinfo, user.query).then((data) => {
+                await noteModel.countNotes(userinfo, user.query).then((data) => {
                     res(data)
                 }).catch((err) => {
                     rej(err)

@@ -19,7 +19,7 @@ const expressValidator = require("express-validator")
 const passportGoogle = require("./authServices/oAuthGoogle")
 const passportFacebook = require("./authServices/oAuthFacebook")
 const passport = require("passport")
-
+require("./elastic-search/elasticSearch")
 require('dotenv').config({ path: __dirname + '/.env' })
 const logger = require("../logger/logger")
 
