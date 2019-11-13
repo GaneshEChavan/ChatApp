@@ -82,29 +82,33 @@ class Elastic {
 
     /**
      * @description: search for document
-     * @param {*} indexName
      * @param {*} payload 
      */
-    searchDocument(indexName, payload) {
+    searchDocument(payload) {
 
         return elasticClient.search({
-            index: indexName,
-            body: payload
+            index: process.env.INDEXNAME,
+            body: {
+                query: {
+                    bool: {
+                        should: [
+                            { term: { title: payload } },
+                            { term: { description: payload } }
+                        ]
+                    }
+                }
+            }
         })
     }
 
     /**
      * @description: delete a document from index
-     * @param {*} req 
-     * @param {*} res 
-     * @param {*} index 
-     * @param {*} _id 
-     * @param {*} docType 
+     * @param {*} _id  
      */
     deleteDocument(id) {
 
         return elasticClient.delete({
-            index:process.env.INDEXNAME,
+            index: process.env.INDEXNAME,
             id
         })
 
@@ -126,4 +130,7 @@ let dlt = new Elastic()
 // dlt.deleteAll()
 // dlt.indexExists().then(res=>{console.log("exists")}).catch(err=>{console.log("doesn't exist")})
 // dlt.initIndex()
+// dlt.searchDocument("polo").then(res=>{console.log("search result",res)}).catch(err=>{console.log("not found",err)})
 module.exports = new Elastic()
+
+// match_all : {}

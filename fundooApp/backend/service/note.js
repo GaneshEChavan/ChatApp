@@ -23,8 +23,8 @@ client.on('error', function (err) {
 });
 
 /**
- * @description: service class to wrap all service functions for notes
- */
+* @description: service class to wrap all service functions for notes
+*/
 class ServiceNote {
     /**
      * @description: function to create new note 
@@ -63,7 +63,6 @@ class ServiceNote {
                                             * @description: called function from same file to save changes made, in redis 
                                             */
                                             this.userNotes(user)
-                                            elastic.
                                                 res("Collaborator Added..!")
                                         }).catch(err => {
                                             rej(err)
@@ -183,11 +182,11 @@ class ServiceNote {
                                 userModel.read(search).then(DAta => {
                                     let Search = { "_id": data[0]._id };
                                     let update = { $addToSet: { "collaborators": id } }
-                                    noteModel.updateSingleNote(Search, update).then( async data => {
-                                        let payload = {"title":data.title,"description":data.description}
-                                        let result = await elastic.updateDocument(data.elasticID,payload)                                        
-                                        console.log("---->189",result);
-                                        
+                                    noteModel.updateSingleNote(Search, update).then(async data => {
+                                        let payload = { "title": data.title, "description": data.description }
+                                        let result = await elastic.updateDocument(data.elasticID, payload)
+                                        console.log("---->189", result);
+
                                         /**
                                         * @description: called function from same file to save changes made, in redis 
                                         */
@@ -206,9 +205,9 @@ class ServiceNote {
                                 })
                             })
                         } else {
-                            let payload = {"title":Data.title,"description":Data.description}
-                            let result = await elastic.updateDocument(Data.elasticID,payload)                                        
-                            console.log("---->212",result);
+                            let payload = { "title": Data.title, "description": Data.description }
+                            let result = await elastic.updateDocument(Data.elasticID, payload)
+                            console.log("---->212", result);
                             res(Data)
                         }
 
@@ -385,14 +384,12 @@ class ServiceNote {
      */
     deletePermanent(noteid) {
         try {
-            return new Promise(async(res, rej) => {
+            return new Promise(async (res, rej) => {
                 let note = { "_id": noteid._id }
                 noteModel.permanentDelete(note).then(async data => {
-                    console.log("___________>noteservice 391",data);
-                   let result = await elastic.deleteDocument(data.elasticID)
-                   console.log("--------->393",result);
-                   
-                   res(data)
+                    let result = await elastic.deleteDocument(data.elasticID)
+                    logger.info(result)
+                    res(data)
                 }).catch(err => {
                     rej(err)
                 })

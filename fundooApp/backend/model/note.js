@@ -193,7 +193,7 @@ class ModelNote {
     * @description: function to delete a notes  
     * @param {*contains note id} note
     */
-    permanentDelete(note) {
+        permanentDelete(note) {
         try {
             return Notes.findByIdAndDelete(note)
         } catch (err) {
