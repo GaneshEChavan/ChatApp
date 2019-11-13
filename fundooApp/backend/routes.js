@@ -53,7 +53,7 @@ routes.get('/note', authenticate, cache.notes, noteController.readNote)
 /**
  * @description: route for pagination of notes of specific user page size and page number are passed from request params
  */
-routes.get('/page',authenticate,noteController.NotePages)
+routes.get('/page/:pageNo/:size',authenticate,noteController.NotePages)
 
 /**
  * @description: this route update the trashed field to true not actually delete the note from DB 

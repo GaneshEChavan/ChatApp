@@ -141,9 +141,9 @@ class ControllerNote {
              * @description: hence we need page No and page size always to do pagination this if condition is applied so if both values are mentioned then only it
              *               will proceed further otherwise throw an error
              */
-            if (Object.entries(req.query).length == 2) {
-                let pageNo = parseInt(req.query.pageNo);
-                let size = parseInt(req.query.size);
+            if (Object.entries(req.params).length == 2) {
+                let pageNo = parseInt(req.params.pageNo);
+                let size = parseInt(req.params.size);
                 /**
                  * @description: defined query object to set mongoose skip and limit options into it
                  */

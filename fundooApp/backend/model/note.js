@@ -10,8 +10,8 @@ const mongoose = require("mongoose");
 let cron = require("node-cron");
 const logger = require("../../logger/logger")
 /**
- * @description:Creating note schema using mongoose
- **/
+* @description:Creating note schema using mongoose
+**/
 let Schema = mongoose.Schema(
     {
         userID: {
@@ -55,6 +55,10 @@ let Schema = mongoose.Schema(
             type: Date,
             default: null
         },
+        elasticID: {
+            type: String,
+            required: true
+        },
         collaborators: [{
             type: String,
             default: null
@@ -96,7 +100,8 @@ class ModelNote {
                 "image": noteData.image,
                 "Reminder": noteData.Reminder,
                 "RemindTime": noteData.RemindTime,
-                "label": noteData.label
+                "label": noteData.label,
+                "elasticID": noteData.elasticID
             })
             /**
             * @description: saves new generated note schema to DB
@@ -114,7 +119,7 @@ class ModelNote {
      * @param {*contains options to pass mongo find method} userQuery 
      */
     countNotes(query, userQuery) {
-       
+
         try {
             return new Promise((res, rej) => {
                 Notes.countDocuments(query).then(count => {

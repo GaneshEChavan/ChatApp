@@ -11,7 +11,7 @@ elasticClient.ping({
     if (error) {
         console.log("Elasticsearch cluster is down!");
     } else {
-        console.log("Elasticsearch cluster is set and ready to work");
+        console.log("Elasticsearch cluster is set");
     }
 })
 
@@ -19,133 +19,77 @@ class Elastic {
 
     /**
      * @description: create index
-     * @param {*} req 
-     * @param {*} res 
      * @param {*} indexName 
      */
-    initIndex(req, res, indexName) {
-        elasticClient.indices.create({
-            index: indexName
-        }).then(function (resp) {
-            res.status(200)
-            return res.json(resp)
-        }, function (err) {
-            res.status(500)
-            return res.json(err)
+    initIndex() {
+        /**
+         * @description: An index consists of one or more Documents, and a Document consists of one or more Fields
+         */
+        return elasticClient.indices.create({
+            index: process.env.INDEXNAME
         })
     }
 
     /**
-     * @description: check if index exists 
-     * @param {*} req 
-     * @param {*} res 
-     * @param {*} indexName 
+     * @description: check if index exists
      */
-    indexExists(req, res, indexName) {
-        elasticClient.indices.exists({
-            index: indexName
-        }).then(function (resp) {
-            res.status(200)
-            return res.json(resp)
-        }, function (err) {
-            res.status(500)
-            return res.json(err)
+    indexExists() {
+        return elasticClient.indices.exists({
+            index: process.env.INDEXNAME
         })
     }
 
     /**
      * @description: prepare index and its mapping
-     * @param {*} req 
-     * @param {*} res 
-     * @param {*} indexName 
-     * @param {*} docType 
+     * @param {*} indexName
      * @param {*} payload 
      */
-    initMapping(req, res, indexName, docType, payload) {
+    initMapping(indexName, payload) {
 
-        elasticClient.indices.putMapping({
+        return elasticClient.indices.putMapping({
             index: indexName,
-            type: docType,
             body: payload
-        }).then(function (resp) {
-            res.status(200)
-            return res.json(resp)
-        }).catch(function (err) {
-            res.status(500)
-            return res.json(err)
         })
     }
 
     /**
-     * @description: add/Update document
-     * @param {*} req 
-     * @param {*} res 
-     * @param {*} indexName 
-     * @param {*} _id 
-     * @param {*} doctype 
+     * @description: add new document
      * @param {*} payload 
      */
-    addDocument(req, res, indexName, _id, doctype, payload) {
+    addDocument(payload) {
 
-        elasticClient.index({
-            index: indexName,
-            type: doctype,
-            _id: _id,
+        return elasticClient.index({
+            index: process.env.INDEXNAME,
             body: payload
-        }).then(function (resp) {
-            res.status(200)
-            return res.json(resp)
-        }).catch(function (err) {
-            res.status(500)
-            return res.json(err)
         })
     }
 
     /**
      * @description: updates the document
-     * @param {} req 
-     * @param {*} res 
-     * @param {*} index 
-     * @param {*} _id 
-     * @param {*} docType 
+     * @param {*} indexName 
+     * @param {*} id  
      * @param {*} payload 
      */
-    updateDocument(req, res, index, _id, docType, payload) {
+    updateDocument(id, payload) {
+        console.log("------------->74", id, payload);
 
-        elasticClient.update({
-            index: index,
-            type: docType,
-            id: _id,
-            body: payload
-        }).then(function (resp) {
-            res.status(200)
-            return res.json(resp)
-        }).catch(function (err) {
-            res.status(500)
-            return res.json(err)
+        return elasticClient.update({
+            index: process.env.INDEXNAME,
+            id: id,
+            body: { doc: payload }
         })
     }
 
     /**
      * @description: search for document
-     * @param {*} req 
-     * @param {*} res 
-     * @param {*} indexName 
-     * @param {*} doctype 
+     * @param {*} indexName
      * @param {*} payload 
      */
-    searchDocument(req, res, indexName, doctype, payload) {
+    searchDocument(indexName, payload) {
 
-        elasticClient.search({
+        return elasticClient.search({
             index: indexName,
-            type: doctype,
             body: payload
-        }).then(function (resp) {
-            res.status(200)
-            return res.json(resp)
-        }).catch(function (err) {
-            res.status(500)
-            return res.json(err)
         })
     }
 
@@ -157,23 +101,16 @@ class Elastic {
      * @param {*} _id 
      * @param {*} docType 
      */
-    deleteDocument(req, res, index, _id, docType) {
+    deleteDocument(id) {
 
-        elasticClient.delete({
-            index: index,
-            type: docType,
-            id: _id
-        }, function (err, resp) {
-            if (err) {
-                return res.json(err)
-            } else {
-                return res.json(resp)
-            }
+        return elasticClient.delete({
+            index:process.env.INDEXNAME,
+            id
         })
 
     }
 
-    deleteAll(req, res) {
+    deleteAll() {
         elasticClient.indices.delete({
             index: '_all'
         }, function (err, resp) {
@@ -181,10 +118,12 @@ class Elastic {
                 console.log(err)
             } else {
                 console.log("all indices are deleted");
-                return res.json(resp)
             }
         })
     }
 }
-
+let dlt = new Elastic()
+// dlt.deleteAll()
+// dlt.indexExists().then(res=>{console.log("exists")}).catch(err=>{console.log("doesn't exist")})
+// dlt.initIndex()
 module.exports = new Elastic()
