@@ -141,7 +141,6 @@ class ModelNote {
         } catch (err) {
             return err
         }
-
     }
     /**
     * @description: function to read all notes  

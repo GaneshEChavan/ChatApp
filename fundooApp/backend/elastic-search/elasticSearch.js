@@ -92,8 +92,23 @@ class Elastic {
                 query: {
                     bool: {
                         should: [
-                            { term: { title: payload } },
-                            { term: { description: payload } }
+                            {
+                                regexp: {
+                                    title: `.*${payload}.*`
+                                }
+                            }, {
+                                regexp: {
+                                    description: `.*${payload}.*`
+                                }
+                            }, {
+                                regexp: {
+                                    color: `.*${payload}.*`
+                                }
+                            }, {
+                                regexp: {
+                                    label: `.*${payload}.*`
+                                }
+                            }
                         ]
                     }
                 }
@@ -130,7 +145,7 @@ let dlt = new Elastic()
 // dlt.deleteAll()
 // dlt.indexExists().then(res=>{console.log("exists")}).catch(err=>{console.log("doesn't exist")})
 // dlt.initIndex()
-// dlt.searchDocument("polo").then(res=>{console.log("search result",res)}).catch(err=>{console.log("not found",err)})
+// dlt.searchDocument("ll").then(res=>{console.log("search result",res.hits.hits)}).catch(err=>{console.log("not found",err)})
 module.exports = new Elastic()
 
 // match_all : {}

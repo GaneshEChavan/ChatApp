@@ -12,6 +12,7 @@ const labelModel = require("../model/label")
 const userModel = require("../model/user")
 const logger = require("../../logger/logger")
 const elastic = require("../elastic-search/elasticSearch")
+const refer = require("../middleware/objGenerate")
 /**
  * @description: imported redis to use redis-cache in service file, used to set key-values
  */
@@ -42,8 +43,11 @@ class ServiceNote {
                         */
                         let checkExistance = await elastic.indexExists()
                         if (checkExistance === true) {
-                            let dataToElastic = { "title": noteData.title, "description": noteData.description }
+                            let dataToElastic = await refer.createObj(noteData)
+                            console.log("47----------------->noteservice",dataToElastic);
+                        
                             let result = await elastic.addDocument(dataToElastic)
+                            console.log("Added new document to index", result)
                             noteData.elasticID = result._id
                             let unique = Array.from(new Set(colab.collaborators))
                             await noteModel.createNote(noteData).then((Data) => {
@@ -63,7 +67,7 @@ class ServiceNote {
                                             * @description: called function from same file to save changes made, in redis 
                                             */
                                             this.userNotes(user)
-                                                res("Collaborator Added..!")
+                                            res("Collaborator Added..!")
                                         }).catch(err => {
                                             rej(err)
                                         })
@@ -81,7 +85,9 @@ class ServiceNote {
                              *               so the field is check for key acknowledged:true to confirm index is created 
                              */
                             if (createIndex.acknowledged === true) {
-                                let dataToElastic = { "title": noteData.title, "description": noteData.description }
+                                let dataToElastic = await  refer.createObj(noteData)
+                                console.log("89----------------->noteservice",dataToElastic);
+
                                 let result = await elastic.addDocument(dataToElastic)
                                 noteData.elasticID = result._id
                                 let unique = Array.from(new Set(colab.collaborators))
@@ -120,7 +126,9 @@ class ServiceNote {
                 } else {
                     let checkExistance = await elastic.indexExists()
                     if (checkExistance === true) {
-                        let dataToElastic = { "title": noteData.title, "description": noteData.description }
+                        let dataToElastic = await  refer.createObj(noteData)
+                            console.log("130----------------->noteservice",dataToElastic);
+
                         let result = await elastic.addDocument(dataToElastic)
                         noteData.elasticID = result._id
                         noteModel.createNote(noteData).then(data => {
@@ -131,7 +139,9 @@ class ServiceNote {
                     } else {
                         let createIndex = await elastic.initIndex()
                         if (createIndex.acknowledged === true) {
-                            let dataToElastic = { "title": noteData.title, "description": noteData.description }
+                            let dataToElastic = await  refer.createObj(noteData)
+                            console.log("144----------------->noteservice",dataToElastic);
+
                             let result = await elastic.addDocument(dataToElastic)
                             noteData.elasticID = result._id
                             noteModel.createNote(noteData).then(data => {
@@ -445,11 +455,12 @@ class ServiceNote {
      */
     addLabelToNote(updateLabel) {
         try {
-            return new Promise((res, rej) => {
+            return new Promise(async(res, rej) => {
                 /**
                  * @description: check for label id in req body if yes then it will add label directly else create the new label and add to note
                  */
                 if (updateLabel.labelID === undefined) {
+
                     let label = {
                         userID: updateLabel.userID,
                         noteID: updateLabel._id,
@@ -460,7 +471,10 @@ class ServiceNote {
                     labelModel.createLabel(label).then((data) => {
                         let noteid = { "_id": updateLabel._id };
                         let query = { $addToSet: { "label": data } }
-                        noteModel.updateSingleNote(noteid, query).then((data) => {
+                        noteModel.updateSingleNote(noteid, query).then(async(data) => {
+                            console.log("475------------>",data);  
+                            // let label = {"labelName"}
+                            // let result = await elastic.updateDocument(data.elasticID)                           
                             res(data)
                         }).catch((err) => {
                             rej(err)
@@ -476,7 +490,7 @@ class ServiceNote {
                         let noteid = { "_id": updateLabel._id };
                         let query = { $addToSet: { "label": data[0] } }
                         noteModel.updateSingleNote(noteid, query).then((data) => {
-                            // console.log("after update in noteservice", data);
+                            console.log("after update in noteservice", data);
 
                             res(data)
                         }).catch((err) => {
