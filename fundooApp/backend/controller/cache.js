@@ -15,8 +15,10 @@ class Cache {
      * @param {*next function to call if no redis-cache found} next
      */
     notes(req, res, next) {
-        const keyValue = req.decoded._id + process.env.NOTE
-        console.log("cache---->14", keyValue)
+        let keyValue = {
+            key: req.decoded._id,
+            field: process.env.NOTE
+        }
         let response = {};
         client.getOperator(keyValue).then(data => {
             // if (err) {
@@ -50,7 +52,10 @@ class Cache {
      */
     token(req, res, next) {
         let response = {};
-        const keyValue =  process.env.TOKEN + req.body.userName
+        const keyValue = {
+            key: req.body.userName,
+            field: process.env.TOKEN
+        }
         client.getOperator(keyValue).then(data => {
             if (data !== null) {
                 let response = {};
@@ -77,7 +82,12 @@ class Cache {
      */
     list(req, res, next) {
         let redis = Object.keys(req.query)[0]
-        const keyValue = req.decoded._id + redis + process.env.TRUE
+        const keyValue ={
+            key: req.decoded._id,
+            field: redis + `-${process.env.TRUE}`
+        }  
+        console.log("-___-______->89",keyValue);
+        
         client.getOperator(keyValue).then(data => {
             if (data !== null) {
                 let response = {};

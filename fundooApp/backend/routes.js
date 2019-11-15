@@ -17,6 +17,7 @@ const authenticate = require("./middleware/authentication")
 const cache = require("./controller/cache")
 const upload = require("./AWS_service/fileUploader")
 const passport = require("passport")
+const elastic = require("./elastic-search/elasticSearch")
 
 /**
  * @description: route for user new registration, login, for forgot password and reset password 
@@ -104,6 +105,7 @@ routes.delete('/note/deleteLabel', authenticate, noteController.deleteLabelFromN
 * @description: search note based on title,description,reminder,color and label names 
 */
 routes.post('/note/search', authenticate, noteController.searchNote)
+routes.post('/elastSearch',authenticate, elastic.searchDocument)
 
 /**
  * add collaborator to note from existing users 

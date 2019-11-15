@@ -33,8 +33,8 @@ class ServiceOperations {
                     let token = generatedToken.token(payload);
                     let Url = process.env.LOGINHOST + token;
                     // console.log("url to send in nodemailer- userService",Url);
-                    
-                    mailer.nodeMailer(data.userName, Url,data.firstName);
+
+                    mailer.nodeMailer(data.userName, Url, data.firstName);
                     resolve({ data, token, Url })
                 } else {
                     reject({ data: data })
@@ -61,9 +61,9 @@ class ServiceOperations {
                             }
                             let token = await generatedToken.token(payload)
 
-                            
+
                             res({ message: "logging in...!", data: result, bcryptStatus: Data, token: token })
-                            return client.setex(process.env.TOKEN+ result.userName, 86400, token, redis.print)
+                            return client.HSET(result.userName, process.env.TOKEN, token, redis.print)
                         } else {
                             rej({ message: "Incorrect password", err: err })
                         }
@@ -97,7 +97,7 @@ class ServiceOperations {
     resetPassword(idPassword) {
         return new Promise((res, rej) => {
             upload = { "password": idPassword.password };
-            userModel.updateToDb(idPassword,upload).then((data) => {
+            userModel.updateToDb(idPassword, upload).then((data) => {
                 res(data)
             }).catch((err) => {
                 rej(err)
@@ -127,7 +127,7 @@ class ServiceOperations {
         })
     }
 
-   
+
 }
 
 module.exports = new ServiceOperations();

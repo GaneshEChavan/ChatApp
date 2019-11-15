@@ -13,9 +13,9 @@ const redis = require("redis");
 const client = redis.createClient(process.env.REDIS_PORT);
 const logger = require("../../logger/logger")
 
-client.on('connect',()=>{
+client.on('connect', () => {
     logger.info('Redis client connected')
-    });
+});
 
 client.on('error', function (err) {
     logger.error('Something went wrong ', err)
@@ -27,8 +27,11 @@ class Get {
         return new Promise((res, rej) => {
             /**
              * @description : client.get method provides data saved for key
+             * @param {*is userID set as key} keyValue  
+             * @param {*is field }
              */
-            client.get(keyValue, (err, data) => {
+            console.log("key in cacheService-->33",keyValue)
+            client.HGET(keyValue.key, keyValue.field, (err, data) => {
                 if (err) {
                     rej(err)
                 } else {

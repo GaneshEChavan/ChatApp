@@ -15,11 +15,11 @@ const auth = (req, res, next) => {
     if (token) {
         jwt.verify(token, process.env.SECRET_KEY, (err, decoded) => {
 
-            let promise = util.promisify(client.get).bind(client)
+            let promise = util.promisify(client.HGET).bind(client)
 
             async function callStat() {
-                const redisValue = await promise(`${process.env.TOKEN}${decoded.userName}`);
-            
+                const redisValue = await promise(decoded.userName, process.env.TOKEN);
+
                 if (redisValue == token) {
                     req.decoded = decoded;
                     console.log("Authentication Successful...!")
@@ -29,7 +29,7 @@ const auth = (req, res, next) => {
                     return res.status(401).json(
                         {
                             success: false,
-                            message: 'token is expired.'
+                            message: 'Authentication Failed...!.'
                         });
                 }
                 return decoded;

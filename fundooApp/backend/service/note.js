@@ -35,19 +35,61 @@ class ServiceNote {
     newNote(noteData, colab) {
         try {
             return new Promise(async (res, rej) => {
-                if (colab.collaborators != undefined) {
-                    if (colab.collaborators.length > 0) {
+                if (colab.collaborators != undefined && colab.collaborators.length > 0) {
+
+                    /**
+                    * @description: creates array of unique values of collaborator ID's
+                    * @param {*contains array of collaborator ID's} colab.collaborators 
+                    */
+
+                    let checkExistance = await elastic.indexExists()
+                    if (checkExistance === true) {
+                        let dataToElastic = await refer.createObj(noteData)
+                        console.log("47----------------->noteservice", dataToElastic);
+
+                        let result = await elastic.addDocument(dataToElastic)
+                        console.log("Added new document to index", result)
+                        noteData.elasticID = result._id
+                        let unique = Array.from(new Set(colab.collaborators))
+                        await noteModel.createNote(noteData).then((Data) => {
+                            /**
+                             * @description: check for each id should exists or not if yes then add to colaborator else continue 
+                             */
+                            unique.forEach(id => {
+                                let search = { "_id": id };
+                                userModel.read(search).then(data => {
+                                    let search = { "_id": Data._id };
+                                    let update = { $addToSet: { "collaborators": id } }
+                                    noteModel.updateSingleNote(search, update).then(data => {
+                                        let user = {
+                                            userID: data.userID
+                                        }
+                                        /**
+                                        * @description: called function from same file to save changes made, in redis 
+                                        */
+                                        this.userNotes(user)
+                                        res("Collaborator Added..!")
+                                    }).catch(err => {
+                                        rej(err)
+                                    })
+                                }).catch(err => {
+                                    logger.info(err); //<-------
+                                })
+                            })
+                        }).catch((err) => {
+                            rej(err)
+                        })
+                    } else {
+                        let createIndex = await elastic.initIndex()
                         /**
-                        * @description: creates array of unique values of collaborator ID's
-                        * @param {*contains array of collaborator ID's} colab.collaborators 
-                        */
-                        let checkExistance = await elastic.indexExists()
-                        if (checkExistance === true) {
+                         * @description: hence createIndex gives responce object as  { acknowledged: boolean, shards_acknowledged: boolean, index: indexName } when index get created
+                         *               so the field is check for key acknowledged:true to confirm index is created 
+                         */
+                        if (createIndex.acknowledged === true) {
                             let dataToElastic = await refer.createObj(noteData)
-                            console.log("47----------------->noteservice",dataToElastic);
-                        
+                            console.log("89----------------->noteservice", dataToElastic);
+
                             let result = await elastic.addDocument(dataToElastic)
-                            console.log("Added new document to index", result)
                             noteData.elasticID = result._id
                             let unique = Array.from(new Set(colab.collaborators))
                             await noteModel.createNote(noteData).then((Data) => {
@@ -78,56 +120,15 @@ class ServiceNote {
                             }).catch((err) => {
                                 rej(err)
                             })
-                        } else {
-                            let createIndex = await elastic.initIndex()
-                            /**
-                             * @description: hence createIndex gives responce object as  { acknowledged: boolean, shards_acknowledged: boolean, index: indexName } when index get created
-                             *               so the field is check for key acknowledged:true to confirm index is created 
-                             */
-                            if (createIndex.acknowledged === true) {
-                                let dataToElastic = await  refer.createObj(noteData)
-                                console.log("89----------------->noteservice",dataToElastic);
+                        }else{
 
-                                let result = await elastic.addDocument(dataToElastic)
-                                noteData.elasticID = result._id
-                                let unique = Array.from(new Set(colab.collaborators))
-                                await noteModel.createNote(noteData).then((Data) => {
-                                    /**
-                                     * @description: check for each id should exists or not if yes then add to colaborator else continue 
-                                     */
-                                    unique.forEach(id => {
-                                        let search = { "_id": id };
-                                        userModel.read(search).then(data => {
-                                            let search = { "_id": Data._id };
-                                            let update = { $addToSet: { "collaborators": id } }
-                                            noteModel.updateSingleNote(search, update).then(data => {
-                                                let user = {
-                                                    userID: data.userID
-                                                }
-                                                /**
-                                                * @description: called function from same file to save changes made, in redis 
-                                                */
-                                                this.userNotes(user)
-                                                elastic.
-                                                    res("Collaborator Added..!")
-                                            }).catch(err => {
-                                                rej(err)
-                                            })
-                                        }).catch(err => {
-                                            logger.info(err); //<-------
-                                        })
-                                    })
-                                }).catch((err) => {
-                                    rej(err)
-                                })
-                            }
                         }
                     }
                 } else {
                     let checkExistance = await elastic.indexExists()
                     if (checkExistance === true) {
-                        let dataToElastic = await  refer.createObj(noteData)
-                            console.log("130----------------->noteservice",dataToElastic);
+                        let dataToElastic = await refer.createObj(noteData)
+                        console.log("130----------------->noteservice", dataToElastic);
 
                         let result = await elastic.addDocument(dataToElastic)
                         noteData.elasticID = result._id
@@ -139,8 +140,8 @@ class ServiceNote {
                     } else {
                         let createIndex = await elastic.initIndex()
                         if (createIndex.acknowledged === true) {
-                            let dataToElastic = await  refer.createObj(noteData)
-                            console.log("144----------------->noteservice",dataToElastic);
+                            let dataToElastic = await refer.createObj(noteData)
+                            console.log("144----------------->noteservice", dataToElastic);
 
                             let result = await elastic.addDocument(dataToElastic)
                             noteData.elasticID = result._id
@@ -163,10 +164,12 @@ class ServiceNote {
      * @param {*contains changes to be updated in note} body 
      */
     noteChanges(body) {
+        console.log("165------------>noteservice", body);
+
         try {
             return new Promise(async (res, rej) => {
                 let noteid = { "_id": body._id }
-                noteModel.readNotes(noteid).then((data) => {
+                noteModel.readNotes(noteid).then(async (data) => {
 
                     /**
                     * @description: used turnary operator to make new object with requested changes
@@ -176,12 +179,12 @@ class ServiceNote {
                         "description": body.description ? body.description : data[0].description,
                         "color": body.color ? body.color : data[0].color,
                         // "collaborators":body.collaborators ? { $addToSet: { "collaborators": id } } : data[0].collaborators,
-                        "isArchive": (body.isArchive == true) ? true : false,
-                        "isPinned": (body.isPinned == true) ? true : false,
-                        "Reminder": (body.Reminder == true) ? true : false
+                        "isArchive": (body.isArchive == true || data[0].isArchive) ? true : false,
+                        "isPinned": (body.isPinned == true || data[0].isPinned) ? true : false,
+                        "Reminder": (body.Reminder == true || data[0].Reminder) ? true : false
                     }
 
-                    noteModel.updateSingleNote(noteid, noteChanges).then(async (Data) => {
+                    await noteModel.updateSingleNote(noteid, noteChanges).then(async (Data) => {
                         if (body.collaborators && body.collaborators.length > 0) {
                             /**
                             * @description: creates array of unique values of collaborator ID's 
@@ -200,12 +203,15 @@ class ServiceNote {
                                         /**
                                         * @description: called function from same file to save changes made, in redis 
                                         */
-                                        let User = { "userID": Data.userID, "isArchive": true }
+                                        let userid = {
+                                            userID: data.userID
+                                        }
+                                        this.userNotes(userid)
+                                        let User = data.userID
                                         let redis = "isArchive"
-                                        this.getList(User, redis)
-                                        let user = { "userID": Data.userID, "Reminder": true }
                                         let Redis = "Reminder"
-                                        this.getList(user, Redis)
+                                        this.getList(User, redis)
+                                        this.getList(User, Redis)
                                         res("Notes updated..!")
                                     }).catch(err => {
                                         rej(err)
@@ -215,9 +221,21 @@ class ServiceNote {
                                 })
                             })
                         } else {
+                            let userid = {
+                                userID: Data.userID
+                            }
+                            this.userNotes(userid)
+                            let User = { "userID": Data.userID, "isArchive": true }
+                            let redis = "isArchive"
+                            this.getList(User, redis)
+                            let user = { "userID": Data.userID, "Reminder": true }
+                            let Redis = "Reminder"
+                            this.getList(user, Redis)
+
                             let payload = { "title": Data.title, "description": Data.description }
                             let result = await elastic.updateDocument(Data.elasticID, payload)
-                            console.log("---->212", result);
+                            logger.info(result);
+                            console.log("Elastic Update Status in Note Service", result)
                             res(Data)
                         }
 
@@ -245,8 +263,11 @@ class ServiceNote {
             return new Promise((res, rej) => {
                 let userinfo = { "userID": user.userID }
                 noteModel.readNotes(userinfo).then(data => {
+                    // console.log("262----->noteservice",data);
+
                     let buff = new Buffer.from(JSON.stringify(data))
-                    client.SET(data[0].userID + 'notes', buff)
+                    // client.SET(data[0].userID + 'notes', buff)
+                    client.HSET(data[0].userID, process.env.NOTE, buff)
                     res(data)
                 }).catch(err => {
                     rej(err)
@@ -292,7 +313,6 @@ class ServiceNote {
                 let search = { "_id": noteId._id }
                 let update = { "isTrashed": noteId.isTrashed }
                 noteModel.updateSingleNote(search, update).then((data) => {
-                    // client.DEL(data.userID + 'notes')
                     let user = {
                         userID: data.userID
                     }
@@ -300,7 +320,7 @@ class ServiceNote {
                      * @description: called function from same file to update redis-cache too
                      */
                     this.userNotes(user)
-                    let User = { "userID": data.userID, "isTrashed": true }
+                    let User = data.userID
                     let redis = "isTrashed"
                     this.getList(User, redis)
                     res(data)
@@ -327,7 +347,7 @@ class ServiceNote {
                      * @description: User buffer format to SET data in cache in consideration of big data
                      */
                     let buff = new Buffer.from(JSON.stringify(data))
-                    client.SET(data[0].userID + redis + 'true', buff)
+                    client.HSET(data[0].userID, redis + `-${process.env.TRUE}`, buff)
                     res(data)
                 }).catch((err) => {
                     rej(err)
@@ -455,7 +475,7 @@ class ServiceNote {
      */
     addLabelToNote(updateLabel) {
         try {
-            return new Promise(async(res, rej) => {
+            return new Promise(async (res, rej) => {
                 /**
                  * @description: check for label id in req body if yes then it will add label directly else create the new label and add to note
                  */
@@ -471,8 +491,8 @@ class ServiceNote {
                     labelModel.createLabel(label).then((data) => {
                         let noteid = { "_id": updateLabel._id };
                         let query = { $addToSet: { "label": data } }
-                        noteModel.updateSingleNote(noteid, query).then(async(data) => {
-                            console.log("475------------>",data);  
+                        noteModel.updateSingleNote(noteid, query).then(async (data) => {
+                            console.log("475------------>", data);
                             // let label = {"labelName"}
                             // let result = await elastic.updateDocument(data.elasticID)                           
                             res(data)

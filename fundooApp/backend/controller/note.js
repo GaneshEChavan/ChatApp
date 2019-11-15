@@ -519,6 +519,11 @@ class ControllerNote {
 
         }
     }
+
+    elastSearch(req,res){
+        
+
+    }
 }
 
 module.exports = new ControllerNote();

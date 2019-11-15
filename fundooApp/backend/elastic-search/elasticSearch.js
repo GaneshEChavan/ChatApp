@@ -71,12 +71,16 @@ class Elastic {
      * @param {*} payload 
      */
     updateDocument(id, payload) {
-        console.log("------------->74", id, payload);
+        // console.log("------------->74", id, payload);
 
         return elasticClient.update({
             index: process.env.INDEXNAME,
             id: id,
-            body: { doc: payload }
+            body: { 
+                mappings: {
+                    
+                }
+             }
         })
     }
 
@@ -84,8 +88,8 @@ class Elastic {
      * @description: search for document
      * @param {*} payload 
      */
-    searchDocument(payload) {
-
+    searchDocument(req,res) {
+        let payload = req.param
         return elasticClient.search({
             index: process.env.INDEXNAME,
             body: {
