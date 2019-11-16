@@ -13,6 +13,7 @@ const userModel = require("../model/user")
 const logger = require("../../logger/logger")
 const elastic = require("../elastic-search/elasticSearch")
 const refer = require("../middleware/objGenerate")
+
 /**
  * @description: imported redis to use redis-cache in service file, used to set key-values
  */

@@ -78,11 +78,11 @@ class Elastic {
             id: id,
             body: {
                 doc: {
-                    title: payload.title,
-                    description: payload.description,
-                    color: payload.color,
-                    labelName: {
-                        mappings: {
+                    mappings: {
+                        title: payload.title,
+                        description: payload.description,
+                        color: payload.color,
+                        labelName: {
                             properties: {
                                 labelName: payload.labelName
                             }
@@ -159,7 +159,7 @@ let dlt = new Elastic()
 // dlt.indexExists().then(res=>{console.log("exists")}).catch(err=>{console.log("doesn't exist")})
 // dlt.initIndex()
 // dlt.deleteDocument("5ct2bW4BzeHBWV4xVhyW")
-// dlt.updateDocument("GJzCaG4BM6usXxZjCGXa",{title:"ganesh",description:"chavan",color:"orange",labelName:"ganesh chavan"}).then(res=>{console.log("search result",res)}).catch(err=>{console.log("not found",err)})
+// dlt.updateDocument("fp1HdG4BohhJD8kDRZa3",{title:"ganesh",description:"chavan",color:"orange",labelName:"ganuuuuuuuu"}).then(res=>{console.log("search result",res)}).catch(err=>{console.log("not found",err)})
 // dlt.searchDocument("ll").then(res=>{console.log("search result",res.hits.hits)}).catch(err=>{console.log("not found",err)})
 module.exports = new Elastic()
 

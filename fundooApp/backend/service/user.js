@@ -13,6 +13,7 @@ const generatedToken = require("../middleware/token")
 const mailer = require("../middleware/mailer")
 
 var redis = require("redis");
+
 var client = redis.createClient();
 
 client.on('error', function (err) {
