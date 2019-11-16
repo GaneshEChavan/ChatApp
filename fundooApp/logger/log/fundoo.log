@@ -14122,3 +14122,489 @@ info: Redis client connected
 info: Redis client connected
 info: Redis client connected
 info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+error: uncaughtException: Unexpected token )
+/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/elastic-search/elasticSearch.js:159
+dlt.updateDocument("GZzOaG4BM6usXxZj92XK",{title:"ganesh",description:"chavan",color:"orange",labelName:"bridgeLabz"})).then(res=>{console.log("search result",res)}).catch(err=>{console.log("not found",err)})
+                                                                                                                      ^
+
+SyntaxError: Unexpected token )
+    at Module._compile (internal/modules/cjs/loader.js:720:23)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:643:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:556:12)
+    at Module.require (internal/modules/cjs/loader.js:683:19)
+    at require (internal/modules/cjs/helpers.js:16:16)
+    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/service/note.js:14:17)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:643:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:556:12)
+    at Module.require (internal/modules/cjs/loader.js:683:19)
+    at require (internal/modules/cjs/helpers.js:16:16)
+    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/controller/note.js:9:21)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10) {"error":{},"stack":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/elastic-search/elasticSearch.js:159\ndlt.updateDocument(\"GZzOaG4BM6usXxZj92XK\",{title:\"ganesh\",description:\"chavan\",color:\"orange\",labelName:\"bridgeLabz\"})).then(res=>{console.log(\"search result\",res)}).catch(err=>{console.log(\"not found\",err)})\n                                                                                                                      ^\n\nSyntaxError: Unexpected token )\n    at Module._compile (internal/modules/cjs/loader.js:720:23)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)\n    at Module.load (internal/modules/cjs/loader.js:643:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:556:12)\n    at Module.require (internal/modules/cjs/loader.js:683:19)\n    at require (internal/modules/cjs/helpers.js:16:16)\n    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/service/note.js:14:17)\n    at Module._compile (internal/modules/cjs/loader.js:776:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)\n    at Module.load (internal/modules/cjs/loader.js:643:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:556:12)\n    at Module.require (internal/modules/cjs/loader.js:683:19)\n    at require (internal/modules/cjs/helpers.js:16:16)\n    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/controller/note.js:9:21)\n    at Module._compile (internal/modules/cjs/loader.js:776:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)","exception":true,"date":"Sat Nov 16 2019 10:44:02 GMT+0530 (India Standard Time)","process":{"pid":11406,"uid":1000,"gid":1000,"cwd":"/home/admin1/Documents/BLabz_Work-master/fundooApp","execPath":"/usr/local/bin/node","version":"v12.6.0","argv":["/usr/local/bin/node","/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js"],"memoryUsage":{"rss":70811648,"heapTotal":36626432,"heapUsed":26389360,"external":19574803}},"os":{"loadavg":[0.822265625,0.57470703125,0.443359375],"uptime":4878},"trace":[{"column":23,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":720,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false},{"column":32,"file":"internal/modules/cjs/loader.js","function":"Module.load","line":643,"method":"load","native":false},{"column":12,"file":"internal/modules/cjs/loader.js","function":"Module._load","line":556,"method":"_load","native":false},{"column":19,"file":"internal/modules/cjs/loader.js","function":"Module.require","line":683,"method":"require","native":false},{"column":16,"file":"internal/modules/cjs/helpers.js","function":"require","line":16,"method":null,"native":false},{"column":17,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/service/note.js","function":null,"line":14,"method":null,"native":false},{"column":30,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":776,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false},{"column":32,"file":"internal/modules/cjs/loader.js","function":"Module.load","line":643,"method":"load","native":false},{"column":12,"file":"internal/modules/cjs/loader.js","function":"Module._load","line":556,"method":"_load","native":false},{"column":19,"file":"internal/modules/cjs/loader.js","function":"Module.require","line":683,"method":"require","native":false},{"column":16,"file":"internal/modules/cjs/helpers.js","function":"require","line":16,"method":null,"native":false},{"column":21,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/controller/note.js","function":null,"line":9,"method":null,"native":false},{"column":30,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":776,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false}]}
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+error: uncaughtException: missing ) after argument list
+/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/elastic-search/elasticSearch.js:90
+            }
+            ^
+
+SyntaxError: missing ) after argument list
+    at Module._compile (internal/modules/cjs/loader.js:720:23)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:643:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:556:12)
+    at Module.require (internal/modules/cjs/loader.js:683:19)
+    at require (internal/modules/cjs/helpers.js:16:16)
+    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/service/note.js:14:17)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:643:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:556:12)
+    at Module.require (internal/modules/cjs/loader.js:683:19)
+    at require (internal/modules/cjs/helpers.js:16:16)
+    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/controller/note.js:9:21)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10) {"error":{},"stack":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/elastic-search/elasticSearch.js:90\n            }\n            ^\n\nSyntaxError: missing ) after argument list\n    at Module._compile (internal/modules/cjs/loader.js:720:23)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)\n    at Module.load (internal/modules/cjs/loader.js:643:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:556:12)\n    at Module.require (internal/modules/cjs/loader.js:683:19)\n    at require (internal/modules/cjs/helpers.js:16:16)\n    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/service/note.js:14:17)\n    at Module._compile (internal/modules/cjs/loader.js:776:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)\n    at Module.load (internal/modules/cjs/loader.js:643:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:556:12)\n    at Module.require (internal/modules/cjs/loader.js:683:19)\n    at require (internal/modules/cjs/helpers.js:16:16)\n    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/controller/note.js:9:21)\n    at Module._compile (internal/modules/cjs/loader.js:776:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)","exception":true,"date":"Sat Nov 16 2019 10:45:31 GMT+0530 (India Standard Time)","process":{"pid":11581,"uid":1000,"gid":1000,"cwd":"/home/admin1/Documents/BLabz_Work-master/fundooApp","execPath":"/usr/local/bin/node","version":"v12.6.0","argv":["/usr/local/bin/node","/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js"],"memoryUsage":{"rss":75116544,"heapTotal":56811520,"heapUsed":24364120,"external":19116131}},"os":{"loadavg":[0.9755859375,0.66357421875,0.4853515625],"uptime":4967},"trace":[{"column":23,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":720,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false},{"column":32,"file":"internal/modules/cjs/loader.js","function":"Module.load","line":643,"method":"load","native":false},{"column":12,"file":"internal/modules/cjs/loader.js","function":"Module._load","line":556,"method":"_load","native":false},{"column":19,"file":"internal/modules/cjs/loader.js","function":"Module.require","line":683,"method":"require","native":false},{"column":16,"file":"internal/modules/cjs/helpers.js","function":"require","line":16,"method":null,"native":false},{"column":17,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/service/note.js","function":null,"line":14,"method":null,"native":false},{"column":30,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":776,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false},{"column":32,"file":"internal/modules/cjs/loader.js","function":"Module.load","line":643,"method":"load","native":false},{"column":12,"file":"internal/modules/cjs/loader.js","function":"Module._load","line":556,"method":"_load","native":false},{"column":19,"file":"internal/modules/cjs/loader.js","function":"Module.require","line":683,"method":"require","native":false},{"column":16,"file":"internal/modules/cjs/helpers.js","function":"require","line":16,"method":null,"native":false},{"column":21,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/controller/note.js","function":null,"line":9,"method":null,"native":false},{"column":30,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":776,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false}]}
+info: Redis client connected
+info: Redis client connected
+error: uncaughtException: Unexpected token )
+/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/elastic-search/elasticSearch.js:92
+        })
+         ^
+
+SyntaxError: Unexpected token )
+    at Module._compile (internal/modules/cjs/loader.js:720:23)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:643:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:556:12)
+    at Module.require (internal/modules/cjs/loader.js:683:19)
+    at require (internal/modules/cjs/helpers.js:16:16)
+    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/service/note.js:14:17)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:643:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:556:12)
+    at Module.require (internal/modules/cjs/loader.js:683:19)
+    at require (internal/modules/cjs/helpers.js:16:16)
+    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/controller/note.js:9:21)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10) {"error":{},"stack":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/elastic-search/elasticSearch.js:92\n        })\n         ^\n\nSyntaxError: Unexpected token )\n    at Module._compile (internal/modules/cjs/loader.js:720:23)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)\n    at Module.load (internal/modules/cjs/loader.js:643:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:556:12)\n    at Module.require (internal/modules/cjs/loader.js:683:19)\n    at require (internal/modules/cjs/helpers.js:16:16)\n    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/service/note.js:14:17)\n    at Module._compile (internal/modules/cjs/loader.js:776:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)\n    at Module.load (internal/modules/cjs/loader.js:643:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:556:12)\n    at Module.require (internal/modules/cjs/loader.js:683:19)\n    at require (internal/modules/cjs/helpers.js:16:16)\n    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/controller/note.js:9:21)\n    at Module._compile (internal/modules/cjs/loader.js:776:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)","exception":true,"date":"Sat Nov 16 2019 10:45:42 GMT+0530 (India Standard Time)","process":{"pid":11652,"uid":1000,"gid":1000,"cwd":"/home/admin1/Documents/BLabz_Work-master/fundooApp","execPath":"/usr/local/bin/node","version":"v12.6.0","argv":["/usr/local/bin/node","/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js"],"memoryUsage":{"rss":71106560,"heapTotal":36626432,"heapUsed":26151440,"external":19532075}},"os":{"loadavg":[1.046875,0.69091796875,0.49609375],"uptime":4977},"trace":[{"column":23,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":720,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false},{"column":32,"file":"internal/modules/cjs/loader.js","function":"Module.load","line":643,"method":"load","native":false},{"column":12,"file":"internal/modules/cjs/loader.js","function":"Module._load","line":556,"method":"_load","native":false},{"column":19,"file":"internal/modules/cjs/loader.js","function":"Module.require","line":683,"method":"require","native":false},{"column":16,"file":"internal/modules/cjs/helpers.js","function":"require","line":16,"method":null,"native":false},{"column":17,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/service/note.js","function":null,"line":14,"method":null,"native":false},{"column":30,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":776,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false},{"column":32,"file":"internal/modules/cjs/loader.js","function":"Module.load","line":643,"method":"load","native":false},{"column":12,"file":"internal/modules/cjs/loader.js","function":"Module._load","line":556,"method":"_load","native":false},{"column":19,"file":"internal/modules/cjs/loader.js","function":"Module.require","line":683,"method":"require","native":false},{"column":16,"file":"internal/modules/cjs/helpers.js","function":"require","line":16,"method":null,"native":false},{"column":21,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/controller/note.js","function":null,"line":9,"method":null,"native":false},{"column":30,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":776,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false}]}
+error: uncaughtException: Unexpected token )
+/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/elastic-search/elasticSearch.js:93
+        })
+         ^
+
+SyntaxError: Unexpected token )
+    at Module._compile (internal/modules/cjs/loader.js:720:23)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:643:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:556:12)
+    at Module.require (internal/modules/cjs/loader.js:683:19)
+    at require (internal/modules/cjs/helpers.js:16:16)
+    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/service/note.js:14:17)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:643:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:556:12)
+    at Module.require (internal/modules/cjs/loader.js:683:19)
+    at require (internal/modules/cjs/helpers.js:16:16)
+    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/controller/note.js:9:21)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10) {"error":{},"stack":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/elastic-search/elasticSearch.js:93\n        })\n         ^\n\nSyntaxError: Unexpected token )\n    at Module._compile (internal/modules/cjs/loader.js:720:23)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)\n    at Module.load (internal/modules/cjs/loader.js:643:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:556:12)\n    at Module.require (internal/modules/cjs/loader.js:683:19)\n    at require (internal/modules/cjs/helpers.js:16:16)\n    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/service/note.js:14:17)\n    at Module._compile (internal/modules/cjs/loader.js:776:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)\n    at Module.load (internal/modules/cjs/loader.js:643:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:556:12)\n    at Module.require (internal/modules/cjs/loader.js:683:19)\n    at require (internal/modules/cjs/helpers.js:16:16)\n    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/controller/note.js:9:21)\n    at Module._compile (internal/modules/cjs/loader.js:776:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)","exception":true,"date":"Sat Nov 16 2019 10:45:45 GMT+0530 (India Standard Time)","process":{"pid":11678,"uid":1000,"gid":1000,"cwd":"/home/admin1/Documents/BLabz_Work-master/fundooApp","execPath":"/usr/local/bin/node","version":"v12.6.0","argv":["/usr/local/bin/node","/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js"],"memoryUsage":{"rss":70529024,"heapTotal":36364288,"heapUsed":26498504,"external":19574850}},"os":{"loadavg":[0.962890625,0.67919921875,0.4931640625],"uptime":4981},"trace":[{"column":23,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":720,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false},{"column":32,"file":"internal/modules/cjs/loader.js","function":"Module.load","line":643,"method":"load","native":false},{"column":12,"file":"internal/modules/cjs/loader.js","function":"Module._load","line":556,"method":"_load","native":false},{"column":19,"file":"internal/modules/cjs/loader.js","function":"Module.require","line":683,"method":"require","native":false},{"column":16,"file":"internal/modules/cjs/helpers.js","function":"require","line":16,"method":null,"native":false},{"column":17,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/service/note.js","function":null,"line":14,"method":null,"native":false},{"column":30,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":776,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false},{"column":32,"file":"internal/modules/cjs/loader.js","function":"Module.load","line":643,"method":"load","native":false},{"column":12,"file":"internal/modules/cjs/loader.js","function":"Module._load","line":556,"method":"_load","native":false},{"column":19,"file":"internal/modules/cjs/loader.js","function":"Module.require","line":683,"method":"require","native":false},{"column":16,"file":"internal/modules/cjs/helpers.js","function":"require","line":16,"method":null,"native":false},{"column":21,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/controller/note.js","function":null,"line":9,"method":null,"native":false},{"column":30,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":776,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false}]}
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+error: uncaughtException: Unexpected identifier
+/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/elastic-search/elasticSearch.js:81
+                title: payload.title,
+                ^^^^^
+
+SyntaxError: Unexpected identifier
+    at Module._compile (internal/modules/cjs/loader.js:720:23)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:643:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:556:12)
+    at Module.require (internal/modules/cjs/loader.js:683:19)
+    at require (internal/modules/cjs/helpers.js:16:16)
+    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/service/note.js:14:17)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:643:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:556:12)
+    at Module.require (internal/modules/cjs/loader.js:683:19)
+    at require (internal/modules/cjs/helpers.js:16:16)
+    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/controller/note.js:9:21)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10) {"error":{},"stack":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/elastic-search/elasticSearch.js:81\n                title: payload.title,\n                ^^^^^\n\nSyntaxError: Unexpected identifier\n    at Module._compile (internal/modules/cjs/loader.js:720:23)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)\n    at Module.load (internal/modules/cjs/loader.js:643:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:556:12)\n    at Module.require (internal/modules/cjs/loader.js:683:19)\n    at require (internal/modules/cjs/helpers.js:16:16)\n    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/service/note.js:14:17)\n    at Module._compile (internal/modules/cjs/loader.js:776:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)\n    at Module.load (internal/modules/cjs/loader.js:643:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:556:12)\n    at Module.require (internal/modules/cjs/loader.js:683:19)\n    at require (internal/modules/cjs/helpers.js:16:16)\n    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/controller/note.js:9:21)\n    at Module._compile (internal/modules/cjs/loader.js:776:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)","exception":true,"date":"Sat Nov 16 2019 10:47:22 GMT+0530 (India Standard Time)","process":{"pid":11835,"uid":1000,"gid":1000,"cwd":"/home/admin1/Documents/BLabz_Work-master/fundooApp","execPath":"/usr/local/bin/node","version":"v12.6.0","argv":["/usr/local/bin/node","/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js"],"memoryUsage":{"rss":70189056,"heapTotal":36364288,"heapUsed":26520192,"external":19574799}},"os":{"loadavg":[0.3818359375,0.57421875,0.47265625],"uptime":5078},"trace":[{"column":23,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":720,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false},{"column":32,"file":"internal/modules/cjs/loader.js","function":"Module.load","line":643,"method":"load","native":false},{"column":12,"file":"internal/modules/cjs/loader.js","function":"Module._load","line":556,"method":"_load","native":false},{"column":19,"file":"internal/modules/cjs/loader.js","function":"Module.require","line":683,"method":"require","native":false},{"column":16,"file":"internal/modules/cjs/helpers.js","function":"require","line":16,"method":null,"native":false},{"column":17,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/service/note.js","function":null,"line":14,"method":null,"native":false},{"column":30,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":776,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false},{"column":32,"file":"internal/modules/cjs/loader.js","function":"Module.load","line":643,"method":"load","native":false},{"column":12,"file":"internal/modules/cjs/loader.js","function":"Module._load","line":556,"method":"_load","native":false},{"column":19,"file":"internal/modules/cjs/loader.js","function":"Module.require","line":683,"method":"require","native":false},{"column":16,"file":"internal/modules/cjs/helpers.js","function":"require","line":16,"method":null,"native":false},{"column":21,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/controller/note.js","function":null,"line":9,"method":null,"native":false},{"column":30,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":776,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false}]}
+error: uncaughtException: Unexpected token :
+/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/elastic-search/elasticSearch.js:81
+                title: payload.title,
+                     ^
+
+SyntaxError: Unexpected token :
+    at Module._compile (internal/modules/cjs/loader.js:720:23)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:643:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:556:12)
+    at Module.require (internal/modules/cjs/loader.js:683:19)
+    at require (internal/modules/cjs/helpers.js:16:16)
+    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/service/note.js:14:17)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:643:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:556:12)
+    at Module.require (internal/modules/cjs/loader.js:683:19)
+    at require (internal/modules/cjs/helpers.js:16:16)
+    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/controller/note.js:9:21)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10) {"error":{},"stack":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/elastic-search/elasticSearch.js:81\n                title: payload.title,\n                     ^\n\nSyntaxError: Unexpected token :\n    at Module._compile (internal/modules/cjs/loader.js:720:23)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)\n    at Module.load (internal/modules/cjs/loader.js:643:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:556:12)\n    at Module.require (internal/modules/cjs/loader.js:683:19)\n    at require (internal/modules/cjs/helpers.js:16:16)\n    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/service/note.js:14:17)\n    at Module._compile (internal/modules/cjs/loader.js:776:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)\n    at Module.load (internal/modules/cjs/loader.js:643:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:556:12)\n    at Module.require (internal/modules/cjs/loader.js:683:19)\n    at require (internal/modules/cjs/helpers.js:16:16)\n    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/controller/note.js:9:21)\n    at Module._compile (internal/modules/cjs/loader.js:776:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)","exception":true,"date":"Sat Nov 16 2019 10:47:24 GMT+0530 (India Standard Time)","process":{"pid":11861,"uid":1000,"gid":1000,"cwd":"/home/admin1/Documents/BLabz_Work-master/fundooApp","execPath":"/usr/local/bin/node","version":"v12.6.0","argv":["/usr/local/bin/node","/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js"],"memoryUsage":{"rss":71798784,"heapTotal":36626432,"heapUsed":26374904,"external":19574800}},"os":{"loadavg":[0.35107421875,0.564453125,0.4697265625],"uptime":5080},"trace":[{"column":23,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":720,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false},{"column":32,"file":"internal/modules/cjs/loader.js","function":"Module.load","line":643,"method":"load","native":false},{"column":12,"file":"internal/modules/cjs/loader.js","function":"Module._load","line":556,"method":"_load","native":false},{"column":19,"file":"internal/modules/cjs/loader.js","function":"Module.require","line":683,"method":"require","native":false},{"column":16,"file":"internal/modules/cjs/helpers.js","function":"require","line":16,"method":null,"native":false},{"column":17,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/service/note.js","function":null,"line":14,"method":null,"native":false},{"column":30,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":776,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false},{"column":32,"file":"internal/modules/cjs/loader.js","function":"Module.load","line":643,"method":"load","native":false},{"column":12,"file":"internal/modules/cjs/loader.js","function":"Module._load","line":556,"method":"_load","native":false},{"column":19,"file":"internal/modules/cjs/loader.js","function":"Module.require","line":683,"method":"require","native":false},{"column":16,"file":"internal/modules/cjs/helpers.js","function":"require","line":16,"method":null,"native":false},{"column":21,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/controller/note.js","function":null,"line":9,"method":null,"native":false},{"column":30,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":776,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false}]}
+error: uncaughtException: Unexpected identifier
+/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/elastic-search/elasticSearch.js:81
+                title: payload.title,
+                ^^^^^
+
+SyntaxError: Unexpected identifier
+    at Module._compile (internal/modules/cjs/loader.js:720:23)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:643:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:556:12)
+    at Module.require (internal/modules/cjs/loader.js:683:19)
+    at require (internal/modules/cjs/helpers.js:16:16)
+    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/service/note.js:14:17)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:643:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:556:12)
+    at Module.require (internal/modules/cjs/loader.js:683:19)
+    at require (internal/modules/cjs/helpers.js:16:16)
+    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/controller/note.js:9:21)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10) {"error":{},"stack":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/elastic-search/elasticSearch.js:81\n                title: payload.title,\n                ^^^^^\n\nSyntaxError: Unexpected identifier\n    at Module._compile (internal/modules/cjs/loader.js:720:23)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)\n    at Module.load (internal/modules/cjs/loader.js:643:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:556:12)\n    at Module.require (internal/modules/cjs/loader.js:683:19)\n    at require (internal/modules/cjs/helpers.js:16:16)\n    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/service/note.js:14:17)\n    at Module._compile (internal/modules/cjs/loader.js:776:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)\n    at Module.load (internal/modules/cjs/loader.js:643:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:556:12)\n    at Module.require (internal/modules/cjs/loader.js:683:19)\n    at require (internal/modules/cjs/helpers.js:16:16)\n    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/controller/note.js:9:21)\n    at Module._compile (internal/modules/cjs/loader.js:776:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)","exception":true,"date":"Sat Nov 16 2019 10:47:27 GMT+0530 (India Standard Time)","process":{"pid":11877,"uid":1000,"gid":1000,"cwd":"/home/admin1/Documents/BLabz_Work-master/fundooApp","execPath":"/usr/local/bin/node","version":"v12.6.0","argv":["/usr/local/bin/node","/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js"],"memoryUsage":{"rss":70389760,"heapTotal":36626432,"heapUsed":26374128,"external":19574802}},"os":{"loadavg":[0.35107421875,0.564453125,0.4697265625],"uptime":5083},"trace":[{"column":23,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":720,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false},{"column":32,"file":"internal/modules/cjs/loader.js","function":"Module.load","line":643,"method":"load","native":false},{"column":12,"file":"internal/modules/cjs/loader.js","function":"Module._load","line":556,"method":"_load","native":false},{"column":19,"file":"internal/modules/cjs/loader.js","function":"Module.require","line":683,"method":"require","native":false},{"column":16,"file":"internal/modules/cjs/helpers.js","function":"require","line":16,"method":null,"native":false},{"column":17,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/service/note.js","function":null,"line":14,"method":null,"native":false},{"column":30,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":776,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false},{"column":32,"file":"internal/modules/cjs/loader.js","function":"Module.load","line":643,"method":"load","native":false},{"column":12,"file":"internal/modules/cjs/loader.js","function":"Module._load","line":556,"method":"_load","native":false},{"column":19,"file":"internal/modules/cjs/loader.js","function":"Module.require","line":683,"method":"require","native":false},{"column":16,"file":"internal/modules/cjs/helpers.js","function":"require","line":16,"method":null,"native":false},{"column":21,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/controller/note.js","function":null,"line":9,"method":null,"native":false},{"column":30,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":776,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false}]}
+error: uncaughtException: Unexpected identifier
+/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/elastic-search/elasticSearch.js:83
+                title: payload.title,
+                ^^^^^
+
+SyntaxError: Unexpected identifier
+    at Module._compile (internal/modules/cjs/loader.js:720:23)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:643:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:556:12)
+    at Module.require (internal/modules/cjs/loader.js:683:19)
+    at require (internal/modules/cjs/helpers.js:16:16)
+    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/service/note.js:14:17)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:643:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:556:12)
+    at Module.require (internal/modules/cjs/loader.js:683:19)
+    at require (internal/modules/cjs/helpers.js:16:16)
+    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/controller/note.js:9:21)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10) {"error":{},"stack":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/elastic-search/elasticSearch.js:83\n                title: payload.title,\n                ^^^^^\n\nSyntaxError: Unexpected identifier\n    at Module._compile (internal/modules/cjs/loader.js:720:23)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)\n    at Module.load (internal/modules/cjs/loader.js:643:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:556:12)\n    at Module.require (internal/modules/cjs/loader.js:683:19)\n    at require (internal/modules/cjs/helpers.js:16:16)\n    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/service/note.js:14:17)\n    at Module._compile (internal/modules/cjs/loader.js:776:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)\n    at Module.load (internal/modules/cjs/loader.js:643:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:556:12)\n    at Module.require (internal/modules/cjs/loader.js:683:19)\n    at require (internal/modules/cjs/helpers.js:16:16)\n    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/controller/note.js:9:21)\n    at Module._compile (internal/modules/cjs/loader.js:776:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)","exception":true,"date":"Sat Nov 16 2019 10:47:28 GMT+0530 (India Standard Time)","process":{"pid":11893,"uid":1000,"gid":1000,"cwd":"/home/admin1/Documents/BLabz_Work-master/fundooApp","execPath":"/usr/local/bin/node","version":"v12.6.0","argv":["/usr/local/bin/node","/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js"],"memoryUsage":{"rss":72085504,"heapTotal":36626432,"heapUsed":26490496,"external":19574808}},"os":{"loadavg":[0.4033203125,0.57177734375,0.47265625],"uptime":5084},"trace":[{"column":23,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":720,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false},{"column":32,"file":"internal/modules/cjs/loader.js","function":"Module.load","line":643,"method":"load","native":false},{"column":12,"file":"internal/modules/cjs/loader.js","function":"Module._load","line":556,"method":"_load","native":false},{"column":19,"file":"internal/modules/cjs/loader.js","function":"Module.require","line":683,"method":"require","native":false},{"column":16,"file":"internal/modules/cjs/helpers.js","function":"require","line":16,"method":null,"native":false},{"column":17,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/service/note.js","function":null,"line":14,"method":null,"native":false},{"column":30,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":776,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false},{"column":32,"file":"internal/modules/cjs/loader.js","function":"Module.load","line":643,"method":"load","native":false},{"column":12,"file":"internal/modules/cjs/loader.js","function":"Module._load","line":556,"method":"_load","native":false},{"column":19,"file":"internal/modules/cjs/loader.js","function":"Module.require","line":683,"method":"require","native":false},{"column":16,"file":"internal/modules/cjs/helpers.js","function":"require","line":16,"method":null,"native":false},{"column":21,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/controller/note.js","function":null,"line":9,"method":null,"native":false},{"column":30,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":776,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false}]}
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+error: uncaughtException: missing ) after argument list
+/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/elastic-search/elasticSearch.js:91
+            }
+            ^
+
+SyntaxError: missing ) after argument list
+    at Module._compile (internal/modules/cjs/loader.js:720:23)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:643:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:556:12)
+    at Module.require (internal/modules/cjs/loader.js:683:19)
+    at require (internal/modules/cjs/helpers.js:16:16)
+    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/service/note.js:14:17)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:643:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:556:12)
+    at Module.require (internal/modules/cjs/loader.js:683:19)
+    at require (internal/modules/cjs/helpers.js:16:16)
+    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/controller/note.js:9:21)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10) {"error":{},"stack":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/elastic-search/elasticSearch.js:91\n            }\n            ^\n\nSyntaxError: missing ) after argument list\n    at Module._compile (internal/modules/cjs/loader.js:720:23)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)\n    at Module.load (internal/modules/cjs/loader.js:643:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:556:12)\n    at Module.require (internal/modules/cjs/loader.js:683:19)\n    at require (internal/modules/cjs/helpers.js:16:16)\n    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/service/note.js:14:17)\n    at Module._compile (internal/modules/cjs/loader.js:776:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)\n    at Module.load (internal/modules/cjs/loader.js:643:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:556:12)\n    at Module.require (internal/modules/cjs/loader.js:683:19)\n    at require (internal/modules/cjs/helpers.js:16:16)\n    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/controller/note.js:9:21)\n    at Module._compile (internal/modules/cjs/loader.js:776:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)","exception":true,"date":"Sat Nov 16 2019 10:54:21 GMT+0530 (India Standard Time)","process":{"pid":12317,"uid":1000,"gid":1000,"cwd":"/home/admin1/Documents/BLabz_Work-master/fundooApp","execPath":"/usr/local/bin/node","version":"v12.6.0","argv":["/usr/local/bin/node","/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js"],"memoryUsage":{"rss":70807552,"heapTotal":36626432,"heapUsed":26510128,"external":19574838}},"os":{"loadavg":[0.3310546875,0.4384765625,0.44384765625],"uptime":5497},"trace":[{"column":23,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":720,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false},{"column":32,"file":"internal/modules/cjs/loader.js","function":"Module.load","line":643,"method":"load","native":false},{"column":12,"file":"internal/modules/cjs/loader.js","function":"Module._load","line":556,"method":"_load","native":false},{"column":19,"file":"internal/modules/cjs/loader.js","function":"Module.require","line":683,"method":"require","native":false},{"column":16,"file":"internal/modules/cjs/helpers.js","function":"require","line":16,"method":null,"native":false},{"column":17,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/service/note.js","function":null,"line":14,"method":null,"native":false},{"column":30,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":776,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false},{"column":32,"file":"internal/modules/cjs/loader.js","function":"Module.load","line":643,"method":"load","native":false},{"column":12,"file":"internal/modules/cjs/loader.js","function":"Module._load","line":556,"method":"_load","native":false},{"column":19,"file":"internal/modules/cjs/loader.js","function":"Module.require","line":683,"method":"require","native":false},{"column":16,"file":"internal/modules/cjs/helpers.js","function":"require","line":16,"method":null,"native":false},{"column":21,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/controller/note.js","function":null,"line":9,"method":null,"native":false},{"column":30,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":776,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false}]}
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+error: uncaughtException: missing ) after argument list
+/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/elastic-search/elasticSearch.js:91
+            }
+            ^
+
+SyntaxError: missing ) after argument list
+    at Module._compile (internal/modules/cjs/loader.js:720:23)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:643:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:556:12)
+    at Module.require (internal/modules/cjs/loader.js:683:19)
+    at require (internal/modules/cjs/helpers.js:16:16)
+    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/service/note.js:14:17)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:643:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:556:12)
+    at Module.require (internal/modules/cjs/loader.js:683:19)
+    at require (internal/modules/cjs/helpers.js:16:16)
+    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/controller/note.js:9:21)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10) {"error":{},"stack":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/elastic-search/elasticSearch.js:91\n            }\n            ^\n\nSyntaxError: missing ) after argument list\n    at Module._compile (internal/modules/cjs/loader.js:720:23)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)\n    at Module.load (internal/modules/cjs/loader.js:643:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:556:12)\n    at Module.require (internal/modules/cjs/loader.js:683:19)\n    at require (internal/modules/cjs/helpers.js:16:16)\n    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/service/note.js:14:17)\n    at Module._compile (internal/modules/cjs/loader.js:776:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)\n    at Module.load (internal/modules/cjs/loader.js:643:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:556:12)\n    at Module.require (internal/modules/cjs/loader.js:683:19)\n    at require (internal/modules/cjs/helpers.js:16:16)\n    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/controller/note.js:9:21)\n    at Module._compile (internal/modules/cjs/loader.js:776:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)","exception":true,"date":"Sat Nov 16 2019 11:06:24 GMT+0530 (India Standard Time)","process":{"pid":13035,"uid":1000,"gid":1000,"cwd":"/home/admin1/Documents/BLabz_Work-master/fundooApp","execPath":"/usr/local/bin/node","version":"v12.6.0","argv":["/usr/local/bin/node","/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js"],"memoryUsage":{"rss":70627328,"heapTotal":36626432,"heapUsed":26376800,"external":19574838}},"os":{"loadavg":[0.275390625,0.22265625,0.32373046875],"uptime":6219},"trace":[{"column":23,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":720,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false},{"column":32,"file":"internal/modules/cjs/loader.js","function":"Module.load","line":643,"method":"load","native":false},{"column":12,"file":"internal/modules/cjs/loader.js","function":"Module._load","line":556,"method":"_load","native":false},{"column":19,"file":"internal/modules/cjs/loader.js","function":"Module.require","line":683,"method":"require","native":false},{"column":16,"file":"internal/modules/cjs/helpers.js","function":"require","line":16,"method":null,"native":false},{"column":17,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/service/note.js","function":null,"line":14,"method":null,"native":false},{"column":30,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":776,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false},{"column":32,"file":"internal/modules/cjs/loader.js","function":"Module.load","line":643,"method":"load","native":false},{"column":12,"file":"internal/modules/cjs/loader.js","function":"Module._load","line":556,"method":"_load","native":false},{"column":19,"file":"internal/modules/cjs/loader.js","function":"Module.require","line":683,"method":"require","native":false},{"column":16,"file":"internal/modules/cjs/helpers.js","function":"require","line":16,"method":null,"native":false},{"column":21,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/controller/note.js","function":null,"line":9,"method":null,"native":false},{"column":30,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":776,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false}]}
+info: Redis client connected
+error: uncaughtException: missing ) after argument list
+/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/elastic-search/elasticSearch.js:92
+            }
+            ^
+
+SyntaxError: missing ) after argument list
+    at Module._compile (internal/modules/cjs/loader.js:720:23)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:643:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:556:12)
+    at Module.require (internal/modules/cjs/loader.js:683:19)
+    at require (internal/modules/cjs/helpers.js:16:16)
+    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/service/note.js:14:17)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:643:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:556:12)
+    at Module.require (internal/modules/cjs/loader.js:683:19)
+    at require (internal/modules/cjs/helpers.js:16:16)
+    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/controller/note.js:9:21)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10) {"error":{},"stack":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/elastic-search/elasticSearch.js:92\n            }\n            ^\n\nSyntaxError: missing ) after argument list\n    at Module._compile (internal/modules/cjs/loader.js:720:23)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)\n    at Module.load (internal/modules/cjs/loader.js:643:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:556:12)\n    at Module.require (internal/modules/cjs/loader.js:683:19)\n    at require (internal/modules/cjs/helpers.js:16:16)\n    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/service/note.js:14:17)\n    at Module._compile (internal/modules/cjs/loader.js:776:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)\n    at Module.load (internal/modules/cjs/loader.js:643:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:556:12)\n    at Module.require (internal/modules/cjs/loader.js:683:19)\n    at require (internal/modules/cjs/helpers.js:16:16)\n    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/controller/note.js:9:21)\n    at Module._compile (internal/modules/cjs/loader.js:776:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)","exception":true,"date":"Sat Nov 16 2019 11:06:33 GMT+0530 (India Standard Time)","process":{"pid":13084,"uid":1000,"gid":1000,"cwd":"/home/admin1/Documents/BLabz_Work-master/fundooApp","execPath":"/usr/local/bin/node","version":"v12.6.0","argv":["/usr/local/bin/node","/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js"],"memoryUsage":{"rss":71110656,"heapTotal":36626432,"heapUsed":26416480,"external":19574877}},"os":{"loadavg":[0.4541015625,0.26416015625,0.33642578125],"uptime":6228},"trace":[{"column":23,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":720,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false},{"column":32,"file":"internal/modules/cjs/loader.js","function":"Module.load","line":643,"method":"load","native":false},{"column":12,"file":"internal/modules/cjs/loader.js","function":"Module._load","line":556,"method":"_load","native":false},{"column":19,"file":"internal/modules/cjs/loader.js","function":"Module.require","line":683,"method":"require","native":false},{"column":16,"file":"internal/modules/cjs/helpers.js","function":"require","line":16,"method":null,"native":false},{"column":17,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/service/note.js","function":null,"line":14,"method":null,"native":false},{"column":30,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":776,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false},{"column":32,"file":"internal/modules/cjs/loader.js","function":"Module.load","line":643,"method":"load","native":false},{"column":12,"file":"internal/modules/cjs/loader.js","function":"Module._load","line":556,"method":"_load","native":false},{"column":19,"file":"internal/modules/cjs/loader.js","function":"Module.require","line":683,"method":"require","native":false},{"column":16,"file":"internal/modules/cjs/helpers.js","function":"require","line":16,"method":null,"native":false},{"column":21,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/controller/note.js","function":null,"line":9,"method":null,"native":false},{"column":30,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":776,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false}]}
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+error: uncaughtException: Unexpected token )
+/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/elastic-search/elasticSearch.js:93
+        })
+         ^
+
+SyntaxError: Unexpected token )
+    at Module._compile (internal/modules/cjs/loader.js:720:23)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:643:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:556:12)
+    at Module.require (internal/modules/cjs/loader.js:683:19)
+    at require (internal/modules/cjs/helpers.js:16:16)
+    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/service/note.js:14:17)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:643:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:556:12)
+    at Module.require (internal/modules/cjs/loader.js:683:19)
+    at require (internal/modules/cjs/helpers.js:16:16)
+    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/controller/note.js:9:21)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10) {"error":{},"stack":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/elastic-search/elasticSearch.js:93\n        })\n         ^\n\nSyntaxError: Unexpected token )\n    at Module._compile (internal/modules/cjs/loader.js:720:23)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)\n    at Module.load (internal/modules/cjs/loader.js:643:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:556:12)\n    at Module.require (internal/modules/cjs/loader.js:683:19)\n    at require (internal/modules/cjs/helpers.js:16:16)\n    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/service/note.js:14:17)\n    at Module._compile (internal/modules/cjs/loader.js:776:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)\n    at Module.load (internal/modules/cjs/loader.js:643:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:556:12)\n    at Module.require (internal/modules/cjs/loader.js:683:19)\n    at require (internal/modules/cjs/helpers.js:16:16)\n    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/controller/note.js:9:21)\n    at Module._compile (internal/modules/cjs/loader.js:776:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)","exception":true,"date":"Sat Nov 16 2019 11:07:44 GMT+0530 (India Standard Time)","process":{"pid":13246,"uid":1000,"gid":1000,"cwd":"/home/admin1/Documents/BLabz_Work-master/fundooApp","execPath":"/usr/local/bin/node","version":"v12.6.0","argv":["/usr/local/bin/node","/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js"],"memoryUsage":{"rss":70664192,"heapTotal":36626432,"heapUsed":26459160,"external":19574887}},"os":{"loadavg":[0.42626953125,0.294921875,0.341796875],"uptime":6300},"trace":[{"column":23,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":720,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false},{"column":32,"file":"internal/modules/cjs/loader.js","function":"Module.load","line":643,"method":"load","native":false},{"column":12,"file":"internal/modules/cjs/loader.js","function":"Module._load","line":556,"method":"_load","native":false},{"column":19,"file":"internal/modules/cjs/loader.js","function":"Module.require","line":683,"method":"require","native":false},{"column":16,"file":"internal/modules/cjs/helpers.js","function":"require","line":16,"method":null,"native":false},{"column":17,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/service/note.js","function":null,"line":14,"method":null,"native":false},{"column":30,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":776,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false},{"column":32,"file":"internal/modules/cjs/loader.js","function":"Module.load","line":643,"method":"load","native":false},{"column":12,"file":"internal/modules/cjs/loader.js","function":"Module._load","line":556,"method":"_load","native":false},{"column":19,"file":"internal/modules/cjs/loader.js","function":"Module.require","line":683,"method":"require","native":false},{"column":16,"file":"internal/modules/cjs/helpers.js","function":"require","line":16,"method":null,"native":false},{"column":21,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/controller/note.js","function":null,"line":9,"method":null,"native":false},{"column":30,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":776,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false}]}
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+error: uncaughtException: Unexpected token .
+/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/elastic-search/elasticSearch.js:122
+                                    labelName.: `.*${payload}.*`
+                                             ^
+
+SyntaxError: Unexpected token .
+    at Module._compile (internal/modules/cjs/loader.js:720:23)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:643:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:556:12)
+    at Module.require (internal/modules/cjs/loader.js:683:19)
+    at require (internal/modules/cjs/helpers.js:16:16)
+    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/service/note.js:14:17)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:643:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:556:12)
+    at Module.require (internal/modules/cjs/loader.js:683:19)
+    at require (internal/modules/cjs/helpers.js:16:16)
+    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/controller/note.js:9:21)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10) {"error":{},"stack":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/elastic-search/elasticSearch.js:122\n                                    labelName.: `.*${payload}.*`\n                                             ^\n\nSyntaxError: Unexpected token .\n    at Module._compile (internal/modules/cjs/loader.js:720:23)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)\n    at Module.load (internal/modules/cjs/loader.js:643:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:556:12)\n    at Module.require (internal/modules/cjs/loader.js:683:19)\n    at require (internal/modules/cjs/helpers.js:16:16)\n    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/service/note.js:14:17)\n    at Module._compile (internal/modules/cjs/loader.js:776:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)\n    at Module.load (internal/modules/cjs/loader.js:643:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:556:12)\n    at Module.require (internal/modules/cjs/loader.js:683:19)\n    at require (internal/modules/cjs/helpers.js:16:16)\n    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/controller/note.js:9:21)\n    at Module._compile (internal/modules/cjs/loader.js:776:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)","exception":true,"date":"Sat Nov 16 2019 11:22:14 GMT+0530 (India Standard Time)","process":{"pid":14242,"uid":1000,"gid":1000,"cwd":"/home/admin1/Documents/BLabz_Work-master/fundooApp","execPath":"/usr/local/bin/node","version":"v12.6.0","argv":["/usr/local/bin/node","/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js"],"memoryUsage":{"rss":76005376,"heapTotal":56811520,"heapUsed":23832792,"external":19111777}},"os":{"loadavg":[0.77392578125,0.458984375,0.4248046875],"uptime":7170},"trace":[{"column":23,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":720,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false},{"column":32,"file":"internal/modules/cjs/loader.js","function":"Module.load","line":643,"method":"load","native":false},{"column":12,"file":"internal/modules/cjs/loader.js","function":"Module._load","line":556,"method":"_load","native":false},{"column":19,"file":"internal/modules/cjs/loader.js","function":"Module.require","line":683,"method":"require","native":false},{"column":16,"file":"internal/modules/cjs/helpers.js","function":"require","line":16,"method":null,"native":false},{"column":17,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/service/note.js","function":null,"line":14,"method":null,"native":false},{"column":30,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":776,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false},{"column":32,"file":"internal/modules/cjs/loader.js","function":"Module.load","line":643,"method":"load","native":false},{"column":12,"file":"internal/modules/cjs/loader.js","function":"Module._load","line":556,"method":"_load","native":false},{"column":19,"file":"internal/modules/cjs/loader.js","function":"Module.require","line":683,"method":"require","native":false},{"column":16,"file":"internal/modules/cjs/helpers.js","function":"require","line":16,"method":null,"native":false},{"column":21,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/controller/note.js","function":null,"line":9,"method":null,"native":false},{"column":30,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":776,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false}]}
+error: uncaughtException: Unexpected token .
+/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/elastic-search/elasticSearch.js:122
+                                    labelName.label: `.*${payload}.*`
+                                             ^
+
+SyntaxError: Unexpected token .
+    at Module._compile (internal/modules/cjs/loader.js:720:23)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:643:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:556:12)
+    at Module.require (internal/modules/cjs/loader.js:683:19)
+    at require (internal/modules/cjs/helpers.js:16:16)
+    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/service/note.js:14:17)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:643:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:556:12)
+    at Module.require (internal/modules/cjs/loader.js:683:19)
+    at require (internal/modules/cjs/helpers.js:16:16)
+    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/controller/note.js:9:21)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10) {"error":{},"stack":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/elastic-search/elasticSearch.js:122\n                                    labelName.label: `.*${payload}.*`\n                                             ^\n\nSyntaxError: Unexpected token .\n    at Module._compile (internal/modules/cjs/loader.js:720:23)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)\n    at Module.load (internal/modules/cjs/loader.js:643:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:556:12)\n    at Module.require (internal/modules/cjs/loader.js:683:19)\n    at require (internal/modules/cjs/helpers.js:16:16)\n    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/service/note.js:14:17)\n    at Module._compile (internal/modules/cjs/loader.js:776:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)\n    at Module.load (internal/modules/cjs/loader.js:643:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:556:12)\n    at Module.require (internal/modules/cjs/loader.js:683:19)\n    at require (internal/modules/cjs/helpers.js:16:16)\n    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/controller/note.js:9:21)\n    at Module._compile (internal/modules/cjs/loader.js:776:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)","exception":true,"date":"Sat Nov 16 2019 11:22:17 GMT+0530 (India Standard Time)","process":{"pid":14265,"uid":1000,"gid":1000,"cwd":"/home/admin1/Documents/BLabz_Work-master/fundooApp","execPath":"/usr/local/bin/node","version":"v12.6.0","argv":["/usr/local/bin/node","/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js"],"memoryUsage":{"rss":75689984,"heapTotal":56549376,"heapUsed":23811592,"external":19116255}},"os":{"loadavg":[0.79248046875,0.46826171875,0.42822265625],"uptime":7173},"trace":[{"column":23,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":720,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false},{"column":32,"file":"internal/modules/cjs/loader.js","function":"Module.load","line":643,"method":"load","native":false},{"column":12,"file":"internal/modules/cjs/loader.js","function":"Module._load","line":556,"method":"_load","native":false},{"column":19,"file":"internal/modules/cjs/loader.js","function":"Module.require","line":683,"method":"require","native":false},{"column":16,"file":"internal/modules/cjs/helpers.js","function":"require","line":16,"method":null,"native":false},{"column":17,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/service/note.js","function":null,"line":14,"method":null,"native":false},{"column":30,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":776,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false},{"column":32,"file":"internal/modules/cjs/loader.js","function":"Module.load","line":643,"method":"load","native":false},{"column":12,"file":"internal/modules/cjs/loader.js","function":"Module._load","line":556,"method":"_load","native":false},{"column":19,"file":"internal/modules/cjs/loader.js","function":"Module.require","line":683,"method":"require","native":false},{"column":16,"file":"internal/modules/cjs/helpers.js","function":"require","line":16,"method":null,"native":false},{"column":21,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/controller/note.js","function":null,"line":9,"method":null,"native":false},{"column":30,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":776,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false}]}
+error: uncaughtException: Unexpected token .
+/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/elastic-search/elasticSearch.js:122
+                                    labelName.labelName: `.*${payload}.*`
+                                             ^
+
+SyntaxError: Unexpected token .
+    at Module._compile (internal/modules/cjs/loader.js:720:23)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:643:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:556:12)
+    at Module.require (internal/modules/cjs/loader.js:683:19)
+    at require (internal/modules/cjs/helpers.js:16:16)
+    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/service/note.js:14:17)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:643:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:556:12)
+    at Module.require (internal/modules/cjs/loader.js:683:19)
+    at require (internal/modules/cjs/helpers.js:16:16)
+    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/controller/note.js:9:21)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10) {"error":{},"stack":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/elastic-search/elasticSearch.js:122\n                                    labelName.labelName: `.*${payload}.*`\n                                             ^\n\nSyntaxError: Unexpected token .\n    at Module._compile (internal/modules/cjs/loader.js:720:23)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)\n    at Module.load (internal/modules/cjs/loader.js:643:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:556:12)\n    at Module.require (internal/modules/cjs/loader.js:683:19)\n    at require (internal/modules/cjs/helpers.js:16:16)\n    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/service/note.js:14:17)\n    at Module._compile (internal/modules/cjs/loader.js:776:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)\n    at Module.load (internal/modules/cjs/loader.js:643:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:556:12)\n    at Module.require (internal/modules/cjs/loader.js:683:19)\n    at require (internal/modules/cjs/helpers.js:16:16)\n    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/controller/note.js:9:21)\n    at Module._compile (internal/modules/cjs/loader.js:776:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)","exception":true,"date":"Sat Nov 16 2019 11:22:18 GMT+0530 (India Standard Time)","process":{"pid":14279,"uid":1000,"gid":1000,"cwd":"/home/admin1/Documents/BLabz_Work-master/fundooApp","execPath":"/usr/local/bin/node","version":"v12.6.0","argv":["/usr/local/bin/node","/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js"],"memoryUsage":{"rss":70651904,"heapTotal":36364288,"heapUsed":26302112,"external":19574922}},"os":{"loadavg":[0.79248046875,0.46826171875,0.42822265625],"uptime":7174},"trace":[{"column":23,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":720,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false},{"column":32,"file":"internal/modules/cjs/loader.js","function":"Module.load","line":643,"method":"load","native":false},{"column":12,"file":"internal/modules/cjs/loader.js","function":"Module._load","line":556,"method":"_load","native":false},{"column":19,"file":"internal/modules/cjs/loader.js","function":"Module.require","line":683,"method":"require","native":false},{"column":16,"file":"internal/modules/cjs/helpers.js","function":"require","line":16,"method":null,"native":false},{"column":17,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/service/note.js","function":null,"line":14,"method":null,"native":false},{"column":30,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":776,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false},{"column":32,"file":"internal/modules/cjs/loader.js","function":"Module.load","line":643,"method":"load","native":false},{"column":12,"file":"internal/modules/cjs/loader.js","function":"Module._load","line":556,"method":"_load","native":false},{"column":19,"file":"internal/modules/cjs/loader.js","function":"Module.require","line":683,"method":"require","native":false},{"column":16,"file":"internal/modules/cjs/helpers.js","function":"require","line":16,"method":null,"native":false},{"column":21,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/controller/note.js","function":null,"line":9,"method":null,"native":false},{"column":30,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":776,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false}]}
+info: Redis client connected
+error: uncaughtException: missing ) after argument list
+/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/elastic-search/elasticSearch.js:92
+            }
+            ^
+
+SyntaxError: missing ) after argument list
+    at Module._compile (internal/modules/cjs/loader.js:720:23)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:643:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:556:12)
+    at Module.require (internal/modules/cjs/loader.js:683:19)
+    at require (internal/modules/cjs/helpers.js:16:16)
+    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/service/note.js:14:17)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:643:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:556:12)
+    at Module.require (internal/modules/cjs/loader.js:683:19)
+    at require (internal/modules/cjs/helpers.js:16:16)
+    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/controller/note.js:9:21)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10) {"error":{},"stack":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/elastic-search/elasticSearch.js:92\n            }\n            ^\n\nSyntaxError: missing ) after argument list\n    at Module._compile (internal/modules/cjs/loader.js:720:23)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)\n    at Module.load (internal/modules/cjs/loader.js:643:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:556:12)\n    at Module.require (internal/modules/cjs/loader.js:683:19)\n    at require (internal/modules/cjs/helpers.js:16:16)\n    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/service/note.js:14:17)\n    at Module._compile (internal/modules/cjs/loader.js:776:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)\n    at Module.load (internal/modules/cjs/loader.js:643:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:556:12)\n    at Module.require (internal/modules/cjs/loader.js:683:19)\n    at require (internal/modules/cjs/helpers.js:16:16)\n    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/controller/note.js:9:21)\n    at Module._compile (internal/modules/cjs/loader.js:776:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)","exception":true,"date":"Sat Nov 16 2019 11:23:22 GMT+0530 (India Standard Time)","process":{"pid":14353,"uid":1000,"gid":1000,"cwd":"/home/admin1/Documents/BLabz_Work-master/fundooApp","execPath":"/usr/local/bin/node","version":"v12.6.0","argv":["/usr/local/bin/node","/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js"],"memoryUsage":{"rss":70856704,"heapTotal":36364288,"heapUsed":26310328,"external":19574915}},"os":{"loadavg":[0.49951171875,0.46142578125,0.4306640625],"uptime":7237},"trace":[{"column":23,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":720,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false},{"column":32,"file":"internal/modules/cjs/loader.js","function":"Module.load","line":643,"method":"load","native":false},{"column":12,"file":"internal/modules/cjs/loader.js","function":"Module._load","line":556,"method":"_load","native":false},{"column":19,"file":"internal/modules/cjs/loader.js","function":"Module.require","line":683,"method":"require","native":false},{"column":16,"file":"internal/modules/cjs/helpers.js","function":"require","line":16,"method":null,"native":false},{"column":17,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/service/note.js","function":null,"line":14,"method":null,"native":false},{"column":30,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":776,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false},{"column":32,"file":"internal/modules/cjs/loader.js","function":"Module.load","line":643,"method":"load","native":false},{"column":12,"file":"internal/modules/cjs/loader.js","function":"Module._load","line":556,"method":"_load","native":false},{"column":19,"file":"internal/modules/cjs/loader.js","function":"Module.require","line":683,"method":"require","native":false},{"column":16,"file":"internal/modules/cjs/helpers.js","function":"require","line":16,"method":null,"native":false},{"column":21,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/controller/note.js","function":null,"line":9,"method":null,"native":false},{"column":30,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":776,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false}]}
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+error: uncaughtException: Unexpected token )
+/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/elastic-search/elasticSearch.js:93
+        })
+         ^
+
+SyntaxError: Unexpected token )
+    at Module._compile (internal/modules/cjs/loader.js:720:23)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:643:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:556:12)
+    at Module.require (internal/modules/cjs/loader.js:683:19)
+    at require (internal/modules/cjs/helpers.js:16:16)
+    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/service/note.js:14:17)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:643:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:556:12)
+    at Module.require (internal/modules/cjs/loader.js:683:19)
+    at require (internal/modules/cjs/helpers.js:16:16)
+    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/controller/note.js:9:21)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10) {"error":{},"stack":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/elastic-search/elasticSearch.js:93\n        })\n         ^\n\nSyntaxError: Unexpected token )\n    at Module._compile (internal/modules/cjs/loader.js:720:23)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)\n    at Module.load (internal/modules/cjs/loader.js:643:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:556:12)\n    at Module.require (internal/modules/cjs/loader.js:683:19)\n    at require (internal/modules/cjs/helpers.js:16:16)\n    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/service/note.js:14:17)\n    at Module._compile (internal/modules/cjs/loader.js:776:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)\n    at Module.load (internal/modules/cjs/loader.js:643:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:556:12)\n    at Module.require (internal/modules/cjs/loader.js:683:19)\n    at require (internal/modules/cjs/helpers.js:16:16)\n    at Object.<anonymous> (/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/controller/note.js:9:21)\n    at Module._compile (internal/modules/cjs/loader.js:776:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)","exception":true,"date":"Sat Nov 16 2019 11:30:59 GMT+0530 (India Standard Time)","process":{"pid":14825,"uid":1000,"gid":1000,"cwd":"/home/admin1/Documents/BLabz_Work-master/fundooApp","execPath":"/usr/local/bin/node","version":"v12.6.0","argv":["/usr/local/bin/node","/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/server.js"],"memoryUsage":{"rss":70926336,"heapTotal":36364288,"heapUsed":26478576,"external":19574905}},"os":{"loadavg":[0.49853515625,0.51318359375,0.46533203125],"uptime":7694},"trace":[{"column":23,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":720,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false},{"column":32,"file":"internal/modules/cjs/loader.js","function":"Module.load","line":643,"method":"load","native":false},{"column":12,"file":"internal/modules/cjs/loader.js","function":"Module._load","line":556,"method":"_load","native":false},{"column":19,"file":"internal/modules/cjs/loader.js","function":"Module.require","line":683,"method":"require","native":false},{"column":16,"file":"internal/modules/cjs/helpers.js","function":"require","line":16,"method":null,"native":false},{"column":17,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/service/note.js","function":null,"line":14,"method":null,"native":false},{"column":30,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":776,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false},{"column":32,"file":"internal/modules/cjs/loader.js","function":"Module.load","line":643,"method":"load","native":false},{"column":12,"file":"internal/modules/cjs/loader.js","function":"Module._load","line":556,"method":"_load","native":false},{"column":19,"file":"internal/modules/cjs/loader.js","function":"Module.require","line":683,"method":"require","native":false},{"column":16,"file":"internal/modules/cjs/helpers.js","function":"require","line":16,"method":null,"native":false},{"column":21,"file":"/home/admin1/Documents/BLabz_Work-master/fundooApp/backend/controller/note.js","function":null,"line":9,"method":null,"native":false},{"column":30,"file":"internal/modules/cjs/loader.js","function":"Module._compile","line":776,"method":"_compile","native":false},{"column":10,"file":"internal/modules/cjs/loader.js","function":"Module._extensions..js","line":787,"method":".js","native":false}]}
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected
+info: Redis client connected

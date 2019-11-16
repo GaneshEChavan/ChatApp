@@ -76,11 +76,20 @@ class Elastic {
         return elasticClient.update({
             index: process.env.INDEXNAME,
             id: id,
-            body: { 
-                mappings: {
-                    
+            body: {
+                doc: {
+                    title: payload.title,
+                    description: payload.description,
+                    color: payload.color,
+                    labelName: {
+                        mappings: {
+                            properties: {
+                                labelName: payload.labelName
+                            }
+                        }
+                    }
                 }
-             }
+            }
         })
     }
 
@@ -88,7 +97,7 @@ class Elastic {
      * @description: search for document
      * @param {*} payload 
      */
-    searchDocument(req,res) {
+    searchDocument(req, res) {
         let payload = req.param
         return elasticClient.search({
             index: process.env.INDEXNAME,
@@ -110,7 +119,7 @@ class Elastic {
                                 }
                             }, {
                                 regexp: {
-                                    label: `.*${payload}.*`
+                                    labelName: `.*${payload}.*`
                                 }
                             }
                         ]
@@ -149,6 +158,8 @@ let dlt = new Elastic()
 // dlt.deleteAll()
 // dlt.indexExists().then(res=>{console.log("exists")}).catch(err=>{console.log("doesn't exist")})
 // dlt.initIndex()
+// dlt.deleteDocument("5ct2bW4BzeHBWV4xVhyW")
+// dlt.updateDocument("GJzCaG4BM6usXxZjCGXa",{title:"ganesh",description:"chavan",color:"orange",labelName:"ganesh chavan"}).then(res=>{console.log("search result",res)}).catch(err=>{console.log("not found",err)})
 // dlt.searchDocument("ll").then(res=>{console.log("search result",res.hits.hits)}).catch(err=>{console.log("not found",err)})
 module.exports = new Elastic()
 
