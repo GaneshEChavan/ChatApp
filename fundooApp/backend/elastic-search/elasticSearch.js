@@ -77,6 +77,7 @@ class Elastic {
             index: process.env.INDEXNAME,
             id: id,
             body: {
+<<<<<<< HEAD
                 doc: {
                     mappings: {
                         title: payload.title,
@@ -87,6 +88,11 @@ class Elastic {
                                 labelName: payload.labelName
                             }
                         }
+=======
+		doc: {
+		    labelName: {
+                    	labelName: payload.labelName
+>>>>>>> 6f2fd9ce8eecf3e83bbe44d9276c8ee8706fa3b2
                     }
                 }
             }
