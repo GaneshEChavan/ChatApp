@@ -24,6 +24,13 @@ require('dotenv').config({ path: __dirname + '/.env' })
 const logger = require("../logger/logger")
 
 const app = express();
+app.set('view engine','ejs')
+// app.get('/',(req,res)=>{
+//     res.render("login",{ name: ganesh, url: "localhost:3000" })
+// })
+// app.get("/", function (req, res) {
+//   res.render(, );
+// });
 
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('../swagger/swagger.json');
@@ -59,10 +66,8 @@ app.listen(process.env.PORT, () => {
 module.exports = app;
 
 
-// app.set('view engine','ejs')
-// app.get('/',(req,res)=>{
-//     res.render('home')
-// })
+// 
+
 
 
 

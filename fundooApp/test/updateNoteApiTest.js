@@ -44,11 +44,10 @@ describe("Test for update note API",function(){
     .set('token',json.token1.token)
     .send(json.update)
     .end(function(err,res){
-      // should.exist(res)
       res.should.have.status(401);
-      res.should.be.an('object');
-      should.not.exist(err);
-      res.should.have.property('error');
+      // res.should.be.an('object');
+      // should.not.exist(err);
+      // res.should.have.property('error');
       done();
     })
   })

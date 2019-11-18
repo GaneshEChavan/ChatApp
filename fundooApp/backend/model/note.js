@@ -192,7 +192,7 @@ class ModelNote {
     * @description: function to delete a notes  
     * @param {*contains note id} note
     */
-        permanentDelete(note) {
+    permanentDelete(note) {
         try {
             return Notes.findByIdAndDelete(note)
         } catch (err) {
@@ -213,15 +213,15 @@ class ModelNote {
     }
 
     /**
-    * @description: schedular function to work for every 45 seconds 
+    * @description: schedular function to work for every minute. this schedule function is look for non archived notes which are not used for long time so it will archive it 
+    *               if difference in last updated and current date is greater than 30 days.  
     */
     oldNoteSchedular() {
         cron.schedule('* * * * *', () => {
             this.readNotes({ "isArchive": false }).then(data => {
                 data.forEach(note => {
-
                     /**
-                    * @description: logic for calculating the difference between current and last updated date
+                    * @description: logic for calculating the difference between current and last updated date in value of number of days
                     */
 
                     let updateDate = new Date(note.updatedAt);
@@ -230,7 +230,7 @@ class ModelNote {
                     let Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24)
 
                     /**
-                    * @description: turnery operator to update note if difference is above 30 days
+                    * @description: turnery operator to update note if difference is above 30 days then it will 
                     */
 
                     Difference_In_Days > 30 ? this.updateSingleNote({ "_id": note._id }, { "isArchive": true }) : new Error("Something went wrong..!")
@@ -238,22 +238,34 @@ class ModelNote {
             }).catch(err => {
                 logger.info('ERROR in Schedular', err);
             })
-            // console.log('running a task every 45 second');
         });
     }
 
     /**
-     * @description: schedular function to work for every seconds
+     * @description: schedular function to work for every 15 seconds to check for reminders and sorting them in ascending order. this schedule function will check for all reminder 
+     *               values in dataBase, then if the reminder time is passed away then it will set to false and sort between the remaining notes every 15 seconds 
      */
     remindSchedular() {
+        /**
+         * @description: first star is of seconds and /15 confirms that it will run every 15 minutes,second is of minute,third for hour,fourth for day of month,fifth for month,
+         *               sixth is for day of week, second argument is function/operation to do.
+         */
         cron.schedule('*/15 * * * * *', () => {
-            this.readNotes({ "Reminder": true }).then(data => {
+            /**
+             * @description: first it filter out all the notes who had reminder time then runFirst and runSecond are two various functions that have to execute one after one.  
+             *               first function check for passed reminder values and set them to null AND second sort the notes on basis of reminder time
+             */
 
+            this.readNotes({ "Reminder": true }).then(data => {
+                /**
+                 * @description: hence "this" keyword is not operatable inside these functions, variable self is declared as "this" and can be used under the functions.   
+                 */
                 let self = this
                 function runFirst(data, callback) {
-                    // console.log("------------------>240",data);
                     data.forEach(obj => {
-                        // console.log(new Date(obj.RemindTime) < new Date())
+                        /**
+                         * @description: check for reminder time is less than current time, if yes then it will set it to null and proceed further to second function
+                         */
                         if (new Date(obj.RemindTime) < new Date()) {
                             let note = { "_id": obj._id };
                             let update = { "RemindTime": null, "Reminder": false }
@@ -267,14 +279,20 @@ class ModelNote {
                             })
                         }
                     })
-
+                    /**
+                     * @description; called second function to sort notes who has reminder set
+                     */
                     self.readNotes({ "Reminder": true }).then(data => {
                         runSecond(data)
                     }).catch(err => {
                         logger.error(err)
                     })
-
                 }
+
+                /**
+                 * @description: this function will take notes with reminder true and sort them in ascending order 
+                 * @param {*contains notes with reminder set to true} newdata 
+                 */
                 function runSecond(newdata) {
                     for (let j = 0; j < newdata.length; j++) {
                         for (let i = 0; i < newdata.length - 1; i++) {

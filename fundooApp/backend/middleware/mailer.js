@@ -7,8 +7,6 @@ require('dotenv').config({ path: __dirname + '../.env' });
 
 module.exports = {
     async nodeMailer(emailId, url, name) {
-        // console.log("--------------------------------------------------------------------------------------------------->9", url);
-
         let transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {

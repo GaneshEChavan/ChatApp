@@ -24,17 +24,16 @@ client.on('error', function (err) {
 class ServiceOperations {
     registrationService(userData) {
         return new Promise((resolve, reject) => {
-            userModel.registrationModel(userData).then((data) => {
+            userModel.registrationModel(userData).then(async(data) => {
                 if (data.active === false) {
                     let payload = {
                         "_id": data._id,
                         "userName": data.userName,
                         "active": true
                     }
-                    let token = generatedToken.token(payload);
-                    let Url = process.env.LOGINHOST + token;
-                    // console.log("url to send in nodemailer- userService",Url);
-
+                    let token = await generatedToken.token(payload);
+                    let Url = process.env.APPHOST + token;
+                    client.HSET(data.userName, process.env.TOKEN, token, redis.print)
                     mailer.nodeMailer(data.userName, Url, data.firstName);
                     resolve({ data, token, Url })
                 } else {

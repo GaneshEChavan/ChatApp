@@ -4,7 +4,7 @@
   "description": "fundoo app full backend with test cases",
   "main": "index.js",
   "scripts": {
-    "test": "mocha",
+    "test": "mocha --timeout 10000",
     "start": "nodemon backend/server.js",
     "debug": "nodemon --inspect backend/server.js",
     "coverage": "nyc -r cobertura -r text-summary -r lcov npm test"
@@ -12,6 +12,8 @@
   "author": "Ganesh Chavan",
   "license": "ISC",
   "devDependencies": {
+    "eslint": "^6.6.0",
+    "eslint-config-google": "^0.14.0",
     "mocha": "^6.2.0",
     "nodemon": "^1.19.2"
   },

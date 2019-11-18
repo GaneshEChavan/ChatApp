@@ -3,7 +3,8 @@ require('dotenv').config({ path: __dirname + '../.env' });
 
 module.exports = {
     async token(payload) {
-        return token = jwt.sign(payload, process.env.SECRET_KEY, { expiresIn: "1 days" })
+        let token = jwt.sign(payload, process.env.SECRET_KEY, { expiresIn: "1 days" })
+         return token
     }
 
 }

@@ -1,5 +1,5 @@
 const elasticsearch = require("elasticsearch")
-
+const logger = require("../../logger/logger")
 let elasticClient = new elasticsearch.Client({
     host: process.env.ELASTIC_PORT,
     log: 'error'
@@ -71,28 +71,19 @@ class Elastic {
      * @param {*} payload 
      */
     updateDocument(id, payload) {
-        // console.log("------------->74", id, payload);
 
         return elasticClient.update({
             index: process.env.INDEXNAME,
             id: id,
             body: {
-<<<<<<< HEAD
                 doc: {
-                    mappings: {
-                        title: payload.title,
-                        description: payload.description,
-                        color: payload.color,
-                        labelName: {
-                            properties: {
-                                labelName: payload.labelName
-                            }
+                    title: payload.title,
+                    description: payload.description,
+                    color: payload.color,
+                    labelName: {
+                        properties: {
+                            labelName: payload.labelName
                         }
-=======
-		doc: {
-		    labelName: {
-                    	labelName: payload.labelName
->>>>>>> 6f2fd9ce8eecf3e83bbe44d9276c8ee8706fa3b2
                     }
                 }
             }
@@ -100,17 +91,26 @@ class Elastic {
     }
 
     /**
-     * @description: search for document
-     * @param {*} payload 
+     * @description: search for document 
+     * @param {*contains search value}req 
+     * @param {*gives values to user on search basis}res 
      */
     searchDocument(req, res) {
-        let payload = req.param
-        return elasticClient.search({
+
+       let payload = req.params.value
+/**
+ * @description: contains fields index and body. for searching the boolean query is used and passed to the search body, body contains should operator which is similar to
+ *               OR operator , wildcard patterns (.*) are used to match values in either title, description, color.
+ */
+       elasticClient.search({
             index: process.env.INDEXNAME,
             body: {
                 query: {
                     bool: {
                         should: [
+                            /**
+                             * @description: [parsing_exception] [regexp] query doesn't support multiple fields, hence written seperate regexp query to each field
+                             */
                             {
                                 regexp: {
                                     title: `.*${payload}.*`
@@ -132,6 +132,10 @@ class Elastic {
                     }
                 }
             }
+        }).then(response => {
+           return res.status(200).send(response.hits.hits)
+        }).catch(err => {
+            logger.info(err)
         })
     }
 
@@ -166,7 +170,7 @@ let dlt = new Elastic()
 // dlt.initIndex()
 // dlt.deleteDocument("5ct2bW4BzeHBWV4xVhyW")
 // dlt.updateDocument("fp1HdG4BohhJD8kDRZa3",{title:"ganesh",description:"chavan",color:"orange",labelName:"ganuuuuuuuu"}).then(res=>{console.log("search result",res)}).catch(err=>{console.log("not found",err)})
-// dlt.searchDocument("ll").then(res=>{console.log("search result",res.hits.hits)}).catch(err=>{console.log("not found",err)})
+// dlt.searchDocument("si").then(res=>{console.log("search result",res.hits.hits)}).catch(err=>{console.log("not found",err)})
 module.exports = new Elastic()
 
 // match_all : {}

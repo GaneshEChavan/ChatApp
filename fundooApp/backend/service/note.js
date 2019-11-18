@@ -45,12 +45,26 @@ class ServiceNote {
 
                     let checkExistance = await elastic.indexExists()
                     if (checkExistance === true) {
+                        
+                        /**
+                         * @description: noteData is sended to createObj function which is an middleware which makes an object to save in elastic index 
+                         */
                         let dataToElastic = await refer.createObj(noteData)
-                        console.log("47----------------->noteservice", dataToElastic);
-
+                        
+                        /**
+                         * @description: addDocument is elastic create method to create an elastic indices
+                         */
                         let result = await elastic.addDocument(dataToElastic)
-                        console.log("Added new document to index", result)
+                        logger.info("Added new document to index", result)
+
+                        /**
+                         * @description: appended elastic unique id to object which is being sended to model to save data in DB
+                         */
                         noteData.elasticID = result._id
+                        
+                        /**
+                         * @description: Generates unique array of collaborator ID's, if there is duplication in provided array
+                         */
                         let unique = Array.from(new Set(colab.collaborators))
                         await noteModel.createNote(noteData).then((Data) => {
                             /**
@@ -58,6 +72,9 @@ class ServiceNote {
                              */
                             unique.forEach(id => {
                                 let search = { "_id": id };
+                                /**
+                                 * @description: read for collaborator id's
+                                 */
                                 userModel.read(search).then(data => {
                                     let search = { "_id": Data._id };
                                     let update = { $addToSet: { "collaborators": id } }
@@ -88,7 +105,7 @@ class ServiceNote {
                          */
                         if (createIndex.acknowledged === true) {
                             let dataToElastic = await refer.createObj(noteData)
-                            console.log("89----------------->noteservice", dataToElastic);
+                            // console.log("89----------------->noteservice", dataToElastic);
 
                             let result = await elastic.addDocument(dataToElastic)
                             noteData.elasticID = result._id
@@ -129,7 +146,6 @@ class ServiceNote {
                     let checkExistance = await elastic.indexExists()
                     if (checkExistance === true) {
                         let dataToElastic = await refer.createObj(noteData)
-                        console.log("130----------------->noteservice", dataToElastic);
 
                         let result = await elastic.addDocument(dataToElastic)
                         noteData.elasticID = result._id
@@ -141,8 +157,7 @@ class ServiceNote {
                     } else {
                         let createIndex = await elastic.initIndex()
                         if (createIndex.acknowledged === true) {
-                            let dataToElastic = await refer.createObj(noteData)
-                            console.log("144----------------->noteservice", dataToElastic);
+                            let dataToElastic =  await refer.createObj(noteData)
 
                             let result = await elastic.addDocument(dataToElastic)
                             noteData.elasticID = result._id
