@@ -11,14 +11,14 @@
  */
 const redis = require("redis");
 const client = redis.createClient(process.env.REDIS_PORT);
-const logger = require("../../logger/logger")
+const logger = require("../../logger/logger");
 
-client.on('connect', () => {
-    logger.info('Redis client connected')
+client.on("connect", () => {
+    logger.info("Redis client connected");
 });
 
-client.on('error', function (err) {
-    logger.error('Something went wrong ', err)
+client.on("error", function (err) {
+    logger.error("Something went wrong ", err);
 });
 
 class Get {
@@ -30,15 +30,15 @@ class Get {
              * @param {*is userID set as key} keyValue  
              * @param {*is field }
              */
-            console.log("key in cacheService-->33",keyValue)
+            console.log("key in cacheService-->33",keyValue);
             client.HGET(keyValue.key, keyValue.field, (err, data) => {
                 if (err) {
-                    rej(err)
+                    rej(err);
                 } else {
-                    res(data)
+                    res(data);
                 }
-            })
-        })
+            });
+        });
     }
 }
 

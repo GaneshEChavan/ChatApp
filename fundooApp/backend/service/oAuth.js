@@ -1,5 +1,5 @@
-const oAuthModel = require("../model/user")
-const generatedToken = require("../middleware/token")
+const oAuthModel = require("../model/user");
+const generatedToken = require("../middleware/token");
 
 class ServiceAuth {
     googleService(googleInfo) {
@@ -8,13 +8,13 @@ class ServiceAuth {
                 let payload = {
                     "_id":data._id,
                     "userName":data.userName
-                }
-                let token = generatedToken.token(payload)
-                res({data,token})
+                };
+                let token = generatedToken.token(payload);
+                res({data,token});
             }).catch((err) => {
-                rej(err)
-            })
-        })
+                rej(err);
+            });
+        });
     }
 
     facebookService(facebookInfo) {
@@ -25,14 +25,14 @@ class ServiceAuth {
                 let payload = {
                     "_id":data._id,
                     "userName":data.userName
-                }
-                let token = generatedToken.token(payload)
-                res({data,token})
+                };
+                let token = generatedToken.token(payload);
+                res({data,token});
             }).catch((err) => {
-                rej(err)
-            })
-        })
+                rej(err);
+            });
+        });
     }
 }
 
-module.exports = new ServiceAuth()
+module.exports = new ServiceAuth();

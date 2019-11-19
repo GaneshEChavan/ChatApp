@@ -11,6 +11,7 @@ describe('Testing for reset API',function(){
     it('passwordOnly test',function(done){
         chai.request(server)
         .post('/reset')
+        .set(json.token.token)
         .send(json.passwordOnly1)
         .end(function(err,res){
             res.should.have.status(401)
@@ -21,6 +22,7 @@ describe('Testing for reset API',function(){
     it('passwordOnly  test',function(done){
         chai.request(server)
         .post('/reset')
+        .set(json.token.token)
         .send(json.passwordOnly2)
         .end(function(err,res){
             res.should.have.status(401)
@@ -31,6 +33,7 @@ describe('Testing for reset API',function(){
     it('passwordOnly test',function(done){
         chai.request(server)
         .post('/reset')
+        .set(json.token.token)
         .send(json.passwordOnly3)
         .end(function(err,res){
             res.should.have.status(401)
@@ -41,6 +44,7 @@ describe('Testing for reset API',function(){
     it('passwordOnly test',function(done){
         chai.request(server)
         .post('/reset')
+        .set(json.token.token)
         .send(json.passwordOnly4)
         .end(function(err,res){
             res.should.have.status(401)

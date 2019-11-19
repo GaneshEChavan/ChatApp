@@ -1,9 +1,9 @@
-const elasticsearch = require("elasticsearch")
-const logger = require("../../logger/logger")
+const elasticsearch = require("elasticsearch");
+const logger = require("../../logger/logger");
 let elasticClient = new elasticsearch.Client({
     host: process.env.ELASTIC_PORT,
-    log: 'error'
-})
+    log: "error"
+});
 
 elasticClient.ping({
     requestTimeout: 30000
@@ -13,7 +13,7 @@ elasticClient.ping({
     } else {
         console.log("Elasticsearch cluster is set");
     }
-})
+});
 
 class Elastic {
 
@@ -27,7 +27,7 @@ class Elastic {
          */
         return elasticClient.indices.create({
             index: process.env.INDEXNAME
-        })
+        });
     }
 
     /**
@@ -36,7 +36,7 @@ class Elastic {
     indexExists() {
         return elasticClient.indices.exists({
             index: process.env.INDEXNAME
-        })
+        });
     }
 
     /**
@@ -49,7 +49,7 @@ class Elastic {
         return elasticClient.indices.putMapping({
             index: indexName,
             body: payload
-        })
+        });
     }
 
     /**
@@ -61,7 +61,7 @@ class Elastic {
         return elasticClient.index({
             index: process.env.INDEXNAME,
             body: payload
-        })
+        });
     }
 
     /**
@@ -87,7 +87,7 @@ class Elastic {
                     }
                 }
             }
-        })
+        });
     }
 
     /**
@@ -95,14 +95,14 @@ class Elastic {
      * @param {*contains search value}req 
      * @param {*gives values to user on search basis}res 
      */
-    searchDocument(req, res) {
+    searchDocument(/*req, res*/) {
 
-       let payload = req.params.value
-/**
+        let payload = "si"/*req.params.value;*/
+        /**
  * @description: contains fields index and body. for searching the boolean query is used and passed to the search body, body contains should operator which is similar to
  *               OR operator , wildcard patterns (.*) are used to match values in either title, description, color.
  */
-       elasticClient.search({
+     return elasticClient.search({
             index: process.env.INDEXNAME,
             body: {
                 query: {
@@ -132,11 +132,12 @@ class Elastic {
                     }
                 }
             }
-        }).then(response => {
-           return res.status(200).send(response.hits.hits)
-        }).catch(err => {
-            logger.info(err)
         })
+        // .then(response => {
+        //     return res.status(200).send(response.hits.hits);
+        // }).catch(err => {
+        //     logger.info(err);
+        // });
     }
 
     /**
@@ -148,29 +149,29 @@ class Elastic {
         return elasticClient.delete({
             index: process.env.INDEXNAME,
             id
-        })
+        });
 
     }
 
     deleteAll() {
         elasticClient.indices.delete({
-            index: '_all'
+            index: "_all"
         }, function (err, resp) {
             if (err) {
-                console.log(err)
+                console.log(err);
             } else {
                 console.log("all indices are deleted");
             }
-        })
+        });
     }
 }
-let dlt = new Elastic()
+let dlt = new Elastic();
 // dlt.deleteAll()
 // dlt.indexExists().then(res=>{console.log("exists")}).catch(err=>{console.log("doesn't exist")})
 // dlt.initIndex()
 // dlt.deleteDocument("5ct2bW4BzeHBWV4xVhyW")
 // dlt.updateDocument("fp1HdG4BohhJD8kDRZa3",{title:"ganesh",description:"chavan",color:"orange",labelName:"ganuuuuuuuu"}).then(res=>{console.log("search result",res)}).catch(err=>{console.log("not found",err)})
-// dlt.searchDocument("si").then(res=>{console.log("search result",res.hits.hits)}).catch(err=>{console.log("not found",err)})
-module.exports = new Elastic()
+// dlt.searchDocument().then(res=>{console.log("search result",res.hits.hits)}).catch(err=>{console.log("not found",err)})
+module.exports = new Elastic();
 
 // match_all : {}

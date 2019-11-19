@@ -8,16 +8,6 @@ chai.should();
 
 describe("Testing for delete label API",function(){
 
-    it("test for no token in header",function(done){
-        chai.request(server)
-        .delete('/label')
-        .set('token',json.token1.token)
-        .end(function(err,res){
-        res.should.have.status(401)
-        done()
-        })
-    })
-
     it("test for correct info",function(done){
         chai.request(server)
         .delete('/label')
@@ -25,6 +15,16 @@ describe("Testing for delete label API",function(){
         .send(json.labelid)
         .end(function(err,res){
         res.should.have.status(200)
+        done()
+        })
+    })
+    
+    it("test for no token in header",function(done){
+        chai.request(server)
+        .delete('/label')
+        .set('token',json.token1.token)
+        .end(function(err,res){
+        res.should.have.status(401)
         done()
         })
     })

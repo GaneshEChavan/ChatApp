@@ -24,9 +24,9 @@ let Schema = mongoose.Schema(
         }]
     },
     {timestamps : true}
-)
+);
 
-let collaborate = mongoose.model("collaborate", Schema)
+let collaborate = mongoose.model("collaborate", Schema);
 
 class ModelCollaborator {
 
@@ -36,26 +36,26 @@ class ModelCollaborator {
                 "userID": colaborator.userID,
                 "collaboratorID": colaborator.collaboratorID,
                 "noteID": colaborator.noteID
-            })
+            });
             collaborat.save((err, data) => {
                 if (err) {
-                    rej(err)
+                    rej(err);
                 } else {
-                    res(data)
+                    res(data);
                 }
-            })
-        })
+            });
+        });
     }
 
     read(query){
         return new Promise((res,rej)=>{
             collaborate.find(query).then(data=>{
-                  res(data)
+                res(data);
             }).catch(err=>{
-                  rej(err)
-            })
-        })
+                rej(err);
+            });
+        });
     }
 }
 
-module.exports = new ModelCollaborator()
+module.exports = new ModelCollaborator();

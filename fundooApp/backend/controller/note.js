@@ -5,9 +5,9 @@
  *  @version        : v0.1
  *  @since          : 14-10-2019
  *****************************************************************************************/
-const path = require("path")
-const noteService = require("../service/note")
-const logger = require("../../logger/logger")
+
+const noteService = require("../service/note");
+const logger = require("../../logger/logger");
 
 /**
  * @description: controller class to control all the incoming requests and send back response to client consist control functions for
@@ -32,7 +32,7 @@ class ControllerNote {
             /**
              * @description: checking for title of note hence it is required always to create new note
              */
-            req.checkBody("title", "must be provided").notEmpty()
+            req.checkBody("title", "must be provided").notEmpty();
 
             /**
              * @description: req.validationErrors gives an error when there is error occured in express validator
@@ -40,9 +40,9 @@ class ControllerNote {
             let errors = req.validationErrors();
 
             if (errors) {
-                responseResult.success = false;
-                responseResult.message = "title must be provided..!";
-                res.status(406).send(responseResult);
+                response.success = false;
+                response.message = "title must be provided..!";
+                res.status(406).send(response);
             } else {
                 /**
                  * @description: ternery operator to check for RemindTime field if true then passing ISO date string else setting value to null
@@ -55,13 +55,13 @@ class ControllerNote {
                     color: req.body.color,
                     Reminder: req.body.Reminder,
                     RemindTime: date
-                }
+                };
                 /**
                  * @description:seperate collaborator object made hence have to do logical operations on them in service and is an array of id's
                  */
                 let colab = {
                     collaborators: req.body.collaborators
-                }
+                };
                 /**
                  * @description : passing new note object and collaborator data to service  
                  */
@@ -69,19 +69,19 @@ class ControllerNote {
                     response.status = true;
                     response.message = "Note Created successfully..!";
                     response.data = data;
-                    res.status(201).send(response)
+                    res.status(201).send(response);
                 }).catch((err) => {
-                    logger.error(err)
+                    logger.error(err);
                     response.status = false;
                     response.message = "Unable to create note..!";
-                    res.status(500).send(response)
-                })
+                    res.status(500).send(response);
+                });
             }
         } catch (err) {
-            logger.error(err)
+            logger.error(err);
             response.status = false;
             response.message = "Something went wrong";
-            res.status(400).send(response)
+            res.status(400).send(response);
         }
     }
 
@@ -92,15 +92,14 @@ class ControllerNote {
      * @param {*To show client his data and status code} res 
      */
     readNote(req, res) {
-        let response = {}
-        console.log("req in note controller at------>69 query", Object.entries(req.query).length, "-----body", req.body);
+        let response = {};
         /**
          * @description: used try catch block for exception handling
          */
         try {
             let user = {
                 userID: req.decoded._id
-            }
+            };
             /**
              * @description: passing userID to service file to do logical operations.
              */
@@ -108,18 +107,18 @@ class ControllerNote {
                 response.status = true;
                 response.message = "showing all notes of user...!";
                 response.data = data;
-                res.status(202).send(response)
+                res.status(202).send(response);
             }).catch((err) => {
-                logger.error(err)
+                logger.error(err);
                 response.status = false;
-                response.message = "Server Error"
-                res.status(500).send(response)
-            })
+                response.message = "Server Error";
+                res.status(500).send(response);
+            });
         } catch (err) {
-            logger.error(err)
+            logger.error(err);
             response.status = false;
-            response.message = "Something Went Wrong..!"
-            res.status(400).send(response)
+            response.message = "Something Went Wrong..!";
+            res.status(400).send(response);
         }
     }
 
@@ -132,7 +131,7 @@ class ControllerNote {
      * @param {*To show client his paginated data and carries status code also} res 
      */
     NotePages(req, res) {
-        let response = {}
+        let response = {};
         /**
         * @description: used try catch block for exception handling
         */
@@ -147,14 +146,14 @@ class ControllerNote {
                 /**
                  * @description: defined query object to set mongoose skip and limit options into it
                  */
-                let query = {}
+                let query = {};
                 if (pageNo > 0) {
-                    query.skip = size * (pageNo - 1)
-                    query.limit = size
+                    query.skip = size * (pageNo - 1);
+                    query.limit = size;
                     let user = {
                         userID: req.decoded._id,
                         query
-                    }
+                    };
                     /**
                      * @description: passing userID and option query to service file to do logical operations.
                      */
@@ -162,27 +161,27 @@ class ControllerNote {
                         response.status = true;
                         response.message = "showing all notes of user...!";
                         response.data = data;
-                        res.status(202).send(response)
+                        res.status(202).send(response);
                     }).catch((err) => {
-                        logger.error(err)
+                        logger.error(err);
                         response.status = false;
-                        response.message = "Server Error"
-                        res.status(500).send(response)
-                    })
+                        response.message = "Server Error";
+                        res.status(500).send(response);
+                    });
                 } else {
                     response.status = false;
-                    response.message = "Failed..!"
-                    res.status(500).send(response)
+                    response.message = "Failed..!";
+                    res.status(500).send(response);
                 }
             } else {
                 response.status = false;
-                response.message = "Failed..!"
-                res.status(500).send(response)
+                response.message = "Failed..!";
+                res.status(500).send(response);
             }
         } catch (err) {
             response.status = false;
-            response.message = "Failed..!"
-            res.status(400).send(response)
+            response.message = "Failed..!";
+            res.status(400).send(response);
         }
     }
     /**
@@ -191,30 +190,30 @@ class ControllerNote {
      * @param {*To show client his data and status code} res 
      */
     deleteNote(req, res) {
-        let response = {}
+        let response = {};
         try {
-            req.checkBody("_id", "note id must be provided to refer").notEmpty()
+            req.checkBody("_id", "note id must be provided to refer").notEmpty();
             let noteId = {
                 userID: req.decoded._id,
                 _id: req.body._id,
                 isTrashed: req.body.isTrashed
-            }
+            };
             noteService.addToTrash(noteId).then((data) => {
                 response.status = true;
                 response.message = "Note deleted and added to trash...!";
                 response.data = data;
-                res.status(200).send(response)
+                res.status(200).send(response);
             }).catch((err) => {
-                logger.error(err)
+                logger.error(err);
                 response.status = false;
                 response.message = "unable to delete note...!";
-                res.status(500).send(response)
-            })
+                res.status(500).send(response);
+            });
         } catch (err) {
-            logger.error(err)
+            logger.error(err);
             response.status = false;
-            response.message = "Something Went Wrong..!"
-            res.status(400).send(response)
+            response.message = "Something Went Wrong..!";
+            res.status(400).send(response);
         }
     }
 
@@ -224,7 +223,7 @@ class ControllerNote {
      * @param {*To show client his data and status code} res 
      */
     removeCollaborators(req, res) {
-        let response = {}
+        let response = {};
         try {
             //    console.log("req body",req.body);
 
@@ -232,18 +231,18 @@ class ControllerNote {
                 response.status = true;
                 response.message = "Successfully updated Notes...!";
                 response.data = data;
-                res.status(200).send(response)
+                res.status(200).send(response);
             }).catch(err => {
-                logger.error(err)
+                logger.error(err);
                 response.status = false;
                 response.message = "Server Error...!";
-                res.status(500).send(response)
-            })
+                res.status(500).send(response);
+            });
         } catch (err) {
-            logger.error(err)
+            logger.error(err);
             response.status = false;
             response.message = "Server Error...!";
-            res.status(500).send(response)
+            res.status(500).send(response);
         }
     }
 
@@ -253,24 +252,24 @@ class ControllerNote {
      * @param {*To show client his data and status code} res 
      */
     updateNote(req, res) {
-        let response = {}
+        let response = {};
         try {
             noteService.noteChanges(req.body).then((data) => {
                 response.status = true;
                 response.message = "changes made to notes...!";
                 response.data = data;
-                res.status(202).send(response)
+                res.status(202).send(response);
             }).catch((err) => {
-                logger.error(err)
+                logger.error(err);
                 response.status = false;
                 response.message = "Server error...!";
-                res.status(500).send(response)
-            })
+                res.status(500).send(response);
+            });
         } catch (err) {
-            logger.error(err)
+            logger.error(err);
             response.status = false;
             response.message = "Something Went Wrong..!";
-            res.status(400).send(response)
+            res.status(400).send(response);
         }
     }
 
@@ -280,27 +279,27 @@ class ControllerNote {
      * @param {*To show client his data and status code} res 
      */
     permanentDeleteNote(req, res) {
-        let response = {}
+        let response = {};
         try {
             let noteid = {
                 _id: req.body._id
-            }
+            };
             noteService.deletePermanent(noteid).then((data) => {
                 response.status = true;
                 response.message = "Note deleted permanently...!";
                 response.data = data;
-                res.status(200).send(response)
+                res.status(200).send(response);
             }).catch((err) => {
-                logger.error(err)
+                logger.error(err);
                 response.status = false;
                 response.message = "Server error...!";
-                res.status(500).send(response)
-            })
+                res.status(500).send(response);
+            });
         } catch (err) {
-            logger.error(err)
+            logger.error(err);
             response.status = false;
             response.message = "Something Went Wrong..!";
-            res.status(400).send(response)
+            res.status(400).send(response);
         }
     }
 
@@ -310,24 +309,24 @@ class ControllerNote {
      * @param {*To show client his data and status code} res 
      */
     emptyTrash(req, res) {
-        let response = {}
+        let response = {};
         try {
             noteService.trashEmpty(req).then((data) => {
                 response.status = true;
                 response.message = "All notes from trash are deleted...!";
                 response.data = data;
-                res.status(200).send(response)
+                res.status(200).send(response);
             }).catch((err) => {
-                logger.error(err)
+                logger.error(err);
                 response.status = false;
                 response.message = "Server error...!";
-                res.status(500).send(response)
-            })
+                res.status(500).send(response);
+            });
         } catch (err) {
-            logger.error(err)
+            logger.error(err);
             response.status = false;
             response.message = "Something Went Wrong..!";
-            res.status(400).send(response)
+            res.status(400).send(response);
         }
     }
 
@@ -337,24 +336,24 @@ class ControllerNote {
      * @param {*To show client his data and status code} res 
      */
     restoreNotes(req, res) {
-        let response = {}
+        let response = {};
         try {
             noteService.noteRestore(req.body._id).then((data) => {
                 response.status = true;
                 response.message = "restored respected note...!";
                 response.data = data;
-                res.status(200).send(response)
+                res.status(200).send(response);
             }).catch((err) => {
-                logger.error(err)
+                logger.error(err);
                 response.status = false;
                 response.message = "Server error...!";
-                res.status(500).send(response)
-            })
+                res.status(500).send(response);
+            });
         } catch (err) {
-            logger.error(err)
+            logger.error(err);
             response.status = false;
             response.message = "Something Went Wrong..!";
-            res.status(400).send(response)
+            res.status(400).send(response);
         }
     }
 
@@ -364,30 +363,30 @@ class ControllerNote {
      * @param {*To show client his data and status code} res 
      */
     updateLabelToNote(req, res) {
-        let response = {}
+        let response = {};
         try {
             let updateLabel = {
                 _id: req.body._id,
                 userID: req.decoded._id,
                 labelName: req.body.labelName,
                 labelID: req.body.labelID
-            }
+            };
             noteService.addLabelToNote(updateLabel).then((data) => {
                 response.status = true;
                 response.message = "label added to note";
-                response.data = data
-                res.status(200).send(response)
+                response.data = data;
+                res.status(200).send(response);
             }).catch((err) => {
-                logger.error(err)
+                logger.error(err);
                 response.status = false;
                 response.message = "Server Error..!";
-                res.status(500).send(response)
-            })
+                res.status(500).send(response);
+            });
         } catch (err) {
-            logger.error(err)
+            logger.error(err);
             response.status = false;
             response.message = "Something Went Wrong..!";
-            res.status(400).send(response)
+            res.status(400).send(response);
         }
     }
 
@@ -402,23 +401,23 @@ class ControllerNote {
             let deleteLabel = {
                 _id: req.body._id,
                 labelID: req.body.labelID
-            }
+            };
             noteService.removeLabelFromNote(deleteLabel).then((data) => {
                 response.status = true;
                 response.message = "label deleted from note";
-                response.data = data
-                res.status(200).send(response)
+                response.data = data;
+                res.status(200).send(response);
             }).catch((err) => {
-                logger.error(err)
+                logger.error(err);
                 response.status = false;
                 response.message = "Server Error..!";
-                res.status(500).send(response)
-            })
+                res.status(500).send(response);
+            });
         } catch (err) {
-            logger.error(err)
+            logger.error(err);
             response.status = false;
             response.message = "Something Went Wrong..!";
-            res.status(400).send(response)
+            res.status(400).send(response);
         }
     }
 
@@ -428,35 +427,34 @@ class ControllerNote {
      * @param {*To show client his data and status code} res 
      */
     requestedList(req, res) {
-        let response = {}
+        let response = {};
         try {
-            let redis = Object.keys(req.query)[0]
-            let user
+            let redis = Object.keys(req.query)[0];
+            let user;
             (Object.keys(req.query)[0] === "isArchive") ? user = { "userID": req.decoded._id, "isArchive": true }
                 : (Object.keys(req.query)[0] === "isTrashed") ? user = { "userID": req.decoded._id, "isTrashed": true }
                     : (Object.keys(req.query)[0] === "Reminder") ? user = { "userID": req.decoded._id, "Reminder": true }
-                        : new Error("Undefined request")
+                        : new Error("Undefined request");
             if (user !== undefined) {
                 noteService.getList(user, redis).then((data) => {
                     response.status = true;
                     response.message = "requested list";
-                    response.data = data
-                    res.status(200).send(response)
+                    response.data = data;
+                    res.status(200).send(response);
                 }).catch((err) => {
-                    logger.error(err)
+                    logger.error(err);
                     response.status = false;
                     response.message = "Unable to get requested list";
-                    res.status(500).send(response)
-                })
+                    res.status(500).send(response);
+                });
             } else {
-                throw "No params passed to search list of..!"
+                throw "No params passed to search list of..!";
             }
-
         } catch (err) {
-            logger.error(err)
+            logger.error(err);
             response.status = false;
             response.message = "Something Went Wrong..!";
-            res.status(400).send(response)
+            res.status(400).send(response);
         }
     }
 
@@ -466,29 +464,29 @@ class ControllerNote {
      * @param {*To show client his data and status code} res 
      */
     setReminder(req, res) {
-        let response = {}
+        let response = {};
         try {
             let reminder = {
                 _id: req.body._id,
                 Reminder: req.body.Reminder,
                 RemindTime: req.body.RemindTime
-            }
+            };
             noteService.reminder(reminder).then((data) => {
                 response.status = true;
                 response.message = "Reminder set to true";
-                response.data = data
-                res.status(200).send(response)
+                response.data = data;
+                res.status(200).send(response);
             }).catch((err) => {
-                logger.error(err)
+                logger.error(err);
                 response.status = false;
                 response.message = "Server Error..!";
-                res.status(500).send(response)
-            })
+                res.status(500).send(response);
+            });
         } catch (err) {
-            logger.error(err)
+            logger.error(err);
             response.status = false;
             response.message = "Server Error..!";
-            res.status(500).send(response)
+            res.status(500).send(response);
         }
     }
 
@@ -499,31 +497,26 @@ class ControllerNote {
      */
 
     searchNote(req, res) {
-        let response = {}
+        let response = {};
         try {
             noteService.noteSearch(req).then(data => {
                 response.status = true;
                 response.message = "Searched note..!";
-                response.data = data
-                res.status(200).send(response)
-            }).catch(error => {
-                logger.error(err)
+                response.data = data;
+                res.status(200).send(response);
+            }).catch(err => {
+                logger.error(err);
                 response.status = false;
                 response.message = "Server Error..!";
-            })
+            });
         } catch (err) {
-            logger.error(err)
+            logger.error(err);
             response.status = false;
             response.message = "Server Error..!";
-            res.status(500).send(response)
-
+            res.status(500).send(response);
         }
     }
 
-    elastSearch(req,res){
-        
-
-    }
 }
 
 module.exports = new ControllerNote();

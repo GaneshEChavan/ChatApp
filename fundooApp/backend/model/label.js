@@ -26,9 +26,9 @@ let Schema = mongoose.Schema(
     },
     { timestamps: true },
     { strict: true }
-)
+);
 
-let Labels = mongoose.model("Labels", Schema)
+let Labels = mongoose.model("Labels", Schema);
 
 class ModelLabel {
     createLabel(label) {
@@ -38,36 +38,36 @@ class ModelLabel {
                 "noteID": label.noteID,
                 "labelName": label.labelName,
                 "isDeleted": label.isDeleted
-            })
+            });
             return newLabel.save();
         } catch (err) {
-            return err
+            return err;
         }
     }
 
     readLabel(userId) {
         try {
-            return Labels.find(userId)
+            return Labels.find(userId);
         } catch (err) {
-            return err
+            return err;
         }
     }
 
     deleteLabel(labelId) {
         try {
-            return Labels.findByIdAndDelete(labelId)
+            return Labels.findByIdAndDelete(labelId);
         } catch (err) {
-            return err
+            return err;
         }
     }
 
     updateLabel(labelId, update) {
         try {
-            return Labels.findByIdAndUpdate(labelId, update, { new: true })
+            return Labels.findByIdAndUpdate(labelId, update, { new: true });
         } catch (err) {
-            return err
+            return err;
         }
     }
 }
 
-module.exports = new ModelLabel()
+module.exports = new ModelLabel();

@@ -11,6 +11,9 @@ const userModel = require("../model/user");
 const bcrypt = require("bcrypt");
 const generatedToken = require("../middleware/token")
 const mailer = require("../middleware/mailer")
+const ejs = require("ejs")
+const path = require("path")
+
 
 var redis = require("redis");
 
@@ -24,7 +27,7 @@ client.on('error', function (err) {
 class ServiceOperations {
     registrationService(userData) {
         return new Promise((resolve, reject) => {
-            userModel.registrationModel(userData).then(async(data) => {
+            userModel.registrationModel(userData).then(async data => {
                 if (data.active === false) {
                     let payload = {
                         "_id": data._id,
@@ -34,7 +37,8 @@ class ServiceOperations {
                     let token = await generatedToken.token(payload);
                     let Url = process.env.APPHOST + token;
                     client.HSET(data.userName, process.env.TOKEN, token, redis.print)
-                    mailer.nodeMailer(data.userName, Url, data.firstName);
+                    let ejsFile=  await ejs.renderFile(path.join(__dirname,"../../views/emailTemplate.ejs"),{url:Url,name:data.firstName})
+                    mailer.nodeMailer(data.userName,ejsFile);
                     resolve({ data, token, Url })
                 } else {
                     reject({ data: data })
@@ -97,9 +101,9 @@ class ServiceOperations {
     resetPassword(idPassword) {
         return new Promise((res, rej) => {
             upload = { "password": idPassword.password };
-            userModel.updateToDb(idPassword, upload).then((data) => {
+            userModel.updateToDb(idPassword, upload).then( data => {
                 res(data)
-            }).catch((err) => {
+            }).catch( err => {
                 rej(err)
             })
         })
@@ -119,9 +123,9 @@ class ServiceOperations {
     imageUpload(image) {
         return new Promise((res, rej) => {
             let update = { "imageUrl": image.imageUrl }
-            userModel.updateToDb(image, update).then((data) => {
+            userModel.updateToDb(image, update).then( data => {
                 res({ imgUrl: data })
-            }).catch((err) => {
+            }).catch( err => {
                 rej({ message: "Unable to upload in db..!", error: err })
             })
         })

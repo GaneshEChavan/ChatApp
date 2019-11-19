@@ -8,7 +8,7 @@
 
 const mongoose = require("mongoose");
 let cron = require("node-cron");
-const logger = require("../../logger/logger")
+const logger = require("../../logger/logger");
 /**
 * @description:Creating note schema using mongoose
 **/
@@ -65,18 +65,18 @@ let Schema = mongoose.Schema(
         }],
         label: [{
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'Labels'
+            ref: "Labels"
         }]
     },
     { timestamps: true },
     { strict: true }
-)
+);
 
 /**
 * @description: creating mongoose model to make notes table in DataBase
 */
 
-let Notes = mongoose.model("Notes", Schema)
+let Notes = mongoose.model("Notes", Schema);
 
 /**
 * @description: created class to wrap CRUD operations for notes 
@@ -102,13 +102,13 @@ class ModelNote {
                 "RemindTime": noteData.RemindTime,
                 "label": noteData.label,
                 "elasticID": noteData.elasticID
-            })
+            });
             /**
             * @description: saves new generated note schema to DB
             */
-            return note.save()
+            return note.save();
         } catch (err) {
-            return err
+            return err;
         }
     }
 
@@ -127,19 +127,19 @@ class ModelNote {
                         /**
                          * @description: Math.ceil rounds a number up to the next largest whole number
                          */
-                        var totalPages = Math.ceil(count / userQuery.limit)
-                        let Data = { data, totalPages }
-                        res(Data)
+                        var totalPages = Math.ceil(count / userQuery.limit);
+                        let Data = { data, totalPages };
+                        res(Data);
                     }).catch(err => {
-                        rej(err)
-                    })
+                        rej(err);
+                    });
                 }).catch(err => {
-                    rej(err)
-                })
-            })
+                    rej(err);
+                });
+            });
 
         } catch (err) {
-            return err
+            return err;
         }
     }
     /**
@@ -156,9 +156,9 @@ class ModelNote {
             * @param {* is an fields we want to take from DB} {}
             * @param {* is object contains options like skip and limit} pageQuery 
             */
-            return Notes.find(query, {}, pageQuery).populate('label')
+            return Notes.find(query, {}, pageQuery).populate("label");
         } catch (err) {
-            return err
+            return err;
         }
     }
 
@@ -169,9 +169,9 @@ class ModelNote {
     */
     updateNote(query, update) {
         try {
-            return Notes.updateMany(query, update, { new: true }).populate('label')
+            return Notes.updateMany(query, update, { new: true }).populate("label");
         } catch (err) {
-            return err
+            return err;
         }
     }
 
@@ -182,9 +182,9 @@ class ModelNote {
     */
     updateSingleNote(query, update) {
         try {
-            return Notes.findOneAndUpdate(query, update, { new: true }).populate('label')
+            return Notes.findOneAndUpdate(query, update, { new: true }).populate("label");
         } catch (err) {
-            return err
+            return err;
         }
     }
 
@@ -194,9 +194,9 @@ class ModelNote {
     */
     permanentDelete(note) {
         try {
-            return Notes.findByIdAndDelete(note)
+            return Notes.findByIdAndDelete(note);
         } catch (err) {
-            return err
+            return err;
         }
     }
 
@@ -206,9 +206,9 @@ class ModelNote {
     */
     deletetrash(trash) {
         try {
-            return Notes.deleteMany(trash)
+            return Notes.deleteMany(trash);
         } catch (err) {
-            return err
+            return err;
         }
     }
 
@@ -217,7 +217,7 @@ class ModelNote {
     *               if difference in last updated and current date is greater than 30 days.  
     */
     oldNoteSchedular() {
-        cron.schedule('* * * * *', () => {
+        cron.schedule("* * * * *", () => {
             this.readNotes({ "isArchive": false }).then(data => {
                 data.forEach(note => {
                     /**
@@ -227,17 +227,17 @@ class ModelNote {
                     let updateDate = new Date(note.updatedAt);
                     let currDate = new Date();
                     let Difference_In_Time = currDate.getTime() - updateDate.getTime();
-                    let Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24)
+                    let Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
 
                     /**
                     * @description: turnery operator to update note if difference is above 30 days then it will 
                     */
 
-                    Difference_In_Days > 30 ? this.updateSingleNote({ "_id": note._id }, { "isArchive": true }) : new Error("Something went wrong..!")
+                    Difference_In_Days > 30 ? this.updateSingleNote({ "_id": note._id }, { "isArchive": true }) : new Error("Something went wrong..!");
                 });
             }).catch(err => {
-                logger.info('ERROR in Schedular', err);
-            })
+                logger.info("ERROR in Schedular", err);
+            });
         });
     }
 
@@ -250,7 +250,7 @@ class ModelNote {
          * @description: first star is of seconds and /15 confirms that it will run every 15 minutes,second is of minute,third for hour,fourth for day of month,fifth for month,
          *               sixth is for day of week, second argument is function/operation to do.
          */
-        cron.schedule('*/15 * * * * *', () => {
+        cron.schedule("*/15 * * * * *", () => {
             /**
              * @description: first it filter out all the notes who had reminder time then runFirst and runSecond are two various functions that have to execute one after one.  
              *               first function check for passed reminder values and set them to null AND second sort the notes on basis of reminder time
@@ -260,7 +260,7 @@ class ModelNote {
                 /**
                  * @description: hence "this" keyword is not operatable inside these functions, variable self is declared as "this" and can be used under the functions.   
                  */
-                let self = this
+                let self = this;
                 function runFirst(data, callback) {
                     data.forEach(obj => {
                         /**
@@ -268,25 +268,25 @@ class ModelNote {
                          */
                         if (new Date(obj.RemindTime) < new Date()) {
                             let note = { "_id": obj._id };
-                            let update = { "RemindTime": null, "Reminder": false }
+                            let update = { "RemindTime": null, "Reminder": false };
                             self.updateSingleNote(note, update).then(data => {
                                 self.readNotes({ "Reminder": true }).then(data => {
                                 }).catch(err => {
-                                    callback(err)
-                                })
+                                    callback(err);
+                                });
                             }).catch(err => {
-                                callback(err)
-                            })
+                                callback(err);
+                            });
                         }
-                    })
+                    });
                     /**
                      * @description; called second function to sort notes who has reminder set
                      */
                     self.readNotes({ "Reminder": true }).then(data => {
-                        runSecond(data)
+                        runSecond(data);
                     }).catch(err => {
-                        logger.error(err)
-                    })
+                        logger.error(err);
+                    });
                 }
 
                 /**
@@ -296,9 +296,9 @@ class ModelNote {
                 function runSecond(newdata) {
                     for (let j = 0; j < newdata.length; j++) {
                         for (let i = 0; i < newdata.length - 1; i++) {
-                            let reminderDateOne = new Date(newdata[i].RemindTime)
-                            let reminderDateTwo = new Date(newdata[i + 1].RemindTime)
-                            let currentDate = new Date()
+                            let reminderDateOne = new Date(newdata[i].RemindTime);
+                            let reminderDateTwo = new Date(newdata[i + 1].RemindTime);
+                            let currentDate = new Date();
                             if ((reminderDateOne.getTime() - currentDate.getTime()) > (reminderDateTwo.getTime() - currentDate.getTime())) {
                                 let temporary = newdata[i + 1];
                                 newdata[i + 1] = newdata[i];
@@ -307,19 +307,19 @@ class ModelNote {
                         }
                     }
                     // console.log(newdata)
-                    return newdata
+                    return newdata;
                 }
                 runFirst(data);
             }).catch(err => {
                 logger.error(err);
 
-            })
-        })
+            });
+        });
     }
 
 }
 
 let schedule = new ModelNote();
 schedule.oldNoteSchedular();
-schedule.remindSchedular()
-module.exports = new ModelNote()
+schedule.remindSchedular();
+module.exports = new ModelNote();

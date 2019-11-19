@@ -7,12 +7,23 @@ chai.use(chaiHttp);
 chai.should();
 
 describe("Testing for create note API",function(){
+    it("test for correct info",function(done){
+        chai.request(server)
+        .post('/note')
+        .set('token',json.token.token)
+        .send(json.noteInfo)
+        .end(function(err,res){
+        res.should.have.status(201)
+        done()
+        })
+    })
+
     it("test for no body provided",function(done){
         chai.request(server)
         .post('/note')
         .set('token',json.token.token)
         .end(function(err,res){
-        res.should.have.status(400)
+        res.should.have.status(406)
         done()
         })
     })
@@ -27,24 +38,13 @@ describe("Testing for create note API",function(){
         })
     })
 
-    it("test for correct info",function(done){
-        chai.request(server)
-        .post('/note')
-        .set('token',json.token.token)
-        .send(json.noteInfo)
-        .end(function(err,res){
-        res.should.have.status(201)
-        done()
-        })
-    })
-
     it("test for empty noteInfo",function(done){
         chai.request(server)
         .post('/note')
         .set('token',json.token.token)
         .send(json.fieldEmpty)
         .end(function(err,res){
-        res.should.have.status(400)
+        res.should.have.status(406)
         done()
         })
     })

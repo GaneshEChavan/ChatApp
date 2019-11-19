@@ -13,18 +13,18 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
-const mongo = require("./config/dbconfig")
-const Route = require('./routes')
-const expressValidator = require("express-validator")
-const passportGoogle = require("./authServices/oAuthGoogle")
-const passportFacebook = require("./authServices/oAuthFacebook")
-const passport = require("passport")
-require("./elastic-search/elasticSearch")
-require('dotenv').config({ path: __dirname + '/.env' })
-const logger = require("../logger/logger")
+const mongo = require("./config/dbconfig");
+const Route = require("./routes");
+const expressValidator = require("express-validator");
+const passportGoogle = require("./authServices/oAuthGoogle");
+const passportFacebook = require("./authServices/oAuthFacebook");
+const passport = require("passport");
+require("./elastic-search/elasticSearch");
+require("dotenv").config({ path: __dirname + "/.env" });
+const logger = require("../logger/logger");
 
 const app = express();
-app.set('view engine','ejs')
+app.set("view engine","ejs");
 // app.get('/',(req,res)=>{
 //     res.render("login",{ name: ganesh, url: "localhost:3000" })
 // })
@@ -32,34 +32,34 @@ app.set('view engine','ejs')
 //   res.render(, );
 // });
 
-const swaggerUi = require('swagger-ui-express');
-const swaggerDocument = require('../swagger/swagger.json');
-app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+const swaggerUi = require("swagger-ui-express");
+const swaggerDocument = require("../swagger/swagger.json");
+app.use("/swagger", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
-app.use(expressValidator())
+app.use(expressValidator());
 
-app.use(passport.initialize())
+app.use(passport.initialize());
 passport.serializeUser(function (user, done) {
-  done(null, user);
+    done(null, user);
 });
 
 passport.deserializeUser(function (user, done) {
-  done(null, user);
+    done(null, user);
 });
 
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.use('/', Route);
+app.use("/", Route);
 
 app.use(function (err, req, res, next) {
-  logger.error(`check for request body json ${err.stack}`);
-  res.status(400).send({ "Error": "Bad Request..!" });
+    logger.error(`check for request body json ${err.stack}`);
+    res.status(400).send({ "Error": "Bad Request..!" });
 });
 
 app.listen(process.env.PORT, () => {
-  console.log(`Server started on port ${process.env.PORT}`)
-  mongo()
+    console.log(`Server started on port ${process.env.PORT}`);
+    mongo();
 });
 
 

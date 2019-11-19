@@ -1,4 +1,4 @@
-const collaborateService = require("../service/collaborate");
+const collaborateService = require("../service/collaborate").default;
 
 class ControlCollaborate{
     addCollaborator (req,res){
@@ -7,18 +7,18 @@ class ControlCollaborate{
             userID : req.decoded._id,
             collaboratorID : req.body.collaboratorID,
             noteID : req.body.noteID
-        }
+        };
         collaborateService.colabAdd(colaborator).then( data => {
-           response.status = true;
-           response.message = "collaborator added ..!";
-           response.data = data
-           res.status(201).send(response)
+            response.status = true;
+            response.message = "collaborator added ..!";
+            response.data = data;
+            res.status(201).send(response);
         }).catch( err => {
-           response.status = false;
-           response.message = "Something went wrong..!";
-           response.error = err;
-           res.status(500).send(response)
-        })
+            response.status = false;
+            response.message = "Something went wrong..!";
+            response.error = err;
+            res.status(500).send(response);
+        });
     }
 
     readCollaborator(req,res){
@@ -26,18 +26,18 @@ class ControlCollaborate{
         let colab = {
             userID : req.decoded._id,
             collaboratorID : req.body.collaboratorID
-        }
+        };
         collaborateService.colabRead(colab).then(data=>{
             response.status = true;
             response.message = "collaborator user common notes ..!";
-            response.data = data
-            res.status(201).send(response)
+            response.data = data;
+            res.status(201).send(response);
         }).catch(err=>{
             response.status = false;
             response.message = "Something went wrong..!";
             response.error = err;
-            res.status(500).send(response)
-        })
+            res.status(500).send(response);
+        });
     }
 }
 
