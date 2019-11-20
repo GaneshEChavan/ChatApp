@@ -95,14 +95,14 @@ class Elastic {
      * @param {*contains search value}req 
      * @param {*gives values to user on search basis}res 
      */
-    searchDocument(/*req, res*/) {
+    searchDocument(req, res) {
 
-        let payload = "si"/*req.params.value;*/
+        let payload = req.params.value;
         /**
  * @description: contains fields index and body. for searching the boolean query is used and passed to the search body, body contains should operator which is similar to
  *               OR operator , wildcard patterns (.*) are used to match values in either title, description, color.
  */
-     return elasticClient.search({
+        elasticClient.search({
             index: process.env.INDEXNAME,
             body: {
                 query: {
@@ -133,11 +133,11 @@ class Elastic {
                 }
             }
         })
-        // .then(response => {
-        //     return res.status(200).send(response.hits.hits);
-        // }).catch(err => {
-        //     logger.info(err);
-        // });
+            .then(response => {
+                return res.status(200).send(response.hits.hits);
+            }).catch(err => {
+                logger.info(err);
+            });
     }
 
     /**

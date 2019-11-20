@@ -89,6 +89,7 @@ class ControllerLabel {
     }
 
     updateLabel(req, res) {
+        console.log("-------->92 labelController",req.body)
         let responce = {};
         try {
             let labelid = {

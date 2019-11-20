@@ -14,18 +14,18 @@ const auth = (req, res, next) => {
     const token = req.header("token");
     if (token) {
         jwt.verify(token, process.env.SECRET_KEY, (err, decoded) => {
-            if(err){
-                return  res.status(401).json(
+            if (err) {
+                return res.status(401).json(
                     {
                         success: false,
                         message: "Authentication Failed...!"
                     });
-            }else{
+            } else {
                 let promise = util.promisify(client.HGET).bind(client);
 
                 async function callStat() {
                     const redisValue = await promise(decoded.userName, process.env.TOKEN);
-    
+
                     if (redisValue == token) {
                         req.decoded = decoded;
                         console.log("Authentication Successful...!");
@@ -42,8 +42,14 @@ const auth = (req, res, next) => {
                 }
                 callStat();
             }
-            
+
         });
+    } else {
+        return res.status(401).json(
+            {
+                success: false,
+                message: "Authentication Failed...!"
+            });
     }
 };
 

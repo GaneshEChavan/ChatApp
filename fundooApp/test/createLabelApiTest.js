@@ -19,31 +19,29 @@ describe("Test for create Label API", function () {
             })
     })
 
-    it("test for no token provided",function(done){
+    it("test for no token provided", function (done) {
         chai.request(server)
-        .post('/label')
-        .set('token',json.token1.token)
-        .send(json.label)
-        .end(function(err,res){
-            res.should.have.status(401);
-            done();
-        })
+            .post('/label')
+            .set('token', json.token1.token)
+            .send(json.label)
+            .end(function (err, res) {
+                res.should.have.status(401);
+                done();
+            })
     })
 
-    it("test for wrong token provided"),function(done){
+    it("test for wrong token provided", function (done) {
         chai.request(server)
-        .post('/label')
-        .set('token'.json.token2.token)
-        .send(json.label)
-        .end(function(err,res){
-            // should.exist(res);
-            // should.not.exist(err);
-            res.should.have.status(401);
-            // res.should.be.an('object');
-            // res.should.have.property('status','message');
-            done();
-        })
-    }
-
-    
+            .post('/label')
+            .set('token'.json.token2.token)
+            .send(json.label)
+            .end(function (err, res) {
+                // should.exist(res);
+                // should.not.exist(err);
+                res.should.have.status(401);
+                // res.should.be.an('object');
+                // res.should.have.property('status','message');
+                done();
+            })
+    })
 })

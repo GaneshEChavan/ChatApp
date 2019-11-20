@@ -38,6 +38,7 @@ class ServiceOperations {
                     let Url = process.env.APPHOST + token;
                     client.HSET(data.userName, process.env.TOKEN, token, redis.print)
                     let ejsFile=  await ejs.renderFile(path.join(__dirname,"../../views/emailTemplate.ejs"),{url:Url,name:data.firstName})
+                    
                     mailer.nodeMailer(data.userName,ejsFile);
                     resolve({ data, token, Url })
                 } else {

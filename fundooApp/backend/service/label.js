@@ -63,6 +63,7 @@ class ModelLabel {
     }
 
     labelUpdate(labelid) {
+        console.log("----->66 labelservice",labelid)
         try {
             return new Promise((res, rej) => {
                 let labelId = { "_id": labelid._id };
@@ -71,10 +72,14 @@ class ModelLabel {
                     console.log("data in service after update-->54", data);
                     res(data);
                 }).catch((err) => {
+                    console.log("---->labelService75",err);
+                    
                     rej(err);
                 });
             });
         } catch (err) {
+            console.log("---->81",err);
+            
             return err;
         }
     }
