@@ -18,7 +18,9 @@ const Route = require("./routes");
 const expressValidator = require("express-validator");
 const passportGoogle = require("./authServices/oAuthGoogle");
 const passportFacebook = require("./authServices/oAuthFacebook");
-require("./msg-que/messageQueue")
+require("./msg-que/msgQPublisher")
+// require("./msg-que/msgQSubscriber")
+
 const passport = require("passport");
 require("./elastic-search/elasticSearch");
 require("dotenv").config({ path: __dirname + "/.env" });

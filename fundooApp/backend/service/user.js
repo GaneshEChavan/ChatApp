@@ -11,9 +11,11 @@ const userModel = require("../model/user");
 const bcrypt = require("bcrypt");
 const generatedToken = require("../middleware/token")
 const mailer = require("../middleware/mailer")
-const ejs = require("ejs")
-const path = require("path")
-
+const ejs = require("ejs");
+const path = require("path");
+const msgQ = require("../msg-que/msgQPublisher");
+const event = require("events")
+let eventEmmiter = new event.EventEmitter()
 
 var redis = require("redis");
 
@@ -37,9 +39,13 @@ class ServiceOperations {
                     let token = await generatedToken.token(payload);
                     let Url = process.env.APPHOST + token;
                     client.HSET(data.userName, process.env.TOKEN, token, redis.print)
-                    let ejsFile=  await ejs.renderFile(path.join(__dirname,"../../views/emailTemplate.ejs"),{url:Url,name:data.firstName})
-                    
-                    mailer.nodeMailer(data.userName,ejsFile);
+                    let ejsFile = await ejs.renderFile(path.join(__dirname, "../../views/emailTemplate.ejs"), { url: Url, name: data.firstName })
+                    eventEmmiter.addListener("connection", (Url, token) => {
+                        console.log("Url and token generated", Url, token);
+
+                    })
+                    eventEmmiter.emit("connection", msgQ.producer(data.userName, ejsFile))
+                    // mailer.nodeMailer(data.userName,ejsFile);
                     resolve({ data, token, Url })
                 } else {
                     reject({ data: data })
@@ -102,9 +108,9 @@ class ServiceOperations {
     resetPassword(idPassword) {
         return new Promise((res, rej) => {
             upload = { "password": idPassword.password };
-            userModel.updateToDb(idPassword, upload).then( data => {
+            userModel.updateToDb(idPassword, upload).then(data => {
                 res(data)
-            }).catch( err => {
+            }).catch(err => {
                 rej(err)
             })
         })
@@ -124,9 +130,9 @@ class ServiceOperations {
     imageUpload(image) {
         return new Promise((res, rej) => {
             let update = { "imageUrl": image.imageUrl }
-            userModel.updateToDb(image, update).then( data => {
+            userModel.updateToDb(image, update).then(data => {
                 res({ imgUrl: data })
-            }).catch( err => {
+            }).catch(err => {
                 rej({ message: "Unable to upload in db..!", error: err })
             })
         })
@@ -135,4 +141,5 @@ class ServiceOperations {
 
 }
 
+exports.emitter = eventEmmiter
 module.exports = new ServiceOperations();

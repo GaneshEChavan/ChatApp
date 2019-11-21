@@ -1,6 +1,8 @@
-const EventEmitter = require("events");
+
 const path = require("path");
 const nodemailer = require("nodemailer");
+  
+
 
 require("dotenv").config({ path: __dirname + "../.env" });
 
