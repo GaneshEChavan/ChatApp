@@ -40,13 +40,14 @@ class ServiceOperations {
                     let Url = process.env.APPHOST + token;
                     client.HSET(data.userName, process.env.TOKEN, token, redis.print)
                     let ejsFile = await ejs.renderFile(path.join(__dirname, "../../views/emailTemplate.ejs"), { url: Url, name: data.firstName })
-                    eventEmmiter.addListener("connection", (Url, token) => {
-                        console.log("Url and token generated", Url, token);
-
-                    })
-                    eventEmmiter.emit("connection", msgQ.producer(data.userName, ejsFile))
-                    // mailer.nodeMailer(data.userName,ejsFile);
                     resolve({ data, token, Url })
+                    
+                    // eventEmmiter.on("connection",()=>{
+                    //     msgQ.producer(data.userName, ejsFile)
+                    // })
+                    eventEmmiter.emit('connection',{email:data.userName,template:ejsFile});
+                 
+                    // mailer.nodeMailer(data.userName,ejsFile);
                 } else {
                     reject({ data: data })
                 }

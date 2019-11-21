@@ -23,7 +23,8 @@ module.exports = {
             subject: "Sending Email using Node.js to reset password",
             html: ejsFile
         };
-
+        console.log("mailOptions in nodeMailer",mailOptions);
+        
         let info = await transporter.sendMail(mailOptions);
         console.log(info.response);
 
