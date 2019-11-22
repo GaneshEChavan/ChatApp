@@ -13,7 +13,7 @@ const generatedToken = require("../middleware/token")
 const mailer = require("../middleware/mailer")
 const ejs = require("ejs");
 const path = require("path");
-const msgQ = require("../msg-que/msgQPublisher");
+require("../msg-que/msgQPublisher");
 const event = require("events")
 let eventEmmiter = new event.EventEmitter()
 
@@ -42,9 +42,6 @@ class ServiceOperations {
                     let ejsFile = await ejs.renderFile(path.join(__dirname, "../../views/emailTemplate.ejs"), { url: Url, name: data.firstName })
                     resolve({ data, token, Url })
                     
-                    // eventEmmiter.on("connection",()=>{
-                    //     msgQ.producer(data.userName, ejsFile)
-                    // })
                     eventEmmiter.emit('connection',{email:data.userName,template:ejsFile});
                  
                     // mailer.nodeMailer(data.userName,ejsFile);
