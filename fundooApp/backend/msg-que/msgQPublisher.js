@@ -2,6 +2,8 @@ const amqp = require("amqplib/callback_api")
 const listen = require("../service/user")
 class MessageQ {
     producer() {
+        // console.log("listener------>",listen.);
+        
         listen.emitter.on("connection", (data) => {
             amqp.connect("amqp://localhost", (error, connection) => {
                 if (error) {

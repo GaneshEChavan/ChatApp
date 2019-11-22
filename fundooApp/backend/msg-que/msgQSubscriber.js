@@ -5,7 +5,7 @@ class Consumer {
     sendEmail() {
         
         amqp.connect('amqp://localhost', (error0, connection) => {
-            console.log("connection successful");
+            console.log("Subscriber connection successful");
         if (error0) {
               throw error0;
             }
