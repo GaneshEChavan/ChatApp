@@ -5,16 +5,6 @@ let elasticClient = new elasticsearch.Client({
     log: "error"
 });
 
-elasticClient.ping({
-    requestTimeout: 30000
-}, (error) => {
-    if (error) {
-        console.log("Elasticsearch cluster is down!");
-    } else {
-        console.log("Elasticsearch cluster is set");
-    }
-});
-
 class Elastic {
 
     /**

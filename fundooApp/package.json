@@ -6,6 +6,7 @@
   "scripts": {
     "test": "mocha --timeout 10000",
     "start": "nodemon backend/server.js",
+    "start:dev": "export NODE_ENV=developement && nodemon backend/server.js",
     "debug": "nodemon --inspect backend/server.js",
     "coverage": "nyc -r cobertura -r text-summary -r lcov npm test"
   },

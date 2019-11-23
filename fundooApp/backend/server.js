@@ -13,27 +13,33 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
-const mongo = require("./config/dbconfig");
+const connect = require("./config/connectionConfig");
 const Route = require("./routes");
 const expressValidator = require("express-validator");
 const passportGoogle = require("./authServices/oAuthGoogle");
 const passportFacebook = require("./authServices/oAuthFacebook");
 require("./msg-que/msgQPublisher").producer()
 require('./msg-que/msgQSubscriber').sendEmail()
-// consumer.sendEmail()
 const passport = require("passport");
 require("./elastic-search/elasticSearch");
 require("dotenv").config({ path: __dirname + "/.env" });
 const logger = require("../logger/logger");
-
+// serviceConnections()
+// configObj.developement.mongod.dbPort
 const app = express();
 app.set("view engine","ejs");
-// app.get('/',(req,res)=>{
-//     res.render("login",{ name: ganesh, url: "localhost:3000" })
-// })
-// app.get("/", function (req, res) {
-//   res.render(, );
-// });
+
+const env = process.env.NODE_ENV
+// console.log("env value in server.js",env);
+serviceConnections(env)
+
+ function serviceConnections(env) {
+    const configObj = require(`./config/${env}`)
+    connect.dbConnection(configObj)
+    connect.redisConnection(configObj)
+    connect.elasticConnection(configObj)
+}
+
 
 const swaggerUi = require("swagger-ui-express");
 const swaggerDocument = require("../swagger/swagger.json");
@@ -62,10 +68,10 @@ app.use(function (err, req, res, next) {
 
 app.listen(process.env.PORT, () => {
     console.log(`Server started on port ${process.env.PORT}`);
-    mongo();
+    // mongo();
 });
 
-
+exports.connection = serviceConnections
 module.exports = app;
 
 
