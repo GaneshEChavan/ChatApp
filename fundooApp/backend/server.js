@@ -30,7 +30,7 @@ const app = express();
 app.set("view engine","ejs");
 
 const env = process.env.NODE_ENV
-// console.log("env value in server.js",env);
+console.log("env value in server.js",env);
 serviceConnections(env)
 
  function serviceConnections(env) {
