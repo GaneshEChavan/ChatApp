@@ -5,7 +5,7 @@ class MessageQ {
         // console.log("listener------>",listen.);
         
         listen.emitter.on("connection", (data) => {
-            amqp.connect("amqp://localhost", (error, connection) => {
+            amqp.connect("amqp://rabbitmq", (error, connection) => {
                 if (error) {
                     throw error
                 } else {

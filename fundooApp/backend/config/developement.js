@@ -4,10 +4,10 @@ module.exports = {
             dbPort: process.env.MONGO,
         },
         redis:{
-            redisPort:process.env.REDIS_PORT
+            redisPort: process.env.REDIS_PORT
         },
         elastic:{
-            elastPort:process.env.ELASTIC_PORT
+            elastPort: process.env.ELASTIC_PORT
         }
     // }
 }

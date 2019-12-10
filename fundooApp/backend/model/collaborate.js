@@ -10,6 +10,8 @@ const mongoose = require("mongoose");
 
 let Schema = mongoose.Schema(
     {
+
+        
         userID: {
             type: String,
             required: true
@@ -26,7 +28,11 @@ let Schema = mongoose.Schema(
     {timestamps : true}
 );
 
+
+
 let collaborate = mongoose.model("collaborate", Schema);
+
+
 
 class ModelCollaborator {
 
