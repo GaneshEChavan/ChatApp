@@ -41,9 +41,9 @@ class ServiceOperations {
                     client.HSET(data.userName, process.env.TOKEN, token, redis.print)
                     let ejsFile = await ejs.renderFile(path.join(__dirname, "../../views/emailTemplate.ejs"), { url: Url, name: data.firstName })
                     resolve({ data, token, Url })
-
-                    eventEmmiter.emit('connection', { email: data.userName, template: ejsFile });
-
+                    
+                    eventEmmiter.emit('connection',{email:data.userName,template:ejsFile});
+                 
                     // mailer.nodeMailer(data.userName,ejsFile);
                 } else {
                     reject({ data: data })
@@ -54,7 +54,7 @@ class ServiceOperations {
         })
     }
 
-    async logInService(userInfo) {
+    logInService = async (userInfo) => {
         try {
             let result = await userModel.logInModel(userInfo)
 
